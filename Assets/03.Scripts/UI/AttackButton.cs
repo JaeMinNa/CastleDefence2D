@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class AttackButton : MonoBehaviour
 {
-    public float minClickTime = 1; // 최소 클릭시간
-    private float _clickTime; // 클릭 중인 시간
-    private bool _isClick; // 클릭 중인지 판단 
+    public float SkillTime = 1;
+    [HideInInspector] public float ClickTime; 
+    private bool _isClick; 
     private GameObject _player;
 
     // 버튼 클릭이 시작했을 때
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     {
         _isClick = false;
 
-        if (_clickTime >= minClickTime)
+        if (ClickTime >= SkillTime)
         {
             Debug.Log("스킬 발동!");
         }
@@ -37,11 +37,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (_isClick)
         {
-            _clickTime += Time.deltaTime;
+            ClickTime += Time.deltaTime;
         }
         else
         {
-            _clickTime = 0;
+            ClickTime = 0;
         }
     }
 }
