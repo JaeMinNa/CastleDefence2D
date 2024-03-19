@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerSO PlayerSO;
-    public Animator Animator;
-    public bool IsMove;
+    public Animator Animator { get; private set; }
+    [HideInInspector] public bool IsMove;
 
     public PlayerStateContext _playerStateContext { get; private set; }
 
