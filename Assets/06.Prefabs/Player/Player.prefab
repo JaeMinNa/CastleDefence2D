@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 4398835813951608012}
   - component: {fileID: 8577376312002302492}
   - component: {fileID: 5582341647659846608}
+  - component: {fileID: 7721877718406207878}
   m_Layer: 0
   m_Name: Knight_walk_01
   m_TagString: Untagged
@@ -228,6 +229,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7721877718406207878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323464686566323428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304faa69c54131443b33448918bf2b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackStopTime: 0.6
+  _activeAttackColliderTime: 0.2
+  _InactiveAttackColliderTime: 0.4
+  _attackCollider: {fileID: 7570691770794334960}
 --- !u!1 &8645991093534462105
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2624189345084180380}
   - component: {fileID: 879602289909005581}
-  - component: {fileID: 7369969571223071258}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -276,21 +292,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSO: {fileID: 11400000, guid: b49889dc34929964b96e17455e0e93b4, type: 2}
-  Animator: {fileID: 0}
   IsMove: 0
---- !u!114 &7369969571223071258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645991093534462105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304faa69c54131443b33448918bf2b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackStopTime: 0.6
-  _activeAttackColliderTime: 0.2
-  _InactiveAttackColliderTime: 0.4
-  _attackCollider: {fileID: 7570691770794334960}

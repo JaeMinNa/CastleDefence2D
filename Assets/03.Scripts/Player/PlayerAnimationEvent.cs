@@ -12,9 +12,9 @@ public class PlayerAnimationEvent : MonoBehaviour
 
     private PlayerController _playerController;
 
-    private void Awake()
+    private void Start()
     {
-        _playerController = GetComponent<PlayerController>();
+        _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
     }
 
     public IEnumerator COStartAttack()

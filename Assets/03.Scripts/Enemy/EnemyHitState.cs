@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyHitState : MonoBehaviour, IEnemyState
 {
     private EnemyController _enemyController;
-    private Vector2 _dir;
 
     public void Handle(EnemyController enemyController)
     {
@@ -20,6 +19,11 @@ public class EnemyHitState : MonoBehaviour, IEnemyState
     IEnumerator COStopHit()
     {
         yield return new WaitForSeconds(1f);
+
+        if (_enemyController.Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
 
         _enemyController.Ishit = false;
         _enemyController.Animator.SetBool("Hit", false);

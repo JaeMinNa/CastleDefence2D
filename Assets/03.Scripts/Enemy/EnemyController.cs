@@ -11,9 +11,11 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D Rigdbody { get; private set; }
     public int Hp;
     public bool Ishit;
+    public bool IsAttack;
 
     private IEnemyState _walkState;
     private IEnemyState _hitState;
+    private IEnemyState _attackState;
 
 
     private void Start()
@@ -22,11 +24,13 @@ public class EnemyController : MonoBehaviour
 
         _walkState = gameObject.AddComponent<EnemyWalkState>();
         _hitState = gameObject.AddComponent<EnemyHitState>();
+        _attackState = gameObject.AddComponent<EnemyAttackState>();
         Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
         Rigdbody = GetComponent<Rigidbody2D>();
 
         Hp = EnemySO.Hp;
         Ishit = false;
+        IsAttack = false;
 
         _enemyStateContext.Transition(_walkState);
     }
@@ -39,6 +43,11 @@ public class EnemyController : MonoBehaviour
     public void HitStart()
     {
         _enemyStateContext.Transition(_hitState);
+    }
+
+    public void AttackStart()
+    {
+        _enemyStateContext.Transition(_attackState);
     }
 
 }

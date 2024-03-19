@@ -16,7 +16,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
 
         Debug.Log("Player Attack State");
 
-        _playerAnimationEvnet = GetComponent<PlayerAnimationEvent>();
+        _playerAnimationEvnet = gameObject.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
 
         time = 0;
 

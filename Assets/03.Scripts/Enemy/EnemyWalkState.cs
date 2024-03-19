@@ -38,8 +38,21 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
                 _enemyController.HitStart();
                 break;
             }
+            if(_enemyController.IsAttack)
+            {
+                _enemyController.AttackStart();
+                break;
+            }
 
             yield return null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Castle"))
+        {
+            _enemyController.IsAttack = true;
         }
     }
 }
