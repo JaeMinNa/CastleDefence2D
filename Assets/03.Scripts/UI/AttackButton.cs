@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AttackButton : MonoBehaviour
 {
-    [HideInInspector] public float ClickTime; 
-    private bool _isClick; 
+    public float ClickTime { get; private set; } 
+    public bool IsClick { get; private set; }
     private GameObject _player;
 
     // 버튼 클릭이 시작했을 때
@@ -13,15 +13,15 @@ public class AttackButton : MonoBehaviour
     {
         _player.GetComponent<PlayerController>().PlayerSO.Speed *= -1;
 
-        _isClick = true;
+        IsClick = true;
     }
 
     // 버튼 클릭이 끝났을 때
     public void ButtonUp()
     {
-        _isClick = false;
+        IsClick = false;
 
-        if (ClickTime >= GameManager.I.PlayerManager.Player.GetComponent<PlayerController>().PlayerSO.SkillTime)
+        if (ClickTime >= _player.GetComponent<PlayerController>().PlayerSO.SkillTime)
         {
             Debug.Log("스킬 발동!");
         }
@@ -34,9 +34,11 @@ public class AttackButton : MonoBehaviour
 
     private void Update()
     {
-        if (_isClick)
+        if (IsClick)
         {
             ClickTime += Time.deltaTime;
+            if(ClickTime >= (_player.GetComponent<PlayerController>().PlayerSO.SkillTime / 4f))
+            _player.GetComponent<PlayerAttackState>().time = 0f;
         }
         else
         {

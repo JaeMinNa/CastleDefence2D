@@ -16,3 +16,4 @@ MonoBehaviour:
   Atk: 10
   Hp: 0
   SkillTime: 3
+  AttackCoolTime: 3

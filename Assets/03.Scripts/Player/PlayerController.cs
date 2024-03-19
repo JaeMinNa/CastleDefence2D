@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerSO PlayerSO;
-    private SpriteRenderer _spriteRenderer;
+    public Animator Animator;
+    public bool IsMove;
 
     public PlayerStateContext _playerStateContext { get; private set; }
 
@@ -16,8 +17,10 @@ public class PlayerController : MonoBehaviour
         _playerStateContext = new PlayerStateContext(this);
         _attackState = gameObject.AddComponent<PlayerAttackState>();
 
+        Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+
         _playerStateContext.Transition(_attackState);
 
-        _spriteRenderer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        IsMove = true;
     }
 }

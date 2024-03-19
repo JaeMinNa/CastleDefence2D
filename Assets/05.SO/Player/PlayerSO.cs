@@ -8,5 +8,6 @@ using UnityEngine;
 public class PlayerSO : StatSO 
 {
     public float SkillTime;
+    public float AttackCoolTime;
 }
 
