@@ -24,10 +24,7 @@ public class GameManager : MonoBehaviour
 
         PlayerManager = GetComponentInChildren<PlayerManager>();
         ScenesManager = GetComponentInChildren<ScenesManager>();
-    }
 
-    private void Start()
-    {
         Init();
     }
 

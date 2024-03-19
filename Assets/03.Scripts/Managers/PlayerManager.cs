@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public GameObject PlayerPrefab;
-    public GameObject Player;
+    [HideInInspector] public GameObject Player;
 
     // √ ±‚»≠
     public void Init()

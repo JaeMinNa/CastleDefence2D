@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackButton : MonoBehaviour
 {
-    public float SkillTime = 1;
     [HideInInspector] public float ClickTime; 
     private bool _isClick; 
     private GameObject _player;
@@ -12,7 +11,7 @@ public class AttackButton : MonoBehaviour
     // 버튼 클릭이 시작했을 때
     public void ButtonDown()
     {
-        _player.GetComponent<PlayerMove>().PlayerSO.Speed *= -1;
+        _player.GetComponent<PlayerController>().PlayerSO.Speed *= -1;
 
         _isClick = true;
     }
@@ -22,7 +21,7 @@ public class AttackButton : MonoBehaviour
     {
         _isClick = false;
 
-        if (ClickTime >= SkillTime)
+        if (ClickTime >= GameManager.I.PlayerManager.Player.GetComponent<PlayerController>().PlayerSO.SkillTime)
         {
             Debug.Log("스킬 발동!");
         }

@@ -11,6 +11,7 @@ public class ScenesManager : MonoBehaviour
     public void Init()
     {
         CurrentSceneName = SceneManager.GetActiveScene().name;
+
         if (CurrentSceneName == "BattleScene00")
         {
             GameObject playerPrefab = Instantiate(GameManager.I.PlayerManager.PlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
