@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerManager PlayerManager { get; private set; }
     public ScenesManager ScenesManager { get; private set; }
     public ObjectPoolManager ObjectPoolManager { get; private set; }
+    public DataManager DataManager { get; private set; }
 
     public static GameManager I;
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         PlayerManager = GetComponentInChildren<PlayerManager>();
         ScenesManager = GetComponentInChildren<ScenesManager>();
         ObjectPoolManager = GetComponentInChildren<ObjectPoolManager>();
+        DataManager = GetComponentInChildren<DataManager>();
 
         Init();
     }
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
         PlayerManager.Init();
         ScenesManager.Init();
         ObjectPoolManager.Init();
+        DataManager.Init();
     }
 
     private void Release()
@@ -42,5 +45,6 @@ public class GameManager : MonoBehaviour
         PlayerManager.Release();
         ScenesManager.Release();
         ObjectPoolManager.Release();
+        DataManager.Release();
     }
 }
