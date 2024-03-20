@@ -3343,6 +3343,12 @@ MonoBehaviour:
   - Tag: Bunny
     Prefab: {fileID: 742136760663757329, guid: e0829635c3ba7864bb1f200110d850de, type: 3}
     Size: 20
+  - Tag: Rock
+    Prefab: {fileID: 298366901042806424, guid: 320920782c54cd148b09e51b6b36a0ab, type: 3}
+    Size: 20
+  - Tag: Mushroom
+    Prefab: {fileID: 4379095244909390819, guid: c3c3bd65ba6a56c4395fc55330d71082, type: 3}
+    Size: 20
 --- !u!1 &842301334
 GameObject:
   m_ObjectHideFlags: 0
@@ -11209,6 +11215,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10a46e81a924204e94d5c47e75d9abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stages:
+  - Stage: 1
+    enemys:
+    - Snail 10
+    - Rock 9
+  - Stage: 2
+    enemys:
+    - Snail 10
+    - Bunny 10
+    - Mushroom 10
   _spawnLeft: {fileID: 1182914271}
   _spawnRigth: {fileID: 903896539}
 --- !u!1 &1831443059

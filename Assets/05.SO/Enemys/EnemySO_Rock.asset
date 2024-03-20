@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f56fabca91f7af4a87d31265df96a37, type: 3}
   m_Name: EnemySO_Rock
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 1.5
   Atk: 7
   Hp: 20
   Price: 100

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f56fabca91f7af4a87d31265df96a37, type: 3}
   m_Name: EnemySO_Snail
   m_EditorClassIdentifier: 
-  Speed: 1.5
+  Speed: 1
   Atk: 10
   Hp: 30
   Price: 100
