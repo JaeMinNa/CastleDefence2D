@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     // GameManager은 Manager을 관리하는 하나의 역할만 함
     public PlayerManager PlayerManager { get; private set; }
     public ScenesManager ScenesManager { get; private set; }
+    public ObjectPoolManager ObjectPoolManager { get; private set; }
 
     public static GameManager I;
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
         PlayerManager = GetComponentInChildren<PlayerManager>();
         ScenesManager = GetComponentInChildren<ScenesManager>();
+        ObjectPoolManager = GetComponentInChildren<ObjectPoolManager>();
 
         Init();
     }
@@ -32,11 +34,13 @@ public class GameManager : MonoBehaviour
     {
         PlayerManager.Init();
         ScenesManager.Init();
+        ObjectPoolManager.Init();
     }
 
     private void Release()
     {
         PlayerManager.Release();
         ScenesManager.Release();
+        ObjectPoolManager.Release();
     }
 }

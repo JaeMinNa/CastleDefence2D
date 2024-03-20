@@ -41,7 +41,7 @@ public class EnemyAttackState : MonoBehaviour, IEnemyState
     {
         if (collision.CompareTag("Castle"))
         {
-            _enemyController.IsAttack = false;
+            if(_enemyController != null) _enemyController.IsAttack = false;
         }
     }
 }

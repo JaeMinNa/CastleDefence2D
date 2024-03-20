@@ -15,7 +15,7 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
 
         _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
-        StartCoroutine(COUpdate());
+        if (gameObject.activeInHierarchy) StartCoroutine(COUpdate());
     }
 
     IEnumerator COUpdate()

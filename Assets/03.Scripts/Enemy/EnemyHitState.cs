@@ -22,11 +22,15 @@ public class EnemyHitState : MonoBehaviour, IEnemyState
 
         if (_enemyController.Hp <= 0)
         {
-            Destroy(gameObject);
+            _enemyController.Ishit = false;
+            _enemyController.Animator.SetBool("Hit", false);
+            gameObject.SetActive(false);
         }
-
-        _enemyController.Ishit = false;
-        _enemyController.Animator.SetBool("Hit", false);
-        _enemyController.WalkStart();
+        else
+        {
+            _enemyController.Ishit = false;
+            _enemyController.Animator.SetBool("Hit", false);
+            _enemyController.WalkStart();
+        }
     }
 }
