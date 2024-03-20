@@ -113,7 +113,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.6666666
-    functionName: AttackSnail
+    functionName: AttackMelee
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 4b301ba07f019be41aa8bbfdfda59bc7, type: 3}
     floatParameter: 0

@@ -13,7 +13,7 @@ public class EnemyAnimationEvent : MonoBehaviour
         _enemyController = transform.parent.GetComponent<EnemyController>();
     }
 
-    public void AttackSnail()
+    public void AttackMelee()
     {
         _castleController.CastleHit(_enemyController.EnemySO.Atk);
     }

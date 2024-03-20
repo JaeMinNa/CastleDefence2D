@@ -3339,6 +3339,9 @@ MonoBehaviour:
   - Tag: Snail
     Prefab: {fileID: 2038854280295399926, guid: e8529ea1f783778479a0e13d8cdf0c87, type: 3}
     Size: 20
+  - Tag: Bunny
+    Prefab: {fileID: 742136760663757329, guid: e0829635c3ba7864bb1f200110d850de, type: 3}
+    Size: 20
 --- !u!1 &842301334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,7 +4227,7 @@ GameObject:
   - component: {fileID: 1177052048}
   - component: {fileID: 1177052047}
   - component: {fileID: 1177052049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
