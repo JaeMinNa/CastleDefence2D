@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public EnemySO EnemySO;
     public Animator Animator { get; private set; }
     public Rigidbody2D Rigdbody { get; private set; }
-    public int Hp;
+    public float Hp;
     public bool Ishit;
     public bool IsAttack;
 

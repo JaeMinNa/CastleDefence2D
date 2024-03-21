@@ -6,9 +6,12 @@ public class AttackButton : MonoBehaviour
 {
     public float ClickTime { get; private set; } 
     public bool IsClick { get; private set; }
-    private GameObject _player;
+    private PlayerController _playerController;
     private SpriteRenderer _playerSpriteRenderer;
+    private Animator _animator;
+    private PlayerAnimationEvent _playerAnimationEvent;
     private Transform _collidersTransform;
+    private SkillSO _skillSO;
 
     private float _collidersPositionX;
     private float _collidersPositionY;
@@ -18,9 +21,9 @@ public class AttackButton : MonoBehaviour
     {
         _collidersPositionX = _collidersTransform.localPosition.x;
 
-        _player.GetComponent<PlayerController>().PlayerSO.Speed *= -1;
+        _playerController.PlayerSO.Speed *= -1;
 
-        if (_player.GetComponent<PlayerController>().PlayerSO.Speed > 0)
+        if (_playerController.PlayerSO.Speed > 0)
         {
             _playerSpriteRenderer.flipX = false;
 
@@ -48,22 +51,36 @@ public class AttackButton : MonoBehaviour
     {
         IsClick = false;
 
-        if (ClickTime >= _player.GetComponent<PlayerController>().PlayerSO.SkillTime)
+        if (ClickTime >= _playerController.PlayerSO.SkillTime)
         {
-            Debug.Log("스킬 발동!");
+            Debug.Log("3단계 스킬 발동!");
+        }
+        else if (ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime)
+        {
+            Debug.Log("2단계 스킬 발동!");
+        }
+        else if (ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
+        {
+            Debug.Log("1단계 스킬 발동!");
+            _animator.SetTrigger("MeleeSkill");
+            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill());
+            StartCoroutine(_playerAnimationEvent.COActiveMeleeSkillCollider(_skillSO));
         }
     }
 
     private void Start()
     {
-        _player = GameManager.I.PlayerManager.Player;
-        _playerSpriteRenderer = _player.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        _collidersTransform = _player.transform.GetChild(1).GetComponent<Transform>();
+        _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
+        _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _animator = _playerController.transform.GetChild(0).GetComponent<Animator>();
+        _playerAnimationEvent = _playerController.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
+        _collidersTransform = _playerController.transform.GetChild(1).GetComponent<Transform>();
+        _skillSO = GameManager.I.DataManager.GameDataSO.SkillFirst;
 
         _collidersPositionX = _collidersTransform.localPosition.x;
         _collidersPositionY = _collidersTransform.localPosition.y;
 
-        if (_player.GetComponent<PlayerController>().PlayerSO.Speed > 0)
+        if (_playerController.PlayerSO.Speed > 0)
         {
             _playerSpriteRenderer.flipX = false;
 
@@ -88,8 +105,8 @@ public class AttackButton : MonoBehaviour
         if (IsClick)
         {
             ClickTime += Time.deltaTime;
-            if(ClickTime >= (_player.GetComponent<PlayerController>().PlayerSO.SkillTime / 4f))
-            _player.GetComponent<PlayerAttackState>().time = 0f;
+            if(ClickTime >= (_playerController.PlayerSO.SkillTime / 4f))
+            _playerController.GetComponent<PlayerAttackState>().time = 0f;
         }
         else
         {

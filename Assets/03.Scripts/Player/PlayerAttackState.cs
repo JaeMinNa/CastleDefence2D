@@ -6,8 +6,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
     private PlayerController _playerController;
     private PlayerAnimationEvent _playerAnimationEvnet;
     private RaycastHit2D _hitInfo;
-    [HideInInspector] public float time
-        ;
+    [HideInInspector] public float time;
 
     public void Handle(PlayerController playerController)
     {

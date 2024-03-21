@@ -3349,6 +3349,9 @@ MonoBehaviour:
   - Tag: Mushroom
     Prefab: {fileID: 4379095244909390819, guid: c3c3bd65ba6a56c4395fc55330d71082, type: 3}
     Size: 20
+  - Tag: Strike
+    Prefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
+    Size: 5
 --- !u!1 &842301334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,6 +3586,7 @@ GameObject:
   - component: {fileID: 914461313}
   - component: {fileID: 914461315}
   - component: {fileID: 914461314}
+  - component: {fileID: 914461316}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -3630,7 +3634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000.0
+  m_text: 00.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3707,6 +3711,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914461312}
   m_CullTransparentMesh: 1
+--- !u!114 &914461316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914461312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35b1ff0d9c19504b967da72eeba1267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stageText: {fileID: 1501038574}
+  _timeText: {fileID: 914461314}
 --- !u!1 &943217545
 GameObject:
   m_ObjectHideFlags: 0
@@ -10451,7 +10469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 213, y: 40.17}
+  m_AnchoredPosition: {x: 182, y: 40.170044}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1501038574
@@ -11855,52 +11873,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2014322353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2014322355}
-  - component: {fileID: 2014322354}
-  m_Layer: 0
-  m_Name: StageController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2014322354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014322353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35b1ff0d9c19504b967da72eeba1267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stageText: {fileID: 1501038574}
-  _timeText: {fileID: 914461314}
---- !u!4 &2014322355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014322353}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033745144
 GameObject:
   m_ObjectHideFlags: 0

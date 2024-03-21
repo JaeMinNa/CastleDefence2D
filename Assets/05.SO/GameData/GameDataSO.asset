@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: 1
   Coin: 0
+  SkillFirst: {fileID: 11400000, guid: 76e62fbe338a6834db40cb13b81dd03d, type: 2}
+  SkillSecond: {fileID: 0}
+  SkillThird: {fileID: 0}

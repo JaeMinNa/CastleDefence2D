@@ -13,7 +13,7 @@ public class StageController : MonoBehaviour
 
     private void Start()
     {
-        _time = 180f;
+        _time = 60f;
         _stageText.text = "STAGE " + GameManager.I.DataManager.GameDataSO.Stage.ToString();
     }
 

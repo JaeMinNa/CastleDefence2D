@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CastleController : MonoBehaviour
 {
     public CastleSO CastleSO;
-    public int Hp;
+    public float Hp;
     [SerializeField] private Slider _castleHp;
     private Animator _animator;
 
@@ -20,7 +20,7 @@ public class CastleController : MonoBehaviour
         Hp = CastleSO.Hp;
     }
     
-    public void CastleHit(int damage)
+    public void CastleHit(float damage)
     {
         Hp -= damage;
         _castleHp.value = (float)Hp / CastleSO.Hp;

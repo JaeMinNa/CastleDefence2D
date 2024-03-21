@@ -6,7 +6,7 @@ public class ObjectPoolManager : MonoBehaviour
 {
     public ObjectPool ObjectPool { get; private set; }
 
-    private GameObject _enemy;
+    private GameObject _prefab;
 
     public void Init()
     {
@@ -18,11 +18,11 @@ public class ObjectPoolManager : MonoBehaviour
 
     }
 
-    public void InstantiateEnemy(string poolName, Vector3 startPosition)
+    public void InstantiatePrefab(string poolName, Vector3 startPosition)
     {
-        _enemy = ObjectPool.SpawnFromPool(poolName);
-        _enemy.transform.position = startPosition;
+        _prefab = ObjectPool.SpawnFromPool(poolName);
+        _prefab.transform.position = startPosition;
 
-        _enemy.SetActive(true);
+        _prefab.SetActive(true);
     }
 }

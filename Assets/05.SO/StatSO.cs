@@ -7,6 +7,6 @@ public class StatSO : ScriptableObject
 {
     [Header("Common Stats")]
     public float Speed;
-    public int Atk;
-    public int Hp;
+    public float Atk;
+    public float Hp;
 }
