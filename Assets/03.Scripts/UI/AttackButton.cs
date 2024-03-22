@@ -8,10 +8,11 @@ public class AttackButton : MonoBehaviour
     public bool IsClick { get; private set; }
     private PlayerController _playerController;
     private SpriteRenderer _playerSpriteRenderer;
-    private Animator _animator;
     private PlayerAnimationEvent _playerAnimationEvent;
     private Transform _collidersTransform;
-    private SkillSO _skillSO;
+    private SkillSO _skillSOFirst;
+    private SkillSO _skillSOSecond;
+    private SkillSO _skillSOThird;
 
     private float _collidersPositionX;
     private float _collidersPositionY;
@@ -30,6 +31,7 @@ public class AttackButton : MonoBehaviour
             if (_collidersPositionX < 0)
             {
                 _collidersTransform.localPosition = new Vector3(-_collidersPositionX, _collidersPositionY, 0);
+                _collidersTransform.localEulerAngles = new Vector3(0, 0, 0);
             }
 
         }
@@ -40,6 +42,7 @@ public class AttackButton : MonoBehaviour
             if (_collidersPositionX > 0)
             {
                 _collidersTransform.localPosition = new Vector3(-_collidersPositionX, _collidersPositionY, 0);
+                _collidersTransform.localEulerAngles = new Vector3(0, 180, 0);
             }
         }
 
@@ -53,18 +56,15 @@ public class AttackButton : MonoBehaviour
 
         if (ClickTime >= _playerController.PlayerSO.SkillTime)
         {
-            Debug.Log("3단계 스킬 발동!");
+            StartCoroutine(_playerAnimationEvent.COStartAreaSkill(_skillSOThird));
         }
         else if (ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime)
         {
-            Debug.Log("2단계 스킬 발동!");
+            StartCoroutine(_playerAnimationEvent.COStartRangedSkill(_skillSOSecond));
         }
         else if (ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
-        {
-            Debug.Log("1단계 스킬 발동!");
-            _animator.SetTrigger("MeleeSkill");
-            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill());
-            StartCoroutine(_playerAnimationEvent.COActiveMeleeSkillCollider(_skillSO));
+        {         
+            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill(_skillSOFirst));
         }
     }
 
@@ -72,10 +72,11 @@ public class AttackButton : MonoBehaviour
     {
         _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
         _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        _animator = _playerController.transform.GetChild(0).GetComponent<Animator>();
         _playerAnimationEvent = _playerController.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
         _collidersTransform = _playerController.transform.GetChild(1).GetComponent<Transform>();
-        _skillSO = GameManager.I.DataManager.GameDataSO.SkillFirst;
+        _skillSOFirst = GameManager.I.DataManager.GameDataSO.MeleeSkill;
+        _skillSOSecond = GameManager.I.DataManager.GameDataSO.RangedSkill;
+        _skillSOThird = GameManager.I.DataManager.GameDataSO.AreaSkill;
 
         _collidersPositionX = _collidersTransform.localPosition.x;
         _collidersPositionY = _collidersTransform.localPosition.y;

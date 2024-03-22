@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2205024904595144052}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -332,13 +332,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304faa69c54131443b33448918bf2b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackStopTime: 0.6
   _activeAttackColliderTime: 0.2
   _inactiveAttackColliderTime: 0.2
+  _attackStopTime: 0.2
   _attackCollider: {fileID: 7570691770794334960}
-  _meleeSkillStopTime: 0.4
-  _active_meleeSkillColliderTime: 0.2
-  _inactive_meleeSkillColliderTime: 0.2
+  _activeMeleeSkillColliderTime: 0.2
+  _inactiveMeleeSkillColliderTime: 0.2
+  _meleeSkillStopTime: 0.01
+  _shootRangedSkillTime: 1
+  _rangedSkillStopTime: 0.7
+  _shootAreaSkillTime: 1
+  _areaSkillStopTime: 1.5
   _colliders: {fileID: 2205024904595144052}
 --- !u!1 &8645991093534462105
 GameObject:

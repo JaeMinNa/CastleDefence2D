@@ -10,7 +10,7 @@ public class PlayerAttackCollider : MonoBehaviour
     private void Start()
     {
         _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
-        _skillSO = GameManager.I.DataManager.GameDataSO.SkillFirst;
+        _skillSO = GameManager.I.DataManager.GameDataSO.MeleeSkill;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

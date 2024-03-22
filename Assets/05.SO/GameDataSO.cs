@@ -10,7 +10,7 @@ public class GameDataSO : ScriptableObject
     public int Coin;
 
     [Header("Player")]
-    public SkillSO SkillFirst;
-    public SkillSO SkillSecond;
-    public SkillSO SkillThird;
+    public SkillSO MeleeSkill;
+    public SkillSO RangedSkill;
+    public SkillSO AreaSkill;
 }
