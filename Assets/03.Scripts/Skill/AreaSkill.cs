@@ -61,6 +61,7 @@ public class AreaSkill : MonoBehaviour
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _areaSkillSO.Atk;
+            GameManager.I.ObjectPoolManager.InactiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_areaSkillSO.Atk, 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _areaSkillSO.NuckbackPower, ForceMode2D.Impulse);
@@ -83,7 +84,7 @@ public class AreaSkill : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             GameManager.I.SoundManager.StartSFX(_areaSkillSO.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(1f, 1.5f));
+            StartCoroutine(_cameraShake.COShake(0.8f, 1.5f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             _animator.SetTrigger("Hit");

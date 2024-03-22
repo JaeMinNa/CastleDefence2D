@@ -39,8 +39,8 @@ public class SpawnSystem : MonoBehaviour
             yield return new WaitForSeconds(time);
 
             int random = Random.Range(0, 2);
-            if (random == 0) GameManager.I.ObjectPoolManager.InstantiatePrefab(enemy, _spawnLeft.position);
-            else GameManager.I.ObjectPoolManager.InstantiatePrefab(enemy, _spawnRigth.position);
+            if (random == 0) GameManager.I.ObjectPoolManager.InactivePrefab(enemy, _spawnLeft.position);
+            else GameManager.I.ObjectPoolManager.InactivePrefab(enemy, _spawnRigth.position);
         }
     }
 }

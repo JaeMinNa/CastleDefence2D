@@ -24,6 +24,7 @@ public class PlayerAttackCollider : MonoBehaviour
 
             if(transform.CompareTag("AttackCollider"))
             {
+                GameManager.I.ObjectPoolManager.InactiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)_playerController.PlayerSO.Atk, 255);
                 collision.transform.GetComponent<EnemyController>().Hp -= _playerController.PlayerSO.Atk;
                 if (_dir.x > 0)
                 {
@@ -34,9 +35,10 @@ public class PlayerAttackCollider : MonoBehaviour
                     collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _playerController.PlayerSO.NuckbackPower, ForceMode2D.Impulse);
                 }
             }
-            else if(transform.CompareTag("StrikeCollider"))
+            else if(transform.CompareTag("MeleeCollider"))
             {
                 StartCoroutine(_cameraShake.COShake(1f, 1.5f));
+                GameManager.I.ObjectPoolManager.InactiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)_skillSO.Atk, 31);
                 collision.transform.GetComponent<EnemyController>().Hp -= _skillSO.Atk;
                 if (_dir.x > 0)
                 {

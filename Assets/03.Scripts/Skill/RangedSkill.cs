@@ -95,6 +95,7 @@ public class RangedSkill : MonoBehaviour
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _rangedSkillSO.Atk;
+            GameManager.I.ObjectPoolManager.InactiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_rangedSkillSO.Atk, 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);
@@ -117,7 +118,7 @@ public class RangedSkill : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             GameManager.I.SoundManager.StartSFX(_rangedSkillSO.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(1.2f, 1.5f));
+            StartCoroutine(_cameraShake.COShake(0.8f, 1.5f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             _animator.SetTrigger("Hit");

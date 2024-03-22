@@ -3503,6 +3503,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pools:
+  - Tag: DamageText
+    Prefab: {fileID: 500341896692516274, guid: c613fffea55b6b04e93676828edee559, type: 3}
+    Size: 10
   - Tag: Snail
     Prefab: {fileID: 2038854280295399926, guid: e8529ea1f783778479a0e13d8cdf0c87, type: 3}
     Size: 20

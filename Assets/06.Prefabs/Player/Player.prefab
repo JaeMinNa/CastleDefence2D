@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 1132919444678511851}
   - component: {fileID: 3516390718195776462}
   m_Layer: 0
-  m_Name: StrikeCollider
-  m_TagString: StrikeCollider
+  m_Name: MeleeCollider
+  m_TagString: MeleeCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

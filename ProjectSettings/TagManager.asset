@@ -8,8 +8,8 @@ TagManager:
   - Enemy
   - Castle
   - AttackCollider
-  - StrikeCollider
   - Ground
+  - MeleeCollider
   layers:
   - Default
   - TransparentFX
