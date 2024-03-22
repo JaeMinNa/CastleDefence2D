@@ -6,11 +6,13 @@ public class PlayerAttackCollider : MonoBehaviour
 {
     private PlayerController _playerController;
     private SkillSO _skillSO;
+    private CameraShake _cameraShake;
 
     private void Start()
     {
         _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
         _skillSO = GameManager.I.DataManager.GameDataSO.MeleeSkill;
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +36,7 @@ public class PlayerAttackCollider : MonoBehaviour
             }
             else if(transform.CompareTag("StrikeCollider"))
             {
+                StartCoroutine(_cameraShake.COShake(1f, 1.5f));
                 collision.transform.GetComponent<EnemyController>().Hp -= _skillSO.Atk;
                 if (_dir.x > 0)
                 {

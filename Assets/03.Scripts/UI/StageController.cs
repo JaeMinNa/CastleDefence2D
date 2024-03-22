@@ -10,9 +10,11 @@ public class StageController : MonoBehaviour
     [SerializeField] private TMP_Text _timeText;
 
     private float _time;
+    private bool _soundStart;
 
     private void Start()
     {
+        _soundStart = false;
         _time = 60f;
         _stageText.text = "STAGE " + GameManager.I.DataManager.GameDataSO.Stage.ToString();
     }
@@ -25,6 +27,12 @@ public class StageController : MonoBehaviour
         if(_time <= 0)
         {
             Debug.Log("Game Over");
+        }
+        else if(_time <= 20f && !_soundStart)
+        {
+            GameManager.I.SoundManager.StartSFX("Danger");
+            _soundStart = true;
+            Debug.Log("Danger Time");
         }
     }
 }

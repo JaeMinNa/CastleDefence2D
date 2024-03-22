@@ -19,7 +19,8 @@ MonoBehaviour:
   ExplosionRange: 3
   Range: 0
   Count: 0
-  interval: 0
+  Interval: 0
+  SkillExplosionTag: FireballExplosion
   Icon: {fileID: 0}
   SkillPrefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
   ColliderName: StrikeCollider

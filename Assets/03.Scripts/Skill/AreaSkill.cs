@@ -8,7 +8,8 @@ public class AreaSkill : MonoBehaviour
     [SerializeField] private Collider2D[] _targets;
     private GameObject _player;
     private Animator _animator;
-    private SkillSO _skillSO;
+    private CameraShake _cameraShake;
+    private SkillSO _areaSkillSO;
     private Vector3 _startPos;
     private Vector2 _dir;
     private LayerMask _layerMask;
@@ -16,25 +17,29 @@ public class AreaSkill : MonoBehaviour
 
     private void Start()
     {
-        _skillSO = GameManager.I.DataManager.GameDataSO.AreaSkill;
+        _areaSkillSO = GameManager.I.DataManager.GameDataSO.AreaSkill;
         _player = GameManager.I.PlayerManager.Player;
         _animator = transform.GetChild(0).GetComponent<Animator>();
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
         _layerMask = LayerMask.NameToLayer("Enemy");
 
-        float random = Random.Range(_player.transform.position.x - _skillSO.Range, _player.transform.position.x + _skillSO.Range);
+        float random = Random.Range(_player.transform.position.x - _areaSkillSO.Range, _player.transform.position.x + _areaSkillSO.Range);
         _startPos = new Vector3(random, 10f, 0);
         transform.position = _startPos;
         _isMove = true;
+
+        GameManager.I.SoundManager.StartSFX(_areaSkillSO.Tag);
     }
 
     private void OnEnable()
     {
-        if (_skillSO != null)
+        if (_areaSkillSO != null)
         {
             _isMove = true;
-            float random = Random.Range(_player.transform.position.x - _skillSO.Range, _player.transform.position.x + _skillSO.Range);
+            float random = Random.Range(_player.transform.position.x - _areaSkillSO.Range, _player.transform.position.x + _areaSkillSO.Range);
             _startPos = new Vector3(random, 10f, 0);
             transform.position = _startPos;
+            GameManager.I.SoundManager.StartSFX(_areaSkillSO.Tag);
         }
     }
 
@@ -42,27 +47,27 @@ public class AreaSkill : MonoBehaviour
     {
         if(_isMove)
         {
-            transform.position += new Vector3(0, -_skillSO.Speed, 0) * Time.deltaTime;
+            transform.position += new Vector3(0, -_areaSkillSO.Speed, 0) * Time.deltaTime;
         }
     }
 
     private void Targetting()
     {
         int layerMask = (1 << _layerMask);  // Layer ¼³Á¤
-        _targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), _skillSO.ExplosionRange, layerMask);
+        _targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), _areaSkillSO.ExplosionRange, layerMask);
 
         for (int i = 0; i < _targets.Length; i++)
         {
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
-            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _skillSO.Atk;
+            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _areaSkillSO.Atk;
             if (_dir.x > 0)
             {
-                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _skillSO.NuckbackPower, ForceMode2D.Impulse);
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _areaSkillSO.NuckbackPower, ForceMode2D.Impulse);
             }
             else
             {
-                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _skillSO.NuckbackPower, ForceMode2D.Impulse);
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _areaSkillSO.NuckbackPower, ForceMode2D.Impulse);
             }
         }
     }
@@ -77,6 +82,8 @@ public class AreaSkill : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
         {
+            GameManager.I.SoundManager.StartSFX(_areaSkillSO.SkillExplosionTag);
+            StartCoroutine(_cameraShake.COShake(1f, 1.5f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             _animator.SetTrigger("Hit");

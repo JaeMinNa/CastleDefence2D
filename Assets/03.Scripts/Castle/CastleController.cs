@@ -9,6 +9,7 @@ public class CastleController : MonoBehaviour
     public float Hp;
     [SerializeField] private Slider _castleHp;
     private Animator _animator;
+    private GameObject _player;
 
     private void Awake()
     {
@@ -17,11 +18,13 @@ public class CastleController : MonoBehaviour
 
     private void Start()
     {
+        _player = GameManager.I.PlayerManager.Player;
         Hp = CastleSO.Hp;
     }
     
     public void CastleHit(float damage)
     {
+        GameManager.I.SoundManager.StartSFX("CastleHit", transform.position);   
         Hp -= damage;
         _castleHp.value = (float)Hp / CastleSO.Hp;
         _animator.SetTrigger("Hit");

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public ScenesManager ScenesManager { get; private set; }
     public ObjectPoolManager ObjectPoolManager { get; private set; }
     public DataManager DataManager { get; private set; }
+    public SoundManager SoundManager { get; private set; }
 
     public static GameManager I;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         ScenesManager = GetComponentInChildren<ScenesManager>();
         ObjectPoolManager = GetComponentInChildren<ObjectPoolManager>();
         DataManager = GetComponentInChildren<DataManager>();
+        SoundManager = GetComponentInChildren<SoundManager>();
 
         Init();
     }
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
         ScenesManager.Init();
         ObjectPoolManager.Init();
         DataManager.Init();
+        SoundManager.Init();
     }
 
     private void Release()
@@ -46,5 +49,6 @@ public class GameManager : MonoBehaviour
         ScenesManager.Release();
         ObjectPoolManager.Release();
         DataManager.Release();
+        SoundManager.Release();
     }
 }

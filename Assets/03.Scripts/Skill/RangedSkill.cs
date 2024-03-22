@@ -6,11 +6,12 @@ public class RangedSkill : MonoBehaviour
 {
     [SerializeField] private float _inactiveTime = 0.2f;
     [SerializeField] private Collider2D[] _targets;
-    private SkillSO _skillSO;
+    private SkillSO _rangedSkillSO;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
     private Animator _animator;
     private GameObject _player;
+    private CameraShake _cameraShake;
     private LayerMask _layerMask;
     private bool _playerFlipX;
     private bool _isMove;
@@ -24,7 +25,8 @@ public class RangedSkill : MonoBehaviour
         _playerSpriteRenderer = _player.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _animator = _skillSpriteRenderer.transform.GetComponent<Animator>();
-        _skillSO = GameManager.I.DataManager.GameDataSO.RangedSkill;
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
+        _rangedSkillSO = GameManager.I.DataManager.GameDataSO.RangedSkill;
         _layerMask = LayerMask.NameToLayer("Enemy");
         _isMove = true;
         _localPosition = transform.GetChild(0).gameObject.transform.localPosition;
@@ -40,6 +42,7 @@ public class RangedSkill : MonoBehaviour
             _playerFlipX = false;
         }
 
+        GameManager.I.SoundManager.StartSFX(_rangedSkillSO.Tag);
         StartCoroutine(COInactiveSkill(4f));
     }
 
@@ -61,6 +64,8 @@ public class RangedSkill : MonoBehaviour
 
             // 재사용 시, 로컬 포지션이 변함 -> 임시 방편 해결
             transform.GetChild(0).gameObject.transform.localPosition = _localPosition;
+
+            GameManager.I.SoundManager.StartSFX(_rangedSkillSO.Tag);
             StartCoroutine(COInactiveSkill(4f));
         }
     }
@@ -71,11 +76,11 @@ public class RangedSkill : MonoBehaviour
         {
             if (!_playerFlipX)
             {
-                transform.position += new Vector3(_skillSO.Speed, 0, 0) * Time.deltaTime;
+                transform.position += new Vector3(_rangedSkillSO.Speed, 0, 0) * Time.deltaTime;
             }
             else
             {
-                transform.position += new Vector3(-_skillSO.Speed, 0, 0) * Time.deltaTime;
+                transform.position += new Vector3(-_rangedSkillSO.Speed, 0, 0) * Time.deltaTime;
             }
         }
     }
@@ -83,20 +88,20 @@ public class RangedSkill : MonoBehaviour
     private void Targetting()
     {
         int layerMask = (1 << _layerMask);  // Layer 설정
-        _targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), _skillSO.ExplosionRange, layerMask);
+        _targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), _rangedSkillSO.ExplosionRange, layerMask);
 
         for (int i = 0; i < _targets.Length; i++)
         {
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
-            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _skillSO.Atk;
+            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _rangedSkillSO.Atk;
             if (_dir.x > 0)
             {
-                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _skillSO.NuckbackPower, ForceMode2D.Impulse);
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);
             }
             else
             {
-                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _skillSO.NuckbackPower, ForceMode2D.Impulse);
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);
             }
         }
     }
@@ -110,7 +115,9 @@ public class RangedSkill : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
-        { 
+        {
+            GameManager.I.SoundManager.StartSFX(_rangedSkillSO.SkillExplosionTag);
+            StartCoroutine(_cameraShake.COShake(1.2f, 1.5f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             _animator.SetTrigger("Hit");

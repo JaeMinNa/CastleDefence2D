@@ -10,12 +10,14 @@ public class AttackButton : MonoBehaviour
     private SpriteRenderer _playerSpriteRenderer;
     private PlayerAnimationEvent _playerAnimationEvent;
     private Transform _collidersTransform;
-    private SkillSO _skillSOFirst;
-    private SkillSO _skillSOSecond;
-    private SkillSO _skillSOThird;
-
+    private SkillSO _meleeSkillSO;
+    private SkillSO _rangedSkillSO;
+    private SkillSO _areaSkillSO;
     private float _collidersPositionX;
     private float _collidersPositionY;
+    private bool _meleeSkillStart;
+    private bool _rangedSkillStart;
+    private bool _areaSkillStart;
 
     // 버튼 클릭이 시작했을 때
     public void ButtonDown()
@@ -53,19 +55,23 @@ public class AttackButton : MonoBehaviour
     public void ButtonUp()
     {
         IsClick = false;
+        _meleeSkillStart = false;
+        _rangedSkillStart = false;
+        _areaSkillStart = false;
 
         if (ClickTime >= _playerController.PlayerSO.SkillTime)
         {
-            StartCoroutine(_playerAnimationEvent.COStartAreaSkill(_skillSOThird));
+            StartCoroutine(_playerAnimationEvent.COStartAreaSkill(_areaSkillSO));
         }
-        else if (ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime)
+        else if ((ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime))
         {
-            StartCoroutine(_playerAnimationEvent.COStartRangedSkill(_skillSOSecond));
+            StartCoroutine(_playerAnimationEvent.COStartRangedSkill(_rangedSkillSO));
         }
         else if (ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
-        {         
-            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill(_skillSOFirst));
+        {
+            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill(_meleeSkillSO));
         }
+
     }
 
     private void Start()
@@ -74,12 +80,15 @@ public class AttackButton : MonoBehaviour
         _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _playerAnimationEvent = _playerController.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
         _collidersTransform = _playerController.transform.GetChild(1).GetComponent<Transform>();
-        _skillSOFirst = GameManager.I.DataManager.GameDataSO.MeleeSkill;
-        _skillSOSecond = GameManager.I.DataManager.GameDataSO.RangedSkill;
-        _skillSOThird = GameManager.I.DataManager.GameDataSO.AreaSkill;
+        _meleeSkillSO = GameManager.I.DataManager.GameDataSO.MeleeSkill;
+        _rangedSkillSO = GameManager.I.DataManager.GameDataSO.RangedSkill;
+        _areaSkillSO = GameManager.I.DataManager.GameDataSO.AreaSkill;
 
         _collidersPositionX = _collidersTransform.localPosition.x;
         _collidersPositionY = _collidersTransform.localPosition.y;
+        _meleeSkillStart = false;
+        _rangedSkillStart = false;
+        _areaSkillStart = false;
 
         if (_playerController.PlayerSO.Speed > 0)
         {
@@ -106,7 +115,26 @@ public class AttackButton : MonoBehaviour
         if (IsClick)
         {
             ClickTime += Time.deltaTime;
-            if(ClickTime >= (_playerController.PlayerSO.SkillTime / 4f))
+
+            if((ClickTime >= _playerController.PlayerSO.SkillTime) && !_areaSkillStart)
+            {
+                GameManager.I.SoundManager.StartSFX("Gauge");
+                _areaSkillStart = true;
+            }
+            else if((ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime)
+                 && !_rangedSkillStart)
+            {
+                GameManager.I.SoundManager.StartSFX("Gauge");
+                _rangedSkillStart = true;
+            }
+            else if((ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
+                 && !_meleeSkillStart)
+            {
+                GameManager.I.SoundManager.StartSFX("Gauge");
+                _meleeSkillStart = true;
+            }
+
+            if (ClickTime >= (_playerController.PlayerSO.SkillTime / 4f))
             _playerController.GetComponent<PlayerAttackState>().time = 0f;
         }
         else

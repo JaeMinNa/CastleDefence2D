@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5499319708723715915}
   - component: {fileID: 7065989877955795033}
   m_Layer: 0
-  m_Name: WaveStrike
+  m_Name: BoltStrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

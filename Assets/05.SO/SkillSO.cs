@@ -30,9 +30,10 @@ public class SkillSO : ScriptableObject
     [Header("AreaSkill Info")]
     public float Range;
     public int Count;
-    public float interval;
+    public float Interval;
 
     [Header("ETC")]
+    public string SkillExplosionTag;
     public Sprite Icon;
     public GameObject SkillPrefab;
     public string ColliderName;

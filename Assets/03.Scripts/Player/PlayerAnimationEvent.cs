@@ -41,6 +41,7 @@ public class PlayerAnimationEvent : MonoBehaviour
     {
         _playerController.Animator.SetBool("Attack", true);
         _playerController.IsMove = false;
+        GameManager.I.SoundManager.StartSFX("Sword");
 
         yield return new WaitForSeconds(_activeAttackColliderTime);
         _attackCollider.SetActive(true);
@@ -115,16 +116,16 @@ public class PlayerAnimationEvent : MonoBehaviour
         _playerController.Animator.SetBool("AreaSkill", false);
     }
 
-    IEnumerator COShootAreaSkill(SkillSO skillThirdSO)
+    IEnumerator COShootAreaSkill(SkillSO areaSkillSO)
     {
         int count = 0;
         while (true)
         {
             count++;
-            GameManager.I.ObjectPoolManager.InstantiatePrefab(skillThirdSO.Tag, transform.position);
+            GameManager.I.ObjectPoolManager.InstantiatePrefab(areaSkillSO.Tag, transform.position);
 
-            if (count == skillThirdSO.Count) break;
-            yield return new WaitForSeconds(skillThirdSO.interval);
+            if (count == areaSkillSO.Count) break;
+            yield return new WaitForSeconds(areaSkillSO.Interval);
         }
     }
 }

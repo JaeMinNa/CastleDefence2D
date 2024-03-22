@@ -338,7 +338,7 @@ MonoBehaviour:
   _attackCollider: {fileID: 7570691770794334960}
   _activeMeleeSkillColliderTime: 0.2
   _inactiveMeleeSkillColliderTime: 0.2
-  _meleeSkillStopTime: 0.01
+  _meleeSkillStopTime: 0.5
   _shootRangedSkillTime: 1
   _rangedSkillStopTime: 0.7
   _shootAreaSkillTime: 1
