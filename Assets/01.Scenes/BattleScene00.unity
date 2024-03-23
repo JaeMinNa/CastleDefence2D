@@ -12851,6 +12851,7 @@ MonoBehaviour:
   CastleSO: {fileID: 11400000, guid: a867fc73d7350e341859682be2139164, type: 2}
   Hp: 0
   _castleHp: {fileID: 1031169969}
+  _brokenCastle: {fileID: 21300000, guid: f37a07cac181fb343a1278ed79f23355, type: 3}
 --- !u!95 &2054242725
 Animator:
   serializedVersion: 5

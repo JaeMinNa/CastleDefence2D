@@ -9,4 +9,5 @@ public class CastleSO : StatSO
 {
     [Header("Castle Stats")]
     public int AttackCoolTime;
+    public float AttackRange;
 }
