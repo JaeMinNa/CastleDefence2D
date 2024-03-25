@@ -2833,6 +2833,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &587694455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587694456}
+  m_Layer: 0
+  m_Name: ArrowLeftPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &587694456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587694455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2054242722}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624289544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,6 +3534,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pools:
+  - Tag: ArrowRight
+    Prefab: {fileID: 4665340247715392555, guid: b63357621c866dc41b7de3c969149649, type: 3}
+    Size: 1
+  - Tag: ArrowLeft
+    Prefab: {fileID: 8627953092524796068, guid: 4f8476fb9afe92840b5b99c808c780b5, type: 3}
+    Size: 1
   - Tag: DamageText
     Prefab: {fileID: 500341896692516274, guid: c613fffea55b6b04e93676828edee559, type: 3}
     Size: 10
@@ -10809,6 +10846,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1283840631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283840632}
+  m_Layer: 0
+  m_Name: ArrowRightPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283840632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283840631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2054242722}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1299609349
 GameObject:
   m_ObjectHideFlags: 0
@@ -11983,8 +12051,8 @@ MonoBehaviour:
   Stages:
   - Stage: 1
     enemys:
-    - Snail 10
-    - Rock 9
+    - Snail 3
+    - Rock 3
   - Stage: 2
     enemys:
     - Snail 10
@@ -12787,7 +12855,9 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1283840632}
+  - {fileID: 587694456}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.84}
@@ -12852,6 +12922,8 @@ MonoBehaviour:
   Hp: 0
   _castleHp: {fileID: 1031169969}
   _brokenCastle: {fileID: 21300000, guid: f37a07cac181fb343a1278ed79f23355, type: 3}
+  _arrowRight: {fileID: 1283840632}
+  _arrowLeft: {fileID: 587694456}
 --- !u!95 &2054242725
 Animator:
   serializedVersion: 5

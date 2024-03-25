@@ -26,7 +26,7 @@ public class RangedSkill : MonoBehaviour
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _animator = _skillSpriteRenderer.transform.GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
-        _rangedSkillSO = GameManager.I.DataManager.GameDataSO.RangedSkill;
+        _rangedSkillSO = _player.GetComponent<PlayerController>().PlayerSO.RangedSkill;
         _layerMask = LayerMask.NameToLayer("Enemy");
         _isMove = true;
         _localPosition = transform.GetChild(0).gameObject.transform.localPosition;
@@ -95,7 +95,7 @@ public class RangedSkill : MonoBehaviour
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _rangedSkillSO.Atk;
-            GameManager.I.ObjectPoolManager.InactiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_rangedSkillSO.Atk, 31);
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_rangedSkillSO.Atk, 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);

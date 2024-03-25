@@ -18,14 +18,14 @@ public class ObjectPoolManager : MonoBehaviour
 
     }
 
-    public void InactivePrefab(string poolName, Vector3 startPosition)
+    public void ActivePrefab(string poolName, Vector3 startPosition)
     {
         _prefab = ObjectPool.SpawnFromPool(poolName);
         _prefab.transform.position = startPosition;
         _prefab.SetActive(true);
     }
 
-    public void InactiveDamage(string poolName, Vector3 startPosition, int damege, int color)
+    public void ActiveDamage(string poolName, Vector3 startPosition, int damege, int color)
     {
         _prefab = ObjectPool.SpawnFromPool(poolName);
         _prefab.transform.position = startPosition;

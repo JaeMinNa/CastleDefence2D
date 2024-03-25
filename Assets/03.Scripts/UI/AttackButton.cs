@@ -80,9 +80,9 @@ public class AttackButton : MonoBehaviour
         _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _playerAnimationEvent = _playerController.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
         _collidersTransform = _playerController.transform.GetChild(1).GetComponent<Transform>();
-        _meleeSkillSO = GameManager.I.DataManager.GameDataSO.MeleeSkill;
-        _rangedSkillSO = GameManager.I.DataManager.GameDataSO.RangedSkill;
-        _areaSkillSO = GameManager.I.DataManager.GameDataSO.AreaSkill;
+        _meleeSkillSO = _playerController.PlayerSO.MeleeSkill;
+        _rangedSkillSO = _playerController.PlayerSO.RangedSkill;
+        _areaSkillSO = _playerController.PlayerSO.AreaSkill;
 
         _collidersPositionX = _collidersTransform.localPosition.x;
         _collidersPositionY = _collidersTransform.localPosition.y;

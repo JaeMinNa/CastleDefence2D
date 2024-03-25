@@ -8,9 +8,4 @@ public class GameDataSO : ScriptableObject
     [Header("GameData")]
     public int Stage;
     public int Coin;
-
-    [Header("Player")]
-    public SkillSO MeleeSkill;
-    public SkillSO RangedSkill;
-    public SkillSO AreaSkill;
 }

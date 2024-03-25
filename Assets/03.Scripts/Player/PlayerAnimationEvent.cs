@@ -65,13 +65,13 @@ public class PlayerAnimationEvent : MonoBehaviour
         if (!_spriteRenderer.flipX)
         {
             GameManager.I.ObjectPoolManager.
-            InactivePrefab(skillSO.Tag, transform.position + skillSO.StartPosition);
+            ActivePrefab(skillSO.Tag, transform.position + skillSO.StartPosition);
         }
         else
         {
             Vector3 vec = new Vector3(-skillSO.StartPosition.x, skillSO.StartPosition.y, skillSO.StartPosition.z);
             GameManager.I.ObjectPoolManager.
-            InactivePrefab(skillSO.Tag, transform.position + vec);
+            ActivePrefab(skillSO.Tag, transform.position + vec);
         }
 
         yield return new WaitForSeconds(_inactiveMeleeSkillColliderTime);
@@ -90,12 +90,12 @@ public class PlayerAnimationEvent : MonoBehaviour
         yield return new WaitForSeconds(_shootRangedSkillTime);
         if (!_spriteRenderer.flipX)
         {
-            GameManager.I.ObjectPoolManager.InactivePrefab(skillSO.Tag, transform.position + skillSO.StartPosition);
+            GameManager.I.ObjectPoolManager.ActivePrefab(skillSO.Tag, transform.position + skillSO.StartPosition);
         }
         else
         {
             Vector3 vec = new Vector3(-skillSO.StartPosition.x, skillSO.StartPosition.y, skillSO.StartPosition.z);
-            GameManager.I.ObjectPoolManager.InactivePrefab(skillSO.Tag, transform.position + vec);
+            GameManager.I.ObjectPoolManager.ActivePrefab(skillSO.Tag, transform.position + vec);
         }
 
         yield return new WaitForSeconds(_rangedSkillStopTime);
@@ -122,7 +122,7 @@ public class PlayerAnimationEvent : MonoBehaviour
         while (true)
         {
             count++;
-            GameManager.I.ObjectPoolManager.InactivePrefab(areaSkillSO.Tag, transform.position);
+            GameManager.I.ObjectPoolManager.ActivePrefab(areaSkillSO.Tag, transform.position);
 
             if (count == areaSkillSO.Count) break;
             yield return new WaitForSeconds(areaSkillSO.Interval);

@@ -17,8 +17,8 @@ public class AreaSkill : MonoBehaviour
 
     private void Start()
     {
-        _areaSkillSO = GameManager.I.DataManager.GameDataSO.AreaSkill;
         _player = GameManager.I.PlayerManager.Player;
+        _areaSkillSO = _player.GetComponent<PlayerController>().PlayerSO.AreaSkill;
         _animator = transform.GetChild(0).GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
         _layerMask = LayerMask.NameToLayer("Enemy");
@@ -61,7 +61,7 @@ public class AreaSkill : MonoBehaviour
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _areaSkillSO.Atk;
-            GameManager.I.ObjectPoolManager.InactiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_areaSkillSO.Atk, 31);
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_areaSkillSO.Atk, 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _areaSkillSO.NuckbackPower, ForceMode2D.Impulse);

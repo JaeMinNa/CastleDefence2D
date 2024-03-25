@@ -9,9 +9,13 @@ public class CastleController : MonoBehaviour
     public float Hp;
     [SerializeField] private Slider _castleHp;
     [SerializeField] private Sprite _brokenCastle;
+    [Header("Arrow")]
+    [SerializeField] private Transform _arrowRight;
+    [SerializeField] private Transform _arrowLeft;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private bool _isBroken;
+    private int _count;
 
     private void Awake()
     {
@@ -23,6 +27,8 @@ public class CastleController : MonoBehaviour
     {
         Hp = CastleSO.Hp;
         _isBroken = false;
+        _count = 0;
+        StartCoroutine(COCastleArrow());
     }
 
     private void Update()
@@ -45,6 +51,20 @@ public class CastleController : MonoBehaviour
         if (Hp <= 0)
         {
             Debug.Log("GameOver");
+        }
+    }
+
+    IEnumerator COCastleArrow()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(CastleSO.AttackCoolTime);
+
+            GameManager.I.SoundManager.StartSFX("ArrowShoot");
+            if (_count % 2 == 0) GameManager.I.ObjectPoolManager.ActivePrefab("ArrowRight", _arrowRight.localPosition);
+            else GameManager.I.ObjectPoolManager.ActivePrefab("ArrowLeft", _arrowLeft.localPosition);
+
+            _count++;
         }
     }
 }
