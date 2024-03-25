@@ -17,4 +17,9 @@ public class EnemyAnimationEvent : MonoBehaviour
     {
         _castleController.CastleHit(_enemyController.EnemySO.Atk);
     }
+    
+    public void ShootBullet()
+    {
+        GameManager.I.ObjectPoolManager.ActivePrefab(_enemyController.EnemySO.BulletTag, transform.position + _enemyController.EnemySO.BulletPosition);
+    }
 }

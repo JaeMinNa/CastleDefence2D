@@ -16,5 +16,4 @@ MonoBehaviour:
   Atk: 5
   Hp: 100
   NuckbackPower: 0.9
-  AttackCoolTime: 2
-  AttackRange: 20
+  AttackCoolTime: 5

@@ -34,7 +34,6 @@ public class Arrow : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
-            Debug.Log("화살 적중!");
             GameManager.I.SoundManager.StartSFX("ArrowHit", collision.transform.position);
             collision.transform.GetComponent<EnemyController>().Ishit = true;
             Vector2 _dir = collision.transform.position - transform.position;
@@ -53,7 +52,6 @@ public class Arrow : MonoBehaviour
         }
         else if(collision.CompareTag("Ground"))
         {
-            Debug.Log("땅 적중!");
             gameObject.SetActive(false);
         }
     }

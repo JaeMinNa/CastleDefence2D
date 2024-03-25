@@ -5,6 +5,9 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
 {
     private EnemyController _enemyController;
     private SpriteRenderer _spriteRenderer;
+    private Type _attackType;
+    private RaycastHit2D _hitInfo;
+    private int _layerMask;
 
     public void Handle(EnemyController enemyController)
     {
@@ -14,6 +17,8 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
         Debug.Log("Enemy Walk State");
 
         _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _attackType = _enemyController.EnemySO.AttackType;
+        _layerMask = 1 << LayerMask.NameToLayer("Castle");
 
         if (gameObject.activeInHierarchy) StartCoroutine(COUpdate());
     }
@@ -26,11 +31,39 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
             {
                 _spriteRenderer.flipX = true;
                 transform.position += new Vector3(-_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
+
+                if (_attackType == Type.Ranged)
+                {
+                    Debug.DrawRay(transform.position - new Vector3(0, 2, 0), Vector2.left * _enemyController.EnemySO.Distance, new Color(1, 0, 0));
+                    _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.left, _enemyController.EnemySO.Distance, _layerMask);
+
+                    if (_hitInfo.collider != null)
+                    {
+                        if (_hitInfo.transform.CompareTag("Castle"))
+                        {
+                            _enemyController.IsAttack = true;
+                        }
+                    }
+                }
             }
             else
             {
                 _spriteRenderer.flipX = false;
                 transform.position += new Vector3(_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
+
+                if(_attackType == Type.Ranged)
+                {
+                    Debug.DrawRay(transform.position - new Vector3(0, 2, 0), Vector2.right * _enemyController.EnemySO.Distance, new Color(1, 0, 0));
+                    _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.right, _enemyController.EnemySO.Distance, _layerMask);
+
+                    if (_hitInfo.collider != null)
+                    {
+                        if (_hitInfo.transform.CompareTag("Castle"))
+                        {
+                            _enemyController.IsAttack = true;
+                        }
+                    }
+                }
             }
 
             if(_enemyController.Ishit)
@@ -50,9 +83,12 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Castle"))
+        if(_attackType == Type.Melee)
         {
-            _enemyController.IsAttack = true;
+            if (collision.CompareTag("Castle"))
+            {
+                _enemyController.IsAttack = true;
+            }
         }
     }
 }

@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start 실행!");
         _enemyStateContext = new EnemyStateContext(this);
 
         _walkState = gameObject.AddComponent<EnemyWalkState>();
@@ -40,7 +39,6 @@ public class EnemyController : MonoBehaviour
     {
         if(_enemyStateContext != null)
         {
-            Debug.Log("OnEnable 실행!");
             Hp = EnemySO.Hp;
             _enemyStateContext.Transition(_walkState);
         }

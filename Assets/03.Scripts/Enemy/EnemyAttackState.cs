@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyAttackState : MonoBehaviour, IEnemyState
 {
     private EnemyController _enemyController;
+    private Type _type;
 
     public void Handle(EnemyController enemyController)
     {
@@ -11,9 +12,12 @@ public class EnemyAttackState : MonoBehaviour, IEnemyState
             _enemyController = enemyController;
 
         Debug.Log("Enemy Attack State");
+        _type = _enemyController.EnemySO.AttackType;
         _enemyController.Animator.SetBool("Attack", true);
 
-        StartCoroutine(COUpdate());
+
+         StartCoroutine(COUpdate());
+
     }
 
     IEnumerator COUpdate()
@@ -24,6 +28,7 @@ public class EnemyAttackState : MonoBehaviour, IEnemyState
             {
                 _enemyController.HitStart();
                 _enemyController.Animator.SetBool("Attack", false);
+                if (_type == Type.Ranged && _enemyController != null) _enemyController.IsAttack = false;
                 break;
             }
             if (!_enemyController.IsAttack)
@@ -39,9 +44,13 @@ public class EnemyAttackState : MonoBehaviour, IEnemyState
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Castle"))
+        if (_type == Type.Melee)
         {
-            if(_enemyController != null) _enemyController.IsAttack = false;
+            if (collision.CompareTag("Castle"))
+            {
+                if (_enemyController != null) _enemyController.IsAttack = false;
+            }
         }
+        
     }
 }

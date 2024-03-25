@@ -3536,10 +3536,10 @@ MonoBehaviour:
   Pools:
   - Tag: ArrowRight
     Prefab: {fileID: 4665340247715392555, guid: b63357621c866dc41b7de3c969149649, type: 3}
-    Size: 1
+    Size: 2
   - Tag: ArrowLeft
     Prefab: {fileID: 8627953092524796068, guid: 4f8476fb9afe92840b5b99c808c780b5, type: 3}
-    Size: 1
+    Size: 2
   - Tag: DamageText
     Prefab: {fileID: 500341896692516274, guid: c613fffea55b6b04e93676828edee559, type: 3}
     Size: 10
@@ -3555,6 +3555,21 @@ MonoBehaviour:
   - Tag: Mushroom
     Prefab: {fileID: 4379095244909390819, guid: c3c3bd65ba6a56c4395fc55330d71082, type: 3}
     Size: 20
+  - Tag: Chicken
+    Prefab: {fileID: 2637583602051363030, guid: 906b237f6864ee84ba725a699f6e9ce0, type: 3}
+    Size: 20
+  - Tag: Rino
+    Prefab: {fileID: 9219089415095536197, guid: c1006d155a727ee4d872f53f94b1d303, type: 3}
+    Size: 20
+  - Tag: Turtle
+    Prefab: {fileID: 6951387921392620406, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+    Size: 20
+  - Tag: Plant
+    Prefab: {fileID: 9024929018819146063, guid: a8284a8eba584b04cb990ac5b99d5bc0, type: 3}
+    Size: 20
+  - Tag: PlantBullet
+    Prefab: {fileID: 4167231109741127983, guid: 27da52631c2f40845a5f352a056a265b, type: 3}
+    Size: 20
   - Tag: Strike
     Prefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
     Size: 3
@@ -3564,6 +3579,24 @@ MonoBehaviour:
   - Tag: BoltStrike
     Prefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
     Size: 10
+  - Tag: Radish
+    Prefab: {fileID: 126680257859585847, guid: a36cc330bba299b409471e21fb4b188e, type: 3}
+    Size: 20
+  - Tag: RadishBullet
+    Prefab: {fileID: 390368977525729769, guid: 5d923ba2927cbf345bab2c6cedd069f5, type: 3}
+    Size: 20
+  - Tag: Skull
+    Prefab: {fileID: 1233245360413093625, guid: 97ca7748ebfc5fe4a95df2784022dbbb, type: 3}
+    Size: 20
+  - Tag: SkullBullet
+    Prefab: {fileID: 6226356252717928584, guid: 7ecc250784af2af488ad40525e638a7f, type: 3}
+    Size: 20
+  - Tag: Trunk
+    Prefab: {fileID: 7759167476564263820, guid: 5a49666f91fc16b4092294a3932d5683, type: 3}
+    Size: 20
+  - Tag: TrunkBullet
+    Prefab: {fileID: 2544040306454456528, guid: 88db59ff6b3c3874cb5e27833880b519, type: 3}
+    Size: 20
 --- !u!1 &842301334
 GameObject:
   m_ObjectHideFlags: 0
@@ -12051,8 +12084,8 @@ MonoBehaviour:
   Stages:
   - Stage: 1
     enemys:
-    - Snail 3
-    - Rock 3
+    - Bunny 3
+    - Plant 3
   - Stage: 2
     enemys:
     - Snail 10
@@ -12785,7 +12818,7 @@ GameObject:
   - component: {fileID: 2054242723}
   - component: {fileID: 2054242724}
   - component: {fileID: 2054242725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Castle
   m_TagString: Castle
   m_Icon: {fileID: 0}
@@ -12852,7 +12885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054242720}
   m_LocalRotation: {x: 0, y: 0, z: 0.0073303473, w: 0.9999731}
-  m_LocalPosition: {x: 0, y: -0.99, z: 0}
+  m_LocalPosition: {x: 0, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13241,3 +13274,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &7762115643054811326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.524398
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278605673722526626, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951387921392620406, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
+      propertyPath: m_Name
+      value: Turtle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9453a8db2ee466c46af78625315e6b9e, type: 3}
