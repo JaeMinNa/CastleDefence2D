@@ -5,6 +5,7 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
 {
     private EnemyController _enemyController;
     private SpriteRenderer _spriteRenderer;
+    private StageController _stageController;
     private Type _attackType;
     private RaycastHit2D _hitInfo;
     private int _layerMask;
@@ -17,6 +18,7 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
         Debug.Log("Enemy Walk State");
 
         _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _stageController = GameObject.FindWithTag("StageController").GetComponent<StageController>();
         _attackType = _enemyController.EnemySO.AttackType;
         _layerMask = 1 << LayerMask.NameToLayer("Castle");
 
@@ -30,7 +32,8 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
             if(transform.position.x > 0)
             {
                 _spriteRenderer.flipX = true;
-                transform.position += new Vector3(-_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
+                if(_stageController.IsDangerTime) transform.position += new Vector3(-_enemyController.EnemySO.Speed * _stageController.DangerTimeSpeed, 0, 0) * Time.deltaTime;
+                else transform.position += new Vector3(-_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
 
                 if (_attackType == Type.Ranged)
                 {
@@ -49,7 +52,8 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
             else
             {
                 _spriteRenderer.flipX = false;
-                transform.position += new Vector3(_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
+                if (_stageController.IsDangerTime) transform.position += new Vector3(_enemyController.EnemySO.Speed * _stageController.DangerTimeSpeed, 0, 0) * Time.deltaTime;
+                else transform.position += new Vector3(_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
 
                 if(_attackType == Type.Ranged)
                 {

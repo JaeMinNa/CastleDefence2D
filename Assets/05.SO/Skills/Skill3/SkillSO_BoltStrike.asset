@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillSO_BoltStrike
   m_EditorClassIdentifier: 
   Tag: BoltStrike
-  Atk: 20
+  Atk: 15
   NuckbackPower: 2
   Speed: 10
   ExplosionRange: 2

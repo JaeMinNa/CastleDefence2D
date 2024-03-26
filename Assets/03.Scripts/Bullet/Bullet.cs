@@ -7,11 +7,13 @@ public class Bullet : MonoBehaviour
     [SerializeField] private EnemySO _rangedEnemySO;
     private CastleController _castleController;
     private SpriteRenderer _bulletSpriteRenderer;
+    private StageController _stageController;
 
     void Start()
     {
         _castleController = GameObject.FindWithTag("Castle").GetComponent<CastleController>();
         _bulletSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _stageController = GameObject.FindWithTag("StageController").GetComponent<StageController>();
 
         if (transform.position.x > 0)
         {
@@ -54,7 +56,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Castle"))
         {
-            _castleController.CastleHit(_rangedEnemySO.Atk);
+            if(_stageController.IsDangerTime) _castleController.CastleHit(_rangedEnemySO.Atk * _stageController.DangerTimeAtk);
+            else _castleController.CastleHit(_rangedEnemySO.Atk);
             gameObject.SetActive(false);
         }
     }

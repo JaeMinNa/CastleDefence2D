@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
     public void Init()
     {
         // 초기 셋팅
+        _player = GameManager.I.PlayerManager.Player;
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
         _audioSources = Camera.main.gameObject.transform.GetChild(0).gameObject;
@@ -41,8 +42,6 @@ public class SoundManager : MonoBehaviour
             _etcSFXAudioSources[i].playOnAwake = false;
             _etcSFXAudioSources[i].volume = StartVolume;
         }
-
-        _player = GameManager.I.PlayerManager.Player;
 
         // BGM
 

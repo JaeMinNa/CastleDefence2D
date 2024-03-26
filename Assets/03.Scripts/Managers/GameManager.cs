@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,12 +19,12 @@ public class GameManager : MonoBehaviour
         if (I == null)
         {
             I = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
 
         PlayerManager = GetComponentInChildren<PlayerManager>();
         ScenesManager = GetComponentInChildren<ScenesManager>();

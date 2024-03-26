@@ -10,6 +10,7 @@ TagManager:
   - AttackCollider
   - Ground
   - MeleeCollider
+  - StageController
   layers:
   - Default
   - TransparentFX

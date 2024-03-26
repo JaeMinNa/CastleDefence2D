@@ -14,6 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: 1
   Coin: 0
-  MeleeSkill: {fileID: 11400000, guid: 76e62fbe338a6834db40cb13b81dd03d, type: 2}
-  RangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
-  AreaSkill: {fileID: 11400000, guid: 3410f2ea46af027479dbc8f5c38dd7c4, type: 2}
+  MeleeEnemy:
+  - {fileID: 11400000, guid: b4f144dc866d98c4b84c0e46331aeea4, type: 2}
+  - {fileID: 11400000, guid: 7d538b27e81ff764d8dedbe2c7734bf7, type: 2}
+  - {fileID: 11400000, guid: 905002964cfe2b74f9dd70cb5934de19, type: 2}
+  - {fileID: 11400000, guid: 5391e06786578194c8235161c815e47e, type: 2}
+  - {fileID: 11400000, guid: 96c126c673a66f34e9dd109f62f2bafd, type: 2}
+  - {fileID: 11400000, guid: b1e9b61257f474445bc9e4cba84bb972, type: 2}
+  - {fileID: 11400000, guid: 8e7ae4965ff17d742bfbb5e2509b840c, type: 2}
+  RangedEnemy:
+  - {fileID: 11400000, guid: 6209b9b4e654eda48913756c1d315482, type: 2}
+  - {fileID: 11400000, guid: fd9a0d60bd5d5464a8dbf5095980d2d1, type: 2}
+  - {fileID: 11400000, guid: e0758b1767093844685ecc2499f7d570, type: 2}
+  - {fileID: 11400000, guid: 7f5d52c0e7d20b7458c537c454faf646, type: 2}

@@ -24,4 +24,9 @@ public class ScenesManager : MonoBehaviour
     {
 
     }
+
+    public void SceneMove(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }

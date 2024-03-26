@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   Atk: 10
-  Hp: 30
+  Hp: 20
   AttackType: 0
   Price: 100
   CoinDropPercent: 10
