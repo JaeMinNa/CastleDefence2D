@@ -15,5 +15,6 @@ MonoBehaviour:
   Speed: 10
   Atk: 5
   Hp: 100
+  Level: 1
   NuckbackPower: 0.9
   AttackCoolTime: 5

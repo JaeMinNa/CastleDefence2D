@@ -28,6 +28,8 @@ public class EnemyHitState : MonoBehaviour, IEnemyState
             int random = Random.Range(0, _enemyController.EnemySO.CoinDropPercent);
             if (random == 0) GameManager.I.ObjectPoolManager.ActivePrefab("Coin", transform.position + Vector3.up * 0.5f);
 
+            GameManager.I.DataManager.CoinUpdate(_enemyController.EnemySO.Price);
+
             gameObject.SetActive(false);
         }
         else

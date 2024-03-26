@@ -5,13 +5,12 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public GameDataSO GameDataSO;
-
-    private int _currentStageCoin;
+    public int CurrentStageCoin;
 
     // 초기화
     public void Init()
     {
-        _currentStageCoin = 0;
+        CurrentStageCoin = 0;
     }
 
     // 메모리 해제
@@ -22,6 +21,6 @@ public class DataManager : MonoBehaviour
 
     public void CoinUpdate(int value)
     {
-        _currentStageCoin += value;
+        CurrentStageCoin += value;
     }
 }

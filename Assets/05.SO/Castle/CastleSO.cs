@@ -8,6 +8,7 @@ using UnityEngine;
 public class CastleSO : StatSO
 {
     [Header("Castle Stats")]
+    public int Level;
     public float NuckbackPower;
-    public int AttackCoolTime;
+    public float AttackCoolTime;
 }

@@ -6,6 +6,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
     private PlayerController _playerController;
     private PlayerAnimationEvent _playerAnimationEvnet;
     private RaycastHit2D _hitInfo;
+    private int _layerMask;
     [HideInInspector] public float time;
 
     public void Handle(PlayerController playerController)
@@ -16,7 +17,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
         Debug.Log("Player Attack State");
 
         _playerAnimationEvnet = gameObject.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
-
+        _layerMask = 1 << LayerMask.NameToLayer("Wall");
         time = 0;
 
         StartCoroutine(COUpdate());
@@ -37,7 +38,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
             if (_playerController.PlayerSO.Speed > 0)
             {
                 Debug.DrawRay(transform.position - new Vector3(0, 2, 0), Vector2.right, new Color(1, 0, 0));
-                _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.right, 1f);
+                _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.right, 1f, _layerMask);
                 if (_hitInfo.collider != null)
                 {
                     if (!_hitInfo.transform.CompareTag("Wall") && _playerController.IsMove)
@@ -53,7 +54,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
             else
             {
                 Debug.DrawRay(transform.position - new Vector3(0, 2, 0), Vector2.left, new Color(1, 0, 0));
-                _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.left, 1f);
+                _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.left, 1f, _layerMask);
                 if (_hitInfo.collider != null)
                 {
                     if (!_hitInfo.transform.CompareTag("Wall") && _playerController.IsMove)
