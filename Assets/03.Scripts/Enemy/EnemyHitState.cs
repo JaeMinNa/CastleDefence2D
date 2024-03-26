@@ -24,6 +24,10 @@ public class EnemyHitState : MonoBehaviour, IEnemyState
         {
             _enemyController.Ishit = false;
             _enemyController.Animator.SetBool("Hit", false);
+
+            int random = Random.Range(0, _enemyController.EnemySO.CoinDropPercent);
+            if (random == 0) GameManager.I.ObjectPoolManager.ActivePrefab("Coin", transform.position + Vector3.up * 0.5f);
+
             gameObject.SetActive(false);
         }
         else

@@ -58,6 +58,7 @@ public class SoundManager : MonoBehaviour
         _sfx.Add("Danger", Resources.Load<AudioClip>("Sound/SFX/UI/Danger"));
         _sfx.Add("ArrowShoot", Resources.Load<AudioClip>("Sound/SFX/Arrow/ArrowShoot"));
         _sfx.Add("ArrowHit", Resources.Load<AudioClip>("Sound/SFX/Arrow/ArrowHit"));
+        _sfx.Add("Coin", Resources.Load<AudioClip>("Sound/SFX/Item/Coin"));
     }
 
     // 메모리 해제

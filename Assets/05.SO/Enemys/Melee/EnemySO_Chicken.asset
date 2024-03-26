@@ -15,5 +15,10 @@ MonoBehaviour:
   Speed: 2.5
   Atk: 9
   Hp: 25
+  AttackType: 0
   Price: 100
-  CoinDropPercent: 2
+  CoinDropPercent: 10
+  BulletTag: 
+  BulletSpeed: 0
+  Distance: 0
+  BulletPosition: {x: 0, y: 0, z: 0}

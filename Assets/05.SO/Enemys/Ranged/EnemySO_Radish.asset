@@ -17,7 +17,7 @@ MonoBehaviour:
   Hp: 30
   AttackType: 1
   Price: 100
-  CoinDropPercent: 2
+  CoinDropPercent: 10
   BulletTag: RadishBullet
   BulletSpeed: 8
   Distance: 5

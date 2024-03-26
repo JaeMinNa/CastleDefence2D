@@ -17,7 +17,7 @@ MonoBehaviour:
   Hp: 50
   AttackType: 1
   Price: 100
-  CoinDropPercent: 2
+  CoinDropPercent: 10
   BulletTag: TrunkBullet
   BulletSpeed: 6
   Distance: 8

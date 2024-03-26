@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class CastleController : MonoBehaviour
 {
+    [Header("Castle")]
     public CastleSO CastleSO;
     public float Hp;
+
+    [Header("UI")]
     [SerializeField] private Slider _castleHp;
     [SerializeField] private Sprite _brokenCastle;
+    [SerializeField] private StageController _stageController;
+
     [Header("Arrow")]
     [SerializeField] private Transform _arrowRight;
     [SerializeField] private Transform _arrowLeft;
+
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private bool _isBroken;
@@ -51,6 +57,7 @@ public class CastleController : MonoBehaviour
         if (Hp <= 0)
         {
             Debug.Log("GameOver");
+            _stageController.gameObject.SetActive(true);
         }
     }
 
