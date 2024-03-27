@@ -7,6 +7,7 @@ public class RangedSkill : MonoBehaviour
     [SerializeField] private float _inactiveTime = 0.2f;
     [SerializeField] private Collider2D[] _targets;
     private SkillSO _rangedSkillSO;
+    private PlayerSO _playerSO;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
     private Animator _animator;
@@ -22,6 +23,7 @@ public class RangedSkill : MonoBehaviour
     private void Start()
     {
         _player = GameManager.I.PlayerManager.Player;
+        _playerSO = _player.GetComponent<PlayerController>().PlayerSO;
         _playerSpriteRenderer = _player.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _animator = _skillSpriteRenderer.transform.GetComponent<Animator>();
@@ -94,8 +96,8 @@ public class RangedSkill : MonoBehaviour
         {
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
-            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _rangedSkillSO.Atk;
-            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_rangedSkillSO.Atk, 31);
+            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _playerSO.Atk * _rangedSkillSO.AtkRatio;
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(_playerSO.Atk * _rangedSkillSO.AtkRatio), 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);

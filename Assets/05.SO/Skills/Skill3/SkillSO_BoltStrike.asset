@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillSO_BoltStrike
   m_EditorClassIdentifier: 
   Tag: BoltStrike
-  Atk: 15
+  AtkRatio: 1.4
   NuckbackPower: 2
   Speed: 10
   ExplosionRange: 2
@@ -23,6 +23,6 @@ MonoBehaviour:
   SkillExplosionTag: BoltStrikeExplosion
   Icon: {fileID: 0}
   SkillPrefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
-  ColliderName: MeleeCollider
+  ColliderName: 
   StartPosition: {x: 0, y: 0, z: 0}
   HitRangePosition: {x: 0, y: 0, z: 0}

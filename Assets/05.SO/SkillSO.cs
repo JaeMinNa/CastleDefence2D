@@ -22,7 +22,7 @@ public class SkillSO : ScriptableObject
     public string Tag;
     //public SkillStep SkillStep;
     //public SkillType SkillType;
-    public float Atk;
+    public float AtkRatio;
     public float NuckbackPower;
     public float Speed;
     public float ExplosionRange;

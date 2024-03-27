@@ -17,7 +17,7 @@ public class EnemyAnimationEvent : MonoBehaviour
 
     public void AttackMelee()
     {
-        if(_stageController.IsDangerTime) _castleController.CastleHit(_enemyController.EnemySO.Atk * _stageController.DangerTimeAtk);
+        if(_stageController.IsDangerTime) _castleController.CastleHit(_enemyController.EnemySO.Atk * _stageController.DangerTimeAtkRatio);
         else _castleController.CastleHit(_enemyController.EnemySO.Atk);
     }
     

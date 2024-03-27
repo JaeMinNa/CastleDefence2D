@@ -32,7 +32,7 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
             if(transform.position.x > 0)
             {
                 _spriteRenderer.flipX = true;
-                if(_stageController.IsDangerTime) transform.position += new Vector3(-_enemyController.EnemySO.Speed * _stageController.DangerTimeSpeed, 0, 0) * Time.deltaTime;
+                if(_stageController.IsDangerTime) transform.position += new Vector3(-_enemyController.EnemySO.Speed * _stageController.DangerTimeSpeedRatio, 0, 0) * Time.deltaTime;
                 else transform.position += new Vector3(-_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
 
                 if (_attackType == Type.Ranged)
@@ -52,7 +52,7 @@ public class EnemyWalkState : MonoBehaviour, IEnemyState
             else
             {
                 _spriteRenderer.flipX = false;
-                if (_stageController.IsDangerTime) transform.position += new Vector3(_enemyController.EnemySO.Speed * _stageController.DangerTimeSpeed, 0, 0) * Time.deltaTime;
+                if (_stageController.IsDangerTime) transform.position += new Vector3(_enemyController.EnemySO.Speed * _stageController.DangerTimeSpeedRatio, 0, 0) * Time.deltaTime;
                 else transform.position += new Vector3(_enemyController.EnemySO.Speed, 0, 0) * Time.deltaTime;
 
                 if(_attackType == Type.Ranged)

@@ -409,7 +409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -8, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &159673501
@@ -2235,7 +2235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -8, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &464567037
@@ -2326,7 +2326,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.236
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3471,7 +3471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 21.6}
+  m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 500, y: 329.5236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663644692
@@ -5748,7 +5748,7 @@ GameObject:
   - component: {fileID: 1294883089}
   - component: {fileID: 1294883090}
   m_Layer: 5
-  m_Name: BGMSlider (1)
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6815,7 +6815,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1681973356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883076876}
+        m_TargetAssemblyTypeName: LobyController, Assembly-CSharp
+        m_MethodName: CastleExpButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1681973356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6942,7 +6954,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.236
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7106,7 +7118,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1754248979}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883076876}
+        m_TargetAssemblyTypeName: LobyController, Assembly-CSharp
+        m_MethodName: PlayerExpButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1754248979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8282,6 +8306,10 @@ MonoBehaviour:
   _castleSO: {fileID: 11400000, guid: a867fc73d7350e341859682be2139164, type: 2}
   _playerLevelText: {fileID: 798803460}
   _castleLevelText: {fileID: 1120245274}
+  _playerExpSlider: {fileID: 1722359888}
+  _castleExpSlider: {fileID: 464567039}
+  _expPrice: 1000
+  _exp: 5
   _setting: {fileID: 701059067}
 --- !u!1 &1944744064
 GameObject:

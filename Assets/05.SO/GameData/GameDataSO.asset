@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameDataSO
   m_EditorClassIdentifier: 
   Stage: 1
-  Coin: 1000
+  Coin: 10000

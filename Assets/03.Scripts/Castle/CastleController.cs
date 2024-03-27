@@ -18,10 +18,10 @@ public class CastleController : MonoBehaviour
     [SerializeField] private Transform _arrowRight;
     [SerializeField] private Transform _arrowLeft;
 
-    [Header("Danger Time")]
-    [SerializeField] private GameDataSO _gameDataSO;
-    [SerializeField] private float _dangerTimeSpeed = 1.5f;
-    [SerializeField] private float _dangerTimeAttack = 1.5f;
+    //[Header("Danger Time")]
+    //[SerializeField] private GameDataSO _gameDataSO;
+    //[SerializeField] private float _dangerTimeSpeed = 1.5f;
+    //[SerializeField] private float _dangerTimeAttack = 1.5f;
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;

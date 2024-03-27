@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillSO_Strike
   m_EditorClassIdentifier: 
   Tag: Strike
-  Atk: 15
+  AtkRatio: 1.2
   NuckbackPower: 3.5
   Speed: 0
   ExplosionRange: 0

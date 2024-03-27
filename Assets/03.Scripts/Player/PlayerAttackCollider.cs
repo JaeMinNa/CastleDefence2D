@@ -38,8 +38,8 @@ public class PlayerAttackCollider : MonoBehaviour
             else if(transform.CompareTag("MeleeCollider"))
             {
                 StartCoroutine(_cameraShake.COShake(1f, 1.5f));
-                GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)_meleeSkillSO.Atk, 31);
-                collision.transform.GetComponent<EnemyController>().Hp -= _meleeSkillSO.Atk;
+                GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)(_playerController.PlayerSO.Atk * _meleeSkillSO.AtkRatio), 31);
+                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.PlayerSO.Atk * _meleeSkillSO.AtkRatio;
                 if (_dir.x > 0)
                 {
                     collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _meleeSkillSO.NuckbackPower, ForceMode2D.Impulse);

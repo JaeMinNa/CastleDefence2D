@@ -16,6 +16,8 @@ MonoBehaviour:
   Atk: 10
   Hp: 0
   Level: 1
+  MaxExp: 10
+  CurrentExp: 0
   SkillTime: 3
   AttackCoolTime: 1.5
   NuckbackPower: 2

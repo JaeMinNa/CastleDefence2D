@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillSO_Fireball
   m_EditorClassIdentifier: 
   Tag: Fireball
-  Atk: 12
+  AtkRatio: 1.6
   NuckbackPower: 2
   Speed: 7
   ExplosionRange: 3
@@ -23,6 +23,6 @@ MonoBehaviour:
   SkillExplosionTag: FireballExplosion
   Icon: {fileID: 0}
   SkillPrefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
-  ColliderName: MeleeCollider
+  ColliderName: 
   StartPosition: {x: 1.5, y: 1.5, z: 0}
   HitRangePosition: {x: 0, y: 0, z: 0}

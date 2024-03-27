@@ -9,6 +9,8 @@ public class CastleSO : StatSO
 {
     [Header("Castle Stats")]
     public int Level;
+    public float MaxExp;
+    public float CurrentExp;
     public float NuckbackPower;
     public float AttackCoolTime;
 }

@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Castle"))
         {
-            if(_stageController.IsDangerTime) _castleController.CastleHit(_rangedEnemySO.Atk * _stageController.DangerTimeAtk);
+            if(_stageController.IsDangerTime) _castleController.CastleHit(_rangedEnemySO.Atk * _stageController.DangerTimeAtkRatio);
             else _castleController.CastleHit(_rangedEnemySO.Atk);
             gameObject.SetActive(false);
         }

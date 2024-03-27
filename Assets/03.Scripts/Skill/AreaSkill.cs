@@ -10,6 +10,7 @@ public class AreaSkill : MonoBehaviour
     private Animator _animator;
     private CameraShake _cameraShake;
     private SkillSO _areaSkillSO;
+    private PlayerSO _playerSO;
     private Vector3 _startPos;
     private Vector2 _dir;
     private LayerMask _layerMask;
@@ -18,6 +19,7 @@ public class AreaSkill : MonoBehaviour
     private void Start()
     {
         _player = GameManager.I.PlayerManager.Player;
+        _playerSO = _player.GetComponent<PlayerController>().PlayerSO;
         _areaSkillSO = _player.GetComponent<PlayerController>().PlayerSO.AreaSkill;
         _animator = transform.GetChild(0).GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
@@ -60,8 +62,8 @@ public class AreaSkill : MonoBehaviour
         {
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
-            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _areaSkillSO.Atk;
-            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)_areaSkillSO.Atk, 31);
+            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _playerSO.Atk * _areaSkillSO.AtkRatio;
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(_playerSO.Atk * _areaSkillSO.AtkRatio), 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _areaSkillSO.NuckbackPower, ForceMode2D.Impulse);
