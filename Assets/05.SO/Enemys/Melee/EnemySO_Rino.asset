@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EnemySO_Rino
   m_EditorClassIdentifier: 
   Speed: 1
-  Atk: 20
-  Hp: 60
+  Atk: 40
+  Hp: 30
   AttackType: 0
-  Price: 100
+  Price: 200
   CoinDropPercent: 10
   BulletTag: 
   BulletSpeed: 0

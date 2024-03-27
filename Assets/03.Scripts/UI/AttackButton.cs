@@ -119,18 +119,21 @@ public class AttackButton : MonoBehaviour
             if((ClickTime >= _playerController.PlayerSO.SkillTime) && !_areaSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
+                GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _areaSkillStart = true;
             }
             else if((ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime)
                  && !_rangedSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
+                GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _rangedSkillStart = true;
             }
             else if((ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
                  && !_meleeSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
+                GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _meleeSkillStart = true;
             }
 

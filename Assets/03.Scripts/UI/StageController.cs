@@ -37,14 +37,21 @@ public class StageController : MonoBehaviour
     private float _time;
     private bool _gameFinish;
     private string _currentScene;
+    private int _currentStage;
     
     private void Start()
     {
         IsDangerTime = false;
         _gameFinish = false;
         _time = 60f;
-        _stageText.text = "STAGE " + GameManager.I.DataManager.GameDataSO.Stage.ToString();
+        _currentStage = GameManager.I.DataManager.GameDataSO.Stage;
+        _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
+
+        if(_currentStage % 5 == 0)
+        {
+            EnemyLevelUp();
+        }
     }
 
     private void Update()
@@ -56,7 +63,6 @@ public class StageController : MonoBehaviour
         {
             _gameFinish = true;
             _time = 0;
-            //StopDangerTime();
             GameClearActive();
         }
         else if(_time <= 20f && !IsDangerTime)
@@ -82,29 +88,26 @@ public class StageController : MonoBehaviour
     public void GameClearActive()
     {
         Time.timeScale = 0f;
-        _gameClearCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
 
         if(_castleController.Hp >= (_castleController.CastleSO.Hp / 3) * 2)
         {
             _star3.SetActive(true);
+            GameManager.I.DataManager.CoinUpdate(1500);
         }
         else if(_castleController.Hp >= _castleController.CastleSO.Hp / 3)
         {
             _star2.SetActive(true);
+            GameManager.I.DataManager.CoinUpdate(1000);
         }
         else
         {
             _star1.SetActive(true);
+            GameManager.I.DataManager.CoinUpdate(500);
         }
 
+        _gameClearCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameClear.gameObject.SetActive(true);
     }
-
-    //public void GameClearInactive()
-    //{
-    //    _gameClear.gameObject.SetActive(false);
-    //    Time.timeScale = 1f;
-    //}
 
     public void GameOverActive()
     {
@@ -112,12 +115,6 @@ public class StageController : MonoBehaviour
         _gameOverCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameOver.gameObject.SetActive(true);
     }
-
-    //public void GameOverInactive()
-    //{
-    //    _gameOver.gameObject.SetActive(false);
-    //    Time.timeScale = 1f;
-    //}
 
     public void NextSceneButton()
     {
@@ -137,6 +134,7 @@ public class StageController : MonoBehaviour
     public void LobySceneButton()
     {
         Time.timeScale = 1f;
+        GameManager.I.DataManager.GameDataSO.Stage++;
         GameManager.I.DataManager.GameDataSO.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove("LobyScene");
     }
@@ -146,5 +144,21 @@ public class StageController : MonoBehaviour
         _dangerTimePanel.SetActive(true);
         yield return new WaitForSeconds(_dangerTimePanelActiveTime);
         _dangerTimePanel.SetActive(false);
+    }
+
+    private void EnemyLevelUp()
+    {
+        EnemySO[] meleeEnemySO = GameManager.I.DataManager.MeleeEnemySO;
+        EnemySO[] rangedEnemySO = GameManager.I.DataManager.RangedEnemySO;
+        for (int i = 0; i < meleeEnemySO.Length; i++)
+        {
+            meleeEnemySO[i].Atk *= 1.2f;
+            meleeEnemySO[i].Hp *= 1.2f;
+        }
+        for (int i = 0; i < rangedEnemySO.Length; i++)
+        {
+            rangedEnemySO[i].Atk *= 1.2f;
+            rangedEnemySO[i].Hp *= 1.2f;
+        }
     }
 }

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EnemySO_Mushroom
   m_EditorClassIdentifier: 
   Speed: 2.5
-  Atk: 6
-  Hp: 40
+  Atk: 15
+  Hp: 20
   AttackType: 0
-  Price: 100
+  Price: 150
   CoinDropPercent: 10
   BulletTag: 
   BulletSpeed: 0

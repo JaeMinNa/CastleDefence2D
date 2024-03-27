@@ -16,7 +16,7 @@ MonoBehaviour:
   Atk: 8
   Hp: 20
   AttackType: 0
-  Price: 100
+  Price: 150
   CoinDropPercent: 10
   BulletTag: 
   BulletSpeed: 0

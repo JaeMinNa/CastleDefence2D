@@ -5388,7 +5388,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 624289545}
   m_HandleRect: {fileID: 0}
@@ -6199,8 +6199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35b1ff0d9c19504b967da72eeba1267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DangerTimeSpeed: 1.5
-  DangerTimeAtk: 1.5
+  DangerTimeSpeedRatio: 1.5
+  DangerTimeAtkRatio: 1.5
   _dangerTimePanel: {fileID: 791660151}
   _dangerTimePanelActiveTime: 2
   _castleController: {fileID: 2054242724}
@@ -16509,6 +16509,31 @@ MonoBehaviour:
     enemys:
     - Snail 10
     - Rock 15
+  - Stage: 6
+    enemys:
+    - Snail 10
+    - Rock 15
+    - Chicken 20
+  - Stage: 7
+    enemys:
+    - Snail 10
+    - Rock 15
+    - Chicken 15
+  - Stage: 8
+    enemys:
+    - Snail 10
+    - Rock 15
+    - Chicken 15
+  - Stage: 9
+    enemys:
+    - Snail 9
+    - Rock 13
+    - Chicken 12
+  - Stage: 10
+    enemys:
+    - Snail 8
+    - Rock 12
+    - Chicken 10
   _spawnLeft: {fileID: 1182914271}
   _spawnRigth: {fileID: 903896539}
 --- !u!1 &1849830011
@@ -17857,9 +17882,6 @@ MonoBehaviour:
   _stageController: {fileID: 914461316}
   _arrowRight: {fileID: 1283840632}
   _arrowLeft: {fileID: 587694456}
-  _gameDataSO: {fileID: 0}
-  _dangerTimeSpeed: 1.5
-  _dangerTimeAttack: 1.5
 --- !u!95 &2054242725
 Animator:
   serializedVersion: 5

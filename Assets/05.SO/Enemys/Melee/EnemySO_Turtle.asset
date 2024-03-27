@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EnemySO_Turtle
   m_EditorClassIdentifier: 
   Speed: 1.2
-  Atk: 15
-  Hp: 80
+  Atk: 30
+  Hp: 40
   AttackType: 0
-  Price: 100
+  Price: 200
   CoinDropPercent: 10
   BulletTag: 
   BulletSpeed: 0

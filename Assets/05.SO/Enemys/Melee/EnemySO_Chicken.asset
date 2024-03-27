@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EnemySO_Chicken
   m_EditorClassIdentifier: 
   Speed: 2.5
-  Atk: 9
-  Hp: 25
+  Atk: 12
+  Hp: 30
   AttackType: 0
-  Price: 100
+  Price: 150
   CoinDropPercent: 10
   BulletTag: 
   BulletSpeed: 0
