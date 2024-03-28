@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeleeSkill : MonoBehaviour
 {
+    [SerializeField] private float _inactiveTime;
     private SkillSO _meleeSkillSO;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
@@ -37,7 +38,7 @@ public class MeleeSkill : MonoBehaviour
 
     IEnumerator COSkillStart()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_inactiveTime);
         gameObject.SetActive(false);
     }
 }

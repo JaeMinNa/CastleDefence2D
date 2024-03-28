@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f2da647dee33445bc573f0c66d6b78, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  Speed: 3
-  Atk: 10
+  Speed: -3.1
+  Atk: 11
   Hp: 0
-  Level: 1
-  MaxExp: 10
+  Level: 2
+  MaxExp: 15
   CurrentExp: 0
   SkillTime: 3
   AttackCoolTime: 1.5
   NuckbackPower: 2
-  MeleeSkill: {fileID: 11400000, guid: 76e62fbe338a6834db40cb13b81dd03d, type: 2}
+  MeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
   RangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
   AreaSkill: {fileID: 11400000, guid: 3410f2ea46af027479dbc8f5c38dd7c4, type: 2}

@@ -108,6 +108,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e0758b1767093844685ecc2499f7d570, type: 2}
   MeleeSkillSO:
   - {fileID: 11400000, guid: 76e62fbe338a6834db40cb13b81dd03d, type: 2}
+  - {fileID: 11400000, guid: 7e2403eb832ac91439b0f819e3b26b47, type: 2}
+  - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
+  - {fileID: 11400000, guid: e4effb7217135ca4aa2529d088330be4, type: 2}
+  - {fileID: 11400000, guid: 7e2403eb832ac91439b0f819e3b26b47, type: 2}
+  - {fileID: 11400000, guid: 67836e6660c7e8b49a3f37f2d8647216, type: 2}
+  - {fileID: 11400000, guid: 631f89b42de22f44ea7453a05d80cb9c, type: 2}
   RangedSkillSO:
   - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
   AreaSkillSO:
@@ -259,6 +265,12 @@ MonoBehaviour:
   - Tag: DamageText
     Prefab: {fileID: 500341896692516274, guid: c613fffea55b6b04e93676828edee559, type: 3}
     Size: 10
+  - Tag: Coin
+    Prefab: {fileID: 1207953760633664974, guid: 6d62b1e668d924846bccc1544160ff62, type: 3}
+    Size: 5
+  - Tag: SkillUseEffect
+    Prefab: {fileID: 3212827731853332467, guid: 992f051cc943c5a449d8c8d38185c486, type: 3}
+    Size: 3
   - Tag: Snail
     Prefab: {fileID: 2038854280295399926, guid: e8529ea1f783778479a0e13d8cdf0c87, type: 3}
     Size: 20
@@ -286,15 +298,6 @@ MonoBehaviour:
   - Tag: PlantBullet
     Prefab: {fileID: 4167231109741127983, guid: 27da52631c2f40845a5f352a056a265b, type: 3}
     Size: 20
-  - Tag: Strike
-    Prefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
-    Size: 3
-  - Tag: Fireball
-    Prefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
-    Size: 3
-  - Tag: BoltStrike
-    Prefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
-    Size: 10
   - Tag: Radish
     Prefab: {fileID: 126680257859585847, guid: a36cc330bba299b409471e21fb4b188e, type: 3}
     Size: 20
@@ -313,12 +316,33 @@ MonoBehaviour:
   - Tag: TrunkBullet
     Prefab: {fileID: 2544040306454456528, guid: 88db59ff6b3c3874cb5e27833880b519, type: 3}
     Size: 20
-  - Tag: Coin
-    Prefab: {fileID: 1207953760633664974, guid: 6d62b1e668d924846bccc1544160ff62, type: 3}
-    Size: 5
-  - Tag: SkillUseEffect
-    Prefab: {fileID: 3212827731853332467, guid: 992f051cc943c5a449d8c8d38185c486, type: 3}
+  - Tag: Strike
+    Prefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
     Size: 3
+  - Tag: FireSword
+    Prefab: {fileID: 3441451260093034319, guid: 6625b6968dfaae2448152f5a4b0a1752, type: 3}
+    Size: 3
+  - Tag: BoltSword
+    Prefab: {fileID: 3229158916309934281, guid: 7a218e03f9922264385586c23c098e31, type: 3}
+    Size: 3
+  - Tag: WindSword
+    Prefab: {fileID: 2472299320664937498, guid: 6e143065e50c4154db4e94ce80034c52, type: 3}
+    Size: 3
+  - Tag: BloodStrike
+    Prefab: {fileID: 2701655741949306210, guid: eb7004d583d70ac4588596f2ba7bab46, type: 3}
+    Size: 3
+  - Tag: HolyStrike
+    Prefab: {fileID: 1071342194878868471, guid: 8af313e79862e5c4e996381082cb4115, type: 3}
+    Size: 3
+  - Tag: MagmaStrike
+    Prefab: {fileID: 6832522046984261472, guid: 2e823477607f3b949adb4d5941f0d852, type: 3}
+    Size: 3
+  - Tag: Fireball
+    Prefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
+    Size: 3
+  - Tag: BoltStrike
+    Prefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
+    Size: 10
 --- !u!114 &5420529968276100871
 MonoBehaviour:
   m_ObjectHideFlags: 0

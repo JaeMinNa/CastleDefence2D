@@ -54,7 +54,19 @@ public class DataManager : MonoBehaviour
 
         // MeleeSkill
         // Strike
-        MeleeSkillSO[0].AtkRatio = 1.2f;
+        MeleeSkillSO[0].AtkRatio = 1.1f;
+        // BoltSword
+        MeleeSkillSO[1].AtkRatio = 1.4f;
+        // FireSword
+        MeleeSkillSO[2].AtkRatio = 1.3f;
+        // WindSword
+        MeleeSkillSO[3].AtkRatio = 1.2f;
+        // BloodStrike
+        MeleeSkillSO[4].AtkRatio = 1.5f;
+        // HolyStrike
+        MeleeSkillSO[5].AtkRatio = 1.4f;
+        // MagmaStrike
+        MeleeSkillSO[6].AtkRatio = 1.5f;
 
         // RangedSkill
         // Fireball

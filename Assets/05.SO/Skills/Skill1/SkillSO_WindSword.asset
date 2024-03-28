@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9b105edc56d9f4b8100bf786b3f9a6, type: 3}
+  m_Name: SkillSO_WindSword
+  m_EditorClassIdentifier: 
+  Tag: WindSword
+  AtkRatio: 1.2
+  NuckbackPower: 3
+  Speed: 0
+  ExplosionRange: 0
+  Range: 0
+  Count: 0
+  Interval: 0
+  SkillExplosionTag: 
+  Icon: {fileID: 0}
+  SkillPrefab: {fileID: 2472299320664937498, guid: 6e143065e50c4154db4e94ce80034c52, type: 3}
+  ColliderName: MeleeCollider
+  StartPosition: {x: 1.2, y: 0.7, z: 0}
+  HitRangePosition: {x: 0, y: 0, z: 0}
