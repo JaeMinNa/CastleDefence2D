@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkillSO_HolyStrike
   m_EditorClassIdentifier: 
   Tag: HolyStrike
-  AtkRatio: 1.4
+  Rank: 1
+  AtkRatio: 1.6
   NuckbackPower: 2
   Speed: 0
   ExplosionRange: 0

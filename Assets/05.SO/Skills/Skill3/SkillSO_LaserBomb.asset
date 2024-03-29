@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9b105edc56d9f4b8100bf786b3f9a6, type: 3}
+  m_Name: SkillSO_LaserBomb
+  m_EditorClassIdentifier: 
+  Tag: LaserBomb
+  Rank: 0
+  AtkRatio: 1.4
+  NuckbackPower: 2
+  Speed: 17
+  ExplosionRange: 2
+  Range: 10
+  Count: 7
+  Interval: 1
+  SkillExplosionTag: LaserBombExplosion
+  Icon: {fileID: 0}
+  SkillPrefab: {fileID: 7883135397449089872, guid: 5dae061fca67af546aeee2f6ae9eeab3, type: 3}
+  ColliderName: 
+  StartPosition: {x: 0, y: 0, z: 0}
+  HitRangePosition: {x: 0, y: 0, z: 0}

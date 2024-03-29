@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: SkillSO_Fireball
   m_EditorClassIdentifier: 
   Tag: Fireball
-  AtkRatio: 1.6
-  NuckbackPower: 2
-  Speed: 7
+  Rank: 0
+  AtkRatio: 1.4
+  NuckbackPower: 2.5
+  Speed: 6
   ExplosionRange: 3
   Range: 0
   Count: 0

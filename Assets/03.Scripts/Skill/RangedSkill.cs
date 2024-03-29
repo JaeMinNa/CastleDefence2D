@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RangedSkill : MonoBehaviour
@@ -94,7 +93,7 @@ public class RangedSkill : MonoBehaviour
 
         for (int i = 0; i < _targets.Length; i++)
         {
-            _dir = _targets[i].gameObject.transform.position - transform.position;
+            _dir = _targets[i].gameObject.transform.position - _player.transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _playerSO.Atk * _rangedSkillSO.AtkRatio;
             GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(_playerSO.Atk * _rangedSkillSO.AtkRatio), 31);
@@ -119,12 +118,23 @@ public class RangedSkill : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            _skillSpriteRenderer.enabled = false;
             GameManager.I.SoundManager.StartSFX(_rangedSkillSO.SkillExplosionTag);
             StartCoroutine(_cameraShake.COShake(0.8f, 1.5f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
-            _animator.SetTrigger("Hit");
             Targetting();
+
+            _animator.SetTrigger("Hit");
+            if (!_skillSpriteRenderer.flipX)
+            {
+                transform.position += _rangedSkillSO.HitRangePosition;
+            }
+            else
+            {
+                transform.position += new Vector3(-_rangedSkillSO.HitRangePosition.x, _rangedSkillSO.HitRangePosition.y, _rangedSkillSO.HitRangePosition.z);
+            }
+            _skillSpriteRenderer.enabled = true;
         }
     }
 

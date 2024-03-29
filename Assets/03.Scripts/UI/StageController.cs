@@ -25,6 +25,7 @@ public class StageController : MonoBehaviour
     [Header("GameClear")]
     [SerializeField] private GameObject _gameClear;
     [SerializeField] private TMP_Text _gameClearCoinText;
+    [SerializeField] private TMP_Text _gameClearStageText;
     [SerializeField] private GameObject _star3;
     [SerializeField] private GameObject _star2;
     [SerializeField] private GameObject _star1;
@@ -32,6 +33,7 @@ public class StageController : MonoBehaviour
     [Header("GameOver")]
     [SerializeField] private GameObject _gameOver;
     [SerializeField] private TMP_Text _gameOverCoinText;
+    [SerializeField] private TMP_Text _gameOverStageText;
 
     [HideInInspector] public bool IsDangerTime;
     private float _time;
@@ -47,11 +49,6 @@ public class StageController : MonoBehaviour
         _currentStage = GameManager.I.DataManager.GameDataSO.Stage;
         _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
-
-        if(_currentStage % 5 == 0)
-        {
-            EnemyLevelUp();
-        }
     }
 
     private void Update()
@@ -88,8 +85,9 @@ public class StageController : MonoBehaviour
     public void GameClearActive()
     {
         Time.timeScale = 0f;
+        GameManager.I.DataManager.GameDataSO.Stage++;
 
-        if(_castleController.Hp >= (_castleController.CastleSO.Hp / 3) * 2)
+        if (_castleController.Hp >= (_castleController.CastleSO.Hp / 3) * 2)
         {
             _star3.SetActive(true);
             GameManager.I.DataManager.CoinUpdate(1500);
@@ -105,21 +103,28 @@ public class StageController : MonoBehaviour
             GameManager.I.DataManager.CoinUpdate(500);
         }
 
+        if (_currentStage % 5 == 0)
+        {
+            EnemyLevelUp();
+        }
+
+        _gameClearStageText.text = "STAGE " + _currentStage.ToString();
         _gameClearCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameClear.gameObject.SetActive(true);
     }
 
     public void GameOverActive()
     {
+        _dangerTimePanel.SetActive(false);
         Time.timeScale = 0f;
         _gameOverCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
+        _gameOverStageText.text = "STAGE " + _currentStage.ToString();
         _gameOver.gameObject.SetActive(true);
     }
 
     public void NextSceneButton()
     {
         Time.timeScale = 1f;
-        GameManager.I.DataManager.GameDataSO.Stage++;
         GameManager.I.DataManager.GameDataSO.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove(_currentScene);
     }

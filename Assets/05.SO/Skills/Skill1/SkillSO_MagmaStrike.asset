@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SkillSO_MagmaStrike
   m_EditorClassIdentifier: 
   Tag: MagmaStrike
-  AtkRatio: 1.6
-  NuckbackPower: 0.3
+  Rank: 0
+  AtkRatio: 1.4
+  NuckbackPower: 2
   Speed: 0
   ExplosionRange: 0
   Range: 0

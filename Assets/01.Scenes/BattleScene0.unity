@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 122209036}
   - component: {fileID: 122209035}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4387,7 +4387,7 @@ GameObject:
   - component: {fileID: 596323890}
   - component: {fileID: 596323889}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6209,11 +6209,13 @@ MonoBehaviour:
   _pause: {fileID: 710805754}
   _gameClear: {fileID: 935687460}
   _gameClearCoinText: {fileID: 126523948}
+  _gameClearStageText: {fileID: 596323889}
   _star3: {fileID: 330119514}
   _star2: {fileID: 1795625957}
   _star1: {fileID: 512483442}
   _gameOver: {fileID: 901599948}
   _gameOverCoinText: {fileID: 1215020839}
+  _gameOverStageText: {fileID: 122209035}
   IsDangerTime: 0
 --- !u!1 &925802199
 GameObject:

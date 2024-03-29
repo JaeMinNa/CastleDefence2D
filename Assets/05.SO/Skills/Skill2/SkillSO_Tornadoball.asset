@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9b105edc56d9f4b8100bf786b3f9a6, type: 3}
+  m_Name: SkillSO_Tornadoball
+  m_EditorClassIdentifier: 
+  Tag: Tornadoball
+  Rank: 1
+  AtkRatio: 1.7
+  NuckbackPower: 3
+  Speed: 8.5
+  ExplosionRange: 1.5
+  Range: 0
+  Count: 0
+  Interval: 0
+  SkillExplosionTag: TornadoballExplosion
+  Icon: {fileID: 0}
+  SkillPrefab: {fileID: 2223967610961474131, guid: cc65e3221f58fd646a0e25f4531905dd, type: 3}
+  ColliderName: 
+  StartPosition: {x: 0.5, y: 1.5, z: 0}
+  HitRangePosition: {x: 1, y: 0.6, z: 0}

@@ -2,26 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//public enum SkillStep
-//{
-//    First,
-//    Second,
-//    Third,
-//}
-
-//public enum SkillType
-//{
-//    Melee,
-//    Ranged,
-//}
-
 [CreateAssetMenu(fileName = "SkillSO", menuName = "Data/SkillSO", order = 5)]
 public class SkillSO : ScriptableObject
 {
+    public enum SkillRank
+    {
+        B,
+        A,
+        S,
+    }
+
     [Header("Common Skill Info")]
     public string Tag;
-    //public SkillStep SkillStep;
-    //public SkillType SkillType;
+    public SkillRank Rank;
     public float AtkRatio;
     public float NuckbackPower;
     public float Speed;

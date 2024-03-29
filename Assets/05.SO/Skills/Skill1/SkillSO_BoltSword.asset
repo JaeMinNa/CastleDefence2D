@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SkillSO_BoltSword
   m_EditorClassIdentifier: 
   Tag: BoltSword
-  AtkRatio: 1.5
-  NuckbackPower: 0.5
+  Rank: 2
+  AtkRatio: 1.9
+  NuckbackPower: 1.5
   Speed: 0
   ExplosionRange: 0
   Range: 0

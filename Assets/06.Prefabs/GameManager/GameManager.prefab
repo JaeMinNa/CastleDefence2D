@@ -111,13 +111,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e2403eb832ac91439b0f819e3b26b47, type: 2}
   - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
   - {fileID: 11400000, guid: e4effb7217135ca4aa2529d088330be4, type: 2}
-  - {fileID: 11400000, guid: 7e2403eb832ac91439b0f819e3b26b47, type: 2}
+  - {fileID: 11400000, guid: 9c1b39f42df65d94ebfbe606944c9add, type: 2}
   - {fileID: 11400000, guid: 67836e6660c7e8b49a3f37f2d8647216, type: 2}
   - {fileID: 11400000, guid: 631f89b42de22f44ea7453a05d80cb9c, type: 2}
   RangedSkillSO:
   - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
+  - {fileID: 11400000, guid: 2a0b9de3462f00f4db61c9a2f5d71a6c, type: 2}
+  - {fileID: 11400000, guid: f89a464774d60b94b9a66fd6771ef820, type: 2}
+  - {fileID: 11400000, guid: f551cc089b9402f4383337b5934de922, type: 2}
+  - {fileID: 11400000, guid: 6659933d8b62567458b0ba2617a3492f, type: 2}
+  - {fileID: 11400000, guid: d46288b5ec505a34189b608a8ee8ff21, type: 2}
   AreaSkillSO:
   - {fileID: 11400000, guid: 3410f2ea46af027479dbc8f5c38dd7c4, type: 2}
+  - {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
+  - {fileID: 11400000, guid: 5c4bfc47e3996f04a90d01bca51d15e9, type: 2}
+  - {fileID: 11400000, guid: 37bda9aa2b6ff1e49b1c133b1f0f4abd, type: 2}
+  - {fileID: 11400000, guid: b7e1ab8d9d1b5ce4e912ab3958099ca3, type: 2}
+  - {fileID: 11400000, guid: 60c21d8a88824544cbaae50987addbb6, type: 2}
   CurrentStageCoin: 0
 --- !u!1 &4460205502225582209
 GameObject:
@@ -339,10 +349,40 @@ MonoBehaviour:
     Size: 3
   - Tag: Fireball
     Prefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
-    Size: 3
-  - Tag: BoltStrike
+    Size: 5
+  - Tag: Boltball
+    Prefab: {fileID: 6700474119340773093, guid: 22656d4e70ae3b040a04514148040bd7, type: 3}
+    Size: 5
+  - Tag: Darkball
+    Prefab: {fileID: 7177758944140442157, guid: e0cb9780248f65d4b89c1030d09cbb39, type: 3}
+    Size: 5
+  - Tag: BlueFireball
+    Prefab: {fileID: 1564806609306032209, guid: da520ec23671ebd45b1b8d594857a0cd, type: 3}
+    Size: 5
+  - Tag: Tornadoball
+    Prefab: {fileID: 2223967610961474131, guid: cc65e3221f58fd646a0e25f4531905dd, type: 3}
+    Size: 5
+  - Tag: Laser
+    Prefab: {fileID: 4459925576623694883, guid: 45c0dcf52927b0b40a53899423c71e6d, type: 3}
+    Size: 5
+  - Tag: BoltShower
     Prefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
-    Size: 10
+    Size: 20
+  - Tag: FireShower
+    Prefab: {fileID: 4833021194986502740, guid: b667e5e713db792418aec24514148b93, type: 3}
+    Size: 20
+  - Tag: DarkRain
+    Prefab: {fileID: 9001853056876136201, guid: 661602179bf3eae4ca32710306f25c26, type: 3}
+    Size: 20
+  - Tag: BlueFireRain
+    Prefab: {fileID: 6923085714765448852, guid: ee11776c13ce6064f84c23b3593e1da8, type: 3}
+    Size: 20
+  - Tag: TornadoShower
+    Prefab: {fileID: 883755590088112839, guid: 979f5d10cd9ddd64dac113909dbc3cd2, type: 3}
+    Size: 20
+  - Tag: LaserBomb
+    Prefab: {fileID: 7883135397449089872, guid: 5dae061fca67af546aeee2f6ae9eeab3, type: 3}
+    Size: 20
 --- !u!114 &5420529968276100871
 MonoBehaviour:
   m_ObjectHideFlags: 0

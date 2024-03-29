@@ -54,31 +54,59 @@ public class DataManager : MonoBehaviour
 
         // MeleeSkill
         // Strike
-        MeleeSkillSO[0].AtkRatio = 1.1f;
+        MeleeSkillSO[0].AtkRatio = 1.5f;
         // BoltSword
-        MeleeSkillSO[1].AtkRatio = 1.4f;
+        MeleeSkillSO[1].AtkRatio = 1.9f;
         // FireSword
         MeleeSkillSO[2].AtkRatio = 1.3f;
         // WindSword
         MeleeSkillSO[3].AtkRatio = 1.2f;
         // BloodStrike
-        MeleeSkillSO[4].AtkRatio = 1.5f;
+        MeleeSkillSO[4].AtkRatio = 1.8f;
         // HolyStrike
-        MeleeSkillSO[5].AtkRatio = 1.4f;
+        MeleeSkillSO[5].AtkRatio = 1.6f;
         // MagmaStrike
-        MeleeSkillSO[6].AtkRatio = 1.5f;
+        MeleeSkillSO[6].AtkRatio = 1.4f;
 
         // RangedSkill
         // Fireball
-        RangedSkillSO[0].AtkRatio = 1.6f;
-        RangedSkillSO[0].Speed = 7f;
+        RangedSkillSO[0].AtkRatio = 1.4f;
+        // Boltball
+        RangedSkillSO[1].AtkRatio = 2.1f;
+        // Darkball
+        RangedSkillSO[2].AtkRatio = 1.6f;
+        // BlueFireball
+        RangedSkillSO[3].AtkRatio = 1.8f;
+        // Tornadoball
+        RangedSkillSO[4].AtkRatio = 1.7f;
+        // Laser
+        RangedSkillSO[5].AtkRatio = 1.5f;
 
         // AreaSkill
-        // BoltStrike
-        AreaSkillSO[0].AtkRatio = 1.4f;
-        AreaSkillSO[0].Speed = 10f;
+        // BoltShower
+        AreaSkillSO[0].AtkRatio = 2f;
         AreaSkillSO[0].Count = 7;
         AreaSkillSO[0].Interval = 1f;
+        // FireShower
+        AreaSkillSO[1].AtkRatio = 1.5f;
+        AreaSkillSO[1].Count = 7;
+        AreaSkillSO[1].Interval = 1f;
+        // DarkRain
+        AreaSkillSO[2].AtkRatio = 1.3f;
+        AreaSkillSO[2].Count = 7;
+        AreaSkillSO[2].Interval = 1f;
+        // BlueFireRain
+        AreaSkillSO[3].AtkRatio = 1.8f;
+        AreaSkillSO[3].Count = 7;
+        AreaSkillSO[3].Interval = 1f;
+        // TornadoShower
+        AreaSkillSO[4].AtkRatio = 1.7f;
+        AreaSkillSO[4].Count = 7;
+        AreaSkillSO[4].Interval = 1f;
+        // LaserBomb
+        AreaSkillSO[5].AtkRatio = 1.4f;
+        AreaSkillSO[5].Count = 7;
+        AreaSkillSO[5].Interval = 1f;
 
         // MeleeEnemy
         // Snail

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SkillSO_WindSword
   m_EditorClassIdentifier: 
   Tag: WindSword
+  Rank: 0
   AtkRatio: 1.2
   NuckbackPower: 3
   Speed: 0

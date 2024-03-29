@@ -52,8 +52,8 @@ public class SoundManager : MonoBehaviour
         _sfx.Add("Strike", Resources.Load<AudioClip>("Sound/SFX/Skills/Strike"));
         _sfx.Add("Fireball", Resources.Load<AudioClip>("Sound/SFX/Skills/Fireball"));
         _sfx.Add("FireballExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/FireballExplosion"));
-        _sfx.Add("BoltStrike", Resources.Load<AudioClip>("Sound/SFX/Skills/BoltStrike"));
-        _sfx.Add("BoltStrikeExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/BoltStrikeExplosion"));
+        _sfx.Add("BoltShower", Resources.Load<AudioClip>("Sound/SFX/Skills/BoltStrike"));
+        _sfx.Add("BoltShowerExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/BoltStrikeExplosion"));
         _sfx.Add("Danger", Resources.Load<AudioClip>("Sound/SFX/UI/Danger"));
         _sfx.Add("ArrowShoot", Resources.Load<AudioClip>("Sound/SFX/Arrow/ArrowShoot"));
         _sfx.Add("ArrowHit", Resources.Load<AudioClip>("Sound/SFX/Arrow/ArrowHit"));
@@ -68,6 +68,26 @@ public class SoundManager : MonoBehaviour
         _sfx.Add("BloodStrike", Resources.Load<AudioClip>("Sound/SFX/Skills/BloodStrike"));
         _sfx.Add("HolyStrike", Resources.Load<AudioClip>("Sound/SFX/Skills/HolyStrike"));
         _sfx.Add("MagmaStrike", Resources.Load<AudioClip>("Sound/SFX/Skills/MagmaStrike"));
+        _sfx.Add("FireShower", Resources.Load<AudioClip>("Sound/SFX/Skills/Fireball"));
+        _sfx.Add("FireShowerExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/FireballExplosion"));
+        _sfx.Add("Boltball", Resources.Load<AudioClip>("Sound/SFX/Skills/BoltStrike"));
+        _sfx.Add("BoltballExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/BoltStrikeExplosion"));
+        _sfx.Add("Darkball", Resources.Load<AudioClip>("Sound/SFX/Skills/Darkball"));
+        _sfx.Add("DarkballExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/DarkballExplosion"));
+        _sfx.Add("DarkRain", Resources.Load<AudioClip>("Sound/SFX/Skills/Darkball"));
+        _sfx.Add("DarkRainExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/DarkballExplosion"));
+        _sfx.Add("BlueFireball", Resources.Load<AudioClip>("Sound/SFX/Skills/Fireball"));
+        _sfx.Add("BlueFireballExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/MagmaStrike"));
+        _sfx.Add("BlueFireRain", Resources.Load<AudioClip>("Sound/SFX/Skills/Fireball"));
+        _sfx.Add("BlueFireRainExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/MagmaStrike"));
+        _sfx.Add("Tornadoball", Resources.Load<AudioClip>("Sound/SFX/Skills/Tornadoball"));
+        _sfx.Add("TornadoballExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/TornadoballExplosion"));
+        _sfx.Add("TornadoShower", Resources.Load<AudioClip>("Sound/SFX/Skills/Tornadoball"));
+        _sfx.Add("TornadoShowerExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/TornadoballExplosion"));
+        _sfx.Add("Laser", Resources.Load<AudioClip>("Sound/SFX/Skills/Laser"));
+        _sfx.Add("LaserExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/LaserExplosion"));
+        _sfx.Add("LaserBomb", Resources.Load<AudioClip>("Sound/SFX/Skills/Laser"));
+        _sfx.Add("LaserBombExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/LaserExplosion"));
     }
 
     // 메모리 해제

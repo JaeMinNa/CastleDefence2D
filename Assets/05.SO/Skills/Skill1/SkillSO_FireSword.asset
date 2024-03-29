@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SkillSO_FireSword
   m_EditorClassIdentifier: 
   Tag: FireSword
+  Rank: 0
   AtkRatio: 1.3
-  NuckbackPower: 3
+  NuckbackPower: 2.5
   Speed: 0
   ExplosionRange: 0
   Range: 0

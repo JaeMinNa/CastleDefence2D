@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SkillSO_BloodStrike
   m_EditorClassIdentifier: 
   Tag: BloodStrike
-  AtkRatio: 1.4
-  NuckbackPower: 0.7
+  Rank: 2
+  AtkRatio: 1.8
+  NuckbackPower: 2
   Speed: 0
   ExplosionRange: 0
   Range: 0

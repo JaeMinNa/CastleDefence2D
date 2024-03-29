@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SkillSO_Strike
   m_EditorClassIdentifier: 
   Tag: Strike
-  AtkRatio: 1.1
-  NuckbackPower: 3.5
+  Rank: 1
+  AtkRatio: 1.5
+  NuckbackPower: 3
   Speed: 0
   ExplosionRange: 0
   Range: 0
