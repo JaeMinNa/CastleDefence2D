@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_Strike
   m_EditorClassIdentifier: 
   Tag: Strike
-  Rank: 1
+  Type: 1
+  Rank: 2
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.5
   NuckbackPower: 3
   Speed: 0
   ExplosionRange: 0
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 1a862a305a44ca64e939c2b35b24e829, type: 3}
   SkillPrefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
   ColliderName: MeleeCollider
   StartPosition: {x: 6.5, y: 1.5, z: 0}

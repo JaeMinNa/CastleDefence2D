@@ -27,7 +27,7 @@ public class RangedSkill : MonoBehaviour
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _animator = _skillSpriteRenderer.transform.GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
-        _rangedSkillSO = _player.GetComponent<PlayerController>().PlayerSO.RangedSkill;
+        _rangedSkillSO = _player.GetComponent<PlayerController>().PlayerSO.EquipRangedSkill;
         _layerMask = LayerMask.NameToLayer("Enemy");
         _isMove = true;
         _localPosition = transform.GetChild(0).gameObject.transform.localPosition;

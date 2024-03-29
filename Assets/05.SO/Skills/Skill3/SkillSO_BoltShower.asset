@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_BoltShower
   m_EditorClassIdentifier: 
   Tag: BoltShower
-  Rank: 2
-  AtkRatio: 2
+  Type: 3
+  Rank: 3
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
+  AtkRatio: 1.9
   NuckbackPower: 1.5
   Speed: 10
   ExplosionRange: 2
+  IsEquip: 0
   Range: 10
   Count: 7
   Interval: 1
   SkillExplosionTag: BoltShowerExplosion
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 11b244da10d941340a9f3c6838e55716, type: 3}
   SkillPrefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
   ColliderName: 
   StartPosition: {x: 0, y: 0, z: 0}

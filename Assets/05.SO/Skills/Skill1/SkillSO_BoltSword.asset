@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_BoltSword
   m_EditorClassIdentifier: 
   Tag: BoltSword
-  Rank: 2
+  Type: 1
+  Rank: 3
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.9
   NuckbackPower: 1.5
   Speed: 0
   ExplosionRange: 0
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 385f6ba0c11060144b63769f0fc16f15, type: 3}
   SkillPrefab: {fileID: 3229158916309934281, guid: 7a218e03f9922264385586c23c098e31, type: 3}
   ColliderName: MeleeCollider
   StartPosition: {x: 2, y: 0.8, z: 0}

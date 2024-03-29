@@ -11,7 +11,7 @@ public class PlayerAttackCollider : MonoBehaviour
     private void Start()
     {
         _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
-        _meleeSkillSO = _playerController.PlayerSO.MeleeSkill;
+        _meleeSkillSO = _playerController.PlayerSO.EquipMeleeSkill;
         _cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 

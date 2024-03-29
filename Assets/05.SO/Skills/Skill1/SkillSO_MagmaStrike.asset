@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_MagmaStrike
   m_EditorClassIdentifier: 
   Tag: MagmaStrike
-  Rank: 0
+  Type: 1
+  Rank: 1
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.4
   NuckbackPower: 2
   Speed: 0
   ExplosionRange: 0
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b4724514d746ab8409ca18de3a65dc14, type: 3}
   SkillPrefab: {fileID: 6832522046984261472, guid: 2e823477607f3b949adb4d5941f0d852, type: 3}
   ColliderName: MeleeCollider
   StartPosition: {x: 2.2, y: 1.1, z: 0}

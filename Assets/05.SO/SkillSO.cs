@@ -7,18 +7,32 @@ public class SkillSO : ScriptableObject
 {
     public enum SkillRank
     {
+        None,
         B,
         A,
         S,
     }
 
+    public enum SkillType
+    {
+        None,
+        Melee,
+        Ranged,
+        Area,
+    }
+
     [Header("Common Skill Info")]
     public string Tag;
+    public SkillType Type;
     public SkillRank Rank;
+    public int Level;
+    public int MaxUpgradeCount;
+    public int CurrentUpgradeCount;
     public float AtkRatio;
     public float NuckbackPower;
     public float Speed;
     public float ExplosionRange;
+    public bool IsEquip;
 
     [Header("AreaSkill Info")]
     public float Range;

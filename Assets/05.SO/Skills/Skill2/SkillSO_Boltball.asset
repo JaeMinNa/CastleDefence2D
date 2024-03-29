@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_Boltball
   m_EditorClassIdentifier: 
   Tag: Boltball
-  Rank: 2
+  Type: 2
+  Rank: 3
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 2.1
   NuckbackPower: 1.5
   Speed: 7
   ExplosionRange: 3
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: BoltballExplosion
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: e1a91c592705b8d458b7bc8a5b789f0c, type: 3}
   SkillPrefab: {fileID: 6700474119340773093, guid: 22656d4e70ae3b040a04514148040bd7, type: 3}
   ColliderName: 
   StartPosition: {x: 1.5, y: 1.5, z: 0}

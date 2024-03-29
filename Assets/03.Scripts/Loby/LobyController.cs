@@ -39,6 +39,12 @@ public class LobyController : MonoBehaviour
     [SerializeField] private TMP_Text _castleAtkText;
     [SerializeField] private TMP_Text _castleTimeText;
 
+    [Header("Skill Inventory")]
+    [SerializeField] private GameObject _skillInventory;
+    [SerializeField] private Image _meleeSkillImage;
+    [SerializeField] private Image _rangedSkillImage;
+    [SerializeField] private Image _areaSkillImage;
+
     private void Start()
     {
         Init();
@@ -206,5 +212,20 @@ public class LobyController : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
         _castleInfo.SetActive(false);
+    }
+
+    public void ActiveSkillInventory()
+    {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
+        _meleeSkillImage.sprite = _playerSO.EquipMeleeSkill.Icon;
+        _rangedSkillImage.sprite = _playerSO.EquipRangedSkill.Icon;
+        _areaSkillImage.sprite = _playerSO.EquipAreaSkill.Icon;
+        _skillInventory.SetActive(true);
+    }
+
+    public void InactiveSkillInventory()
+    {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
+        _skillInventory.SetActive(false);
     }
 }

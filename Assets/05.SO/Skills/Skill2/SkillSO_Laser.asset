@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_Laser
   m_EditorClassIdentifier: 
   Tag: Laser
-  Rank: 0
+  Type: 2
+  Rank: 1
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.5
   NuckbackPower: 2
   Speed: 15
   ExplosionRange: 2.5
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: LaserExplosion
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: f4933b01621c8d943bd755751b7b75c2, type: 3}
   SkillPrefab: {fileID: 4459925576623694883, guid: 45c0dcf52927b0b40a53899423c71e6d, type: 3}
   ColliderName: 
   StartPosition: {x: 0.5, y: 1.5, z: 0}

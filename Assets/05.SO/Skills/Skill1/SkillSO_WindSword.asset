@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_WindSword
   m_EditorClassIdentifier: 
   Tag: WindSword
-  Rank: 0
+  Type: 1
+  Rank: 1
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.2
   NuckbackPower: 3
   Speed: 0
   ExplosionRange: 0
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 99a2865a0e99cb84785c1111f3ba062e, type: 3}
   SkillPrefab: {fileID: 2472299320664937498, guid: 6e143065e50c4154db4e94ce80034c52, type: 3}
   ColliderName: MeleeCollider
   StartPosition: {x: 1.2, y: 0.7, z: 0}

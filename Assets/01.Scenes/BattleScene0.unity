@@ -16523,12 +16523,12 @@ MonoBehaviour:
     - Chicken 15
   - Stage: 8
     enemys:
-    - Snail 10
+    - Snail 9
     - Rock 15
     - Chicken 15
   - Stage: 9
     enemys:
-    - Snail 9
+    - Snail 8
     - Rock 13
     - Chicken 12
   - Stage: 10
@@ -16536,6 +16536,151 @@ MonoBehaviour:
     - Snail 8
     - Rock 12
     - Chicken 10
+  - Stage: 11
+    enemys:
+    - Snail 7
+    - Rock 10
+    - Chicken 9
+    - Plant 15
+  - Stage: 12
+    enemys:
+    - Snail 7
+    - Rock 9
+    - Chicken 8
+    - Plant 15
+  - Stage: 13
+    enemys:
+    - Snail 7
+    - Rock 8
+    - Chicken 8
+    - Plant 14
+  - Stage: 14
+    enemys:
+    - Snail 7
+    - Rock 7
+    - Chicken 9
+    - Plant 13
+  - Stage: 15
+    enemys:
+    - Snail 6
+    - Rock 9
+    - Chicken 8
+    - Plant 13
+  - Stage: 16
+    enemys:
+    - Snail 5
+    - Rock 10
+    - Chicken 10
+    - Trunk 15
+    - Bunny 20
+  - Stage: 17
+    enemys:
+    - Snail 5
+    - Rock 9
+    - Chicken 10
+    - Trunk 14
+    - Bunny 20
+  - Stage: 18
+    enemys:
+    - Snail 5
+    - Rock 8
+    - Chicken 9
+    - Trunk 13
+    - Bunny 18
+  - Stage: 19
+    enemys:
+    - Snail 5
+    - Rock 8
+    - Chicken 8
+    - Trunk 12
+    - Bunny 15
+  - Stage: 20
+    enemys:
+    - Snail 5
+    - Rock 8
+    - Chicken 8
+    - Trunk 12
+    - Bunny 12
+  - Stage: 21
+    enemys:
+    - Snail 5
+    - Rock 6
+    - Chicken 10
+    - Bunny 15
+    - Trunk 20
+    - Plant 15
+  - Stage: 22
+    enemys:
+    - Snail 5
+    - Rock 6
+    - Chicken 10
+    - Bunny 13
+    - Trunk 19
+    - Plant 14
+  - Stage: 23
+    enemys:
+    - Snail 5
+    - Rock 6
+    - Chicken 9
+    - Bunny 12
+    - Trunk 18
+    - Plant 13
+  - Stage: 24
+    enemys:
+    - Snail 5
+    - Rock 6
+    - Chicken 8
+    - Bunny 11
+    - Trunk 16
+    - Plant 11
+  - Stage: 25
+    enemys:
+    - Snail 5
+    - Rock 6
+    - Chicken 7
+    - Bunny 10
+    - Trunk 13
+    - Plant 9
+  - Stage: 26
+    enemys:
+    - Snail 10
+    - Rock 15
+    - Mushroom 13
+    - Bunny 10
+    - Trunk 10
+    - Plant 8
+  - Stage: 27
+    enemys:
+    - Snail 10
+    - Rock 15
+    - Mushroom 11
+    - Bunny 8
+    - Trunk 9
+    - Plant 8
+  - Stage: 28
+    enemys:
+    - Snail 10
+    - Rock 15
+    - Mushroom 10
+    - Bunny 7
+    - Trunk 8
+    - Plant 7
+  - Stage: 29
+    enemys:
+    - Snail 9
+    - Rock 13
+    - Mushroom 9
+    - Bunny 6
+    - Trunk 7
+    - Plant 6
+  - Stage: 30
+    enemys:
+    - Snail 9
+    - Rock 13
+    - Mushroom 8
+    - Bunny 6
+    - Trunk 7
+    - Plant 6
   _spawnLeft: {fileID: 1182914271}
   _spawnRigth: {fileID: 903896539}
 --- !u!1 &1849830011

@@ -20,7 +20,7 @@ public class AreaSkill : MonoBehaviour
     {
         _player = GameManager.I.PlayerManager.Player;
         _playerSO = _player.GetComponent<PlayerController>().PlayerSO;
-        _areaSkillSO = _player.GetComponent<PlayerController>().PlayerSO.AreaSkill;
+        _areaSkillSO = _player.GetComponent<PlayerController>().PlayerSO.EquipAreaSkill;
         _animator = transform.GetChild(0).GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
         _layerMask = LayerMask.NameToLayer("Enemy");

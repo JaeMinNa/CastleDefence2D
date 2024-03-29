@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_LaserBomb
   m_EditorClassIdentifier: 
   Tag: LaserBomb
-  Rank: 0
+  Type: 3
+  Rank: 1
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.4
   NuckbackPower: 2
   Speed: 17
   ExplosionRange: 2
+  IsEquip: 0
   Range: 10
   Count: 7
   Interval: 1
   SkillExplosionTag: LaserBombExplosion
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b99995a0f25801a4d9f648d8be6cf439, type: 3}
   SkillPrefab: {fileID: 7883135397449089872, guid: 5dae061fca67af546aeee2f6ae9eeab3, type: 3}
   ColliderName: 
   StartPosition: {x: 0, y: 0, z: 0}

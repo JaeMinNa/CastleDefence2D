@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: SkillSO_Tornadoball
   m_EditorClassIdentifier: 
   Tag: Tornadoball
-  Rank: 1
+  Type: 2
+  Rank: 2
+  Level: 1
+  MaxUpgradeCount: 3
+  CurrentUpgradeCount: 0
   AtkRatio: 1.7
   NuckbackPower: 3
   Speed: 8.5
   ExplosionRange: 1.5
+  IsEquip: 0
   Range: 0
   Count: 0
   Interval: 0
   SkillExplosionTag: TornadoballExplosion
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 07720b55bb7cb3c45a9e509ca5b5e01c, type: 3}
   SkillPrefab: {fileID: 2223967610961474131, guid: cc65e3221f58fd646a0e25f4531905dd, type: 3}
   ColliderName: 
   StartPosition: {x: 0.5, y: 1.5, z: 0}

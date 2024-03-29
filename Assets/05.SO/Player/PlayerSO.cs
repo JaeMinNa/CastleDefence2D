@@ -15,9 +15,12 @@ public class PlayerSO : StatSO
     public float AttackCoolTime;
     public float NuckbackPower;
 
+    [Header("Player Skill Inventory")]
+    public List<SkillSO> SkillInventroy;
+
     [Header("Player Equip Skills")]
-    public SkillSO MeleeSkill;
-    public SkillSO RangedSkill;
-    public SkillSO AreaSkill;
+    public SkillSO EquipMeleeSkill;
+    public SkillSO EquipRangedSkill;
+    public SkillSO EquipAreaSkill;
 }
 

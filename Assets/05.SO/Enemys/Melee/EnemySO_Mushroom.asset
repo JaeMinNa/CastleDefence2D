@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f56fabca91f7af4a87d31265df96a37, type: 3}
   m_Name: EnemySO_Mushroom
   m_EditorClassIdentifier: 
-  Speed: 2.5
-  Atk: 15
-  Hp: 20
+  Speed: 2
+  Atk: 18
+  Hp: 24
   AttackType: 0
   Price: 150
   CoinDropPercent: 10
