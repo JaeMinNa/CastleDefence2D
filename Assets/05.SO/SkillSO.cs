@@ -25,6 +25,7 @@ public class SkillSO : ScriptableObject
     public string Tag;
     public SkillType Type;
     public SkillRank Rank;
+    public string Description;
     public int Level;
     public int MaxUpgradeCount;
     public int CurrentUpgradeCount;

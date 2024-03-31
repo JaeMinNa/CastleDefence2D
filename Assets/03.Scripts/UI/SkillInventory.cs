@@ -7,6 +7,12 @@ public class SkillInventory : MonoBehaviour
 {
     [field:SerializeField] public PlayerSO PlayerSO;
 
+    [Header("Equip Skill")]
+    [SerializeField] private GameObject _equipSlotContent;
+    [SerializeField] private Image _equipMeleeSkill;
+    [SerializeField] private Image _equipRangedSkill;
+    [SerializeField] private Image _equipAreaSkill;
+
     [Header("Melee Skill")]
     [SerializeField] private GameObject _meleeSkillScroll;
     [SerializeField] private GameObject _meleeSlotContent;
@@ -33,11 +39,7 @@ public class SkillInventory : MonoBehaviour
     void Start()
     {
         MeleeButton();
-    }
-
-    void Update()
-    {
-        
+        ShowEquipSkill();
     }
 
     public void MeleeButton()
@@ -54,6 +56,12 @@ public class SkillInventory : MonoBehaviour
 
     private void UpdateMeleeSKillInventory()
     {
+        for (int i = 0; i < _meleeSlotContent.transform.childCount; i++)
+        {
+            _skillInventorySlot = _meleeSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+            _skillInventorySlot.SkillEmpty();
+        }
+
         for (int i = 0; i < PlayerSO.SkillInventroy.Count; i++)
         {
             if(PlayerSO.SkillInventroy[i].Type == SkillSO.SkillType.Melee)
@@ -65,15 +73,8 @@ public class SkillInventory : MonoBehaviour
         for (int i = 0; i < _skills.Count; i++)
         {
             _meleeSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = _skills[i].Icon;
-
             _skillInventorySlot = _meleeSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
-
-            string rank;
-            if (_skills[i].Rank == SkillSO.SkillRank.B) rank = "B";
-            else if (_skills[i].Rank == SkillSO.SkillRank.A) rank = "A";
-            else rank = "S";
-
-            _skillInventorySlot.SkillText(_skills[i].Level, rank, _skills[i].IsEquip);
+            _skillInventorySlot.SkillText(_skills[i]);
         }
 
         _skills.Clear();
@@ -93,6 +94,12 @@ public class SkillInventory : MonoBehaviour
 
     private void UpdateRangedSKillInventory()
     {
+        for (int i = 0; i < _rangedSlotContent.transform.childCount; i++)
+        {
+            _skillInventorySlot = _rangedSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+            _skillInventorySlot.SkillEmpty();
+        }
+
         for (int i = 0; i < PlayerSO.SkillInventroy.Count; i++)
         {
             if (PlayerSO.SkillInventroy[i].Type == SkillSO.SkillType.Ranged)
@@ -104,6 +111,8 @@ public class SkillInventory : MonoBehaviour
         for (int i = 0; i < _skills.Count; i++)
         {
             _rangedSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = _skills[i].Icon;
+            _skillInventorySlot = _rangedSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+            _skillInventorySlot.SkillText(_skills[i]);
         }
 
         _skills.Clear();
@@ -123,6 +132,12 @@ public class SkillInventory : MonoBehaviour
 
     private void UpdateAreaSKillInventory()
     {
+        for (int i = 0; i < _areaSlotContent.transform.childCount; i++)
+        {
+            _skillInventorySlot = _areaSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+            _skillInventorySlot.SkillEmpty();
+        }
+
         for (int i = 0; i < PlayerSO.SkillInventroy.Count; i++)
         {
             if (PlayerSO.SkillInventroy[i].Type == SkillSO.SkillType.Area)
@@ -134,8 +149,35 @@ public class SkillInventory : MonoBehaviour
         for (int i = 0; i < _skills.Count; i++)
         {
             _areaSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = _skills[i].Icon;
+            _skillInventorySlot = _areaSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+            _skillInventorySlot.SkillText(_skills[i]);
         }
 
         _skills.Clear();
+    }
+
+    private void ShowEquipSkill()
+    {
+        _equipMeleeSkill.sprite = PlayerSO.EquipMeleeSkill.Icon;
+        _equipRangedSkill.sprite = PlayerSO.EquipRangedSkill.Icon;
+        _equipAreaSkill.sprite = PlayerSO.EquipAreaSkill.Icon;
+
+        for (int i = 0; i < 3; i++)
+        {
+            _skillInventorySlot = _equipSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+
+            if(i == 0)
+            {
+                _skillInventorySlot.EquipSkillText(PlayerSO.EquipMeleeSkill);
+            }
+            else if (i == 1)
+            {
+                _skillInventorySlot.EquipSkillText(PlayerSO.EquipRangedSkill);
+            }
+            else
+            {
+                _skillInventorySlot.EquipSkillText(PlayerSO.EquipAreaSkill);
+            }
+        }
     }
 }

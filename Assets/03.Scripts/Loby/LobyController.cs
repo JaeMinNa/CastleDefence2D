@@ -13,7 +13,7 @@ public class LobyController : MonoBehaviour
     [SerializeField] private TMP_Text _stageText;
 
     [Header("Level")]
-    [SerializeField] private PlayerSO _playerSO;
+    private PlayerSO _playerSO;
     [SerializeField] private CastleSO _castleSO;
     [SerializeField] private TMP_Text _playerLevelText;
     [SerializeField] private TMP_Text _castleLevelText;
@@ -47,6 +47,7 @@ public class LobyController : MonoBehaviour
 
     private void Start()
     {
+        _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
         Init();
     }
 

@@ -6,18 +6,66 @@ using TMPro;
 
 public class SkillInventorySlot : MonoBehaviour
 {
+    private SkillSO _skillSO;
+    private PlayerSO _playerSO;
+    private Button _button;
+
+    [Header("Slot")]
     [SerializeField] private TMP_Text _skillLevelText;
     [SerializeField] private TMP_Text _skillRankText;
     [SerializeField] private GameObject _skillLevel;
     [SerializeField] private GameObject _skillRank;
     [SerializeField] private GameObject _equip;
     [SerializeField] private Image _emptyImage;
-    
-    public void SkillText(int level, string rank, bool isEquip)
+
+    [Header("MeleeSkillInfo")]
+    [SerializeField] private GameObject _meleeSkillInfo;
+    [SerializeField] private Image _equipMeleeSkillImage;
+    [SerializeField] private TMP_Text _meleeSkillDescriptionText;
+    [SerializeField] private TMP_Text _meleeSkillLevelText;
+    [SerializeField] private TMP_Text _meleeSkillRankText;
+    [SerializeField] private TMP_Text _meleeSkillAtkText;
+    [SerializeField] private TMP_Text _meleeSkillUpgradeText;
+
+    [Header("RangedSkillInfo")]
+    [SerializeField] private GameObject _rangedSkillInfo;
+    [SerializeField] private Image _equipRangedSkillImage;
+    [SerializeField] private TMP_Text _rangedSkillDescriptionText;
+    [SerializeField] private TMP_Text _rangedSkillLevelText;
+    [SerializeField] private TMP_Text _rangedSkillRankText;
+    [SerializeField] private TMP_Text _rangedSkillAtkText;
+    [SerializeField] private TMP_Text _rangedSkillUpgradeText;
+
+    [Header("AreaSkillInfo")]
+
+    [SerializeField] private GameObject _areaSkillInfo;
+    [SerializeField] private Image _equipAreadSkillImage;
+    [SerializeField] private TMP_Text _areaSkillDescriptionText;
+    [SerializeField] private TMP_Text _areaSkillLevelText;
+    [SerializeField] private TMP_Text _areaSkillRankText;
+    [SerializeField] private TMP_Text _areaSkillAtkText;
+    [SerializeField] private TMP_Text _areaSkillUpgradeText;
+    [SerializeField] private TMP_Text _areaSkillCountText;
+    [SerializeField] private TMP_Text _areaSkillIntervalText;
+
+    private void Start()
     {
+        _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
+        _button = GetComponent<Button>();
+    }
+
+    public void SkillText(SkillSO skillSO)
+    {
+        _skillSO = skillSO;
+
         _emptyImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
-        _skillLevelText.text = level.ToString();
+        _skillLevelText.text = skillSO.Level.ToString();
         _skillLevel.SetActive(true);
+
+        string rank;
+        if (skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
+        else if (skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
+        else rank = "S";
 
         if (rank == "B")
         {
@@ -34,8 +82,9 @@ public class SkillInventorySlot : MonoBehaviour
         _skillRankText.text = rank;
         _skillRank.SetActive(true);
 
-        if (isEquip) _equip.SetActive(true);
+        if (skillSO.IsEquip) _equip.SetActive(true);
         else _equip.SetActive(false);
+        _button.enabled = true;
     }
 
     public void SkillEmpty()
@@ -44,6 +93,81 @@ public class SkillInventorySlot : MonoBehaviour
         _skillLevel.SetActive(false);
         _skillRank.SetActive(false);
         _equip.SetActive(false);
+        _button.enabled = false;
     }
 
+    public void EquipSkillText(SkillSO skillSO)
+    {
+        _skillLevelText.text = skillSO.Level.ToString();
+
+        string rank;
+        if (skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
+        else if (skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
+        else rank = "S";
+
+        if (rank == "B")
+        {
+            _skillRankText.color = new Color(25 / 255f, 144 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (rank == "A")
+        {
+            _skillRankText.color = new Color(255 / 255f, 16 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else
+        {
+            _skillRankText.color = new Color(244 / 255f, 255 / 255f, 40 / 255f, 255 / 255f);
+        }
+        _skillRankText.text = rank;
+    }
+
+    public void SkillInfoButton()
+    {
+        string rank;
+        if (_skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
+        else if (_skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
+        else rank = "S";
+
+        if (_skillSO.Type == SkillSO.SkillType.Melee)
+        {
+            _equipMeleeSkillImage.sprite = _skillSO.Icon;
+            _meleeSkillDescriptionText.text = _skillSO.Description;
+            _meleeSkillLevelText.text = _skillSO.Level.ToString();
+            _meleeSkillRankText.text = rank;
+            _meleeSkillAtkText.text = ((int)(_playerSO.Atk * _skillSO.AtkRatio)).ToString();
+            _meleeSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
+
+            _meleeSkillInfo.SetActive(true);
+        }
+        else if(_skillSO.Type == SkillSO.SkillType.Ranged)
+        {
+            _equipRangedSkillImage.sprite = _skillSO.Icon;
+            _rangedSkillDescriptionText.text = _skillSO.Description;
+            _rangedSkillLevelText.text = _skillSO.Level.ToString();
+            _rangedSkillRankText.text = rank;
+            _rangedSkillAtkText.text = ((int)(_playerSO.Atk * _skillSO.AtkRatio)).ToString();
+            _rangedSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
+
+            _rangedSkillInfo.SetActive(true);
+        }
+        else
+        {
+            _equipAreadSkillImage.sprite = _skillSO.Icon;
+            _areaSkillDescriptionText.text = _skillSO.Description;
+            _areaSkillLevelText.text = _skillSO.Level.ToString();
+            _areaSkillRankText.text = rank;
+            _areaSkillAtkText.text = ((int)(_playerSO.Atk * _skillSO.AtkRatio)).ToString();
+            _areaSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
+            _areaSkillCountText.text = _skillSO.Count.ToString();
+            _areaSkillIntervalText.text = _skillSO.Interval.ToString();
+
+            _areaSkillInfo.SetActive(true);
+        }
+    }
+
+    public void SkillInfoExitButton()
+    {
+        _meleeSkillInfo.SetActive(false);
+        _rangedSkillInfo.SetActive(false);
+        _areaSkillInfo.SetActive(false);
+    }
 }
