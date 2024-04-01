@@ -41,6 +41,7 @@ public class DataManager : MonoBehaviour
         // Game Data
         GameDataSO.Stage = 1;
         GameDataSO.Coin = 0;
+        GameDataSO.SkillDrawCount = 0;
 
         // Player
         PlayerSO.Level = 1;
@@ -71,80 +72,93 @@ public class DataManager : MonoBehaviour
         MeleeSkillSO[0].MaxUpgradeCount = 3;
         MeleeSkillSO[0].CurrentUpgradeCount = 0;
         MeleeSkillSO[0].IsEquip = false;
+        MeleeSkillSO[0].IsGet = false;
         // BoltSword
         MeleeSkillSO[1].AtkRatio = 1.9f;
         MeleeSkillSO[1].Level = 1;
         MeleeSkillSO[1].MaxUpgradeCount = 3;
         MeleeSkillSO[1].CurrentUpgradeCount = 0;
         MeleeSkillSO[1].IsEquip = false;
+        MeleeSkillSO[1].IsGet = false;
         // FireSword
         MeleeSkillSO[2].AtkRatio = 1.3f;
         MeleeSkillSO[2].Level = 1;
         MeleeSkillSO[2].MaxUpgradeCount = 3;
-        MeleeSkillSO[2].CurrentUpgradeCount = 0;
+        MeleeSkillSO[2].CurrentUpgradeCount = 1;
         MeleeSkillSO[2].IsEquip = true;
+        MeleeSkillSO[2].IsGet = true;
         // WindSword
         MeleeSkillSO[3].AtkRatio = 1.2f;
         MeleeSkillSO[3].Level = 1;
         MeleeSkillSO[3].MaxUpgradeCount = 3;
         MeleeSkillSO[3].CurrentUpgradeCount = 0;
         MeleeSkillSO[3].IsEquip = false;
+        MeleeSkillSO[3].IsGet = false;
         // BloodStrike
         MeleeSkillSO[4].AtkRatio = 1.8f;
         MeleeSkillSO[4].Level = 1;
         MeleeSkillSO[4].MaxUpgradeCount = 3;
         MeleeSkillSO[4].CurrentUpgradeCount = 0;
         MeleeSkillSO[4].IsEquip = false;
+        MeleeSkillSO[4].IsGet = false;
         // HolyStrike
         MeleeSkillSO[5].AtkRatio = 1.6f;
         MeleeSkillSO[5].Level = 1;
         MeleeSkillSO[5].MaxUpgradeCount = 3;
         MeleeSkillSO[5].CurrentUpgradeCount = 0;
         MeleeSkillSO[5].IsEquip = false;
+        MeleeSkillSO[5].IsGet = false;
         // MagmaStrike
         MeleeSkillSO[6].AtkRatio = 1.4f;
         MeleeSkillSO[6].Level = 1;
         MeleeSkillSO[6].MaxUpgradeCount = 3;
         MeleeSkillSO[6].CurrentUpgradeCount = 0;
         MeleeSkillSO[6].IsEquip = false;
+        MeleeSkillSO[6].IsGet = false;
 
         // RangedSkill
         // Fireball
         RangedSkillSO[0].AtkRatio = 1.4f;
         RangedSkillSO[0].Level = 1;
         RangedSkillSO[0].MaxUpgradeCount = 3;
-        RangedSkillSO[0].CurrentUpgradeCount = 0;
+        RangedSkillSO[0].CurrentUpgradeCount = 1;
         RangedSkillSO[0].IsEquip = true;
+        RangedSkillSO[0].IsGet = true;
         // Boltball
         RangedSkillSO[1].AtkRatio = 2.1f;
         RangedSkillSO[1].Level = 1;
         RangedSkillSO[1].MaxUpgradeCount = 3;
         RangedSkillSO[1].CurrentUpgradeCount = 0;
         RangedSkillSO[1].IsEquip = false;
+        RangedSkillSO[1].IsGet = false;
         // Darkball
         RangedSkillSO[2].AtkRatio = 1.6f;
         RangedSkillSO[2].Level = 1;
         RangedSkillSO[2].MaxUpgradeCount = 3;
         RangedSkillSO[2].CurrentUpgradeCount = 0;
         RangedSkillSO[2].IsEquip = false;
+        RangedSkillSO[2].IsGet = false;
         // BlueFireball
         RangedSkillSO[3].AtkRatio = 1.8f;
         RangedSkillSO[3].Level = 1;
         RangedSkillSO[3].MaxUpgradeCount = 3;
         RangedSkillSO[3].CurrentUpgradeCount = 0;
         RangedSkillSO[3].IsEquip = false;
+        RangedSkillSO[3].IsGet = false;
         // Tornadoball
         RangedSkillSO[4].AtkRatio = 1.7f;
         RangedSkillSO[4].Level = 1;
         RangedSkillSO[4].MaxUpgradeCount = 3;
         RangedSkillSO[4].CurrentUpgradeCount = 0;
         RangedSkillSO[4].IsEquip = false;
+        RangedSkillSO[4].IsGet = false;
         // Laser
         RangedSkillSO[5].AtkRatio = 1.5f;
         RangedSkillSO[5].Level = 1;
         RangedSkillSO[5].MaxUpgradeCount = 3;
         RangedSkillSO[5].CurrentUpgradeCount = 0;
         RangedSkillSO[5].IsEquip = false;
+        RangedSkillSO[5].IsGet = false;
 
         // AreaSkill
         // BoltShower
@@ -155,14 +169,16 @@ public class DataManager : MonoBehaviour
         AreaSkillSO[0].MaxUpgradeCount = 3;
         AreaSkillSO[0].CurrentUpgradeCount = 0;
         AreaSkillSO[0].IsEquip = false;
+        AreaSkillSO[0].IsGet = false;
         // FireShower
         AreaSkillSO[1].AtkRatio = 1.3f;
         AreaSkillSO[1].Count = 7;
         AreaSkillSO[1].Interval = 1f;
-        AreaSkillSO[0].Level = 1;
-        AreaSkillSO[0].MaxUpgradeCount = 3;
-        AreaSkillSO[0].CurrentUpgradeCount = 0;
-        AreaSkillSO[0].IsEquip = true;
+        AreaSkillSO[1].Level = 1;
+        AreaSkillSO[1].MaxUpgradeCount = 3;
+        AreaSkillSO[1].CurrentUpgradeCount = 1;
+        AreaSkillSO[1].IsEquip = true;
+        AreaSkillSO[1].IsGet = true;
         // DarkRain
         AreaSkillSO[2].AtkRatio = 1.5f;
         AreaSkillSO[2].Count = 7;
@@ -171,6 +187,7 @@ public class DataManager : MonoBehaviour
         AreaSkillSO[2].MaxUpgradeCount = 3;
         AreaSkillSO[2].CurrentUpgradeCount = 0;
         AreaSkillSO[2].IsEquip = false;
+        AreaSkillSO[2].IsGet = false;
         // BlueFireRain
         AreaSkillSO[3].AtkRatio = 1.7f;
         AreaSkillSO[3].Count = 7;
@@ -179,6 +196,7 @@ public class DataManager : MonoBehaviour
         AreaSkillSO[3].MaxUpgradeCount = 3;
         AreaSkillSO[3].CurrentUpgradeCount = 0;
         AreaSkillSO[3].IsEquip = false;
+        AreaSkillSO[3].IsGet = false;
         // TornadoShower
         AreaSkillSO[4].AtkRatio = 1.6f;
         AreaSkillSO[4].Count = 7;
@@ -187,6 +205,7 @@ public class DataManager : MonoBehaviour
         AreaSkillSO[4].MaxUpgradeCount = 3;
         AreaSkillSO[4].CurrentUpgradeCount = 0;
         AreaSkillSO[4].IsEquip = false;
+        AreaSkillSO[4].IsGet = false;
         // LaserBomb
         AreaSkillSO[5].AtkRatio = 1.4f;
         AreaSkillSO[5].Count = 7;
@@ -195,6 +214,7 @@ public class DataManager : MonoBehaviour
         AreaSkillSO[5].MaxUpgradeCount = 3;
         AreaSkillSO[5].CurrentUpgradeCount = 0;
         AreaSkillSO[5].IsEquip = false;
+        AreaSkillSO[5].IsGet = false;
 
         // MeleeEnemy
         // Snail

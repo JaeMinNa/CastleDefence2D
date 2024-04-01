@@ -12,6 +12,8 @@ public class LobyController : MonoBehaviour
     [Header("Stage")]
     [SerializeField] private TMP_Text _stageText;
 
+    [SerializeField] private TMP_Text _skillDrawCountText;
+
     [Header("Level")]
     private PlayerSO _playerSO;
     [SerializeField] private CastleSO _castleSO;
@@ -57,6 +59,7 @@ public class LobyController : MonoBehaviour
         _stageText.text = "Stage " + GameManager.I.DataManager.GameDataSO.Stage.ToString();
         _playerLevelText.text = "Lv " + _playerSO.Level.ToString();
         _castleLevelText.text = "Lv " + _castleSO.Level.ToString();
+        _skillDrawCountText.text = GameManager.I.DataManager.GameDataSO.SkillDrawCount.ToString();
         _playerExpSlider.value = _playerSO.CurrentExp / _playerSO.MaxExp;
         _castleExpSlider.value = _castleSO.CurrentExp / _castleSO.MaxExp;
     }

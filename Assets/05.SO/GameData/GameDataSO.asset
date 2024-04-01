@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameDataSO
   m_EditorClassIdentifier: 
   Stage: 1
-  Coin: 0
+  Coin: 725000
+  SkillDrawCount: 50

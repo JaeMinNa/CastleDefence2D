@@ -33,6 +33,7 @@ public class SkillSO : ScriptableObject
     public float NuckbackPower;
     public float Speed;
     public float ExplosionRange;
+    public bool IsGet;
     public bool IsEquip;
 
     [Header("AreaSkill Info")]

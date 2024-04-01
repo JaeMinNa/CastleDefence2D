@@ -90,6 +90,8 @@ public class SoundManager : MonoBehaviour
         _sfx.Add("LaserBombExplosion", Resources.Load<AudioClip>("Sound/SFX/Skills/LaserExplosion"));
         _sfx.Add("UIClick", Resources.Load<AudioClip>("Sound/SFX/UI/UIClick"));
         _sfx.Add("Equip", Resources.Load<AudioClip>("Sound/SFX/UI/Equip"));
+        _sfx.Add("Buy", Resources.Load<AudioClip>("Sound/SFX/UI/Buy"));
+        _sfx.Add("GetSkill", Resources.Load<AudioClip>("Sound/SFX/UI/GetSkill"));
     }
 
     // 메모리 해제
