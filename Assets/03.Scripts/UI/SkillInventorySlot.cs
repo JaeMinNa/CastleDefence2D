@@ -8,7 +8,10 @@ public class SkillInventorySlot : MonoBehaviour
 {
     private SkillSO _skillSO;
     private PlayerSO _playerSO;
-    private Button _button;
+    public bool _isSkill;
+
+    [Header("Inventory")]
+    [SerializeField] private SkillInventory _skillInventory;
 
     [Header("Slot")]
     [SerializeField] private TMP_Text _skillLevelText;
@@ -20,6 +23,7 @@ public class SkillInventorySlot : MonoBehaviour
 
     [Header("MeleeSkillInfo")]
     [SerializeField] private GameObject _meleeSkillInfo;
+    [SerializeField] private TMP_Text _meleeSkillTag;
     [SerializeField] private Image _equipMeleeSkillImage;
     [SerializeField] private TMP_Text _meleeSkillDescriptionText;
     [SerializeField] private TMP_Text _meleeSkillLevelText;
@@ -29,6 +33,7 @@ public class SkillInventorySlot : MonoBehaviour
 
     [Header("RangedSkillInfo")]
     [SerializeField] private GameObject _rangedSkillInfo;
+    [SerializeField] private TMP_Text _rangedSkillTag;
     [SerializeField] private Image _equipRangedSkillImage;
     [SerializeField] private TMP_Text _rangedSkillDescriptionText;
     [SerializeField] private TMP_Text _rangedSkillLevelText;
@@ -39,6 +44,7 @@ public class SkillInventorySlot : MonoBehaviour
     [Header("AreaSkillInfo")]
 
     [SerializeField] private GameObject _areaSkillInfo;
+    [SerializeField] private TMP_Text _areaSkillTag;
     [SerializeField] private Image _equipAreadSkillImage;
     [SerializeField] private TMP_Text _areaSkillDescriptionText;
     [SerializeField] private TMP_Text _areaSkillLevelText;
@@ -51,11 +57,11 @@ public class SkillInventorySlot : MonoBehaviour
     private void Start()
     {
         _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
-        _button = GetComponent<Button>();
     }
 
     public void SkillText(SkillSO skillSO)
     {
+        _isSkill = true;
         _skillSO = skillSO;
 
         _emptyImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -84,16 +90,16 @@ public class SkillInventorySlot : MonoBehaviour
 
         if (skillSO.IsEquip) _equip.SetActive(true);
         else _equip.SetActive(false);
-        _button.enabled = true;
     }
 
     public void SkillEmpty()
     {
+        _isSkill = false;
+
         _emptyImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 0 / 255f);
         _skillLevel.SetActive(false);
         _skillRank.SetActive(false);
         _equip.SetActive(false);
-        _button.enabled = false;
     }
 
     public void EquipSkillText(SkillSO skillSO)
@@ -122,6 +128,15 @@ public class SkillInventorySlot : MonoBehaviour
 
     public void SkillInfoButton()
     {
+        if (!_isSkill)
+        {
+            GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
+            return;
+        }
+
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
+        _skillInventory.InfoSkillSO = _skillSO;
+
         string rank;
         if (_skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
         else if (_skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
@@ -129,6 +144,7 @@ public class SkillInventorySlot : MonoBehaviour
 
         if (_skillSO.Type == SkillSO.SkillType.Melee)
         {
+            _meleeSkillTag.text = _skillSO.Tag;
             _equipMeleeSkillImage.sprite = _skillSO.Icon;
             _meleeSkillDescriptionText.text = _skillSO.Description;
             _meleeSkillLevelText.text = _skillSO.Level.ToString();
@@ -140,6 +156,7 @@ public class SkillInventorySlot : MonoBehaviour
         }
         else if(_skillSO.Type == SkillSO.SkillType.Ranged)
         {
+            _rangedSkillTag.text = _skillSO.Tag;
             _equipRangedSkillImage.sprite = _skillSO.Icon;
             _rangedSkillDescriptionText.text = _skillSO.Description;
             _rangedSkillLevelText.text = _skillSO.Level.ToString();
@@ -151,6 +168,7 @@ public class SkillInventorySlot : MonoBehaviour
         }
         else
         {
+            _areaSkillTag.text = _skillSO.Tag;
             _equipAreadSkillImage.sprite = _skillSO.Icon;
             _areaSkillDescriptionText.text = _skillSO.Description;
             _areaSkillLevelText.text = _skillSO.Level.ToString();
@@ -166,6 +184,7 @@ public class SkillInventorySlot : MonoBehaviour
 
     public void SkillInfoExitButton()
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         _meleeSkillInfo.SetActive(false);
         _rangedSkillInfo.SetActive(false);
         _areaSkillInfo.SetActive(false);

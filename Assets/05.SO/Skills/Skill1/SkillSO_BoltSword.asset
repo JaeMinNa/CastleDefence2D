@@ -15,6 +15,7 @@ MonoBehaviour:
   Tag: BoltSword
   Type: 1
   Rank: 3
+  Description: 
   Level: 1
   MaxUpgradeCount: 3
   CurrentUpgradeCount: 0
