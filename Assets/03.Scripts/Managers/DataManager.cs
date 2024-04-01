@@ -51,6 +51,10 @@ public class DataManager : MonoBehaviour
         PlayerSO.EquipMeleeSkill = StartMeleeSkill;
         PlayerSO.EquipRangedSkill = StartRangedSkill;
         PlayerSO.EquipAreaSkill = StartAreaSkill;
+        PlayerSO.SkillInventroy.Clear();
+        PlayerSO.SkillInventroy.Add(StartMeleeSkill);
+        PlayerSO.SkillInventroy.Add(StartRangedSkill);
+        PlayerSO.SkillInventroy.Add(StartAreaSkill);
 
         // Castle
         CastleSO.Level = 1;

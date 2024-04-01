@@ -15,6 +15,11 @@ MonoBehaviour:
   Tag: BoltShower
   Type: 3
   Rank: 3
+  Description: "\uACF5\uC911\uC5D0\uC11C \uAC15\uB825\uD55C \uBC88\uAC1C\uB97C \uC18C\uD658\uD558\uC5EC
+    \uC801\uC5D0\uAC8C \uC5F0\uC774\uC740 \uACF5\uACA9\uC744 \uAC00\uD569\uB2C8\uB2E4.
+    \uBC88\uAC1C\uB294 \uAC01\uAC01\uC758 \uBA85\uC911 \uC9C0\uC810\uC5D0\uC11C \uD3ED\uBC1C\uD558\uC5EC
+    \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uD53C\uD574\uB97C \uC785\uD788\uBA70,
+    \uB113\uC740 \uBC94\uC704\uC5D0 \uC804\uAE30\uC758 \uD798\uC744 \uBC1C\uC0B0\uD569\uB2C8\uB2E4."
   Level: 1
   MaxUpgradeCount: 3
   CurrentUpgradeCount: 0
@@ -22,7 +27,7 @@ MonoBehaviour:
   NuckbackPower: 1.5
   Speed: 10
   ExplosionRange: 2
-  IsEquip: 0
+  IsEquip: 1
   Range: 10
   Count: 7
   Interval: 1

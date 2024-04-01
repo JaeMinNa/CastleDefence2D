@@ -28,11 +28,12 @@ public class SkillInventory : MonoBehaviour
     [SerializeField] private GameObject _areaSlotContent;
     [SerializeField] private Image _areaButton;
 
+    [Header("Skill Info")]
     [SerializeField] private GameObject[] _skillInfo;
 
     private List<SkillSO> _skills;
     private SkillInventorySlot _skillInventorySlot;
-    public SkillSO InfoSkillSO;
+    [HideInInspector] public SkillSO InfoSkillSO;
 
     private void Awake()
     {
@@ -44,6 +45,15 @@ public class SkillInventory : MonoBehaviour
         _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
         MeleeButton();
         ShowEquipSkill();
+    }
+
+    private void OnEnable()
+    {
+        if(_playerSO != null)
+        {
+            MeleeButton();
+            ShowEquipSkill();
+        }
     }
 
     public void MeleeButton()

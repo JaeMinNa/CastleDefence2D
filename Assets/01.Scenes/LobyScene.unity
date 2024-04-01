@@ -1339,6 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1531002422}
   _skillRankText: {fileID: 147123408}
@@ -2644,6 +2645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 213002814}
   _skillRankText: {fileID: 1002794343}
@@ -4454,8 +4456,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4559,6 +4561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 0}
   _skillLevelText: {fileID: 1675275202}
   _skillRankText: {fileID: 1333209389}
@@ -4792,8 +4795,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4970,7 +4973,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 575}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &139272943
 MonoBehaviour:
@@ -5532,10 +5535,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162183449
 MonoBehaviour:
@@ -5605,6 +5608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 2010249649}
   _skillRankText: {fileID: 2129654046}
@@ -6108,6 +6112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 0}
   _skillLevelText: {fileID: 405891426}
   _skillRankText: {fileID: 268058223}
@@ -6982,8 +6987,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7224,10 +7229,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207095944
 MonoBehaviour:
@@ -7297,6 +7302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1448640906}
   _skillRankText: {fileID: 715490633}
@@ -7542,10 +7548,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &208888858
 MonoBehaviour:
@@ -7615,6 +7621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 559558101}
   _skillRankText: {fileID: 846421145}
@@ -7860,10 +7867,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &222420198
 MonoBehaviour:
@@ -7933,6 +7940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 50587766}
   _skillRankText: {fileID: 698928695}
@@ -8594,8 +8602,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9756,10 +9764,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &294089405
 MonoBehaviour:
@@ -9829,6 +9837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1204475679}
   _skillRankText: {fileID: 1447586592}
@@ -10699,8 +10708,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -274, y: 99}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: -211, y: 70}
+  m_SizeDelta: {x: 149.9511, y: 71.2108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &316484746
 Animator:
@@ -10923,8 +10932,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11869,8 +11878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174, y: 2}
-  m_SizeDelta: {x: 500, y: 482.2245}
+  m_AnchoredPosition: {x: 142, y: -0.0000076293945}
+  m_SizeDelta: {x: 393.7014, y: 384.7841}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350650337
 MonoBehaviour:
@@ -12580,8 +12589,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -21}
-  m_SizeDelta: {x: 1100, y: 700}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_SizeDelta: {x: 968.0901, y: 540.6406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387437941
 MonoBehaviour:
@@ -13008,10 +13017,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401941718
 MonoBehaviour:
@@ -13081,6 +13090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 841579767}
   _skillRankText: {fileID: 2041789424}
@@ -13531,8 +13541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00048828125, y: -0.00070572}
-  m_SizeDelta: {x: 450.78, y: 194.71}
+  m_AnchoredPosition: {x: -1.9750977, y: 0.1324}
+  m_SizeDelta: {x: 402.0704, y: 117.4972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407364810
 MonoBehaviour:
@@ -13581,8 +13591,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13617,7 +13627,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -1.5827026, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15934,6 +15944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 0}
   _skillLevelText: {fileID: 883905483}
   _skillRankText: {fileID: 560577713}
@@ -16745,10 +16756,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &537314286
 MonoBehaviour:
@@ -16818,6 +16829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1775778119}
   _skillRankText: {fileID: 1888501337}
@@ -17109,8 +17121,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18259,6 +18271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1409262364}
   _skillRankText: {fileID: 1339058790}
@@ -18500,8 +18513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00048828125, y: -0.00070572}
-  m_SizeDelta: {x: 450.78, y: 194.71}
+  m_AnchoredPosition: {x: -1.9750977, y: 0.1324}
+  m_SizeDelta: {x: 402.0704, y: 117.4972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589263612
 MonoBehaviour:
@@ -18550,8 +18563,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20026,6 +20039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 831958026}
   _skillRankText: {fileID: 1228974441}
@@ -20559,10 +20573,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657719409
 MonoBehaviour:
@@ -20632,6 +20646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 805203745}
   _skillRankText: {fileID: 675630835}
@@ -20826,10 +20841,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659138824
 MonoBehaviour:
@@ -20881,6 +20896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1231230845}
   _skillRankText: {fileID: 801442769}
@@ -21699,10 +21715,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688962992
 MonoBehaviour:
@@ -21772,6 +21788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 119735197}
   _skillRankText: {fileID: 332896324}
@@ -22090,6 +22107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1497277452}
   _skillRankText: {fileID: 83717281}
@@ -22972,10 +22990,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707677769
 MonoBehaviour:
@@ -23045,6 +23063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 347344074}
   _skillRankText: {fileID: 995770268}
@@ -23337,6 +23356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 0}
   _skillLevelText: {fileID: 805044790}
   _skillRankText: {fileID: 1270746577}
@@ -24122,10 +24142,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732343690
 MonoBehaviour:
@@ -24195,6 +24215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 66222177}
   _skillRankText: {fileID: 1765277867}
@@ -26156,10 +26177,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782479025
 MonoBehaviour:
@@ -26229,6 +26250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 208724595}
   _skillRankText: {fileID: 700742265}
@@ -26551,10 +26573,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798771819
 MonoBehaviour:
@@ -26624,6 +26646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1740041448}
   _skillRankText: {fileID: 1685325093}
@@ -26868,8 +26891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -21}
-  m_SizeDelta: {x: 1100, y: 700}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_SizeDelta: {x: 968.0901, y: 540.6406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &799308599
 MonoBehaviour:
@@ -27927,6 +27950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 0}
   _skillLevelText: {fileID: 1671869648}
   _skillRankText: {fileID: 853686709}
@@ -28160,8 +28184,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -28228,7 +28252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &829502044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31033,10 +31057,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925805155
 MonoBehaviour:
@@ -31106,6 +31130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1170340556}
   _skillRankText: {fileID: 895028650}
@@ -31417,8 +31442,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -31810,6 +31835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 2040091941}
   _skillRankText: {fileID: 187652846}
@@ -31916,8 +31942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00048828125, y: -0.00070572}
-  m_SizeDelta: {x: 450.78, y: 194.71}
+  m_AnchoredPosition: {x: -1.9750977, y: 0.1324}
+  m_SizeDelta: {x: 402.0704, y: 117.4972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980496469
 MonoBehaviour:
@@ -31966,8 +31992,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33831,6 +33857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1466858555}
   _skillRankText: {fileID: 1157510878}
@@ -35691,6 +35718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1650138329}
   _skillRankText: {fileID: 10856472}
@@ -36086,6 +36114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 8767352}
   _skillRankText: {fileID: 1474375650}
@@ -36697,10 +36726,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123990509
 MonoBehaviour:
@@ -36770,6 +36799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1341898756}
   _skillRankText: {fileID: 1936955322}
@@ -37516,10 +37546,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158898349
 MonoBehaviour:
@@ -37589,6 +37619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 255511211}
   _skillRankText: {fileID: 397968036}
@@ -38450,10 +38481,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182769861
 MonoBehaviour:
@@ -38523,6 +38554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1875907480}
   _skillRankText: {fileID: 2047869002}
@@ -38782,6 +38814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 735733195}
   _skillRankText: {fileID: 1980877572}
@@ -38965,6 +38998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1997750423}
   _skillRankText: {fileID: 269511780}
@@ -39380,10 +39414,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217666222
 MonoBehaviour:
@@ -39453,6 +39487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 89352977}
   _skillRankText: {fileID: 163272540}
@@ -39686,8 +39721,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -41972,8 +42007,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42511,8 +42546,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -43326,10 +43361,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363717792
 MonoBehaviour:
@@ -43399,6 +43434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1065581678}
   _skillRankText: {fileID: 486430449}
@@ -43509,10 +43545,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1365265850
 MonoBehaviour:
@@ -43582,6 +43618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1621695966}
   _skillRankText: {fileID: 1136134640}
@@ -44169,10 +44206,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 245, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389639117
 MonoBehaviour:
@@ -44242,6 +44279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 807653356}
   _skillRankText: {fileID: 996413161}
@@ -46660,6 +46698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1176764182}
   _skillRankText: {fileID: 643182919}
@@ -46978,6 +47017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 104029885}
   _skillRankText: {fileID: 1168502534}
@@ -47088,10 +47128,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1465754809
 MonoBehaviour:
@@ -47161,6 +47201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 2039262612}
   _skillRankText: {fileID: 1956403627}
@@ -47452,8 +47493,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -48203,8 +48244,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -49304,6 +49345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 2129193476}
   _skillRankText: {fileID: 890496796}
@@ -49774,6 +49816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 14747177}
   _skillRankText: {fileID: 513393472}
@@ -50007,8 +50050,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -50142,8 +50185,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -50311,8 +50354,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174, y: 17}
-  m_SizeDelta: {x: 500, y: 436}
+  m_AnchoredPosition: {x: 142, y: -0.0000076293945}
+  m_SizeDelta: {x: 393.7014, y: 347.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611912323
 MonoBehaviour:
@@ -51505,10 +51548,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1668971453
 MonoBehaviour:
@@ -51578,6 +51621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1971087431}
   _skillRankText: {fileID: 773501084}
@@ -52091,10 +52135,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1683352377
 MonoBehaviour:
@@ -52164,6 +52208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1163861109}
   _skillRankText: {fileID: 1965615144}
@@ -52455,8 +52500,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -53157,10 +53202,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733145040
 MonoBehaviour:
@@ -53230,6 +53275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 105324509}
   _skillRankText: {fileID: 1727612218}
@@ -53823,10 +53869,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -520}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745795889
 MonoBehaviour:
@@ -53896,6 +53942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 506963710}
   _skillRankText: {fileID: 1379284654}
@@ -54922,7 +54969,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 575}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1770057165
 MonoBehaviour:
@@ -56870,10 +56917,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -145}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851598590
 MonoBehaviour:
@@ -56943,6 +56990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1855983852}
   _skillRankText: {fileID: 644391437}
@@ -57554,7 +57602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1873621483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59401,8 +59449,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -60518,6 +60566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 0}
   _skillLevelText: {fileID: 2088029512}
   _skillRankText: {fileID: 748072095}
@@ -60590,10 +60639,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1970897195
 MonoBehaviour:
@@ -60663,6 +60712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1461485908}
   _skillRankText: {fileID: 888477668}
@@ -61032,8 +61082,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -61543,10 +61593,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 495, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985568819
 MonoBehaviour:
@@ -61616,6 +61666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1091806408}
   _skillRankText: {fileID: 1472919180}
@@ -62646,6 +62697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 333756558}
   _skillRankText: {fileID: 11801653}
@@ -62968,10 +63020,10 @@ RectTransform:
   m_Father: {fileID: 139272942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -395}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2028912180
 MonoBehaviour:
@@ -63041,6 +63093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1981627054}
   _skillRankText: {fileID: 544769706}
@@ -64817,10 +64870,10 @@ RectTransform:
   m_Father: {fileID: 1770057164}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 370, y: -270}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109521664
 MonoBehaviour:
@@ -64890,6 +64943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f0bd87a6407142a10e3badb3ffc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSkill: 0
   _skillInventory: {fileID: 829502047}
   _skillLevelText: {fileID: 1767058378}
   _skillRankText: {fileID: 754502229}
@@ -65502,8 +65556,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0.95}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -274, y: 1}
-  m_SizeDelta: {x: 31.3883, y: 82.624}
+  m_AnchoredPosition: {x: -230, y: 8}
+  m_SizeDelta: {x: 23.26, y: 66.753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2130717696
 MonoBehaviour:

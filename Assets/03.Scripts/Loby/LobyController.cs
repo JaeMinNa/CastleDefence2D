@@ -218,9 +218,9 @@ public class LobyController : MonoBehaviour
     public void ActiveSkillInventory()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        _meleeSkillImage.sprite = _playerSO.EquipMeleeSkill.Icon;
-        _rangedSkillImage.sprite = _playerSO.EquipRangedSkill.Icon;
-        _areaSkillImage.sprite = _playerSO.EquipAreaSkill.Icon;
+        //_meleeSkillImage.sprite = _playerSO.EquipMeleeSkill.Icon;
+        //_rangedSkillImage.sprite = _playerSO.EquipRangedSkill.Icon;
+        //_areaSkillImage.sprite = _playerSO.EquipAreaSkill.Icon;
         _skillInventory.SetActive(true);
     }
 

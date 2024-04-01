@@ -42,7 +42,6 @@ public class SkillInventorySlot : MonoBehaviour
     [SerializeField] private TMP_Text _rangedSkillUpgradeText;
 
     [Header("AreaSkillInfo")]
-
     [SerializeField] private GameObject _areaSkillInfo;
     [SerializeField] private TMP_Text _areaSkillTag;
     [SerializeField] private Image _equipAreadSkillImage;

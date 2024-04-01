@@ -17,7 +17,7 @@ MonoBehaviour:
   Hp: 0
   Level: 1
   MaxExp: 10
-  CurrentExp: 5
+  CurrentExp: 0
   SkillTime: 3
   AttackCoolTime: 1.5
   NuckbackPower: 2
@@ -25,11 +25,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
   - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
   - {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
+  - {fileID: 11400000, guid: 9c1b39f42df65d94ebfbe606944c9add, type: 2}
+  - {fileID: 11400000, guid: 9c1b39f42df65d94ebfbe606944c9add, type: 2}
   - {fileID: 11400000, guid: 7e2403eb832ac91439b0f819e3b26b47, type: 2}
+  - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
   - {fileID: 11400000, guid: 67836e6660c7e8b49a3f37f2d8647216, type: 2}
+  - {fileID: 11400000, guid: 631f89b42de22f44ea7453a05d80cb9c, type: 2}
+  - {fileID: 11400000, guid: 76e62fbe338a6834db40cb13b81dd03d, type: 2}
+  - {fileID: 11400000, guid: e4effb7217135ca4aa2529d088330be4, type: 2}
+  - {fileID: 11400000, guid: f551cc089b9402f4383337b5934de922, type: 2}
+  - {fileID: 11400000, guid: 2a0b9de3462f00f4db61c9a2f5d71a6c, type: 2}
   - {fileID: 11400000, guid: f89a464774d60b94b9a66fd6771ef820, type: 2}
-  - {fileID: 11400000, guid: 5c4bfc47e3996f04a90d01bca51d15e9, type: 2}
+  - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
+  - {fileID: 11400000, guid: d46288b5ec505a34189b608a8ee8ff21, type: 2}
+  - {fileID: 11400000, guid: 6659933d8b62567458b0ba2617a3492f, type: 2}
   - {fileID: 11400000, guid: 37bda9aa2b6ff1e49b1c133b1f0f4abd, type: 2}
-  EquipMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
+  - {fileID: 11400000, guid: 3410f2ea46af027479dbc8f5c38dd7c4, type: 2}
+  - {fileID: 11400000, guid: 5c4bfc47e3996f04a90d01bca51d15e9, type: 2}
+  - {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
+  - {fileID: 11400000, guid: 60c21d8a88824544cbaae50987addbb6, type: 2}
+  - {fileID: 11400000, guid: b7e1ab8d9d1b5ce4e912ab3958099ca3, type: 2}
+  EquipMeleeSkill: {fileID: 11400000, guid: 9c1b39f42df65d94ebfbe606944c9add, type: 2}
   EquipRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
   EquipAreaSkill: {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
