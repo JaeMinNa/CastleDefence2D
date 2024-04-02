@@ -21,10 +21,12 @@ public class StageController : MonoBehaviour
 
     [Header("Pause")]
     [SerializeField] private GameObject _pause;
+    [SerializeField] private SoundController _soundController;
 
     [Header("GameClear")]
     [SerializeField] private GameObject _gameClear;
     [SerializeField] private TMP_Text _gameClearCoinText;
+    [SerializeField] private TMP_Text _gameClearSkillDrawText;
     [SerializeField] private TMP_Text _gameClearStageText;
     [SerializeField] private GameObject _star3;
     [SerializeField] private GameObject _star2;
@@ -49,6 +51,8 @@ public class StageController : MonoBehaviour
         _currentStage = GameManager.I.DataManager.GameDataSO.Stage;
         _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
+        SoundSetting();
+        GameManager.I.SoundManager.StartBGM("BattleMap0");
     }
 
     private void Update()
@@ -72,18 +76,21 @@ public class StageController : MonoBehaviour
 
     public void PauseActive()
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 0f;
         _pause.gameObject.SetActive(true);
     }
 
     public void PauseInactive()
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         _pause.gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void GameClearActive()
     {
+        GameManager.I.SoundManager.StartSFX("Buy");
         Time.timeScale = 0f;
         GameManager.I.DataManager.GameDataSO.Stage++;
 
@@ -106,15 +113,18 @@ public class StageController : MonoBehaviour
         if (_currentStage % 5 == 0)
         {
             EnemyLevelUp();
+            GetSkillDrawCount();
+            _gameClearSkillDrawText.text = "½ºÅ³ »Ì±â + 1";
         }
 
         _gameClearStageText.text = "STAGE " + _currentStage.ToString();
-        _gameClearCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
+        _gameClearCoinText.text = "Coin + " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameClear.gameObject.SetActive(true);
     }
 
     public void GameOverActive()
     {
+        GameManager.I.SoundManager.StartSFX("GameOver");
         _dangerTimePanel.SetActive(false);
         Time.timeScale = 0f;
         _gameOverCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
@@ -139,7 +149,6 @@ public class StageController : MonoBehaviour
     public void LobySceneButton()
     {
         Time.timeScale = 1f;
-        GameManager.I.DataManager.GameDataSO.Stage++;
         GameManager.I.DataManager.GameDataSO.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove("LobyScene");
     }
@@ -165,5 +174,17 @@ public class StageController : MonoBehaviour
             rangedEnemySO[i].Atk *= 1.2f;
             rangedEnemySO[i].Hp *= 1.2f;
         }
+    }
+    private void GetSkillDrawCount()
+    {
+        GameManager.I.DataManager.GameDataSO.SkillDrawCount++;
+    }
+
+    private void SoundSetting()
+    {
+        _soundController.BGMSlider.value = GameManager.I.DataManager.GameDataSO.BGMVolume;
+        _soundController.SFXSlider.value = GameManager.I.DataManager.GameDataSO.SFXVolume;
+        _soundController.SFXControll();
+        _soundController.BGMControll();
     }
 }

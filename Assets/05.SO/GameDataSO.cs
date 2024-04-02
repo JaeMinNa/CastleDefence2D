@@ -9,4 +9,8 @@ public class GameDataSO : ScriptableObject
     public int Stage;
     public int Coin;
     public int SkillDrawCount;
+
+    [Header("Sound")]
+    public float BGMVolume;
+    public float SFXVolume;
 }

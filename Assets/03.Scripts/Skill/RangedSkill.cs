@@ -120,7 +120,7 @@ public class RangedSkill : MonoBehaviour
         {
             _skillSpriteRenderer.enabled = false;
             GameManager.I.SoundManager.StartSFX(_rangedSkillSO.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(0.8f, 1.5f));
+            StartCoroutine(_cameraShake.COShake(0.5f, 1f)); 
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             Targetting();

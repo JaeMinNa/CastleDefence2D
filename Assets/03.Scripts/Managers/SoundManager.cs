@@ -44,6 +44,8 @@ public class SoundManager : MonoBehaviour
         }
 
         // BGM
+        _bgm.Add("Loby", Resources.Load<AudioClip>("Sound/BGM/Loby"));
+        _bgm.Add("BattleMap0", Resources.Load<AudioClip>("Sound/BGM/BattleMap0"));
 
         // SFX
         _sfx.Add("Gauge", Resources.Load<AudioClip>("Sound/SFX/UI/Gauge"));
@@ -92,6 +94,7 @@ public class SoundManager : MonoBehaviour
         _sfx.Add("Equip", Resources.Load<AudioClip>("Sound/SFX/UI/Equip"));
         _sfx.Add("Buy", Resources.Load<AudioClip>("Sound/SFX/UI/Buy"));
         _sfx.Add("GetSkill", Resources.Load<AudioClip>("Sound/SFX/UI/GetSkill"));
+        _sfx.Add("GameOver", Resources.Load<AudioClip>("Sound/SFX/UI/GameOver"));
     }
 
     // 메모리 해제

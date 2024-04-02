@@ -27,6 +27,7 @@ public class LobyController : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private GameObject _setting;
     [SerializeField] private GameObject _reset;
+    [SerializeField] private SoundController _soundController;
 
     [Header("Info")]
     [SerializeField] private GameObject _playerInfo;
@@ -50,6 +51,8 @@ public class LobyController : MonoBehaviour
     private void Start()
     {
         _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
+        SoundSetting();
+        GameManager.I.SoundManager.StartBGM("Loby");
         Init();
     }
 
@@ -221,9 +224,6 @@ public class LobyController : MonoBehaviour
     public void ActiveSkillInventory()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        //_meleeSkillImage.sprite = _playerSO.EquipMeleeSkill.Icon;
-        //_rangedSkillImage.sprite = _playerSO.EquipRangedSkill.Icon;
-        //_areaSkillImage.sprite = _playerSO.EquipAreaSkill.Icon;
         _skillInventory.SetActive(true);
     }
 
@@ -231,5 +231,13 @@ public class LobyController : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
         _skillInventory.SetActive(false);
+    }
+
+    private void SoundSetting()
+    {
+        _soundController.BGMSlider.value = GameManager.I.DataManager.GameDataSO.BGMVolume;
+        _soundController.SFXSlider.value = GameManager.I.DataManager.GameDataSO.SFXVolume;
+        _soundController.SFXControll();
+        _soundController.BGMControll();
     }
 }

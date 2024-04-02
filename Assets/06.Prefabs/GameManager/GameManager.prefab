@@ -129,6 +129,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7e1ab8d9d1b5ce4e912ab3958099ca3, type: 2}
   - {fileID: 11400000, guid: 60c21d8a88824544cbaae50987addbb6, type: 2}
   CurrentStageCoin: 0
+  StartMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
+  StartRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
+  StartAreaSkill: {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
 --- !u!1 &4460205502225582209
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxDistance: 30
-  StartVolume: 0.2
+  StartVolume: 1
 --- !u!1 &5219764961381512993
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +433,7 @@ Transform:
   - {fileID: 2543889426022630340}
   - {fileID: 5147032671762017787}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6039598773200613011
 MonoBehaviour:

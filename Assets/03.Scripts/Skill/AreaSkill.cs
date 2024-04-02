@@ -86,7 +86,7 @@ public class AreaSkill : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             GameManager.I.SoundManager.StartSFX(_areaSkillSO.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(0.8f, 1.5f));
+            StartCoroutine(_cameraShake.COShake(0.5f, 1f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             _animator.SetTrigger("Hit");

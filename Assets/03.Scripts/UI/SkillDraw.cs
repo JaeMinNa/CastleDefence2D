@@ -15,6 +15,7 @@ public class SkillDraw : MonoBehaviour
     [SerializeField] private SkillSO _getSkillSO;
     [SerializeField] private GameObject _skillInfoPanel;
     [SerializeField] private TMP_Text _getSkillTagText;
+    [SerializeField] private TMP_Text _getSkillTypeText;
     [SerializeField] private Image _getSkillImage;
     [SerializeField] private TMP_Text _getSkillRankText;
     [SerializeField] private TMP_Text _getSkillDescriptionText;
@@ -82,6 +83,9 @@ public class SkillDraw : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 스킬 뽑기
+    /// </summary>
     public void SkillIInfoButton()
     {
         if(GameManager.I.DataManager.GameDataSO.SkillDrawCount < 1)
@@ -210,6 +214,7 @@ public class SkillDraw : MonoBehaviour
 
         _getSkillSO.CurrentUpgradeCount++;
         _getSkillTagText.text = _getSkillSO.Tag;
+        _getSkillTypeText.text = _getSkillSO.Type.ToString();
         _getSkillImage.sprite = _getSkillSO.Icon;
 
         if (_getSkillSO.Rank == SkillSO.SkillRank.B)
@@ -276,6 +281,19 @@ public class SkillDraw : MonoBehaviour
 
     private void UpgradeSkill()
     {
-        Debug.Log("스킬 강화 성공");
+        if(_getSkillSO.Type == SkillSO.SkillType.Melee || _getSkillSO.Type == SkillSO.SkillType.Ranged)
+        {
+            _getSkillSO.AtkRatio += 0.3f;
+        }
+        else
+        {
+            _getSkillSO.AtkRatio += 0.3f;
+            _getSkillSO.Count++;
+
+            if(_getSkillSO.Interval >= 0.3f)
+            {
+                _getSkillSO.Interval -= 0.1f;
+            }
+        }
     }
 }
