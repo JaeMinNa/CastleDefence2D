@@ -95,7 +95,7 @@ public class RangedSkill : MonoBehaviour
         {
             _dir = _targets[i].gameObject.transform.position - _player.transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
-            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _playerSO.Atk * _rangedSkillSO.AtkRatio;
+            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk * _rangedSkillSO.AtkRatio;
             GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(_playerSO.Atk * _rangedSkillSO.AtkRatio), 31);
             if (_dir.x > 0)
             {

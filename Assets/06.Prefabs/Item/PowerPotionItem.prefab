@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1207953760633664974
+--- !u!1 &4037170235798853924
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6841644531793366649}
-  - component: {fileID: 3811869866948909925}
-  - component: {fileID: 3393572621048821252}
-  - component: {fileID: -7452540760277573224}
+  - component: {fileID: 6229139758829052366}
+  - component: {fileID: 7101814513927724367}
+  - component: {fileID: 9038248359946921308}
+  - component: {fileID: 8157159720755866047}
   m_Layer: 12
-  m_Name: Coin
+  m_Name: PowerPotionItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6841644531793366649
+--- !u!4 &6229139758829052366
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207953760633664974}
+  m_GameObject: {fileID: 4037170235798853924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.99, y: -0.85, z: 0}
+  m_LocalPosition: {x: 2.95, y: -2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8629168904228717367}
+  - {fileID: 2522419543778239309}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &3811869866948909925
+--- !u!50 &7101814513927724367
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207953760633664974}
+  m_GameObject: {fileID: 4037170235798853924}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -62,13 +62,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3393572621048821252
+--- !u!61 &9038248359946921308
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207953760633664974}
+  m_GameObject: {fileID: 4037170235798853924}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.009881854}
+  m_Offset: {x: 0, y: 0.3833425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -105,22 +105,28 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55, y: 0.52566886}
+  m_Size: {x: 0.5841708, y: 0.7271123}
   m_EdgeRadius: 0
---- !u!114 &-7452540760277573224
+--- !u!114 &8157159720755866047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207953760633664974}
+  m_GameObject: {fileID: 4037170235798853924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ba5084b41970f4f971415f035e2a2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 10d491a68de341148be49dd771a4a0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinPrice: 1000
---- !u!1 &2972559628225559149
+  Type: 3
+  _itemTime: 5
+  _fadeTime: 0.3
+  _hp: 50
+  _powerRatio: 1.5
+  _speedRatio: 1.5
+  _coolTimeRatio: 0.5
+--- !u!1 &7275040097376049551
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,38 +134,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8629168904228717367}
-  - component: {fileID: 4983026182930557174}
-  - component: {fileID: 538849991197025266}
+  - component: {fileID: 2522419543778239309}
+  - component: {fileID: 3252705222683529425}
+  - component: {fileID: 8941346408096126462}
   m_Layer: 0
-  m_Name: JPY_6x4_0
+  m_Name: small Potions_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8629168904228717367
+--- !u!4 &2522419543778239309
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972559628225559149}
+  m_GameObject: {fileID: 7275040097376049551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6841644531793366649}
+  m_Father: {fileID: 6229139758829052366}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4983026182930557174
+--- !u!212 &3252705222683529425
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972559628225559149}
+  m_GameObject: {fileID: 7275040097376049551}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -193,29 +199,29 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: -5229025625153448826, guid: 7a64d093929a4bc45ae1993d93258ee0, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300016, guid: ddf8838d0a06d8d4c9dec9e3bed69260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.875, y: 3.875}
+  m_Size: {x: 0.8125, y: 1.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &538849991197025266
+--- !u!95 &8941346408096126462
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972559628225559149}
+  m_GameObject: {fileID: 7275040097376049551}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7c411eafa052b442961a6dddfe43fd0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97c62c9b53372db47b7558c7f835dd3d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -35,7 +35,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
                 StartCoroutine(_playerAnimationEvnet.COStartAttack());
             }
 
-            if (_playerController.PlayerSO.Speed > 0)
+            if (_playerController.Speed > 0)
             {
                 Debug.DrawRay(transform.position - new Vector3(0, 2, 0), Vector2.right, new Color(1, 0, 0));
                 _hitInfo = Physics2D.Raycast(transform.position - new Vector3(0, 2, 0), Vector2.right, 1f, _layerMask);
@@ -43,12 +43,12 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
                 {
                     if (!_hitInfo.transform.CompareTag("Wall") && _playerController.IsMove)
                     {
-                        transform.position += new Vector3(_playerController.PlayerSO.Speed, 0, 0) * Time.deltaTime;
+                        transform.position += new Vector3(_playerController.Speed, 0, 0) * Time.deltaTime;
                     }
                 }
                 else if (_hitInfo.collider == null && _playerController.IsMove)
                 {
-                    transform.position += new Vector3(_playerController.PlayerSO.Speed, 0, 0) * Time.deltaTime;
+                    transform.position += new Vector3(_playerController.Speed, 0, 0) * Time.deltaTime;
                 }
             }
             else
@@ -59,12 +59,12 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
                 {
                     if (!_hitInfo.transform.CompareTag("Wall") && _playerController.IsMove)
                     {
-                        transform.position += new Vector3(_playerController.PlayerSO.Speed, 0, 0) * Time.deltaTime;
+                        transform.position += new Vector3(_playerController.Speed, 0, 0) * Time.deltaTime;
                     }
                 }
                 else if (_hitInfo.collider == null && _playerController.IsMove)
                 {
-                    transform.position += new Vector3(_playerController.PlayerSO.Speed, 0, 0) * Time.deltaTime;
+                    transform.position += new Vector3(_playerController.Speed, 0, 0) * Time.deltaTime;
                 }
             }
 

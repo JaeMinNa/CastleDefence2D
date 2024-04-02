@@ -25,7 +25,7 @@ public class PlayerAttackCollider : MonoBehaviour
             if(transform.CompareTag("AttackCollider"))
             {
                 GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)_playerController.PlayerSO.Atk, 255);
-                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.PlayerSO.Atk;
+                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.Atk;
                 if (_dir.x > 0)
                 {
                     collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _playerController.PlayerSO.NuckbackPower, ForceMode2D.Impulse);
@@ -39,7 +39,7 @@ public class PlayerAttackCollider : MonoBehaviour
             {
                 StartCoroutine(_cameraShake.COShake(1f, 1.5f));
                 GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)(_playerController.PlayerSO.Atk * _meleeSkillSO.AtkRatio), 31);
-                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.PlayerSO.Atk * _meleeSkillSO.AtkRatio;
+                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.Atk * _meleeSkillSO.AtkRatio;
                 if (_dir.x > 0)
                 {
                     collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _meleeSkillSO.NuckbackPower, ForceMode2D.Impulse);

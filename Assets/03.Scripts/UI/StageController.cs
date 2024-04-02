@@ -7,8 +7,8 @@ using TMPro;
 public class StageController : MonoBehaviour
 {
     [Header("Danger Time")]
-    [field : SerializeField] public float DangerTimeSpeedRatio = 1.5f;
-    [field : SerializeField] public float DangerTimeAtkRatio = 1.5f;
+    public float DangerTimeSpeedRatio = 1.5f;
+    public float DangerTimeAtkRatio = 1.5f;
     [SerializeField] private GameObject _dangerTimePanel;
     [SerializeField] private float _dangerTimePanelActiveTime = 1f;
 

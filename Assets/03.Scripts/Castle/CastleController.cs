@@ -65,6 +65,18 @@ public class CastleController : MonoBehaviour
         }
     }
 
+    public void CastleHpRecovery(int hp)
+    {
+        Hp += hp;
+
+        if (Hp >= CastleSO.Hp)
+        {
+            Hp = CastleSO.Hp;
+        }
+
+        _castleHp.value = (float)Hp / CastleSO.Hp;
+    }
+
     IEnumerator COCastleArrow()
     {
         while (true)

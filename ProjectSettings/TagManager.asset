@@ -11,6 +11,8 @@ TagManager:
   - Ground
   - MeleeCollider
   - StageController
+  - AttackButton
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Arrow
   - Castle
   - Coin
-  - 
+  - Item
   - 
   - 
   - 

@@ -10,12 +10,6 @@ public class SoundController : MonoBehaviour
     public Slider BGMSlider;
     public Slider SFXSlider;
 
-    private void Start()
-    {
-        BGMSlider.value = GameManager.I.DataManager.GameDataSO.BGMVolume;
-        SFXSlider.value = GameManager.I.DataManager.GameDataSO.SFXVolume;
-    }
-
     public void BGMControll()
     {
         float sound = BGMSlider.value;

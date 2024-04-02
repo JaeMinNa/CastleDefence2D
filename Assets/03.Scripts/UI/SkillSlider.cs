@@ -17,6 +17,6 @@ public class SkillSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _slider.value = _attackButton.ClickTime / GameManager.I.PlayerManager.Player.GetComponent<PlayerController>().PlayerSO.SkillTime;
+        _slider.value = _attackButton.ClickTime / _attackButton.SkillCoolTime;
     }
 }

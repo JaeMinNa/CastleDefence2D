@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: GameDataSO
   m_EditorClassIdentifier: 
   Stage: 1
-  Coin: 685000
-  SkillDrawCount: 58
+  Coin: 0
+  SkillDrawCount: 0
+  BGMVolume: -12.204509
+  SFXVolume: -13.962154

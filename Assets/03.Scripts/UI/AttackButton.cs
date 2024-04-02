@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AttackButton : MonoBehaviour
 {
-    public float ClickTime { get; private set; } 
+    public float ClickTime { get; private set; }
+    public float SkillCoolTime;
     public bool IsClick { get; private set; }
     private PlayerController _playerController;
     private SpriteRenderer _playerSpriteRenderer;
@@ -24,9 +25,9 @@ public class AttackButton : MonoBehaviour
     {
         _collidersPositionX = _collidersTransform.localPosition.x;
 
-        _playerController.PlayerSO.Speed *= -1;
+        _playerController.Speed *= -1;
 
-        if (_playerController.PlayerSO.Speed > 0)
+        if (_playerController.Speed > 0)
         {
             _playerSpriteRenderer.flipX = false;
 
@@ -59,15 +60,15 @@ public class AttackButton : MonoBehaviour
         _rangedSkillStart = false;
         _areaSkillStart = false;
 
-        if (ClickTime >= _playerController.PlayerSO.SkillTime)
+        if (ClickTime >= SkillCoolTime)
         {
             StartCoroutine(_playerAnimationEvent.COStartAreaSkill(_areaSkillSO));
         }
-        else if ((ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime))
+        else if ((ClickTime >= 2 * (SkillCoolTime / 3) && ClickTime < SkillCoolTime))
         {
             StartCoroutine(_playerAnimationEvent.COStartRangedSkill(_rangedSkillSO));
         }
-        else if (ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
+        else if (ClickTime >= SkillCoolTime / 3 && ClickTime < 2 * (SkillCoolTime / 3))
         {
             StartCoroutine(_playerAnimationEvent.COStartMeleeSkill(_meleeSkillSO));
         }
@@ -89,6 +90,7 @@ public class AttackButton : MonoBehaviour
         _meleeSkillStart = false;
         _rangedSkillStart = false;
         _areaSkillStart = false;
+        SkillCoolTime = _playerController.GetComponent<PlayerController>().PlayerSO.SkillTime;
 
         if (_playerController.PlayerSO.Speed > 0)
         {
@@ -116,20 +118,20 @@ public class AttackButton : MonoBehaviour
         {
             ClickTime += Time.deltaTime;
 
-            if((ClickTime >= _playerController.PlayerSO.SkillTime) && !_areaSkillStart)
+            if((ClickTime >= SkillCoolTime) && !_areaSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
                 GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _areaSkillStart = true;
             }
-            else if((ClickTime >= 2 * (_playerController.PlayerSO.SkillTime / 3) && ClickTime < _playerController.PlayerSO.SkillTime)
+            else if((ClickTime >= 2 * (SkillCoolTime / 3) && ClickTime < SkillCoolTime)
                  && !_rangedSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
                 GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _rangedSkillStart = true;
             }
-            else if((ClickTime >= _playerController.PlayerSO.SkillTime / 3 && ClickTime < 2 * (_playerController.PlayerSO.SkillTime / 3))
+            else if((ClickTime >= SkillCoolTime / 3 && ClickTime < 2 * (SkillCoolTime / 3))
                  && !_meleeSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
@@ -137,7 +139,7 @@ public class AttackButton : MonoBehaviour
                 _meleeSkillStart = true;
             }
 
-            if (ClickTime >= (_playerController.PlayerSO.SkillTime / 4f))
+            if (ClickTime >= (SkillCoolTime / 4f))
             _playerController.GetComponent<PlayerAttackState>().time = 0f;
         }
         else

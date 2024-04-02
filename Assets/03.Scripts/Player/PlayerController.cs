@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerSO PlayerSO;
+    public float Atk;
+    public float Speed;
+    public float CoolTime;
     public Animator Animator { get; private set; }
     [HideInInspector] public bool IsMove;
 
@@ -16,8 +19,10 @@ public class PlayerController : MonoBehaviour
     {
         _playerStateContext = new PlayerStateContext(this);
         _attackState = gameObject.AddComponent<PlayerAttackState>();
-
         Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        Atk = PlayerSO.Atk;
+        Speed = PlayerSO.Speed;
+        CoolTime = PlayerSO.AttackCoolTime;
 
         _playerStateContext.Transition(_attackState);
 
