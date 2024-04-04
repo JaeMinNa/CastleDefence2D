@@ -21,7 +21,7 @@ public class SpawnSystem : MonoBehaviour
 
     private void Start()
     {
-        _currentStage = GameManager.I.DataManager.GameDataSO.Stage;
+        _currentStage = GameManager.I.DataManager.GameData.Stage;
         for (int i = 0; i < Stages[_currentStage - 1].enemys.Length; i++)
         {
             string[] words = Stages[_currentStage - 1].enemys[i].Split(' ');

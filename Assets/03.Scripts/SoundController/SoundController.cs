@@ -13,7 +13,7 @@ public class SoundController : MonoBehaviour
     public void BGMControll()
     {
         float sound = BGMSlider.value;
-        GameManager.I.DataManager.GameDataSO.BGMVolume = sound;
+        GameManager.I.DataManager.GameData.BGMVolume = sound;
 
         if (sound == -40f)	// -40¿œ ∂ß, ¿Ωæ«¿ª ≤®¡‹
         {
@@ -23,12 +23,14 @@ public class SoundController : MonoBehaviour
         {
             _audioMixer.SetFloat("BGM", sound);
         }
+
+        GameManager.I.DataManager.DataSave();
     }
 
     public void SFXControll()
     {
         float sound = SFXSlider.value;
-        GameManager.I.DataManager.GameDataSO.SFXVolume = sound;
+        GameManager.I.DataManager.GameData.SFXVolume = sound;
 
         if (sound == -40f)	// -40¿œ ∂ß, ¿Ωæ«¿ª ≤®¡‹
         {
@@ -38,5 +40,7 @@ public class SoundController : MonoBehaviour
         {
             _audioMixer.SetFloat("SFX", sound);
         }
+
+        GameManager.I.DataManager.DataSave();
     }
 }

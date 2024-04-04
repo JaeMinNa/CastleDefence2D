@@ -15,7 +15,8 @@ public class LobyController : MonoBehaviour
     [SerializeField] private TMP_Text _skillDrawCountText;
 
     [Header("Level")]
-    private PlayerSO _playerSO;
+    //private PlayerSO _playerSO;
+    private PlayerData _playerData;
     [SerializeField] private CastleSO _castleSO;
     [SerializeField] private TMP_Text _playerLevelText;
     [SerializeField] private TMP_Text _castleLevelText;
@@ -50,7 +51,8 @@ public class LobyController : MonoBehaviour
 
     private void Start()
     {
-        _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
+        //_playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
+        _playerData = GameManager.I.DataManager.PlayerData;
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("Loby");
         Init();
@@ -58,12 +60,12 @@ public class LobyController : MonoBehaviour
 
     private void Init()
     {
-        _coinText.text = GameManager.I.DataManager.GameDataSO.Coin.ToString();
-        _stageText.text = "Stage " + GameManager.I.DataManager.GameDataSO.Stage.ToString();
-        _playerLevelText.text = "Lv " + _playerSO.Level.ToString();
+        _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
+        _stageText.text = "Stage " + GameManager.I.DataManager.GameData.Stage.ToString();
+        _playerLevelText.text = "Lv " + _playerData.Level.ToString();
         _castleLevelText.text = "Lv " + _castleSO.Level.ToString();
-        _skillDrawCountText.text = GameManager.I.DataManager.GameDataSO.SkillDrawCount.ToString();
-        _playerExpSlider.value = _playerSO.CurrentExp / _playerSO.MaxExp;
+        _skillDrawCountText.text = GameManager.I.DataManager.GameData.SkillDrawCount.ToString();
+        _playerExpSlider.value = _playerData.CurrentExp / _playerData.MaxExp;
         _castleExpSlider.value = _castleSO.CurrentExp / _castleSO.MaxExp;
     }
 
@@ -104,37 +106,39 @@ public class LobyController : MonoBehaviour
 
     public void PlayerExpButton()
     {
-        if(GameManager.I.DataManager.GameDataSO.Coin >= _expPrice)
+        if(GameManager.I.DataManager.GameData.Coin >= _expPrice)
         {
             GameManager.I.SoundManager.StartSFX("ButtonExp");
-            GameManager.I.DataManager.GameDataSO.Coin -= _expPrice;
-            _coinText.text = GameManager.I.DataManager.GameDataSO.Coin.ToString();
-            _playerSO.CurrentExp += _exp;
+            GameManager.I.DataManager.GameData.Coin -= _expPrice;
+            _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
+            _playerData.CurrentExp += _exp;
 
-            if (_playerSO.CurrentExp >= _playerSO.MaxExp)
+            if (_playerData.CurrentExp >= _playerData.MaxExp)
             {
-                _playerSO.CurrentExp -= _playerSO.MaxExp;
-                _playerSO.Level++;
-                _playerSO.MaxExp *= 1.5f;
-                _playerLevelText.text = "Lv " + _playerSO.Level.ToString();
+                _playerData.CurrentExp -= _playerData.MaxExp;
+                _playerData.Level++;
+                _playerData.MaxExp *= 1.5f;
+                _playerLevelText.text = "Lv " + _playerData.Level.ToString();
                 PlayerLevelUp();
             }
 
-            _playerExpSlider.value = _playerSO.CurrentExp / _playerSO.MaxExp;
+            _playerExpSlider.value = _playerData.CurrentExp / _playerData.MaxExp;
         }
         else 
         {
             GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
         }
+
+        GameManager.I.DataManager.DataSave();
     }
 
     public void CastleExpButton()
     {
-        if (GameManager.I.DataManager.GameDataSO.Coin >= _expPrice)
+        if (GameManager.I.DataManager.GameData.Coin >= _expPrice)
         {
             GameManager.I.SoundManager.StartSFX("ButtonExp");
-            GameManager.I.DataManager.GameDataSO.Coin -= _expPrice;
-            _coinText.text = GameManager.I.DataManager.GameDataSO.Coin.ToString();
+            GameManager.I.DataManager.GameData.Coin -= _expPrice;
+            _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
             _castleSO.CurrentExp += _exp;
 
             if (_castleSO.CurrentExp >= _castleSO.MaxExp)
@@ -152,13 +156,15 @@ public class LobyController : MonoBehaviour
         {
             GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
         }
+
+        GameManager.I.DataManager.DataSave();
     }
 
     private void PlayerLevelUp()
     {
         GameManager.I.SoundManager.StartSFX("LevelUp");
-        _playerSO.Speed += 0.1f;
-        _playerSO.Atk += 1f;
+        _playerData.Speed += 0.1f;
+        _playerData.Atk += 1f;
     }
 
     private void CastleLevelUp()
@@ -175,7 +181,7 @@ public class LobyController : MonoBehaviour
     public void DataReset()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        GameManager.I.DataManager.DataReset();
+        //GameManager.I.DataManager.DataReset();
         Init();
         _reset.SetActive(false);
         _setting.SetActive(false);
@@ -184,16 +190,16 @@ public class LobyController : MonoBehaviour
     public void ActivePlayerInfo()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        _playerLvText.text = _playerSO.Level.ToString();
-        _playerExpText.text = ((int)_playerSO.CurrentExp).ToString() + " / " + ((int)_playerSO.MaxExp).ToString();
-        _playerAtkText.text = _playerSO.Atk.ToString();
-        if(_playerSO.Speed > 0)
+        _playerLvText.text = _playerData.Level.ToString();
+        _playerExpText.text = ((int)_playerData.CurrentExp).ToString() + " / " + ((int)_playerData.MaxExp).ToString();
+        _playerAtkText.text = _playerData.Atk.ToString();
+        if(_playerData.Speed > 0)
         {
-            _playerSpeedText.text = _playerSO.Speed.ToString();
+            _playerSpeedText.text = _playerData.Speed.ToString();
         }
         else
         {
-            _playerSpeedText.text = (-_playerSO.Speed).ToString();
+            _playerSpeedText.text = (-_playerData.Speed).ToString();
         }
         _playerInfo.SetActive(true);
     }
@@ -235,8 +241,8 @@ public class LobyController : MonoBehaviour
 
     private void SoundSetting()
     {
-        _soundController.BGMSlider.value = GameManager.I.DataManager.GameDataSO.BGMVolume;
-        _soundController.SFXSlider.value = GameManager.I.DataManager.GameDataSO.SFXVolume;
+        _soundController.BGMSlider.value = GameManager.I.DataManager.GameData.BGMVolume;
+        _soundController.SFXSlider.value = GameManager.I.DataManager.GameData.SFXVolume;
         _soundController.SFXControll();
         _soundController.BGMControll();
     }

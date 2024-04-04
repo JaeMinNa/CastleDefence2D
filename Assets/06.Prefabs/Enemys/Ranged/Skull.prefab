@@ -119,10 +119,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49afcc82e4fe0d40af8826554a74268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySO: {fileID: 11400000, guid: e0758b1767093844685ecc2499f7d570, type: 2}
+  Tag: 10
   Hp: 0
   Ishit: 0
   IsAttack: 0
+  EnemyData:
+    Tag: 
+    Type: 0
+    Hp: 0
+    Speed: 0
+    Atk: 0
+    Price: 0
+    BulletTag: 
+    BulletSpeed: 0
+    Distance: 0
+    BulletPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8627511721411615740
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerSO PlayerSO;
+    //public PlayerSO PlayerSO;
     public float Atk;
     public float Speed;
     public float CoolTime;
@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
         _playerStateContext = new PlayerStateContext(this);
         _attackState = gameObject.AddComponent<PlayerAttackState>();
         Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
-        Atk = PlayerSO.Atk;
-        Speed = PlayerSO.Speed;
-        CoolTime = PlayerSO.AttackCoolTime;
+        Atk = GameManager.I.DataManager.PlayerData.Atk;
+        Speed = GameManager.I.DataManager.PlayerData.Speed;
+        CoolTime = GameManager.I.DataManager.PlayerData.SkillTime;
 
         _playerStateContext.Transition(_attackState);
 

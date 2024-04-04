@@ -18,6 +18,7 @@ MonoBehaviour:
   AttackType: 0
   Price: 150
   CoinDropPercent: 10
+  PotionDropPercent: 15
   BulletTag: 
   BulletSpeed: 0
   Distance: 0

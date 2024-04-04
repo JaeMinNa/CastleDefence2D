@@ -6,7 +6,6 @@ public class RangedSkill : MonoBehaviour
     [SerializeField] private float _inactiveTime = 0.2f;
     [SerializeField] private Collider2D[] _targets;
     private SkillSO _rangedSkillSO;
-    private PlayerSO _playerSO;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
     private Animator _animator;
@@ -22,12 +21,11 @@ public class RangedSkill : MonoBehaviour
     private void Start()
     {
         _player = GameManager.I.PlayerManager.Player;
-        _playerSO = _player.GetComponent<PlayerController>().PlayerSO;
         _playerSpriteRenderer = _player.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _animator = _skillSpriteRenderer.transform.GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
-        _rangedSkillSO = _player.GetComponent<PlayerController>().PlayerSO.EquipRangedSkill;
+        _rangedSkillSO = GameManager.I.DataManager.PlayerData.EquipRangedSkill;
         _layerMask = LayerMask.NameToLayer("Enemy");
         _isMove = true;
         _localPosition = transform.GetChild(0).gameObject.transform.localPosition;
@@ -96,7 +94,7 @@ public class RangedSkill : MonoBehaviour
             _dir = _targets[i].gameObject.transform.position - _player.transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk * _rangedSkillSO.AtkRatio;
-            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(_playerSO.Atk * _rangedSkillSO.AtkRatio), 31);
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(GameManager.I.DataManager.PlayerData.Atk * _rangedSkillSO.AtkRatio), 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);
@@ -120,7 +118,7 @@ public class RangedSkill : MonoBehaviour
         {
             _skillSpriteRenderer.enabled = false;
             GameManager.I.SoundManager.StartSFX(_rangedSkillSO.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(0.5f, 1f)); 
+            StartCoroutine(_cameraShake.COShake(0.5f, 0.5f)); 
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             Targetting();

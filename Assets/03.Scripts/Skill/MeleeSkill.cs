@@ -8,14 +8,12 @@ public class MeleeSkill : MonoBehaviour
     private SkillSO _meleeSkillSO;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
-    private PlayerController _playerController;
 
     private void Start()
     {
         _playerSpriteRenderer = GameManager.I.PlayerManager.Player.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
-        _meleeSkillSO = _playerController.GetComponent<PlayerController>().PlayerSO.EquipMeleeSkill;
+        _meleeSkillSO = GameManager.I.DataManager.PlayerData.EquipMeleeSkill;
 
         if (_playerSpriteRenderer.flipX) _skillSpriteRenderer.flipX = true;
         else _skillSpriteRenderer.flipX = false;

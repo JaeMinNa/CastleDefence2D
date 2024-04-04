@@ -15,5 +15,5 @@ MonoBehaviour:
   Stage: 1
   Coin: 0
   SkillDrawCount: 0
-  BGMVolume: -12.204509
-  SFXVolume: -13.962154
+  BGMVolume: 0
+  SFXVolume: 0

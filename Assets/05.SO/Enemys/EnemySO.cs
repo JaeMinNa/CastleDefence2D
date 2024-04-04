@@ -16,6 +16,7 @@ public class EnemySO : StatSO
     public Type AttackType;
     public int Price;
     public int CoinDropPercent;
+    public int PotionDropPercent;
 
     [Header("Ranged Enemy Info")]
     public string BulletTag;

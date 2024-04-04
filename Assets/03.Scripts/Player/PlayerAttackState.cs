@@ -29,7 +29,7 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
         while (true)
         {
             if(_playerController.IsMove) time += Time.deltaTime;
-            if(time >= _playerController.PlayerSO.AttackCoolTime)
+            if(time >= GameManager.I.DataManager.PlayerData.AttackCoolTime)
             {
                 time = 0f;
                 StartCoroutine(_playerAnimationEvnet.COStartAttack());

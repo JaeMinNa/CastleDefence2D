@@ -10,7 +10,6 @@ public class AreaSkill : MonoBehaviour
     private Animator _animator;
     private CameraShake _cameraShake;
     private SkillSO _areaSkillSO;
-    private PlayerSO _playerSO;
     private Vector3 _startPos;
     private Vector2 _dir;
     private LayerMask _layerMask;
@@ -19,8 +18,7 @@ public class AreaSkill : MonoBehaviour
     private void Start()
     {
         _player = GameManager.I.PlayerManager.Player;
-        _playerSO = _player.GetComponent<PlayerController>().PlayerSO;
-        _areaSkillSO = _player.GetComponent<PlayerController>().PlayerSO.EquipAreaSkill;
+        _areaSkillSO = GameManager.I.DataManager.PlayerData.EquipAreaSkill;
         _animator = transform.GetChild(0).GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
         _layerMask = LayerMask.NameToLayer("Enemy");
@@ -63,7 +61,7 @@ public class AreaSkill : MonoBehaviour
             _dir = _targets[i].gameObject.transform.position - transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
             _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk * _areaSkillSO.AtkRatio;
-            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(_playerSO.Atk * _areaSkillSO.AtkRatio), 31);
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(GameManager.I.DataManager.PlayerData.Atk * _areaSkillSO.AtkRatio), 31);
             if (_dir.x > 0)
             {
                 _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _areaSkillSO.NuckbackPower, ForceMode2D.Impulse);
@@ -86,7 +84,7 @@ public class AreaSkill : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             GameManager.I.SoundManager.StartSFX(_areaSkillSO.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(0.5f, 1f));
+            StartCoroutine(_cameraShake.COShake(0.5f, 0.5f));
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
             _animator.SetTrigger("Hit");

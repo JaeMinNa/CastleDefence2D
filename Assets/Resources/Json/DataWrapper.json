@@ -1,0 +1,180 @@
+{
+    "MeleeEnemyData": [
+        {
+            "Tag": "Snail",
+            "Type": 0,
+            "Hp": 20.0,
+            "Speed": 1.0,
+            "Atk": 10.0,
+            "Price": 100,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Rock",
+            "Type": 0,
+            "Hp": 30.0,
+            "Speed": 1.5,
+            "Atk": 5.0,
+            "Price": 100,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Chicken",
+            "Type": 0,
+            "Hp": 30.0,
+            "Speed": 2.5,
+            "Atk": 12.0,
+            "Price": 150,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Mushroom",
+            "Type": 0,
+            "Hp": 20.0,
+            "Speed": 2.0,
+            "Atk": 15.0,
+            "Price": 150,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Bunny",
+            "Type": 0,
+            "Hp": 20.0,
+            "Speed": 3.0,
+            "Atk": 8.0,
+            "Price": 150,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Turtle",
+            "Type": 0,
+            "Hp": 40.0,
+            "Speed": 12.0,
+            "Atk": 30.0,
+            "Price": 200,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Rino",
+            "Type": 0,
+            "Hp": 30.0,
+            "Speed": 1.0,
+            "Atk": 40.0,
+            "Price": 200,
+            "BulletTag": "",
+            "BulletSpeed": 0.0,
+            "Distance": 0.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Plant",
+            "Type": 1,
+            "Hp": 15.0,
+            "Speed": 0.5,
+            "Atk": 3.0,
+            "Price": 100,
+            "BulletTag": "PlantBullet",
+            "BulletSpeed": 5.0,
+            "Distance": 7.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.10000000149011612,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Trunk",
+            "Type": 1,
+            "Hp": 18.0,
+            "Speed": 0.5,
+            "Atk": 5.0,
+            "Price": 100,
+            "BulletTag": "TrunkBullet",
+            "BulletSpeed": 6.0,
+            "Distance": 8.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": -0.20000000298023225,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Radish",
+            "Type": 1,
+            "Hp": 20.0,
+            "Speed": 0.30000001192092898,
+            "Atk": 8.0,
+            "Price": 200,
+            "BulletTag": "RadishBullet",
+            "BulletSpeed": 8.0,
+            "Distance": 5.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.10000000149011612,
+                "z": 0.0
+            }
+        },
+        {
+            "Tag": "Skull",
+            "Type": 1,
+            "Hp": 25.0,
+            "Speed": 0.20000000298023225,
+            "Atk": 10.0,
+            "Price": 200,
+            "BulletTag": "SkullBullet",
+            "BulletSpeed": 4.0,
+            "Distance": 10.0,
+            "BulletPosition": {
+                "x": 0.0,
+                "y": 0.10000000149011612,
+                "z": 0.0
+            }
+        }
+    ]
+}

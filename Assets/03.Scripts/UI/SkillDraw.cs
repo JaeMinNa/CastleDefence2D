@@ -26,14 +26,14 @@ public class SkillDraw : MonoBehaviour
     [SerializeField] private TMP_Text _lobyCurrentSkillDrawCountText;
     [SerializeField] private TMP_Text _lobyCurrentCoinText;
 
-    private PlayerSO _playerSO;
+    private PlayerData _playerData;
     private SkillSO[] _meleeSkillData;
     private SkillSO[] _rangedSkillData;
     private SkillSO[] _areaSkillData;
 
     private void Start()
     {
-        _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
+        _playerData = GameManager.I.DataManager.PlayerData;
         _meleeSkillData = GameManager.I.DataManager.MeleeSkillSO;
         _rangedSkillData = GameManager.I.DataManager.RangedSkillSO;
         _areaSkillData = GameManager.I.DataManager.AreaSkillSO;
@@ -56,11 +56,11 @@ public class SkillDraw : MonoBehaviour
 
     public void SkillDrawBuyButton(int count)
     {
-        if(count == 1 && GameManager.I.DataManager.GameDataSO.Coin >= 5000)
+        if(count == 1 && GameManager.I.DataManager.GameData.Coin >= 5000)
         {
             GameManager.I.SoundManager.StartSFX("Buy");
-            GameManager.I.DataManager.GameDataSO.Coin -= 5000;
-            GameManager.I.DataManager.GameDataSO.SkillDrawCount++;
+            GameManager.I.DataManager.GameData.Coin -= 5000;
+            GameManager.I.DataManager.GameData.SkillDrawCount++;
             UpdateSkillDrawCount();
             UpdateCoin();
         }
@@ -69,11 +69,11 @@ public class SkillDraw : MonoBehaviour
             GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
         }
 
-        if (count == 10 && GameManager.I.DataManager.GameDataSO.Coin >= 45000)
+        if (count == 10 && GameManager.I.DataManager.GameData.Coin >= 45000)
         {
             GameManager.I.SoundManager.StartSFX("Buy");
-            GameManager.I.DataManager.GameDataSO.Coin -= 45000;
-            GameManager.I.DataManager.GameDataSO.SkillDrawCount += 10;
+            GameManager.I.DataManager.GameData.Coin -= 45000;
+            GameManager.I.DataManager.GameData.SkillDrawCount += 10;
             UpdateSkillDrawCount();
             UpdateCoin();
         }
@@ -81,6 +81,8 @@ public class SkillDraw : MonoBehaviour
         {
             GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
         }
+
+        GameManager.I.DataManager.DataSave();
     }
 
     /// <summary>
@@ -88,14 +90,14 @@ public class SkillDraw : MonoBehaviour
     /// </summary>
     public void SkillIInfoButton()
     {
-        if(GameManager.I.DataManager.GameDataSO.SkillDrawCount < 1)
+        if(GameManager.I.DataManager.GameData.SkillDrawCount < 1)
         {
             GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
             return;
         }
 
         GameManager.I.SoundManager.StartSFX("GetSkill");
-        GameManager.I.DataManager.GameDataSO.SkillDrawCount--;
+        GameManager.I.DataManager.GameData.SkillDrawCount--;
         UpdateSkillDrawCount();
         int random1 = Random.Range(0, 4); // Skill Type
         int random2 = Random.Range(1, 101); // Rank
@@ -234,7 +236,7 @@ public class SkillDraw : MonoBehaviour
         _getSkillDescriptionText.text = _getSkillSO.Description;
         if(!_getSkillSO.IsGet)
         {
-            _playerSO.SkillInventroy.Add(_getSkillSO);
+            _playerData.SkillInventory.Add(_getSkillSO);
             _getSkillSO.IsGet = true;
             _text1.text = "새로운 스킬을 뽑았습니다.";
             _text2.text = "";
@@ -259,6 +261,8 @@ public class SkillDraw : MonoBehaviour
 
 
         _skillInfoPanel.SetActive(true);
+
+        GameManager.I.DataManager.DataSave();
     }
 
     public void SkillInfoExitButton()
@@ -269,14 +273,14 @@ public class SkillDraw : MonoBehaviour
 
     private void UpdateSkillDrawCount()
     {
-        _currentSkillDrawCountText.text = GameManager.I.DataManager.GameDataSO.SkillDrawCount.ToString();
-        _lobyCurrentSkillDrawCountText.text = GameManager.I.DataManager.GameDataSO.SkillDrawCount.ToString();
+        _currentSkillDrawCountText.text = GameManager.I.DataManager.GameData.SkillDrawCount.ToString();
+        _lobyCurrentSkillDrawCountText.text = GameManager.I.DataManager.GameData.SkillDrawCount.ToString();
     }
 
     private void UpdateCoin()
     {
-        _currentCoinText.text = GameManager.I.DataManager.GameDataSO.Coin.ToString();
-        _lobyCurrentCoinText.text = GameManager.I.DataManager.GameDataSO.Coin.ToString();
+        _currentCoinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
+        _lobyCurrentCoinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
     }
 
     private void UpgradeSkill()

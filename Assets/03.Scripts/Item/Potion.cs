@@ -32,24 +32,23 @@ public class Potion : MonoBehaviour
     private AttackButton _attackButton;
 
     private PlayerController _playerController;
-    private PlayerSO _playerSO;
+    //private PlayerSO _playerSO;
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _playerSpriteRenderer;
     private BoxCollider2D _collider;
 
-    private void Awake()
-    {
-        _castleController = GameObject.FindWithTag("Castle").GetComponent<CastleController>();
-        _attackButton = GameObject.FindWithTag("AttackButton").GetComponent<AttackButton>();
-        _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        _collider = GetComponent<BoxCollider2D>();
-    }
-
     private void Start()
     {
-        _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
-        _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        _playerSO = _playerController.PlayerSO;
+        if (GameManager.I.ScenesManager.CurrentSceneName != "LobyScene")
+        {
+            _castleController = GameObject.FindWithTag("Castle").GetComponent<CastleController>();
+            _attackButton = GameObject.FindWithTag("AttackButton").GetComponent<AttackButton>();
+            _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            _collider = GetComponent<BoxCollider2D>();
+            _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
+            _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
+            //_playerSO = _playerController.PlayerSO;
+        }
     }
 
     IEnumerator COInactive(float time)
@@ -61,23 +60,10 @@ public class Potion : MonoBehaviour
     IEnumerator COPlayerStatReset()
     {
         yield return new WaitForSeconds(_itemTime);
-        _playerController.Atk = _playerSO.Atk;
-        _playerController.Speed = _playerSO.Speed;
-        _attackButton.SkillCoolTime = _playerSO.SkillTime;
+        _playerController.Atk = GameManager.I.DataManager.PlayerData.Atk;
+        _playerController.Speed = GameManager.I.DataManager.PlayerData.Speed;
+        _attackButton.SkillCoolTime = GameManager.I.DataManager.PlayerData.SkillTime;
     }
-
-    //IEnumerator BlinkForSeconds(float duration)
-    //{
-    //    float timer = 0f;
-    //    while (timer < duration)
-    //    {
-    //        _playerSpriteRenderer.color = Color.red; // 빨간색으로 변경
-    //        yield return new WaitForSeconds(_blinkInterval);
-    //        _playerSpriteRenderer.color = Color.white; // 원래 색으로 변경 (보통은 흰색)
-    //        yield return new WaitForSeconds(_blinkInterval);
-    //        //timer += _blinkInterval * 2; // 각각의 깜박임 간격을 더해줌
-    //    }
-    //}
 
     private IEnumerator COStopFade()
     {

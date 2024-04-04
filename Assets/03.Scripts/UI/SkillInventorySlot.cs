@@ -7,7 +7,7 @@ using TMPro;
 public class SkillInventorySlot : MonoBehaviour
 {
     private SkillSO _skillSO;
-    private PlayerSO _playerSO;
+    private PlayerData _playerData;
     public bool _isSkill;
 
     [Header("Inventory")]
@@ -55,7 +55,7 @@ public class SkillInventorySlot : MonoBehaviour
 
     private void Start()
     {
-        _playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
+        _playerData = GameManager.I.DataManager.PlayerData;
     }
 
     public void SkillText(SkillSO skillSO)
@@ -158,7 +158,7 @@ public class SkillInventorySlot : MonoBehaviour
             _meleeSkillDescriptionText.text = _skillSO.Description;
             _meleeSkillLevelText.text = _skillSO.Level.ToString();
             _meleeSkillRankText.text = rank;
-            _meleeSkillAtkText.text = ((int)(_playerSO.Atk * _skillSO.AtkRatio)).ToString();
+            _meleeSkillAtkText.text = ((int)(_playerData.Atk * _skillSO.AtkRatio)).ToString();
             _meleeSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
 
             _meleeSkillInfo.SetActive(true);
@@ -180,7 +180,7 @@ public class SkillInventorySlot : MonoBehaviour
             _rangedSkillDescriptionText.text = _skillSO.Description;
             _rangedSkillLevelText.text = _skillSO.Level.ToString();
             _rangedSkillRankText.text = rank;
-            _rangedSkillAtkText.text = ((int)(_playerSO.Atk * _skillSO.AtkRatio)).ToString();
+            _rangedSkillAtkText.text = ((int)(_playerData.Atk * _skillSO.AtkRatio)).ToString();
             _rangedSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
 
             _rangedSkillInfo.SetActive(true);
@@ -206,7 +206,7 @@ public class SkillInventorySlot : MonoBehaviour
             _areaSkillDescriptionText.text = _skillSO.Description;
             _areaSkillLevelText.text = _skillSO.Level.ToString();
             _areaSkillRankText.text = rank;
-            _areaSkillAtkText.text = ((int)(_playerSO.Atk * _skillSO.AtkRatio)).ToString();
+            _areaSkillAtkText.text = ((int)(_playerData.Atk * _skillSO.AtkRatio)).ToString();
             _areaSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
             _areaSkillCountText.text = _skillSO.Count.ToString();
             _areaSkillIntervalText.text = _skillSO.Interval.ToString();

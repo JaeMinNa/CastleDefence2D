@@ -90,8 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0cccadf520a974eae4557dc3784415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameDataSO: {fileID: 11400000, guid: 7fdc3fcbbf85a5b41b2e51ee392d7630, type: 2}
-  PlayerSO: {fileID: 11400000, guid: b49889dc34929964b96e17455e0e93b4, type: 2}
   CastleSO: {fileID: 11400000, guid: a867fc73d7350e341859682be2139164, type: 2}
   MeleeEnemySO:
   - {fileID: 11400000, guid: b1e9b61257f474445bc9e4cba84bb972, type: 2}
@@ -132,6 +130,28 @@ MonoBehaviour:
   StartMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
   StartRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
   StartAreaSkill: {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
+  GameData:
+    Stage: 1
+    Coin: 0
+    SkillDrawCount: 0
+    BGMVolume: 0
+    SFXVolume: 0
+  PlayerData:
+    Level: 1
+    MaxExp: 10
+    CurrentExp: 0
+    Speed: 3
+    Atk: 10
+    SkillTime: 3
+    AttackCoolTime: 1.5
+    NuckbackPower: 2
+    SkillInventory:
+    - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
+    - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
+    - {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
+    EquipMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
+    EquipRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
+    EquipAreaSkill: {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
 --- !u!1 &4460205502225582209
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +406,18 @@ MonoBehaviour:
   - Tag: LaserBomb
     Prefab: {fileID: 7883135397449089872, guid: 5dae061fca67af546aeee2f6ae9eeab3, type: 3}
     Size: 20
+  - Tag: HpPotionItem
+    Prefab: {fileID: 2582670639203794426, guid: f175ffa8db0aecb44bcffae1d97fa900, type: 3}
+    Size: 5
+  - Tag: CoolTimePotionItem
+    Prefab: {fileID: 6775467886904926596, guid: 0f0616222a131534897bf5c6a9c50f05, type: 3}
+    Size: 5
+  - Tag: PowerPotionItem
+    Prefab: {fileID: 4037170235798853924, guid: 5ab33b5b5dbd9b148aa1c898d7c549e7, type: 3}
+    Size: 5
+  - Tag: SpeedPotionItem
+    Prefab: {fileID: 4021178975776318979, guid: c59853908af89a3488a7f4b23affb383, type: 3}
+    Size: 5
 --- !u!114 &5420529968276100871
 MonoBehaviour:
   m_ObjectHideFlags: 0

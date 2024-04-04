@@ -18,6 +18,7 @@ MonoBehaviour:
   AttackType: 1
   Price: 100
   CoinDropPercent: 10
+  PotionDropPercent: 15
   BulletTag: PlantBullet
   BulletSpeed: 5
   Distance: 7

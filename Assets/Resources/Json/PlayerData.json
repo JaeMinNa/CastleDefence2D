@@ -1,0 +1,30 @@
+{
+    "Level": 1,
+    "MaxExp": 10.0,
+    "CurrentExp": 0.0,
+    "Speed": 3.0,
+    "Atk": 10.0,
+    "SkillTime": 3.0,
+    "AttackCoolTime": 1.5,
+    "NuckbackPower": 2.0,
+    "SkillInventory": [
+        {
+            "instanceID": 25032
+        },
+        {
+            "instanceID": 25016
+        },
+        {
+            "instanceID": 24834
+        }
+    ],
+    "EquipMeleeSkill": {
+        "instanceID": 25032
+    },
+    "EquipRangedSkill": {
+        "instanceID": 25016
+    },
+    "EquipAreaSkill": {
+        "instanceID": 24834
+    }
+}

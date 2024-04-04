@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class EnemyHitState : MonoBehaviour, IEnemyState
 {
+    [SerializeField] private int _coinDropPercent = 10;
+    [SerializeField] private int _potionDropPercent = 15;
+
     private EnemyController _enemyController;
 
     public void Handle(EnemyController enemyController)
@@ -25,11 +28,20 @@ public class EnemyHitState : MonoBehaviour, IEnemyState
             _enemyController.Ishit = false;
             _enemyController.Animator.SetBool("Hit", false);
 
-            int random = Random.Range(0, _enemyController.EnemySO.CoinDropPercent);
-            if (random == 0) GameManager.I.ObjectPoolManager.ActivePrefab("Coin", transform.position + Vector3.up * 0.5f);
+            int random1 = Random.Range(0, _coinDropPercent);
+            if(random1 == 0) GameManager.I.ObjectPoolManager.ActivePrefab("Coin", transform.position + Vector3.up * 0.5f);
 
-            GameManager.I.DataManager.CoinUpdate(_enemyController.EnemySO.Price);
+            int random2 = Random.Range(0, _potionDropPercent);
+            if(random2 == 0)
+            {
+                random2 = Random.Range(0, 4);
+                if (random2 == 0) GameManager.I.ObjectPoolManager.ActivePrefab("HpPotionItem", transform.position + Vector3.up * 0.5f);
+                else if (random2 == 1) GameManager.I.ObjectPoolManager.ActivePrefab("CoolTimePotionItem", transform.position + Vector3.up * 0.5f);
+                else if (random2 == 2) GameManager.I.ObjectPoolManager.ActivePrefab("PowerPotionItem", transform.position + Vector3.up * 0.5f);
+                else if (random2 == 3) GameManager.I.ObjectPoolManager.ActivePrefab("SpeedPotionItem", transform.position + Vector3.up * 0.5f);
+            }
 
+            GameManager.I.DataManager.CoinUpdate(_enemyController.EnemyData.Price);
             gameObject.SetActive(false);
         }
         else

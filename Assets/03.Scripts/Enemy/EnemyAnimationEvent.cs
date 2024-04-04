@@ -17,12 +17,12 @@ public class EnemyAnimationEvent : MonoBehaviour
 
     public void AttackMelee()
     {
-        if(_stageController.IsDangerTime) _castleController.CastleHit(_enemyController.EnemySO.Atk * _stageController.DangerTimeAtkRatio);
-        else _castleController.CastleHit(_enemyController.EnemySO.Atk);
+        if(_stageController.IsDangerTime) _castleController.CastleHit(_enemyController.EnemyData.Atk * _stageController.DangerTimeAtkRatio);
+        else _castleController.CastleHit(_enemyController.EnemyData.Atk);
     }
     
     public void ShootBullet()
     {
-         GameManager.I.ObjectPoolManager.ActivePrefab(_enemyController.EnemySO.BulletTag, transform.position + _enemyController.EnemySO.BulletPosition);
+         GameManager.I.ObjectPoolManager.ActivePrefab(_enemyController.EnemyData.BulletTag, transform.position + _enemyController.EnemyData.BulletPosition);
     }
 }

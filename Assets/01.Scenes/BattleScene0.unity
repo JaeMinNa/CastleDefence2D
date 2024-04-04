@@ -978,7 +978,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &98088762
 GameObject:
@@ -14486,7 +14486,7 @@ Transform:
   - {fileID: 943217546}
   - {fileID: 1195470507}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422080065
 GameObject:
@@ -16706,148 +16706,123 @@ MonoBehaviour:
   - Stage: 11
     enemys:
     - Snail 10
-    - Rock 10
-    - Chicken 10
+    - Rock 15
+    - Chicken 20
     - Plant 15
   - Stage: 12
     enemys:
     - Snail 10
-    - Rock 10
-    - Chicken 9
+    - Rock 15
+    - Chicken 19
     - Plant 14
   - Stage: 13
     enemys:
     - Snail 10
-    - Rock 9
-    - Chicken 8
-    - Plant 14
+    - Rock 15
+    - Chicken 18
+    - Plant 13
   - Stage: 14
     enemys:
-    - Snail 9
-    - Rock 8
-    - Chicken 8
-    - Plant 13
+    - Snail 10
+    - Rock 15
+    - Chicken 17
+    - Plant 12
   - Stage: 15
     enemys:
-    - Snail 8
-    - Rock 7
-    - Chicken 7
-    - Plant 12
+    - Snail 10
+    - Rock 15
+    - Chicken 16
+    - Plant 11
   - Stage: 16
     enemys:
-    - Snail 5
     - Rock 10
-    - Chicken 10
-    - Trunk 15
+    - Mushroom 20
     - Bunny 20
+    - Plant 15
   - Stage: 17
     enemys:
-    - Snail 5
-    - Rock 9
-    - Chicken 10
-    - Trunk 14
-    - Bunny 20
+    - Rock 10
+    - Mushroom 19
+    - Bunny 19
+    - Plant 14
   - Stage: 18
     enemys:
-    - Snail 5
-    - Rock 8
-    - Chicken 9
-    - Trunk 13
+    - Rock 10
+    - Mushroom 18
     - Bunny 18
+    - Plant 12
   - Stage: 19
     enemys:
-    - Snail 5
-    - Rock 8
-    - Chicken 8
-    - Trunk 12
-    - Bunny 15
+    - Rock 10
+    - Mushroom 17
+    - Bunny 17
+    - Plant 11
   - Stage: 20
     enemys:
-    - Snail 5
-    - Rock 8
-    - Chicken 8
-    - Trunk 12
-    - Bunny 12
+    - Rock 10
+    - Mushroom 16
+    - Bunny 16
+    - Plant 10
   - Stage: 21
     enemys:
-    - Snail 5
-    - Rock 6
-    - Chicken 10
+    - Rock 8
+    - Mushroom 15
     - Bunny 15
-    - Trunk 20
-    - Plant 15
+    - Plant 10
   - Stage: 22
     enemys:
-    - Snail 5
-    - Rock 6
-    - Chicken 10
-    - Bunny 13
-    - Trunk 19
-    - Plant 14
+    - Rock 8
+    - Mushroom 14
+    - Bunny 14
+    - Plant 10
   - Stage: 23
     enemys:
-    - Snail 5
-    - Rock 6
-    - Chicken 9
-    - Bunny 12
-    - Trunk 18
-    - Plant 13
+    - Rock 8
+    - Mushroom 13
+    - Bunny 13
+    - Plant 10
   - Stage: 24
     enemys:
-    - Snail 5
-    - Rock 6
-    - Chicken 8
-    - Bunny 11
-    - Trunk 16
-    - Plant 11
+    - Rock 8
+    - Mushroom 12
+    - Bunny 12
+    - Plant 10
   - Stage: 25
     enemys:
-    - Snail 5
-    - Rock 6
-    - Chicken 7
-    - Bunny 10
-    - Trunk 13
-    - Plant 9
+    - Rock 8
+    - Mushroom 11
+    - Bunny 11
+    - Plant 10
   - Stage: 26
     enemys:
-    - Snail 10
-    - Rock 15
-    - Mushroom 13
-    - Bunny 10
-    - Trunk 10
-    - Plant 8
+    - Rock 8
+    - Mushroom 20
+    - Bunny 15
+    - Trunk 20
   - Stage: 27
     enemys:
-    - Snail 10
-    - Rock 15
-    - Mushroom 11
-    - Bunny 8
-    - Trunk 9
-    - Plant 8
+    - Rock 8
+    - Mushroom 19
+    - Bunny 14
+    - Trunk 19
   - Stage: 28
     enemys:
-    - Snail 10
-    - Rock 15
-    - Mushroom 10
-    - Bunny 7
-    - Trunk 8
-    - Plant 7
+    - Rock 8
+    - Mushroom 18
+    - Bunny 13
+    - Trunk 18
   - Stage: 29
     enemys:
-    - Snail 9
-    - Rock 13
-    - Mushroom 9
-    - Bunny 6
-    - Trunk 7
-    - Plant 6
+    - Rock 8
+    - Mushroom 17
+    - Bunny 12
+    - Trunk 17
   - Stage: 30
     enemys:
-    - Snail 9
-    - Rock 13
-    - Mushroom 8
-    - Bunny 6
-    - Trunk 7
-    - Plant 6
+    - Rock 8
+    - Mushroom 16
+    - Bunny 11
+    - Trunk 16
   _spawnLeft: {fileID: 1182914271}
   _spawnRigth: {fileID: 903896539}
 --- !u!1 &1849830011
@@ -18142,7 +18117,7 @@ Transform:
   - {fileID: 1283840632}
   - {fileID: 587694456}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.84}
 --- !u!61 &2054242723
 BoxCollider2D:
@@ -18201,7 +18176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2096815506f8ca045818dd49e9ebd666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CastleSO: {fileID: 11400000, guid: a867fc73d7350e341859682be2139164, type: 2}
   Hp: 0
   _castleHp: {fileID: 1031169969}
   _brokenCastle: {fileID: 21300000, guid: f37a07cac181fb343a1278ed79f23355, type: 3}
@@ -18805,9 +18779,377 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[0].Hp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[1].Hp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[2].Hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[0].Atk
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[0].Tag
+      value: abc
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[1].Atk
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[1].Tag
+      value: abc
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[2].Atk
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[2].Tag
+      value: abcdddd
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[0].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[0].Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[1].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[1].Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[2].Price
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: MeleeEnemyData.Array.data[2].Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[0].Hp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[1].Hp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[2].Hp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[3].Hp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[4].Hp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[5].Hp
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[6].Hp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Hp
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Hp
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Hp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[0].Atk
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[0].Tag
+      value: Snail
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Hp
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[1].Atk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[1].Tag
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[2].Atk
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[2].Tag
+      value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[3].Atk
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[3].Tag
+      value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[4].Atk
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[4].Tag
+      value: Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[5].Atk
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[5].Tag
+      value: Turtle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[6].Atk
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[6].Tag
+      value: Rino
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Atk
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Tag
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Atk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Tag
+      value: Trunk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Atk
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Tag
+      value: Radish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Atk
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Tag
+      value: Skull
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[0].Price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[0].Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[1].Price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[1].Speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[2].Price
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[2].Speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[3].Price
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[3].Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[4].Price
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[4].Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[5].Price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[5].Speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[6].Price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[6].Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Speed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].Distance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].Distance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].Distance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].Distance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].BulletTag
+      value: PlantBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].BulletTag
+      value: TrunkBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].BulletTag
+      value: RadishBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].BulletTag
+      value: SkullBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].BulletSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].BulletSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].BulletSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].BulletSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[7].BulletPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[8].BulletPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[9].BulletPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: DataWrapper.MeleeEnemyData.Array.data[10].BulletPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7540933731026198354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7540933731026198354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
       propertyPath: m_LocalPosition.x

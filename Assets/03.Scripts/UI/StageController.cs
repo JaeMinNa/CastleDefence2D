@@ -38,6 +38,7 @@ public class StageController : MonoBehaviour
     [SerializeField] private TMP_Text _gameOverStageText;
 
     [HideInInspector] public bool IsDangerTime;
+    private CastleData _castleData;
     private float _time;
     private bool _gameFinish;
     private string _currentScene;
@@ -48,7 +49,8 @@ public class StageController : MonoBehaviour
         IsDangerTime = false;
         _gameFinish = false;
         _time = 60f;
-        _currentStage = GameManager.I.DataManager.GameDataSO.Stage;
+        _castleData = GameManager.I.DataManager.CastleData;
+        _currentStage = GameManager.I.DataManager.GameData.Stage;
         _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
         SoundSetting();
@@ -92,14 +94,14 @@ public class StageController : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("Buy");
         Time.timeScale = 0f;
-        GameManager.I.DataManager.GameDataSO.Stage++;
+        GameManager.I.DataManager.GameData.Stage++;
 
-        if (_castleController.Hp >= (_castleController.CastleSO.Hp / 3) * 2)
+        if (_castleController.Hp >= (_castleData.Hp / 3) * 2)
         {
             _star3.SetActive(true);
             GameManager.I.DataManager.CoinUpdate(1500);
         }
-        else if(_castleController.Hp >= _castleController.CastleSO.Hp / 3)
+        else if(_castleController.Hp >= _castleData.Hp / 3)
         {
             _star2.SetActive(true);
             GameManager.I.DataManager.CoinUpdate(1000);
@@ -135,21 +137,21 @@ public class StageController : MonoBehaviour
     public void NextSceneButton()
     {
         Time.timeScale = 1f;
-        GameManager.I.DataManager.GameDataSO.Coin += GameManager.I.DataManager.CurrentStageCoin;
+        GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove(_currentScene);
     }
 
     public void RetryButton()
     {
         Time.timeScale = 1f;
-        GameManager.I.DataManager.GameDataSO.Coin += GameManager.I.DataManager.CurrentStageCoin;
+        GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove(_currentScene);
     }
 
     public void LobySceneButton()
     {
         Time.timeScale = 1f;
-        GameManager.I.DataManager.GameDataSO.Coin += GameManager.I.DataManager.CurrentStageCoin;
+        GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove("LobyScene");
     }
 
@@ -177,13 +179,13 @@ public class StageController : MonoBehaviour
     }
     private void GetSkillDrawCount()
     {
-        GameManager.I.DataManager.GameDataSO.SkillDrawCount++;
+        GameManager.I.DataManager.GameData.SkillDrawCount++;
     }
 
     private void SoundSetting()
     {
-        _soundController.BGMSlider.value = GameManager.I.DataManager.GameDataSO.BGMVolume;
-        _soundController.SFXSlider.value = GameManager.I.DataManager.GameDataSO.SFXVolume;
+        _soundController.BGMSlider.value = GameManager.I.DataManager.GameData.BGMVolume;
+        _soundController.SFXSlider.value = GameManager.I.DataManager.GameData.SFXVolume;
         _soundController.SFXControll();
         _soundController.BGMControll();
     }

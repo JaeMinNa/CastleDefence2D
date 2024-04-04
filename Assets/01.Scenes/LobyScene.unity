@@ -33505,6 +33505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: CastleData.Level
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7540933731026198354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
       propertyPath: m_RootOrder
       value: 3
