@@ -141,13 +141,7 @@ public class DataManager : MonoBehaviour
     //[field: SerializeField] public SkillSO[] MeleeSkillSO;
     //[field: SerializeField] public SkillSO[] RangedSkillSO;
     //[field: SerializeField] public SkillSO[] AreaSkillSO;
-    [field: SerializeField] public int CurrentStageCoin;
-
-    [Header("Start SKills")]
-    [field: SerializeField] public SkillSO StartMeleeSkill;
-    [field: SerializeField] public SkillSO StartRangedSkill;
-    [field: SerializeField] public SkillSO StartAreaSkill;
-
+    public int CurrentStageCoin;
     public GameData GameData;
     public PlayerData PlayerData;
     public CastleData CastleData;

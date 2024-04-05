@@ -203,4 +203,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7deb000c6ef0b04abf1f20fbb41a8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangedEnemySO: {fileID: 11400000, guid: e0758b1767093844685ecc2499f7d570, type: 2}
+  Tag: 3

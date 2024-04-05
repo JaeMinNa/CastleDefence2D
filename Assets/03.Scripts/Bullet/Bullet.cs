@@ -4,16 +4,45 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private EnemySO _rangedEnemySO;
+    public enum EnemyTag
+    {
+        Plant,
+        Trunk,
+        Radish,
+        Skull,
+    }
+
     private CastleController _castleController;
     private SpriteRenderer _bulletSpriteRenderer;
     private StageController _stageController;
+    private DataWrapper _dataWrapper;
+    private EnemyData _enemyData;
+    public EnemyTag Tag;
 
     void Start()
     {
         _castleController = GameObject.FindWithTag("Castle").GetComponent<CastleController>();
         _bulletSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _stageController = GameObject.FindWithTag("StageController").GetComponent<StageController>();
+        _dataWrapper = GameManager.I.DataManager.DataWrapper;
+
+        switch (Tag)
+        {
+            case EnemyTag.Plant:
+                _enemyData = _dataWrapper.EnemyData[7];
+                break;
+            case EnemyTag.Trunk:
+                _enemyData = _dataWrapper.EnemyData[8];
+                break;
+            case EnemyTag.Radish:
+                _enemyData = _dataWrapper.EnemyData[9];
+                break;
+            case EnemyTag.Skull:
+                _enemyData = _dataWrapper.EnemyData[10];
+                break;
+            default:
+                break;
+        }
 
         if (transform.position.x > 0)
         {
@@ -44,11 +73,11 @@ public class Bullet : MonoBehaviour
     {
         if(transform.position.x > 0)
         {
-            transform.position += new Vector3(-_rangedEnemySO.BulletSpeed, 0, 0) * Time.deltaTime;
+            transform.position += new Vector3(-_enemyData.BulletSpeed, 0, 0) * Time.deltaTime;
         }
         else
         {
-            transform.position += new Vector3(_rangedEnemySO.BulletSpeed, 0, 0) * Time.deltaTime;
+            transform.position += new Vector3(_enemyData.BulletSpeed, 0, 0) * Time.deltaTime;
         }
     }
 
@@ -56,8 +85,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Castle"))
         {
-            if(_stageController.IsDangerTime) _castleController.CastleHit(_rangedEnemySO.Atk * _stageController.DangerTimeAtkRatio);
-            else _castleController.CastleHit(_rangedEnemySO.Atk);
+            if(_stageController.IsDangerTime) _castleController.CastleHit(_enemyData.Atk * _stageController.DangerTimeAtkRatio);
+            else _castleController.CastleHit(_enemyData.Atk);
             gameObject.SetActive(false);
         }
     }

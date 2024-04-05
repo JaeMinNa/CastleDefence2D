@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7deb000c6ef0b04abf1f20fbb41a8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangedEnemySO: {fileID: 11400000, guid: fd9a0d60bd5d5464a8dbf5095980d2d1, type: 2}
+  Tag: 2
 --- !u!1 &7400428475778382992
 GameObject:
   m_ObjectHideFlags: 0
