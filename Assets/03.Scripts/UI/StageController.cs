@@ -39,6 +39,7 @@ public class StageController : MonoBehaviour
 
     [HideInInspector] public bool IsDangerTime;
     private CastleData _castleData;
+    private DataWrapper _dataWrapper;
     private float _time;
     private bool _gameFinish;
     private string _currentScene;
@@ -53,6 +54,7 @@ public class StageController : MonoBehaviour
         _currentStage = GameManager.I.DataManager.GameData.Stage;
         _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
+        _dataWrapper = GameManager.I.DataManager.DataWrapper;
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("BattleMap0");
     }
@@ -112,6 +114,8 @@ public class StageController : MonoBehaviour
             GameManager.I.DataManager.CoinUpdate(500);
         }
 
+        GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
+
         if (_currentStage % 5 == 0)
         {
             EnemyLevelUp();
@@ -122,6 +126,7 @@ public class StageController : MonoBehaviour
         _gameClearStageText.text = "STAGE " + _currentStage.ToString();
         _gameClearCoinText.text = "Coin + " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameClear.gameObject.SetActive(true);
+        GameManager.I.DataManager.DataSave();
     }
 
     public void GameOverActive()
@@ -132,6 +137,7 @@ public class StageController : MonoBehaviour
         _gameOverCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameOverStageText.text = "STAGE " + _currentStage.ToString();
         _gameOver.gameObject.SetActive(true);
+        GameManager.I.DataManager.DataSave();
     }
 
     public void NextSceneButton()
@@ -164,17 +170,10 @@ public class StageController : MonoBehaviour
 
     private void EnemyLevelUp()
     {
-        EnemySO[] meleeEnemySO = GameManager.I.DataManager.MeleeEnemySO;
-        EnemySO[] rangedEnemySO = GameManager.I.DataManager.RangedEnemySO;
-        for (int i = 0; i < meleeEnemySO.Length; i++)
+        for (int i = 0; i < _dataWrapper.EnemyData.Length; i++)
         {
-            meleeEnemySO[i].Atk *= 1.2f;
-            meleeEnemySO[i].Hp *= 1.2f;
-        }
-        for (int i = 0; i < rangedEnemySO.Length; i++)
-        {
-            rangedEnemySO[i].Atk *= 1.2f;
-            rangedEnemySO[i].Hp *= 1.2f;
+            _dataWrapper.EnemyData[i].Atk *= 1.2f;
+            _dataWrapper.EnemyData[i].Hp *= 1.2f;
         }
     }
     private void GetSkillDrawCount()

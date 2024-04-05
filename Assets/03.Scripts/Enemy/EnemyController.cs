@@ -47,37 +47,37 @@ public class EnemyController : MonoBehaviour
         switch (Tag)
         {
             case EnemyTag.Snail:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[0];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[0];
                 break;
             case EnemyTag.Rock:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[1];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[1];
                 break;
             case EnemyTag.Chicken:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[2];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[2];
                 break;
             case EnemyTag.Mushroom:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[3];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[3];
                 break;
             case EnemyTag.Bunny:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[4];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[4];
                 break;
             case EnemyTag.Turtle:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[5];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[5];
                 break;
             case EnemyTag.Rino:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[6];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[6];
                 break;
             case EnemyTag.Plant:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[7];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[7];
                 break;
             case EnemyTag.Trunk:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[8];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[8];
                 break;
             case EnemyTag.Radish:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[9];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[9];
                 break;
             case EnemyTag.Skull:
-                EnemyData = GameManager.I.DataManager.DataWrapper.MeleeEnemyData[10];
+                EnemyData = GameManager.I.DataManager.DataWrapper.EnemyData[10];
                 break;
             default:
                 break;

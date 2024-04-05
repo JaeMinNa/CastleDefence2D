@@ -5,7 +5,7 @@ public class RangedSkill : MonoBehaviour
 {
     [SerializeField] private float _inactiveTime = 0.2f;
     [SerializeField] private Collider2D[] _targets;
-    private SkillSO _rangedSkillSO;
+    private SkillData _rangedSkillData;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
     private Animator _animator;
@@ -25,7 +25,7 @@ public class RangedSkill : MonoBehaviour
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         _animator = _skillSpriteRenderer.transform.GetComponent<Animator>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
-        _rangedSkillSO = GameManager.I.DataManager.PlayerData.EquipRangedSkill;
+        _rangedSkillData = GameManager.I.DataManager.PlayerData.EquipRangedSkillData;
         _layerMask = LayerMask.NameToLayer("Enemy");
         _isMove = true;
         _localPosition = transform.GetChild(0).gameObject.transform.localPosition;
@@ -41,7 +41,7 @@ public class RangedSkill : MonoBehaviour
             _playerFlipX = false;
         }
 
-        GameManager.I.SoundManager.StartSFX(_rangedSkillSO.Tag);
+        GameManager.I.SoundManager.StartSFX(_rangedSkillData.Tag);
         StartCoroutine(COInactiveSkill(4f));
     }
 
@@ -64,7 +64,7 @@ public class RangedSkill : MonoBehaviour
             // 재사용 시, 로컬 포지션이 변함 -> 임시 방편 해결
             transform.GetChild(0).gameObject.transform.localPosition = _localPosition;
 
-            GameManager.I.SoundManager.StartSFX(_rangedSkillSO.Tag);
+            GameManager.I.SoundManager.StartSFX(_rangedSkillData.Tag);
             StartCoroutine(COInactiveSkill(4f));
         }
     }
@@ -75,11 +75,11 @@ public class RangedSkill : MonoBehaviour
         {
             if (!_playerFlipX)
             {
-                transform.position += new Vector3(_rangedSkillSO.Speed, 0, 0) * Time.deltaTime;
+                transform.position += new Vector3(_rangedSkillData.Speed, 0, 0) * Time.deltaTime;
             }
             else
             {
-                transform.position += new Vector3(-_rangedSkillSO.Speed, 0, 0) * Time.deltaTime;
+                transform.position += new Vector3(-_rangedSkillData.Speed, 0, 0) * Time.deltaTime;
             }
         }
     }
@@ -87,21 +87,21 @@ public class RangedSkill : MonoBehaviour
     private void Targetting()
     {
         int layerMask = (1 << _layerMask);  // Layer 설정
-        _targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), _rangedSkillSO.ExplosionRange, layerMask);
+        _targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), _rangedSkillData.ExplosionRange, layerMask);
 
         for (int i = 0; i < _targets.Length; i++)
         {
             _dir = _targets[i].gameObject.transform.position - _player.transform.position;
             _targets[i].gameObject.GetComponent<EnemyController>().Ishit = true;
-            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk * _rangedSkillSO.AtkRatio;
-            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(GameManager.I.DataManager.PlayerData.Atk * _rangedSkillSO.AtkRatio), 31);
+            _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk * _rangedSkillData.AtkRatio;
+            GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", _targets[i].gameObject.transform.position - new Vector3(0, 2, 0), (int)(GameManager.I.DataManager.PlayerData.Atk * _rangedSkillData.AtkRatio), 31);
             if (_dir.x > 0)
             {
-                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _rangedSkillData.NuckbackPower, ForceMode2D.Impulse);
             }
             else
             {
-                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _rangedSkillSO.NuckbackPower, ForceMode2D.Impulse);
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _rangedSkillData.NuckbackPower, ForceMode2D.Impulse);
             }
         }
     }
@@ -117,7 +117,7 @@ public class RangedSkill : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             _skillSpriteRenderer.enabled = false;
-            GameManager.I.SoundManager.StartSFX(_rangedSkillSO.SkillExplosionTag);
+            GameManager.I.SoundManager.StartSFX(_rangedSkillData.SkillExplosionTag);
             StartCoroutine(_cameraShake.COShake(0.5f, 0.5f)); 
             StartCoroutine(COInactiveSkill(_inactiveTime));
             _isMove = false;
@@ -126,11 +126,11 @@ public class RangedSkill : MonoBehaviour
             _animator.SetTrigger("Hit");
             if (!_skillSpriteRenderer.flipX)
             {
-                transform.position += _rangedSkillSO.HitRangePosition;
+                transform.position += _rangedSkillData.HitRangePosition;
             }
             else
             {
-                transform.position += new Vector3(-_rangedSkillSO.HitRangePosition.x, _rangedSkillSO.HitRangePosition.y, _rangedSkillSO.HitRangePosition.z);
+                transform.position += new Vector3(-_rangedSkillData.HitRangePosition.x, _rangedSkillData.HitRangePosition.y, _rangedSkillData.HitRangePosition.z);
             }
             _skillSpriteRenderer.enabled = true;
         }

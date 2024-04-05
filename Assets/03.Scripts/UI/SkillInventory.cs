@@ -31,17 +31,13 @@ public class SkillInventory : MonoBehaviour
     [Header("Skill Info")]
     [SerializeField] private GameObject[] _skillInfo;
 
-    private List<SkillSO> _skills;
+    private List<SkillData> _skills;
     private SkillInventorySlot _skillInventorySlot;
-    [HideInInspector] public SkillSO InfoSkillSO;
-
-    private void Awake()
-    {
-        _skills = new List<SkillSO>();
-    }
+    [HideInInspector] public SkillData InfoSkillData;
 
     void Start()
     {
+        _skills = new List<SkillData>();
         _playerData = GameManager.I.DataManager.PlayerData;
         MeleeButton();
         ShowEquipSkill();
@@ -78,7 +74,7 @@ public class SkillInventory : MonoBehaviour
 
         for (int i = 0; i < _playerData.SkillInventory.Count; i++)
         {
-            if(_playerData.SkillInventory[i].Type == SkillSO.SkillType.Melee)
+            if(_playerData.SkillInventory[i].Type == SkillData.SkillType.Melee)
             {
                 _skills.Add(_playerData.SkillInventory[i]);
             }
@@ -116,7 +112,7 @@ public class SkillInventory : MonoBehaviour
 
         for (int i = 0; i < _playerData.SkillInventory.Count; i++)
         {
-            if (_playerData.SkillInventory[i].Type == SkillSO.SkillType.Ranged)
+            if (_playerData.SkillInventory[i].Type == SkillData.SkillType.Ranged)
             {
                 _skills.Add(_playerData.SkillInventory[i]);
             }
@@ -154,7 +150,7 @@ public class SkillInventory : MonoBehaviour
 
         for (int i = 0; i < _playerData.SkillInventory.Count; i++)
         {
-            if (_playerData.SkillInventory[i].Type == SkillSO.SkillType.Area)
+            if (_playerData.SkillInventory[i].Type == SkillData.SkillType.Area)
             {
                 _skills.Add(_playerData.SkillInventory[i]);
             }
@@ -172,9 +168,9 @@ public class SkillInventory : MonoBehaviour
 
     public void ShowEquipSkill()
     {
-        _equipMeleeSkill.sprite = _playerData.EquipMeleeSkill.Icon;
-        _equipRangedSkill.sprite = _playerData.EquipRangedSkill.Icon;
-        _equipAreaSkill.sprite = _playerData.EquipAreaSkill.Icon;
+        _equipMeleeSkill.sprite = _playerData.EquipMeleeSkillData.Icon;
+        _equipRangedSkill.sprite = _playerData.EquipRangedSkillData.Icon;
+        _equipAreaSkill.sprite = _playerData.EquipAreaSkillData.Icon;
 
         for (int i = 0; i < 3; i++)
         {
@@ -182,15 +178,15 @@ public class SkillInventory : MonoBehaviour
 
             if(i == 0)
             {
-                _skillInventorySlot.EquipSkillText(_playerData.EquipMeleeSkill);
+                _skillInventorySlot.EquipSkillText(_playerData.EquipMeleeSkillData);
             }
             else if (i == 1)
             {
-                _skillInventorySlot.EquipSkillText(_playerData.EquipRangedSkill);
+                _skillInventorySlot.EquipSkillText(_playerData.EquipRangedSkillData);
             }
             else
             {
-                _skillInventorySlot.EquipSkillText(_playerData.EquipAreaSkill);
+                _skillInventorySlot.EquipSkillText(_playerData.EquipAreaSkillData);
             }
         }
     }
@@ -198,29 +194,29 @@ public class SkillInventory : MonoBehaviour
     public void EquipButton()
     {
         GameManager.I.SoundManager.StartSFX("Equip");
-        if (InfoSkillSO.Type == SkillSO.SkillType.Melee)
+        if (InfoSkillData.Type == SkillData.SkillType.Melee)
         {
-            _playerData.EquipMeleeSkill.IsEquip = false;
-            _playerData.EquipMeleeSkill = InfoSkillSO;
-            InfoSkillSO.IsEquip = true;
+            _playerData.EquipMeleeSkillData.IsEquip = false;
+            _playerData.EquipMeleeSkillData = InfoSkillData;
+            InfoSkillData.IsEquip = true;
             ShowEquipSkill();
             UpdateMeleeSKillInventory();
             ExitSkillInfo();
         }
-        else if (InfoSkillSO.Type == SkillSO.SkillType.Ranged)
+        else if (InfoSkillData.Type == SkillData.SkillType.Ranged)
         {
-            _playerData.EquipRangedSkill.IsEquip = false;
-            _playerData.EquipRangedSkill = InfoSkillSO;
-            InfoSkillSO.IsEquip = true;
+            _playerData.EquipRangedSkillData.IsEquip = false;
+            _playerData.EquipRangedSkillData = InfoSkillData;
+            InfoSkillData.IsEquip = true;
             ShowEquipSkill();
             UpdateRangedSKillInventory();
             ExitSkillInfo();
         }
         else
         {
-            _playerData.EquipAreaSkill.IsEquip = false;
-            _playerData.EquipAreaSkill = InfoSkillSO;
-            InfoSkillSO.IsEquip = true;
+            _playerData.EquipAreaSkillData.IsEquip = false;
+            _playerData.EquipAreaSkillData = InfoSkillData;
+            InfoSkillData.IsEquip = true;
             ShowEquipSkill();
             UpdateAreaSKillInventory();
             ExitSkillInfo();

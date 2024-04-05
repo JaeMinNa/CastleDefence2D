@@ -11,9 +11,9 @@ public class AttackButton : MonoBehaviour
     private SpriteRenderer _playerSpriteRenderer;
     private PlayerAnimationEvent _playerAnimationEvent;
     private Transform _collidersTransform;
-    private SkillSO _meleeSkillSO;
-    private SkillSO _rangedSkillSO;
-    private SkillSO _areaSkillSO;
+    private SkillData _meleeSkillData;
+    private SkillData _rangedSkillData;
+    private SkillData _areaSkillData;
     private float _collidersPositionX;
     private float _collidersPositionY;
     private bool _meleeSkillStart;
@@ -62,15 +62,15 @@ public class AttackButton : MonoBehaviour
 
         if (ClickTime >= SkillCoolTime)
         {
-            StartCoroutine(_playerAnimationEvent.COStartAreaSkill(_areaSkillSO));
+            StartCoroutine(_playerAnimationEvent.COStartAreaSkill(_areaSkillData));
         }
         else if ((ClickTime >= 2 * (SkillCoolTime / 3) && ClickTime < SkillCoolTime))
         {
-            StartCoroutine(_playerAnimationEvent.COStartRangedSkill(_rangedSkillSO));
+            StartCoroutine(_playerAnimationEvent.COStartRangedSkill(_rangedSkillData));
         }
         else if (ClickTime >= SkillCoolTime / 3 && ClickTime < 2 * (SkillCoolTime / 3))
         {
-            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill(_meleeSkillSO));
+            StartCoroutine(_playerAnimationEvent.COStartMeleeSkill(_meleeSkillData));
         }
 
     }
@@ -81,9 +81,9 @@ public class AttackButton : MonoBehaviour
         _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _playerAnimationEvent = _playerController.transform.GetChild(0).GetComponent<PlayerAnimationEvent>();
         _collidersTransform = _playerController.transform.GetChild(1).GetComponent<Transform>();
-        _meleeSkillSO = GameManager.I.DataManager.PlayerData.EquipMeleeSkill;
-        _rangedSkillSO = GameManager.I.DataManager.PlayerData.EquipRangedSkill;
-        _areaSkillSO = GameManager.I.DataManager.PlayerData.EquipAreaSkill;
+        _meleeSkillData = GameManager.I.DataManager.PlayerData.EquipMeleeSkillData;
+        _rangedSkillData = GameManager.I.DataManager.PlayerData.EquipRangedSkillData;
+        _areaSkillData = GameManager.I.DataManager.PlayerData.EquipAreaSkillData;
 
         _collidersPositionX = _collidersTransform.localPosition.x;
         _collidersPositionY = _collidersTransform.localPosition.y;

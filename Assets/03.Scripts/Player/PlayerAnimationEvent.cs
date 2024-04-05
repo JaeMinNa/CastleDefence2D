@@ -55,34 +55,34 @@ public class PlayerAnimationEvent : MonoBehaviour
 
     }
 
-    public IEnumerator COStartMeleeSkill(SkillSO skillSO)
+    public IEnumerator COStartMeleeSkill(SkillData skillData)
     {
         _playerController.Animator.SetBool("MeleeSkill", true);
         _playerController.IsMove = false;
 
         yield return new WaitForSeconds(_activeMeleeSkillColliderTime);
-        _colliders.transform.Find(skillSO.ColliderName).gameObject.SetActive(true);
+        _colliders.transform.Find(skillData.ColliderName).gameObject.SetActive(true);
         if (!_spriteRenderer.flipX)
         {
             GameManager.I.ObjectPoolManager.
-            ActivePrefab(skillSO.Tag, transform.position + skillSO.StartPosition);
+            ActivePrefab(skillData.Tag, transform.position + skillData.StartPosition);
         }
         else
         {
-            Vector3 vec = new Vector3(-skillSO.StartPosition.x, skillSO.StartPosition.y, skillSO.StartPosition.z);
+            Vector3 vec = new Vector3(-skillData.StartPosition.x, skillData.StartPosition.y, skillData.StartPosition.z);
             GameManager.I.ObjectPoolManager.
-            ActivePrefab(skillSO.Tag, transform.position + vec);
+            ActivePrefab(skillData.Tag, transform.position + vec);
         }
 
         yield return new WaitForSeconds(_inactiveMeleeSkillColliderTime);
-        _colliders.transform.Find(skillSO.ColliderName).gameObject.SetActive(false);
+        _colliders.transform.Find(skillData.ColliderName).gameObject.SetActive(false);
 
         yield return new WaitForSeconds(_meleeSkillStopTime);
         _playerController.IsMove = true;
         _playerController.Animator.SetBool("MeleeSkill", false);
     }
 
-    public IEnumerator COStartRangedSkill(SkillSO skillSO)
+    public IEnumerator COStartRangedSkill(SkillData skillData)
     {
         _playerController.Animator.SetBool("RangedSkill", true);
         _playerController.IsMove = false;
@@ -90,12 +90,12 @@ public class PlayerAnimationEvent : MonoBehaviour
         yield return new WaitForSeconds(_shootRangedSkillTime);
         if (!_spriteRenderer.flipX)
         {
-            GameManager.I.ObjectPoolManager.ActivePrefab(skillSO.Tag, transform.position + skillSO.StartPosition);
+            GameManager.I.ObjectPoolManager.ActivePrefab(skillData.Tag, transform.position + skillData.StartPosition);
         }
         else
         {
-            Vector3 vec = new Vector3(-skillSO.StartPosition.x, skillSO.StartPosition.y, skillSO.StartPosition.z);
-            GameManager.I.ObjectPoolManager.ActivePrefab(skillSO.Tag, transform.position + vec);
+            Vector3 vec = new Vector3(-skillData.StartPosition.x, skillData.StartPosition.y, skillData.StartPosition.z);
+            GameManager.I.ObjectPoolManager.ActivePrefab(skillData.Tag, transform.position + vec);
         }
 
         yield return new WaitForSeconds(_rangedSkillStopTime);
@@ -103,29 +103,29 @@ public class PlayerAnimationEvent : MonoBehaviour
         _playerController.Animator.SetBool("RangedSkill", false);
     }
 
-    public IEnumerator COStartAreaSkill(SkillSO skillSO)
+    public IEnumerator COStartAreaSkill(SkillData skillData)
     {
         _playerController.Animator.SetBool("AreaSkill", true);
         _playerController.IsMove = false;
 
         yield return new WaitForSeconds(_shootAreaSkillTime);
-        StartCoroutine(COShootAreaSkill(skillSO));     
+        StartCoroutine(COShootAreaSkill(skillData));     
 
         yield return new WaitForSeconds(_areaSkillStopTime);
         _playerController.IsMove = true;
         _playerController.Animator.SetBool("AreaSkill", false);
     }
 
-    IEnumerator COShootAreaSkill(SkillSO areaSkillSO)
+    IEnumerator COShootAreaSkill(SkillData areaSkillData)
     {
         int count = 0;
         while (true)
         {
             count++;
-            GameManager.I.ObjectPoolManager.ActivePrefab(areaSkillSO.Tag, transform.position);
+            GameManager.I.ObjectPoolManager.ActivePrefab(areaSkillData.Tag, transform.position);
 
-            if (count == areaSkillSO.Count) break;
-            yield return new WaitForSeconds(areaSkillSO.Interval);
+            if (count == areaSkillData.Count) break;
+            yield return new WaitForSeconds(areaSkillData.Interval);
         }
     }
 }

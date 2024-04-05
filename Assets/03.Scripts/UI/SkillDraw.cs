@@ -12,7 +12,7 @@ public class SkillDraw : MonoBehaviour
     [SerializeField] private TMP_Text _currentCoinText;
 
     [Header("SkillInfo")]
-    [SerializeField] private SkillSO _getSkillSO;
+    [SerializeField] private SkillData _getSkillData;
     [SerializeField] private GameObject _skillInfoPanel;
     [SerializeField] private TMP_Text _getSkillTagText;
     [SerializeField] private TMP_Text _getSkillTypeText;
@@ -27,16 +27,18 @@ public class SkillDraw : MonoBehaviour
     [SerializeField] private TMP_Text _lobyCurrentCoinText;
 
     private PlayerData _playerData;
-    private SkillSO[] _meleeSkillData;
-    private SkillSO[] _rangedSkillData;
-    private SkillSO[] _areaSkillData;
+    private DataWrapper _dataWrapper;
+    //private SkillSO[] _meleeSkillData;
+    //private SkillSO[] _rangedSkillData;
+    //private SkillSO[] _areaSkillData;
 
     private void Start()
     {
         _playerData = GameManager.I.DataManager.PlayerData;
-        _meleeSkillData = GameManager.I.DataManager.MeleeSkillSO;
-        _rangedSkillData = GameManager.I.DataManager.RangedSkillSO;
-        _areaSkillData = GameManager.I.DataManager.AreaSkillSO;
+        _dataWrapper = GameManager.I.DataManager.DataWrapper;
+        //_meleeSkillData = GameManager.I.DataManager.MeleeSkillSO;
+        //_rangedSkillData = GameManager.I.DataManager.RangedSkillSO;
+        //_areaSkillData = GameManager.I.DataManager.AreaSkillSO;
         UpdateCoin();
         UpdateSkillDrawCount();
     }
@@ -99,31 +101,31 @@ public class SkillDraw : MonoBehaviour
         GameManager.I.SoundManager.StartSFX("GetSkill");
         GameManager.I.DataManager.GameData.SkillDrawCount--;
         UpdateSkillDrawCount();
+        int length = _dataWrapper.SkillData.Length;
         int random1 = Random.Range(0, 4); // Skill Type
         int random2 = Random.Range(1, 101); // Rank
        
         if(random1 == 0) // Melee
         {
-            int length = _meleeSkillData.Length;
-
             while (true)
             {
                 int random3 = Random.Range(0, length);
+                if (_dataWrapper.SkillData[random3].Type != SkillData.SkillType.Melee) continue;
 
-                if(_meleeSkillData[random3].Rank == SkillSO.SkillRank.S)
+                if(_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.S)
                 {
                     if (random2 >= 1 && random2 <= 10)
                     {
-                        _getSkillSO = _meleeSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
                 }
-                else if(_meleeSkillData[random3].Rank == SkillSO.SkillRank.A)
+                else if(_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
                 {
                     if (random2 >= 11 && random2 <= 37) // A
                     {
-                        _getSkillSO = _meleeSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
@@ -132,7 +134,7 @@ public class SkillDraw : MonoBehaviour
                 {
                     if (random2 >= 38 && random2 <= 100) // A
                     {
-                        _getSkillSO = _meleeSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
@@ -141,26 +143,25 @@ public class SkillDraw : MonoBehaviour
         }
         else if(random1 == 1) // Ranged
         {
-            int length = _rangedSkillData.Length;
-
             while (true)
             {
                 int random3 = Random.Range(0, length);
+                if (_dataWrapper.SkillData[random3].Type != SkillData.SkillType.Ranged) continue;
 
-                if (_rangedSkillData[random3].Rank == SkillSO.SkillRank.S)
+                if (_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.S)
                 {
                     if (random2 >= 1 && random2 <= 10)
                     {
-                        _getSkillSO = _rangedSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
                 }
-                else if (_rangedSkillData[random3].Rank == SkillSO.SkillRank.A)
+                else if (_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
                 {
                     if (random2 >= 11 && random2 <= 37) // A
                     {
-                        _getSkillSO = _rangedSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
@@ -169,7 +170,7 @@ public class SkillDraw : MonoBehaviour
                 {
                     if (random2 >= 38 && random2 <= 100) // A
                     {
-                        _getSkillSO = _rangedSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
@@ -178,26 +179,25 @@ public class SkillDraw : MonoBehaviour
         }
         else // Area
         {
-            int length = _areaSkillData.Length;
-
             while (true)
             {
                 int random3 = Random.Range(0, length);
+                if (_dataWrapper.SkillData[random3].Type != SkillData.SkillType.Area) continue;
 
-                if (_areaSkillData[random3].Rank == SkillSO.SkillRank.S)
+                if (_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.S)
                 {
                     if (random2 >= 1 && random2 <= 10)
                     {
-                        _getSkillSO = _areaSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
                 }
-                else if (_areaSkillData[random3].Rank == SkillSO.SkillRank.A)
+                else if (_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
                 {
                     if (random2 >= 11 && random2 <= 37) // A
                     {
-                        _getSkillSO = _areaSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
@@ -206,7 +206,7 @@ public class SkillDraw : MonoBehaviour
                 {
                     if (random2 >= 38 && random2 <= 100) // A
                     {
-                        _getSkillSO = _areaSkillData[random3];
+                        _getSkillData = _dataWrapper.SkillData[random3];
                         break;
                     }
                     else continue;
@@ -214,16 +214,16 @@ public class SkillDraw : MonoBehaviour
             }
         }
 
-        _getSkillSO.CurrentUpgradeCount++;
-        _getSkillTagText.text = _getSkillSO.Tag;
-        _getSkillTypeText.text = _getSkillSO.Type.ToString();
-        _getSkillImage.sprite = _getSkillSO.Icon;
+        _getSkillData.CurrentUpgradeCount++;
+        _getSkillTagText.text = _getSkillData.Tag;
+        _getSkillTypeText.text = _getSkillData.Type.ToString();
+        _getSkillImage.sprite = _getSkillData.Icon;
 
-        if (_getSkillSO.Rank == SkillSO.SkillRank.B)
+        if (_getSkillData.Rank == SkillData.SkillRank.B)
         {
             _getSkillRankText.color = new Color(25 / 255f, 144 / 255f, 0 / 255f, 255 / 255f);
         }
-        else if (_getSkillSO.Rank == SkillSO.SkillRank.A)
+        else if (_getSkillData.Rank == SkillData.SkillRank.A)
         {
             _getSkillRankText.color = new Color(255 / 255f, 16 / 255f, 0 / 255f, 255 / 255f);
         }
@@ -231,28 +231,28 @@ public class SkillDraw : MonoBehaviour
         {
             _getSkillRankText.color = new Color(244 / 255f, 255 / 255f, 40 / 255f, 255 / 255f);
         }
-        _getSkillRankText.text = _getSkillSO.Rank.ToString();
+        _getSkillRankText.text = _getSkillData.Rank.ToString();
 
-        _getSkillDescriptionText.text = _getSkillSO.Description;
-        if(!_getSkillSO.IsGet)
+        _getSkillDescriptionText.text = _getSkillData.Description;
+        if(!_getSkillData.IsGet)
         {
-            _playerData.SkillInventory.Add(_getSkillSO);
-            _getSkillSO.IsGet = true;
+            _playerData.SkillInventory.Add(_getSkillData);
+            _getSkillData.IsGet = true;
             _text1.text = "새로운 스킬을 뽑았습니다.";
             _text2.text = "";
         }
         else
         {
-            if(_getSkillSO.CurrentUpgradeCount < _getSkillSO.MaxUpgradeCount)
+            if(_getSkillData.CurrentUpgradeCount < _getSkillData.MaxUpgradeCount)
             {
                 _text1.text = "이미 획득한 스킬을 뽑았습니다.";
-                _text2.text = "같은 스킬을 " + (_getSkillSO.MaxUpgradeCount - _getSkillSO.CurrentUpgradeCount).ToString() + "번 더 뽑으면 자동 강화합니다.";
+                _text2.text = "같은 스킬을 " + (_getSkillData.MaxUpgradeCount - _getSkillData.CurrentUpgradeCount).ToString() + "번 더 뽑으면 자동 강화합니다.";
             }
             else
             {
-                _getSkillSO.CurrentUpgradeCount = _getSkillSO.CurrentUpgradeCount - _getSkillSO.MaxUpgradeCount + 1;
-                _getSkillSO.MaxUpgradeCount *= 2;
-                _getSkillSO.Level++;
+                _getSkillData.CurrentUpgradeCount = _getSkillData.CurrentUpgradeCount - _getSkillData.MaxUpgradeCount + 1;
+                _getSkillData.MaxUpgradeCount *= 2;
+                _getSkillData.Level++;
                 _text1.text = "이미 획득한 스킬을 뽑았습니다.";
                 _text2.text = "스킬을 자동 강화했습니다.";
                 UpgradeSkill();
@@ -285,18 +285,18 @@ public class SkillDraw : MonoBehaviour
 
     private void UpgradeSkill()
     {
-        if(_getSkillSO.Type == SkillSO.SkillType.Melee || _getSkillSO.Type == SkillSO.SkillType.Ranged)
+        if(_getSkillData.Type == SkillData.SkillType.Melee || _getSkillData.Type == SkillData.SkillType.Ranged)
         {
-            _getSkillSO.AtkRatio += 0.3f;
+            _getSkillData.AtkRatio += 0.3f;
         }
         else
         {
-            _getSkillSO.AtkRatio += 0.3f;
-            _getSkillSO.Count++;
+            _getSkillData.AtkRatio += 0.3f;
+            _getSkillData.Count++;
 
-            if(_getSkillSO.Interval >= 0.3f)
+            if(_getSkillData.Interval >= 0.3f)
             {
-                _getSkillSO.Interval -= 0.1f;
+                _getSkillData.Interval -= 0.1f;
             }
         }
     }

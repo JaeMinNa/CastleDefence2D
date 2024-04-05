@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeSkill : MonoBehaviour
 {
     [SerializeField] private float _inactiveTime;
-    private SkillSO _meleeSkillSO;
+    private SkillData _meleeSkillData;
     private SpriteRenderer _playerSpriteRenderer;
     private SpriteRenderer _skillSpriteRenderer;
 
@@ -13,12 +13,12 @@ public class MeleeSkill : MonoBehaviour
     {
         _playerSpriteRenderer = GameManager.I.PlayerManager.Player.transform.GetChild(0).GetComponent<SpriteRenderer>();
         _skillSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        _meleeSkillSO = GameManager.I.DataManager.PlayerData.EquipMeleeSkill;
+        _meleeSkillData = GameManager.I.DataManager.PlayerData.EquipMeleeSkillData;
 
         if (_playerSpriteRenderer.flipX) _skillSpriteRenderer.flipX = true;
         else _skillSpriteRenderer.flipX = false;
 
-        GameManager.I.SoundManager.StartSFX(_meleeSkillSO.Tag);
+        GameManager.I.SoundManager.StartSFX(_meleeSkillData.Tag);
     }
 
     private void OnEnable()
@@ -28,7 +28,7 @@ public class MeleeSkill : MonoBehaviour
             if (_playerSpriteRenderer.flipX) _skillSpriteRenderer.flipX = true;
             else _skillSpriteRenderer.flipX = false;
 
-            GameManager.I.SoundManager.StartSFX(_meleeSkillSO.Tag);
+            GameManager.I.SoundManager.StartSFX(_meleeSkillData.Tag);
         }
 
         StartCoroutine(COSkillStart());

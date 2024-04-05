@@ -90,42 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0cccadf520a974eae4557dc3784415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CastleSO: {fileID: 11400000, guid: a867fc73d7350e341859682be2139164, type: 2}
-  MeleeEnemySO:
-  - {fileID: 11400000, guid: b1e9b61257f474445bc9e4cba84bb972, type: 2}
-  - {fileID: 11400000, guid: 96c126c673a66f34e9dd109f62f2bafd, type: 2}
-  - {fileID: 11400000, guid: 7d538b27e81ff764d8dedbe2c7734bf7, type: 2}
-  - {fileID: 11400000, guid: 905002964cfe2b74f9dd70cb5934de19, type: 2}
-  - {fileID: 11400000, guid: b4f144dc866d98c4b84c0e46331aeea4, type: 2}
-  - {fileID: 11400000, guid: 8e7ae4965ff17d742bfbb5e2509b840c, type: 2}
-  - {fileID: 11400000, guid: 5391e06786578194c8235161c815e47e, type: 2}
-  RangedEnemySO:
-  - {fileID: 11400000, guid: 6209b9b4e654eda48913756c1d315482, type: 2}
-  - {fileID: 11400000, guid: 7f5d52c0e7d20b7458c537c454faf646, type: 2}
-  - {fileID: 11400000, guid: fd9a0d60bd5d5464a8dbf5095980d2d1, type: 2}
-  - {fileID: 11400000, guid: e0758b1767093844685ecc2499f7d570, type: 2}
-  MeleeSkillSO:
-  - {fileID: 11400000, guid: 76e62fbe338a6834db40cb13b81dd03d, type: 2}
-  - {fileID: 11400000, guid: 7e2403eb832ac91439b0f819e3b26b47, type: 2}
-  - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
-  - {fileID: 11400000, guid: e4effb7217135ca4aa2529d088330be4, type: 2}
-  - {fileID: 11400000, guid: 9c1b39f42df65d94ebfbe606944c9add, type: 2}
-  - {fileID: 11400000, guid: 67836e6660c7e8b49a3f37f2d8647216, type: 2}
-  - {fileID: 11400000, guid: 631f89b42de22f44ea7453a05d80cb9c, type: 2}
-  RangedSkillSO:
-  - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
-  - {fileID: 11400000, guid: 2a0b9de3462f00f4db61c9a2f5d71a6c, type: 2}
-  - {fileID: 11400000, guid: f89a464774d60b94b9a66fd6771ef820, type: 2}
-  - {fileID: 11400000, guid: f551cc089b9402f4383337b5934de922, type: 2}
-  - {fileID: 11400000, guid: 6659933d8b62567458b0ba2617a3492f, type: 2}
-  - {fileID: 11400000, guid: d46288b5ec505a34189b608a8ee8ff21, type: 2}
-  AreaSkillSO:
-  - {fileID: 11400000, guid: 3410f2ea46af027479dbc8f5c38dd7c4, type: 2}
-  - {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
-  - {fileID: 11400000, guid: 5c4bfc47e3996f04a90d01bca51d15e9, type: 2}
-  - {fileID: 11400000, guid: 37bda9aa2b6ff1e49b1c133b1f0f4abd, type: 2}
-  - {fileID: 11400000, guid: b7e1ab8d9d1b5ce4e912ab3958099ca3, type: 2}
-  - {fileID: 11400000, guid: 60c21d8a88824544cbaae50987addbb6, type: 2}
   CurrentStageCoin: 0
   StartMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
   StartRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
@@ -146,12 +110,763 @@ MonoBehaviour:
     AttackCoolTime: 1.5
     NuckbackPower: 2
     SkillInventory:
-    - {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
-    - {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
-    - {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
-    EquipMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
-    EquipRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
-    EquipAreaSkill: {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
+    - Tag: 
+      Type: 0
+      Rank: 0
+      Description: 
+      Level: 0
+      MaxUpgradeCount: 0
+      CurrentUpgradeCount: 0
+      AtkRatio: 0
+      NuckbackPower: 0
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 0}
+      SkillPrefab: {fileID: 0}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: 
+      Type: 0
+      Rank: 0
+      Description: 
+      Level: 0
+      MaxUpgradeCount: 0
+      CurrentUpgradeCount: 0
+      AtkRatio: 0
+      NuckbackPower: 0
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 0}
+      SkillPrefab: {fileID: 0}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: 
+      Type: 0
+      Rank: 0
+      Description: 
+      Level: 0
+      MaxUpgradeCount: 0
+      CurrentUpgradeCount: 0
+      AtkRatio: 0
+      NuckbackPower: 0
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 0}
+      SkillPrefab: {fileID: 0}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    EquipMeleeSkillData:
+      Tag: 
+      Type: 0
+      Rank: 0
+      Description: 
+      Level: 0
+      MaxUpgradeCount: 0
+      CurrentUpgradeCount: 0
+      AtkRatio: 0
+      NuckbackPower: 0
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 0}
+      SkillPrefab: {fileID: 0}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    EquipRangedSkillData:
+      Tag: 
+      Type: 0
+      Rank: 0
+      Description: 
+      Level: 0
+      MaxUpgradeCount: 0
+      CurrentUpgradeCount: 0
+      AtkRatio: 0
+      NuckbackPower: 0
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 0}
+      SkillPrefab: {fileID: 0}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    EquipAreaSkillData:
+      Tag: 
+      Type: 0
+      Rank: 0
+      Description: 
+      Level: 0
+      MaxUpgradeCount: 0
+      CurrentUpgradeCount: 0
+      AtkRatio: 0
+      NuckbackPower: 0
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 0}
+      SkillPrefab: {fileID: 0}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+  CastleData:
+    Level: 1
+    MaxExp: 10
+    CurrentExp: 0
+    Hp: 100
+    Speed: 10
+    Atk: 5
+    AttackCoolTime: 5
+    NuckbackPower: 0.9
+  DataWrapper:
+    EnemyData:
+    - Tag: Snail
+      Type: 0
+      Hp: 20
+      Speed: 1
+      Atk: 10
+      Price: 100
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Rock
+      Type: 0
+      Hp: 30
+      Speed: 1.5
+      Atk: 5
+      Price: 100
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Chicken
+      Type: 0
+      Hp: 30
+      Speed: 2.5
+      Atk: 12
+      Price: 150
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Mushroom
+      Type: 0
+      Hp: 20
+      Speed: 2
+      Atk: 15
+      Price: 150
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Bunny
+      Type: 0
+      Hp: 20
+      Speed: 3
+      Atk: 8
+      Price: 150
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Turtle
+      Type: 0
+      Hp: 40
+      Speed: 12
+      Atk: 30
+      Price: 200
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Rino
+      Type: 0
+      Hp: 30
+      Speed: 1
+      Atk: 40
+      Price: 200
+      BulletTag: 
+      BulletSpeed: 0
+      Distance: 0
+      BulletPosition: {x: 0, y: 0, z: 0}
+    - Tag: Plant
+      Type: 1
+      Hp: 15
+      Speed: 0.5
+      Atk: 3
+      Price: 100
+      BulletTag: PlantBullet
+      BulletSpeed: 5
+      Distance: 7
+      BulletPosition: {x: 0, y: 0.1, z: 0}
+    - Tag: Trunk
+      Type: 1
+      Hp: 18
+      Speed: 0.5
+      Atk: 5
+      Price: 100
+      BulletTag: TrunkBullet
+      BulletSpeed: 6
+      Distance: 8
+      BulletPosition: {x: 0, y: -0.2, z: 0}
+    - Tag: Radish
+      Type: 1
+      Hp: 20
+      Speed: 0.3
+      Atk: 8
+      Price: 200
+      BulletTag: RadishBullet
+      BulletSpeed: 8
+      Distance: 5
+      BulletPosition: {x: 0, y: 0.1, z: 0}
+    - Tag: Skull
+      Type: 1
+      Hp: 25
+      Speed: 0.2
+      Atk: 10
+      Price: 200
+      BulletTag: SkullBullet
+      BulletSpeed: 4
+      Distance: 10
+      BulletPosition: {x: 0, y: 0.1, z: 0}
+    SkillData:
+    - Tag: Strike
+      Type: 0
+      Rank: 1
+      Description: "\uAC80\uC744 \uD718\uB450\uB974\uB294 \uC21C\uAC04 \uBC14\uB78C\uC744
+        \uC77C\uC73C\uCF1C \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uD3ED\uD48D \uC77C\uACA9\uC744
+        \uAC00\uD569\uB2C8\uB2E4. \uAC80\uC73C\uB85C \uC77C\uC73C\uD0A8 \uBC14\uB78C\uC740
+        \uC0C1\uB300\uBC29\uC744 \uD295\uACA8\uB0B4\uBA70, \uC0C1\uB300\uBC29\uC740
+        \uD53C\uD574\uB97C \uC785\uACE0 \uC77C\uC815 \uAC70\uB9AC\uB97C \uBC00\uB824\uB098\uAC8C
+        \uB429\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.5
+      NuckbackPower: 3
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 1a862a305a44ca64e939c2b35b24e829, type: 3}
+      SkillPrefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
+      StartPosition: {x: 6.5, y: 1.5, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: BoltSword
+      Type: 0
+      Rank: 2
+      Description: "\uAC80\uC744 \uD718\uB458\uB7EC \uAC15\uB825\uD55C \uC804\uAE30\uB97C
+        \uBC1C\uC0DD\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C  \uACF5\uACA9\uC744
+        \uAC00\uD569\uB2C8\uB2E4. \uBC88\uAC1C\uB294 \uC801\uC758 \uBAB8\uC744 \uD0C0\uACE0
+        \uD758\uB7EC\uB4E4\uC5B4\uAC00\uBA70 \uAC15\uB825\uD55C \uC804\uAE30 \uCDA9\uACA9\uC744
+        \uC8FC\uC5B4 \uC0C1\uB300\uBC29\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.9
+      NuckbackPower: 1.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 385f6ba0c11060144b63769f0fc16f15, type: 3}
+      SkillPrefab: {fileID: 3229158916309934281, guid: 7a218e03f9922264385586c23c098e31, type: 3}
+      StartPosition: {x: 2, y: 0.8, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: FireSword
+      Type: 0
+      Rank: 0
+      Description: "\uAC80\uC744 \uD718\uB458\uB7EC \uC8FC\uBCC0\uC758 \uB300\uC0C1\uC5D0\uAC8C
+        \uD3ED\uBC1C\uC801\uC778 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4. \uD3ED\uBC1C\uACFC
+        \uB3D9\uC2DC\uC5D0 \uC8FC\uBCC0\uC758 \uC801\uB4E4\uC5D0\uAC8C \uB300\uB7C9\uC758
+        \uB370\uBBF8\uC9C0\uB97C \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.3
+      NuckbackPower: 2.5
+      IsGet: 1
+      IsEquip: 1
+      Icon: {fileID: 21300000, guid: 94070ee4fd8aaeb4584e03ea7dd136cb, type: 3}
+      SkillPrefab: {fileID: 3441451260093034319, guid: 6625b6968dfaae2448152f5a4b0a1752, type: 3}
+      StartPosition: {x: 2, y: 1.5, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: WindSword
+      Type: 0
+      Rank: 0
+      Description: "\uAC80\uC73C\uB85C \uBC14\uB78C\uC758 \uD798\uC744 \uBAA8\uC544
+        \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uBC14\uB78C\uC744 \uB0A0\uB824\uBCF4\uB0B4\uB294
+        \uACF5\uACA9\uC744 \uD569\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.2
+      NuckbackPower: 3
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 99a2865a0e99cb84785c1111f3ba062e, type: 3}
+      SkillPrefab: {fileID: 2472299320664937498, guid: 6e143065e50c4154db4e94ce80034c52, type: 3}
+      StartPosition: {x: 1.2, y: 0.7, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: BloodStrike
+      Type: 0
+      Rank: 2
+      Description: "\uAC80\uC744 \uD718\uB450\uB974\uB294 \uC21C\uAC04 \uC8FC\uBCC0\uC758
+        \uC801\uB4E4\uC5D0\uAC8C \uAC15\uB825\uD55C \uBCA0\uAE30 \uACF5\uACA9\uC744
+        \uAC00\uD569\uB2C8\uB2E4. \uC774 \uACF5\uACA9\uC740 \uC0C1\uB300\uBC29\uC758
+        \uBAB8\uCCB4\uB97C \uAE4A\uAC8C \uBCA0\uC5B4 \uD53C\uB97C \uD758\uB9AC\uAC8C
+        \uD558\uBA70, \uB300\uB7C9\uC758 \uCD9C\uD608 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.8
+      NuckbackPower: 2
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: e1be5c24ac7f3c846a4bf2c3639ca650, type: 3}
+      SkillPrefab: {fileID: 2701655741949306210, guid: eb7004d583d70ac4588596f2ba7bab46, type: 3}
+      StartPosition: {x: 2, y: 0.75, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: HolyStrike
+      Type: 0
+      Rank: 1
+      Description: "\uAC80\uC5D0 \uC131\uC2A4\uB7EC\uC6B4 \uD798\uC744 \uB2F4\uC544
+        \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uC77C\uACA9\uC744 \uAC00\uD569\uB2C8\uB2E4.
+        \uAC80\uC5D0\uC11C \uBC1C\uC0B0\uB418\uB294 \uC131\uC2A4\uB7EC\uC6B4 \uBE5B\uC740
+        \uC801\uC5D0\uAC8C \uC2EC\uAC01\uD55C \uC2E0\uC131 \uD53C\uD574\uB97C \uC785\uD788\uAC8C
+        \uB429\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.6
+      NuckbackPower: 2
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 86d981a8742aea349ad18e8b929ca7ff, type: 3}
+      SkillPrefab: {fileID: 1071342194878868471, guid: 8af313e79862e5c4e996381082cb4115, type: 3}
+      StartPosition: {x: 1.8, y: 1, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: MagmaStrike
+      Type: 0
+      Rank: 0
+      Description: "\uAC80\uC744 \uD718\uB450\uB974\uB294 \uB728\uAC70\uC6B4 \uB9C8\uADF8\uB9C8\uB97C
+        \uC77C\uC73C\uCF1C \uC0C1\uB300\uC5D0\uAC8C \uAC15\uB825\uD55C \uD654\uC5FC
+        \uAC80 \uACF5\uACA9\uC744 \uAC00\uD569\uB2C8\uB2E4. \uAC80\uC758 \uAC15\uB825\uD55C
+        \uD798\uC73C\uB85C \uB9C8\uADF8\uB9C8\uAC00 \uC77C\uC5B4\uB098\uBA70, \uC0C1\uB300\uBC29\uC740
+        \uB728\uAC70\uC6B4 \uD654\uC5FC\uC5D0 \uAC15\uB825\uD55C \uD53C\uD574\uB97C
+        \uC785\uAC8C \uB429\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.4
+      NuckbackPower: 2
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: b4724514d746ab8409ca18de3a65dc14, type: 3}
+      SkillPrefab: {fileID: 6832522046984261472, guid: 2e823477607f3b949adb4d5941f0d852, type: 3}
+      StartPosition: {x: 2.2, y: 1.1, z: 0}
+      ColliderName: MeleeCollider
+      SkillExplosionTag: 
+      Speed: 0
+      ExplosionRange: 0
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: Fireball
+      Type: 1
+      Rank: 0
+      Description: "\uBD88\uC744 \uBAA8\uC740 \uBD88\uAF43\uC744 \uB0A0\uB824\uC11C
+        \uC801\uC5D0\uAC8C \uBA85\uC911\uC2DC\uD0A8 \uD6C4, \uD3ED\uBC1C\uC744 \uC77C\uC73C\uCF1C
+        \uB300\uB7C9\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4.
+        \uD3ED\uBC1C\uC740 \uC0C1\uB300\uBC29\uACFC \uC8FC\uBCC0\uC758 \uB2E4\uC218\uC758
+        \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD788\uAC8C \uB429\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.4
+      NuckbackPower: 2.5
+      IsGet: 1
+      IsEquip: 1
+      Icon: {fileID: 21300000, guid: b12502ba5c973e3488a651f1e7634829, type: 3}
+      SkillPrefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
+      StartPosition: {x: 1.5, y: 1.5, z: 0}
+      ColliderName: 
+      SkillExplosionTag: FireballExplosion
+      Speed: 6
+      ExplosionRange: 3
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: Boltball
+      Type: 1
+      Rank: 2
+      Description: "\uAC80\uC5D0 \uAC15\uB825\uD55C \uC804\uAE30\uB97C \uBAA8\uC544\uC11C
+        \uC0DD\uC131\uD55C \uD6C4, \uC801\uC744 \uD5A5\uD574 \uBC1C\uC0AC\uD569\uB2C8\uB2E4.
+        \uBA85\uC911\uD55C \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uC804\uACA9 \uD53C\uD574\uB97C
+        \uC785\uD788\uBA70, \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C\uB3C4 \uC804\uAE30\uAC00
+        \uBC88\uCA4D\uC774\uBA70 \uD53C\uD574\uB97C \uC904 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 2.1
+      NuckbackPower: 1.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: e1a91c592705b8d458b7bc8a5b789f0c, type: 3}
+      SkillPrefab: {fileID: 6700474119340773093, guid: 22656d4e70ae3b040a04514148040bd7, type: 3}
+      StartPosition: {x: 1.5, y: 1.5, z: 0}
+      ColliderName: 
+      SkillExplosionTag: BoltballExplosion
+      Speed: 7
+      ExplosionRange: 3
+      HitRangePosition: {x: 1.2, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: Darkball
+      Type: 1
+      Rank: 0
+      Description: "\uC5B4\uB460\uC758 \uD798\uC744 \uBAA8\uC544 \uADF8\uB9BC\uC790\uB97C
+        \uD615\uC131\uD55C \uD6C4, \uC801\uC744 \uD5A5\uD574 \uBC1C\uC0AC\uD569\uB2C8\uB2E4.
+        \uBA85\uC911\uD55C \uC801\uC5D0\uAC8C \uC5B4\uB460\uC758 \uD798\uC744 \uAC00\uBBF8\uD55C
+        \uD53C\uD574\uB97C \uC785\uD788\uBA70, \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C\uB3C4
+        \uADF8\uB9BC\uC790\uB85C \uC778\uD55C \uD53C\uD574\uB97C \uC904 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.6
+      NuckbackPower: 1.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
+      SkillPrefab: {fileID: 7177758944140442157, guid: e0cb9780248f65d4b89c1030d09cbb39, type: 3}
+      StartPosition: {x: 0.5, y: 1.5, z: 0}
+      ColliderName: 
+      SkillExplosionTag: DarkballExplosion
+      Speed: 5
+      ExplosionRange: 3
+      HitRangePosition: {x: 1, y: -0.2, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: BlueFireball
+      Type: 1
+      Rank: 1
+      Description: "\uD478\uB978 \uBD88\uAF43\uC744 \uC0DD\uC131\uD55C \uD6C4, \uBAA9\uD45C
+        \uC9C0\uC810\uC5D0 \uB358\uC838 \uD3ED\uBC1C\uC2DC\uD0A4\uB294 \uACF5\uACA9\uC785\uB2C8\uB2E4.
+        \uAC80\uC73C\uB85C \uB9CC\uB4E4\uC5B4\uC9C4 \uD478\uB978 \uBD88\uAF43\uC740
+        \uBAA9\uD45C \uC9C0\uC810\uC5D0 \uB3C4\uCC29\uD558\uBA74 \uAC15\uB825\uD55C
+        \uD3ED\uBC1C\uC744 \uC77C\uC73C\uCF1C \uB300\uB7C9\uC758 \uD53C\uD574\uB97C
+        \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.8
+      NuckbackPower: 2.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: f381d099ca3ab9a41af6ee89fa60b928, type: 3}
+      SkillPrefab: {fileID: 1564806609306032209, guid: da520ec23671ebd45b1b8d594857a0cd, type: 3}
+      StartPosition: {x: 1, y: 1.5, z: 0}
+      ColliderName: 
+      SkillExplosionTag: BlueFireballExplosion
+      Speed: 6
+      ExplosionRange: 3
+      HitRangePosition: {x: 1, y: 0.2, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: Tornadoball
+      Type: 1
+      Rank: 1
+      Description: "\uBC14\uB78C\uC744 \uC9D1\uC911\uC2DC\uCF1C \uBC1C\uC0AC\uD558\uC5EC
+        \uBA85\uC911\uD558\uBA74 \uC8FC\uBCC0\uC5D0 \uAC15\uB825\uD55C \uD68C\uC624\uB9AC\uB97C
+        \uC77C\uC73C\uD0B5\uB2C8\uB2E4. \uC774 \uD68C\uC624\uB9AC\uB294 \uD3ED\uD48D\uACFC
+        \uAC19\uC740 \uAC15\uB825\uD55C \uD798\uC744 \uC9C0\uB2C8\uACE0 \uC788\uC5B4
+        \uC801\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC785\uD788\uBA70, \uB113\uC740
+        \uBC94\uC704\uC5D0 \uC601\uD5A5\uC744 \uBBF8\uCE69\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.7
+      NuckbackPower: 3
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 07720b55bb7cb3c45a9e509ca5b5e01c, type: 3}
+      SkillPrefab: {fileID: 2223967610961474131, guid: cc65e3221f58fd646a0e25f4531905dd, type: 3}
+      StartPosition: {x: 0.5, y: 1.5, z: 0}
+      ColliderName: 
+      SkillExplosionTag: TornadoballExplosion
+      Speed: 8.5
+      ExplosionRange: 1.5
+      HitRangePosition: {x: 1, y: 0.6, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: Laser
+      Type: 1
+      Rank: 0
+      Description: "\uC21C\uC2DD\uAC04\uC5D0 \uB808\uC774\uC800\uB97C \uBC1C\uC0AC\uD558\uC5EC
+        \uC801\uC5D0\uAC8C \uBA85\uC911\uC2DC\uD0B5\uB2C8\uB2E4. \uCD08\uC2E0\uC18D
+        \uB808\uC774\uC800\uB294 \uBE60\uB978 \uC18D\uB3C4\uC640 \uC815\uD655\uC131\uC73C\uB85C
+        \uC801\uC5D0\uAC8C \uACE0\uD1B5\uC2A4\uB7EC\uC6B4 \uD53C\uD574\uB97C \uC785\uD788\uBA70,
+        \uC7A5\uAC70\uB9AC\uC5D0\uC11C\uB3C4 \uBE60\uB974\uACE0 \uAC15\uB825\uD55C
+        \uACF5\uACA9\uC744 \uC218\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.5
+      NuckbackPower: 2
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: f4933b01621c8d943bd755751b7b75c2, type: 3}
+      SkillPrefab: {fileID: 4459925576623694883, guid: 45c0dcf52927b0b40a53899423c71e6d, type: 3}
+      StartPosition: {x: 0.5, y: 1.5, z: 0}
+      ColliderName: 
+      SkillExplosionTag: LaserExplosion
+      Speed: 15
+      ExplosionRange: 2.5
+      HitRangePosition: {x: 1, y: 0, z: 0}
+      Range: 0
+      Count: 0
+      Interval: 0
+    - Tag: BoltShower
+      Type: 2
+      Rank: 2
+      Description: "\uACF5\uC911\uC5D0\uC11C \uAC15\uB825\uD55C \uBC88\uAC1C\uB97C
+        \uC18C\uD658\uD558\uC5EC \uC801\uC5D0\uAC8C \uC5F0\uC774\uC740 \uACF5\uACA9\uC744
+        \uAC00\uD569\uB2C8\uB2E4. \uBC88\uAC1C\uB294 \uAC01\uAC01\uC758 \uBA85\uC911
+        \uC9C0\uC810\uC5D0\uC11C \uD3ED\uBC1C\uD558\uC5EC \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C
+        \uAC15\uB825\uD55C \uD53C\uD574\uB97C \uC785\uD788\uBA70, \uB113\uC740 \uBC94\uC704\uC5D0
+        \uC804\uAE30\uC758 \uD798\uC744 \uBC1C\uC0B0\uD569\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.9
+      NuckbackPower: 1.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 11b244da10d941340a9f3c6838e55716, type: 3}
+      SkillPrefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: BoltShowerExplosion
+      Speed: 10
+      ExplosionRange: 2
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 10
+      Count: 7
+      Interval: 1
+    - Tag: FireShower
+      Type: 2
+      Rank: 0
+      Description: "\uBD88\uC758 \uD798\uC744 \uBAA8\uC544 \uD558\uB298\uC5D0\uC11C
+        \uBD88\uAF43\uC758 \uC18C\uB098\uAE30\uB97C \uB0B4\uB9AC\uBA70, \uB113\uC740
+        \uBC94\uC704\uC5D0 \uBD88\uC744 \uD37C\uB728\uB9BD\uB2C8\uB2E4. \uAC01\uAC01\uC758
+        \uBD88\uAF43\uC740 \uC9C0\uBA74\uC5D0 \uB5A8\uC5B4\uC838 \uD3ED\uBC1C\uD558\uC5EC
+        \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uD654\uC5FC \uD53C\uD574\uB97C
+        \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.3
+      NuckbackPower: 2.5
+      IsGet: 1
+      IsEquip: 1
+      Icon: {fileID: 21300000, guid: cc16da6188962544787f7f3b5c7f499f, type: 3}
+      SkillPrefab: {fileID: 4833021194986502740, guid: b667e5e713db792418aec24514148b93, type: 3}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: FireShowerExplosion
+      Speed: 10
+      ExplosionRange: 2
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 10
+      Count: 7
+      Interval: 1
+    - Tag: DarkRain
+      Type: 2
+      Rank: 0
+      Description: "\uC5B4\uB460\uC758 \uD798\uC744 \uBAA8\uC544 \uD558\uB298\uC5D0\uC11C
+        \uAC80\uC740 \uADF8\uB9BC\uC790\uB97C \uC18C\uD658\uD558\uC5EC \uC801\uC5D0\uAC8C
+        \uB0B4\uB824\uBCF4\uB0C5\uB2C8\uB2E4. \uBA85\uC911 \uC9C0\uC810\uC5D0\uC11C
+        \uC5B4\uB460\uC758 \uD798\uC744 \uBC1C\uC0B0\uD558\uC5EC \uC8FC\uBCC0\uC758
+        \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD788\uBA70, \uB113\uC740 \uBC94\uC704\uC5D0
+        \uC5B4\uB460\uC744 \uD37C\uB728\uB9BD\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.5
+      NuckbackPower: 1.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 3470248b14cfc4144a1cf55ffd1af7e6, type: 3}
+      SkillPrefab: {fileID: 9001853056876136201, guid: 661602179bf3eae4ca32710306f25c26, type: 3}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: DarkRainExplosion
+      Speed: 10
+      ExplosionRange: 2
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 10
+      Count: 7
+      Interval: 1
+    - Tag: BlueFireRain
+      Type: 2
+      Rank: 1
+      Description: "\uB192\uC740 \uACF3\uC5D0\uC11C \uCC9C\uACF5\uC744 \uC5F0 \uC0C1\uD0DC\uB85C
+        \uD478\uB978 \uBD88\uAF43\uC744 \uC18C\uD658\uD558\uC5EC \uC801\uC5D0\uAC8C
+        \uC5F0\uC774\uC740 \uACF5\uACA9\uC744 \uAC00\uD569\uB2C8\uB2E4. \uD478\uB978
+        \uBD88\uAF43\uC740 \uAC01\uAC01\uC758 \uBA85\uC911 \uC9C0\uC810\uC5D0\uC11C
+        \uD3ED\uBC1C\uD558\uC5EC \uB113\uC740 \uBC94\uC704\uC5D0 \uBD88\uC744 \uD37C\uB728\uB9AC\uBA70,
+        \uC801\uB4E4\uC5D0\uAC8C \uB300\uB7C9\uC758 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.7
+      NuckbackPower: 2.5
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 5ae8a876658848c439892f8b25d79d30, type: 3}
+      SkillPrefab: {fileID: 6923085714765448852, guid: ee11776c13ce6064f84c23b3593e1da8, type: 3}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: BlueFireRainExplosion
+      Speed: 10
+      ExplosionRange: 2
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 10
+      Count: 7
+      Interval: 1
+    - Tag: TornadoShower
+      Type: 2
+      Rank: 1
+      Description: "\uB192\uC740 \uACF3\uC5D0\uC11C \uAC15\uB825\uD55C \uBC14\uB78C\uC744
+        \uC18C\uD658\uD558\uC5EC \uB9F5 \uC804\uCCB4\uB97C \uD3ED\uD48D\uC73C\uB85C
+        \uB4A4\uB36E\uC2B5\uB2C8\uB2E4. \uBC14\uB78C\uC740 \uAC15\uB825\uD55C \uC5D0\uB108\uC9C0\uB97C
+        \uBC29\uCD9C\uD558\uC5EC \uC8FC\uBCC0\uC758 \uC801\uC5D0\uAC8C \uB300\uB7C9\uC758
+        \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.6
+      NuckbackPower: 3
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: 496a401ec2457e8408b978cd0c280fa9, type: 3}
+      SkillPrefab: {fileID: 883755590088112839, guid: 979f5d10cd9ddd64dac113909dbc3cd2, type: 3}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: TornadoShowerExplosion
+      Speed: 10
+      ExplosionRange: 2
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 10
+      Count: 7
+      Interval: 1
+    - Tag: LaserBomb
+      Type: 2
+      Rank: 0
+      Description: "\uB192\uC740 \uACF3\uC5D0\uC11C \uAC15\uB825\uD55C \uB808\uC774\uC800\uB97C
+        \uBC1C\uC0AC\uD558\uC5EC \uBE60\uB974\uAC8C \uC18C\uB098\uAE30\uCC98\uB7FC
+        \uB0B4\uB9AC\uAC8C \uD569\uB2C8\uB2E4. \uB808\uC774\uC800\uB294 \uBA85\uC911\uD55C
+        \uC9C0\uC810\uC5D0\uC11C \uAC15\uB825\uD55C \uC5D0\uB108\uC9C0\uB97C \uBC29\uCD9C\uD558\uC5EC
+        \uC801\uC5D0\uAC8C \uB300\uB7C9\uC758 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+      Level: 1
+      MaxUpgradeCount: 3
+      CurrentUpgradeCount: 0
+      AtkRatio: 1.4
+      NuckbackPower: 2
+      IsGet: 0
+      IsEquip: 0
+      Icon: {fileID: 21300000, guid: b99995a0f25801a4d9f648d8be6cf439, type: 3}
+      SkillPrefab: {fileID: 7883135397449089872, guid: 5dae061fca67af546aeee2f6ae9eeab3, type: 3}
+      StartPosition: {x: 0, y: 0, z: 0}
+      ColliderName: 
+      SkillExplosionTag: LaserBombExplosion
+      Speed: 17
+      ExplosionRange: 2
+      HitRangePosition: {x: 0, y: 0, z: 0}
+      Range: 10
+      Count: 7
+      Interval: 1
 --- !u!1 &4460205502225582209
 GameObject:
   m_ObjectHideFlags: 0

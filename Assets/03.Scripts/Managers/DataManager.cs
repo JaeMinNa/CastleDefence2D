@@ -31,12 +31,12 @@ public class PlayerData
     public float NuckbackPower = 2;
 
     [Header("Inventory")]
-    public List<SkillSO> SkillInventory;
+    public List<SkillData> SkillInventory;
 
     [Header("Equip Skill")]
-    public SkillSO EquipMeleeSkill;
-    public SkillSO EquipRangedSkill;
-    public SkillSO EquipAreaSkill;
+    public SkillData EquipMeleeSkillData;
+    public SkillData EquipRangedSkillData;
+    public SkillData EquipAreaSkillData;
 }
 
 [System.Serializable]
@@ -56,7 +56,8 @@ public class CastleData
 [System.Serializable]
 public class DataWrapper
 {
-    public EnemyData[] MeleeEnemyData;
+    public EnemyData[] EnemyData;
+    public SkillData[] SkillData;
 }
 
 [System.Serializable]
@@ -83,16 +84,64 @@ public class EnemyData
     public Vector3 BulletPosition;
 }
 
+[System.Serializable]
+public class SkillData
+{
+    public enum SkillType
+    {
+        Melee,
+        Ranged,
+        Area,
+    }
+
+    public enum SkillRank
+    {
+        B,
+        A,
+        S,
+    }
+
+    [Header("Common Stats")]
+    public string Tag;
+    public SkillType Type;
+    public SkillRank Rank;
+    public string Description;
+    public int Level;
+    public int MaxUpgradeCount;
+    public int CurrentUpgradeCount;
+    public float AtkRatio;
+    public float NuckbackPower;
+    public bool IsGet;
+    public bool IsEquip;
+    public Sprite Icon;
+    public GameObject SkillPrefab;
+    public Vector3 StartPosition;
+
+    [Header("Melee Stats")]
+    public string ColliderName;
+
+    [Header("Ranged / Area Stats")]
+    public string SkillExplosionTag;
+    public float Speed;
+    public float ExplosionRange;
+    public Vector3 HitRangePosition;
+
+    [Header("Area Stats")]
+    public float Range;
+    public int Count;
+    public float Interval;
+}
+
 public class DataManager : MonoBehaviour
 {
     //[field: SerializeField] public GameDataSO GameDataSO;
     //[field: SerializeField] public PlayerSO PlayerSO;
     //[field: SerializeField] public CastleSO CastleSO;
-    [field: SerializeField] public EnemySO[] MeleeEnemySO;
-    [field: SerializeField] public EnemySO[] RangedEnemySO;
-    [field: SerializeField] public SkillSO[] MeleeSkillSO;
-    [field: SerializeField] public SkillSO[] RangedSkillSO;
-    [field: SerializeField] public SkillSO[] AreaSkillSO;
+    //[field: SerializeField] public EnemySO[] MeleeEnemySO;
+    //[field: SerializeField] public EnemySO[] RangedEnemySO;
+    //[field: SerializeField] public SkillSO[] MeleeSkillSO;
+    //[field: SerializeField] public SkillSO[] RangedSkillSO;
+    //[field: SerializeField] public SkillSO[] AreaSkillSO;
     [field: SerializeField] public int CurrentStageCoin;
 
     [Header("Start SKills")]
@@ -109,6 +158,8 @@ public class DataManager : MonoBehaviour
     public void Init()
     {
         DataLoad();
+        SetInventory();
+        SetEquip();
         CurrentStageCoin = 0;
     }
 
@@ -116,6 +167,41 @@ public class DataManager : MonoBehaviour
     public void Release()
     {
 
+    }
+
+    private void SetInventory()
+    {
+        PlayerData.SkillInventory.Clear();
+
+        for (int i = 0; i < DataWrapper.SkillData.Length; i++)
+        {
+            if (DataWrapper.SkillData[i].IsGet)
+            {
+                PlayerData.SkillInventory.Add(DataWrapper.SkillData[i]);
+            }
+        }
+    }
+
+    private void SetEquip()
+    {
+        for (int i = 0; i < PlayerData.SkillInventory.Count; i++)
+        {
+            if (PlayerData.SkillInventory[i].IsEquip)
+            {
+                if (PlayerData.SkillInventory[i].Type == SkillData.SkillType.Melee)
+                {
+                    PlayerData.EquipMeleeSkillData = PlayerData.SkillInventory[i];
+                }
+                else if (PlayerData.SkillInventory[i].Type == SkillData.SkillType.Ranged)
+                {
+                    PlayerData.EquipRangedSkillData = PlayerData.SkillInventory[i];
+                }
+                else
+                {
+                    PlayerData.EquipAreaSkillData = PlayerData.SkillInventory[i];
+                }
+            }
+        }
     }
 
     // GameData

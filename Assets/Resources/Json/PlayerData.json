@@ -1,30 +1,228 @@
 {
-    "Level": 1,
-    "MaxExp": 10.0,
-    "CurrentExp": 0.0,
-    "Speed": 3.0,
-    "Atk": 10.0,
+    "Level": 4,
+    "MaxExp": 33.75,
+    "CurrentExp": 2.5,
+    "Speed": 3.299999713897705,
+    "Atk": 13.0,
     "SkillTime": 3.0,
     "AttackCoolTime": 1.5,
     "NuckbackPower": 2.0,
     "SkillInventory": [
         {
-            "instanceID": 25032
+            "Tag": "FireSword",
+            "Type": 0,
+            "Rank": 0,
+            "Description": "검을 휘둘러 주변의 대상에게 폭발적인 피해를 입힙니다. 폭발과 동시에 주변의 적들에게 대량의 데미지를 입힙니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 0,
+            "AtkRatio": 1.2999999523162842,
+            "NuckbackPower": 2.5,
+            "IsGet": true,
+            "IsEquip": true,
+            "Icon": {
+                "instanceID": 30934
+            },
+            "SkillPrefab": {
+                "instanceID": 30886
+            },
+            "StartPosition": {
+                "x": 2.0,
+                "y": 1.5,
+                "z": 0.0
+            },
+            "ColliderName": "MeleeCollider",
+            "SkillExplosionTag": "",
+            "Speed": 0.0,
+            "ExplosionRange": 0.0,
+            "HitRangePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 0.0,
+            "Count": 0,
+            "Interval": 0.0
         },
         {
-            "instanceID": 25016
+            "Tag": "Fireball",
+            "Type": 1,
+            "Rank": 0,
+            "Description": "불을 모은 불꽃을 날려서 적에게 명중시킨 후, 폭발을 일으켜 대량의 화염 피해를 입힙니다. 폭발은 상대방과 주변의 다수의 적에게 피해를 입히게 됩니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 0,
+            "AtkRatio": 1.399999976158142,
+            "NuckbackPower": 2.5,
+            "IsGet": true,
+            "IsEquip": true,
+            "Icon": {
+                "instanceID": 30932
+            },
+            "SkillPrefab": {
+                "instanceID": 30898
+            },
+            "StartPosition": {
+                "x": 1.5,
+                "y": 1.5,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "FireballExplosion",
+            "Speed": 6.0,
+            "ExplosionRange": 3.0,
+            "HitRangePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 0.0,
+            "Count": 0,
+            "Interval": 0.0
         },
         {
-            "instanceID": 24834
+            "Tag": "FireShower",
+            "Type": 2,
+            "Rank": 0,
+            "Description": "불의 힘을 모아 하늘에서 불꽃의 소나기를 내리며, 넓은 범위에 불을 퍼뜨립니다. 각각의 불꽃은 지면에 떨어져 폭발하여 주변의 적에게 강력한 화염 피해를 입힙니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 0,
+            "AtkRatio": 1.2999999523162842,
+            "NuckbackPower": 2.5,
+            "IsGet": true,
+            "IsEquip": true,
+            "Icon": {
+                "instanceID": 30930
+            },
+            "SkillPrefab": {
+                "instanceID": 30912
+            },
+            "StartPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "FireShowerExplosion",
+            "Speed": 10.0,
+            "ExplosionRange": 2.0,
+            "HitRangePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 10.0,
+            "Count": 7,
+            "Interval": 1.0
         }
     ],
-    "EquipMeleeSkill": {
-        "instanceID": 25032
+    "EquipMeleeSkillData": {
+        "Tag": "FireSword",
+        "Type": 0,
+        "Rank": 0,
+        "Description": "검을 휘둘러 주변의 대상에게 폭발적인 피해를 입힙니다. 폭발과 동시에 주변의 적들에게 대량의 데미지를 입힙니다.",
+        "Level": 1,
+        "MaxUpgradeCount": 3,
+        "CurrentUpgradeCount": 0,
+        "AtkRatio": 1.2999999523162842,
+        "NuckbackPower": 2.5,
+        "IsGet": true,
+        "IsEquip": true,
+        "Icon": {
+            "instanceID": 30934
+        },
+        "SkillPrefab": {
+            "instanceID": 30886
+        },
+        "StartPosition": {
+            "x": 2.0,
+            "y": 1.5,
+            "z": 0.0
+        },
+        "ColliderName": "MeleeCollider",
+        "SkillExplosionTag": "",
+        "Speed": 0.0,
+        "ExplosionRange": 0.0,
+        "HitRangePosition": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "Range": 0.0,
+        "Count": 0,
+        "Interval": 0.0
     },
-    "EquipRangedSkill": {
-        "instanceID": 25016
+    "EquipRangedSkillData": {
+        "Tag": "Fireball",
+        "Type": 1,
+        "Rank": 0,
+        "Description": "불을 모은 불꽃을 날려서 적에게 명중시킨 후, 폭발을 일으켜 대량의 화염 피해를 입힙니다. 폭발은 상대방과 주변의 다수의 적에게 피해를 입히게 됩니다.",
+        "Level": 1,
+        "MaxUpgradeCount": 3,
+        "CurrentUpgradeCount": 0,
+        "AtkRatio": 1.399999976158142,
+        "NuckbackPower": 2.5,
+        "IsGet": true,
+        "IsEquip": true,
+        "Icon": {
+            "instanceID": 30932
+        },
+        "SkillPrefab": {
+            "instanceID": 30898
+        },
+        "StartPosition": {
+            "x": 1.5,
+            "y": 1.5,
+            "z": 0.0
+        },
+        "ColliderName": "",
+        "SkillExplosionTag": "FireballExplosion",
+        "Speed": 6.0,
+        "ExplosionRange": 3.0,
+        "HitRangePosition": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "Range": 0.0,
+        "Count": 0,
+        "Interval": 0.0
     },
-    "EquipAreaSkill": {
-        "instanceID": 24834
+    "EquipAreaSkillData": {
+        "Tag": "FireShower",
+        "Type": 2,
+        "Rank": 0,
+        "Description": "불의 힘을 모아 하늘에서 불꽃의 소나기를 내리며, 넓은 범위에 불을 퍼뜨립니다. 각각의 불꽃은 지면에 떨어져 폭발하여 주변의 적에게 강력한 화염 피해를 입힙니다.",
+        "Level": 1,
+        "MaxUpgradeCount": 3,
+        "CurrentUpgradeCount": 0,
+        "AtkRatio": 1.2999999523162842,
+        "NuckbackPower": 2.5,
+        "IsGet": true,
+        "IsEquip": true,
+        "Icon": {
+            "instanceID": 30930
+        },
+        "SkillPrefab": {
+            "instanceID": 30912
+        },
+        "StartPosition": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "ColliderName": "",
+        "SkillExplosionTag": "FireShowerExplosion",
+        "Speed": 10.0,
+        "ExplosionRange": 2.0,
+        "HitRangePosition": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "Range": 10.0,
+        "Count": 7,
+        "Interval": 1.0
     }
 }

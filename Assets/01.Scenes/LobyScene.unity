@@ -29701,7 +29701,29 @@ MonoBehaviour:
   - {fileID: 1021699172}
   - {fileID: 1084667823}
   - {fileID: 1287134289}
-  InfoSkillSO: {fileID: 0}
+  InfoSkillData:
+    Tag: 
+    Type: 0
+    Rank: 0
+    Description: 
+    Level: 0
+    MaxUpgradeCount: 0
+    CurrentUpgradeCount: 0
+    AtkRatio: 0
+    NuckbackPower: 0
+    IsGet: 0
+    IsEquip: 0
+    Icon: {fileID: 0}
+    SkillPrefab: {fileID: 0}
+    StartPosition: {x: 0, y: 0, z: 0}
+    ColliderName: 
+    SkillExplosionTag: 
+    Speed: 0
+    ExplosionRange: 0
+    HitRangePosition: {x: 0, y: 0, z: 0}
+    Range: 0
+    Count: 0
+    Interval: 0
 --- !u!1 &831474406
 GameObject:
   m_ObjectHideFlags: 0
@@ -33504,10 +33526,6 @@ PrefabInstance:
     - target: {fileID: 5925590735101650877, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460562675657873725, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
-      propertyPath: CastleData.Level
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7540933731026198354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
       propertyPath: m_RootOrder
@@ -57663,7 +57681,29 @@ MonoBehaviour:
   _skillDrawPanel: {fileID: 1764381552}
   _currentSkillDrawCountText: {fileID: 1586344205}
   _currentCoinText: {fileID: 1468090626}
-  _getSkillSO: {fileID: 0}
+  _getSkillData:
+    Tag: 
+    Type: 0
+    Rank: 0
+    Description: 
+    Level: 0
+    MaxUpgradeCount: 0
+    CurrentUpgradeCount: 0
+    AtkRatio: 0
+    NuckbackPower: 0
+    IsGet: 0
+    IsEquip: 0
+    Icon: {fileID: 0}
+    SkillPrefab: {fileID: 0}
+    StartPosition: {x: 0, y: 0, z: 0}
+    ColliderName: 
+    SkillExplosionTag: 
+    Speed: 0
+    ExplosionRange: 0
+    HitRangePosition: {x: 0, y: 0, z: 0}
+    Range: 0
+    Count: 0
+    Interval: 0
   _skillInfoPanel: {fileID: 416496520}
   _getSkillTagText: {fileID: 2086132291}
   _getSkillTypeText: {fileID: 1981791066}

@@ -6,8 +6,9 @@ using TMPro;
 
 public class SkillInventorySlot : MonoBehaviour
 {
-    private SkillSO _skillSO;
+    //private SkillSO _skillSO;
     private PlayerData _playerData;
+    private SkillData _skillData;
     public bool _isSkill;
 
     [Header("Inventory")]
@@ -58,18 +59,18 @@ public class SkillInventorySlot : MonoBehaviour
         _playerData = GameManager.I.DataManager.PlayerData;
     }
 
-    public void SkillText(SkillSO skillSO)
+    public void SkillText(SkillData skillData)
     {
         _isSkill = true;
-        _skillSO = skillSO;
+        _skillData = skillData;
 
         _emptyImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
-        _skillLevelText.text = skillSO.Level.ToString();
+        _skillLevelText.text = skillData.Level.ToString();
         _skillLevel.SetActive(true);
 
         string rank;
-        if (skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
-        else if (skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
+        if (skillData.Rank == SkillData.SkillRank.B) rank = "B";
+        else if (skillData.Rank == SkillData.SkillRank.A) rank = "A";
         else rank = "S";
 
         if (rank == "B")
@@ -87,7 +88,7 @@ public class SkillInventorySlot : MonoBehaviour
         _skillRankText.text = rank;
         _skillRank.SetActive(true);
 
-        if (skillSO.IsEquip) _equip.SetActive(true);
+        if (skillData.IsEquip) _equip.SetActive(true);
         else _equip.SetActive(false);
     }
 
@@ -101,13 +102,13 @@ public class SkillInventorySlot : MonoBehaviour
         _equip.SetActive(false);
     }
 
-    public void EquipSkillText(SkillSO skillSO)
+    public void EquipSkillText(SkillData skillData)
     {
-        _skillLevelText.text = skillSO.Level.ToString();
+        _skillLevelText.text = skillData.Level.ToString();
 
         string rank;
-        if (skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
-        else if (skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
+        if (skillData.Rank == SkillData.SkillRank.B) rank = "B";
+        else if (skillData.Rank == SkillData.SkillRank.A) rank = "A";
         else rank = "S";
 
         if (rank == "B")
@@ -134,16 +135,16 @@ public class SkillInventorySlot : MonoBehaviour
         }
 
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        _skillInventory.InfoSkillSO = _skillSO;
+        _skillInventory.InfoSkillData = _skillData;
 
         string rank;
-        if (_skillSO.Rank == SkillSO.SkillRank.B) rank = "B";
-        else if (_skillSO.Rank == SkillSO.SkillRank.A) rank = "A";
+        if (_skillData.Rank == SkillData.SkillRank.B) rank = "B";
+        else if (_skillData.Rank == SkillData.SkillRank.A) rank = "A";
         else rank = "S";
 
-        if (_skillSO.Type == SkillSO.SkillType.Melee)
+        if (_skillData.Type == SkillData.SkillType.Melee)
         {
-            if(_skillSO.Level >= 2)
+            if(_skillData.Level >= 2)
             {
                 _meleeSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
                 _meleeSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
@@ -153,19 +154,19 @@ public class SkillInventorySlot : MonoBehaviour
                 _meleeSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
                 _meleeSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
             }
-            _meleeSkillTag.text = _skillSO.Tag;
-            _equipMeleeSkillImage.sprite = _skillSO.Icon;
-            _meleeSkillDescriptionText.text = _skillSO.Description;
-            _meleeSkillLevelText.text = _skillSO.Level.ToString();
+            _meleeSkillTag.text = _skillData.Tag;
+            _equipMeleeSkillImage.sprite = _skillData.Icon;
+            _meleeSkillDescriptionText.text = _skillData.Description;
+            _meleeSkillLevelText.text = _skillData.Level.ToString();
             _meleeSkillRankText.text = rank;
-            _meleeSkillAtkText.text = ((int)(_playerData.Atk * _skillSO.AtkRatio)).ToString();
-            _meleeSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
+            _meleeSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+            _meleeSkillUpgradeText.text = _skillData.CurrentUpgradeCount.ToString() + " / " + _skillData.MaxUpgradeCount.ToString();
 
             _meleeSkillInfo.SetActive(true);
         }
-        else if(_skillSO.Type == SkillSO.SkillType.Ranged)
+        else if(_skillData.Type == SkillData.SkillType.Ranged)
         {
-            if(_skillSO.Level >= 2)
+            if(_skillData.Level >= 2)
             {
                 _rangedSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
                 _rangedSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
@@ -175,19 +176,19 @@ public class SkillInventorySlot : MonoBehaviour
                 _rangedSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
                 _rangedSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
             }
-            _rangedSkillTag.text = _skillSO.Tag;
-            _equipRangedSkillImage.sprite = _skillSO.Icon;
-            _rangedSkillDescriptionText.text = _skillSO.Description;
-            _rangedSkillLevelText.text = _skillSO.Level.ToString();
+            _rangedSkillTag.text = _skillData.Tag;
+            _equipRangedSkillImage.sprite = _skillData.Icon;
+            _rangedSkillDescriptionText.text = _skillData.Description;
+            _rangedSkillLevelText.text = _skillData.Level.ToString();
             _rangedSkillRankText.text = rank;
-            _rangedSkillAtkText.text = ((int)(_playerData.Atk * _skillSO.AtkRatio)).ToString();
-            _rangedSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
+            _rangedSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+            _rangedSkillUpgradeText.text = _skillData.CurrentUpgradeCount.ToString() + " / " + _skillData.MaxUpgradeCount.ToString();
 
             _rangedSkillInfo.SetActive(true);
         }
         else
         {
-            if(_skillSO.Level >= 2)
+            if(_skillData.Level >= 2)
             {
                 _areaSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
                 _areaSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
@@ -201,15 +202,15 @@ public class SkillInventorySlot : MonoBehaviour
                 _areaSkillCountText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
                 _areaSkillIntervalText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
             }
-            _areaSkillTag.text = _skillSO.Tag;
-            _equipAreadSkillImage.sprite = _skillSO.Icon;
-            _areaSkillDescriptionText.text = _skillSO.Description;
-            _areaSkillLevelText.text = _skillSO.Level.ToString();
+            _areaSkillTag.text = _skillData.Tag;
+            _equipAreadSkillImage.sprite = _skillData.Icon;
+            _areaSkillDescriptionText.text = _skillData.Description;
+            _areaSkillLevelText.text = _skillData.Level.ToString();
             _areaSkillRankText.text = rank;
-            _areaSkillAtkText.text = ((int)(_playerData.Atk * _skillSO.AtkRatio)).ToString();
-            _areaSkillUpgradeText.text = _skillSO.CurrentUpgradeCount.ToString() + " / " + _skillSO.MaxUpgradeCount.ToString();
-            _areaSkillCountText.text = _skillSO.Count.ToString();
-            _areaSkillIntervalText.text = _skillSO.Interval.ToString();
+            _areaSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+            _areaSkillUpgradeText.text = _skillData.CurrentUpgradeCount.ToString() + " / " + _skillData.MaxUpgradeCount.ToString();
+            _areaSkillCountText.text = _skillData.Count.ToString();
+            _areaSkillIntervalText.text = _skillData.Interval.ToString();
 
             _areaSkillInfo.SetActive(true);
         }

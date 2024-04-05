@@ -6,7 +6,7 @@ public class PlayerAttackCollider : MonoBehaviour
 {
     private PlayerController _playerController;
     private PlayerData _playerData;
-    private SkillSO _meleeSkillSO;
+    private SkillData _meleeSkillData;
     private CameraShake _cameraShake;
 
     private void Start()
@@ -14,7 +14,7 @@ public class PlayerAttackCollider : MonoBehaviour
         _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
         _playerData = GameManager.I.DataManager.PlayerData;
         //_meleeSkillSO = _playerController.PlayerSO.EquipMeleeSkill;
-        _meleeSkillSO = _playerData.EquipMeleeSkill;
+        _meleeSkillData = _playerData.EquipMeleeSkillData;
         _cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
@@ -41,15 +41,15 @@ public class PlayerAttackCollider : MonoBehaviour
             else if(transform.CompareTag("MeleeCollider"))
             {
                 StartCoroutine(_cameraShake.COShake(1f, 1.5f));
-                GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)(_playerController.Atk * _meleeSkillSO.AtkRatio), 31);
-                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.Atk * _meleeSkillSO.AtkRatio;
+                GameManager.I.ObjectPoolManager.ActiveDamage("DamageText", collision.transform.position - new Vector3(0, 2, 0), (int)(_playerController.Atk * _meleeSkillData.AtkRatio), 31);
+                collision.transform.GetComponent<EnemyController>().Hp -= _playerController.Atk * _meleeSkillData.AtkRatio;
                 if (_dir.x > 0)
                 {
-                    collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _meleeSkillSO.NuckbackPower, ForceMode2D.Impulse);
+                    collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * _meleeSkillData.NuckbackPower, ForceMode2D.Impulse);
                 }
                 else
                 {
-                    collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _meleeSkillSO.NuckbackPower, ForceMode2D.Impulse);
+                    collision.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * _meleeSkillData.NuckbackPower, ForceMode2D.Impulse);
                 }
             }
 
