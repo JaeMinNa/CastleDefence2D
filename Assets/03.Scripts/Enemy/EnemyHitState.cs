@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class EnemyHitState : MonoBehaviour, IEnemyState
 {
-    [SerializeField] private int _coinDropPercent = 10;
-    [SerializeField] private int _potionDropPercent = 15;
+    private int _coinDropPercent = 10;
+    private int _potionDropPercent = 13;
 
     private EnemyController _enemyController;
 

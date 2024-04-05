@@ -121,8 +121,7 @@ MonoBehaviour:
       NuckbackPower: 0
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 0}
-      SkillPrefab: {fileID: 0}
+      IconPath: 
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: 
@@ -143,8 +142,7 @@ MonoBehaviour:
       NuckbackPower: 0
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 0}
-      SkillPrefab: {fileID: 0}
+      IconPath: 
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: 
@@ -165,8 +163,7 @@ MonoBehaviour:
       NuckbackPower: 0
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 0}
-      SkillPrefab: {fileID: 0}
+      IconPath: 
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: 
@@ -188,8 +185,7 @@ MonoBehaviour:
       NuckbackPower: 0
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 0}
-      SkillPrefab: {fileID: 0}
+      IconPath: 
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: 
@@ -211,8 +207,7 @@ MonoBehaviour:
       NuckbackPower: 0
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 0}
-      SkillPrefab: {fileID: 0}
+      IconPath: 
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: 
@@ -234,8 +229,7 @@ MonoBehaviour:
       NuckbackPower: 0
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 0}
-      SkillPrefab: {fileID: 0}
+      IconPath: 
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: 
@@ -383,8 +377,7 @@ MonoBehaviour:
       NuckbackPower: 3
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 1a862a305a44ca64e939c2b35b24e829, type: 3}
-      SkillPrefab: {fileID: 7016349210439919489, guid: 1e1af343ca80fb347883410e6aeeba1f, type: 3}
+      IconPath: Icon/Melee/Strike
       StartPosition: {x: 6.5, y: 1.5, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -409,8 +402,7 @@ MonoBehaviour:
       NuckbackPower: 1.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 385f6ba0c11060144b63769f0fc16f15, type: 3}
-      SkillPrefab: {fileID: 3229158916309934281, guid: 7a218e03f9922264385586c23c098e31, type: 3}
+      IconPath: Icon/Melee/BoltSword
       StartPosition: {x: 2, y: 0.8, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -434,8 +426,7 @@ MonoBehaviour:
       NuckbackPower: 2.5
       IsGet: 1
       IsEquip: 1
-      Icon: {fileID: 21300000, guid: 94070ee4fd8aaeb4584e03ea7dd136cb, type: 3}
-      SkillPrefab: {fileID: 3441451260093034319, guid: 6625b6968dfaae2448152f5a4b0a1752, type: 3}
+      IconPath: Icon/Melee/FireSword
       StartPosition: {x: 2, y: 1.5, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -458,8 +449,7 @@ MonoBehaviour:
       NuckbackPower: 3
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 99a2865a0e99cb84785c1111f3ba062e, type: 3}
-      SkillPrefab: {fileID: 2472299320664937498, guid: 6e143065e50c4154db4e94ce80034c52, type: 3}
+      IconPath: Icon/Melee/WindSword
       StartPosition: {x: 1.2, y: 0.7, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -484,8 +474,7 @@ MonoBehaviour:
       NuckbackPower: 2
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: e1be5c24ac7f3c846a4bf2c3639ca650, type: 3}
-      SkillPrefab: {fileID: 2701655741949306210, guid: eb7004d583d70ac4588596f2ba7bab46, type: 3}
+      IconPath: Icon/Melee/BloodStrike
       StartPosition: {x: 2, y: 0.75, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -510,8 +499,7 @@ MonoBehaviour:
       NuckbackPower: 2
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 86d981a8742aea349ad18e8b929ca7ff, type: 3}
-      SkillPrefab: {fileID: 1071342194878868471, guid: 8af313e79862e5c4e996381082cb4115, type: 3}
+      IconPath: Icon/Melee/HolyStrike
       StartPosition: {x: 1.8, y: 1, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -537,8 +525,7 @@ MonoBehaviour:
       NuckbackPower: 2
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: b4724514d746ab8409ca18de3a65dc14, type: 3}
-      SkillPrefab: {fileID: 6832522046984261472, guid: 2e823477607f3b949adb4d5941f0d852, type: 3}
+      IconPath: Icon/Melee/MagmaStrike
       StartPosition: {x: 2.2, y: 1.1, z: 0}
       ColliderName: MeleeCollider
       SkillExplosionTag: 
@@ -563,8 +550,7 @@ MonoBehaviour:
       NuckbackPower: 2.5
       IsGet: 1
       IsEquip: 1
-      Icon: {fileID: 21300000, guid: b12502ba5c973e3488a651f1e7634829, type: 3}
-      SkillPrefab: {fileID: 1616525034155276973, guid: f6aa8c1dca1237f49ac0d3ce5b4f7eb2, type: 3}
+      IconPath: Icon/Ranged/Fireball
       StartPosition: {x: 1.5, y: 1.5, z: 0}
       ColliderName: 
       SkillExplosionTag: FireballExplosion
@@ -589,8 +575,7 @@ MonoBehaviour:
       NuckbackPower: 1.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: e1a91c592705b8d458b7bc8a5b789f0c, type: 3}
-      SkillPrefab: {fileID: 6700474119340773093, guid: 22656d4e70ae3b040a04514148040bd7, type: 3}
+      IconPath: Icon/Ranged/Boltball
       StartPosition: {x: 1.5, y: 1.5, z: 0}
       ColliderName: 
       SkillExplosionTag: BoltballExplosion
@@ -615,8 +600,7 @@ MonoBehaviour:
       NuckbackPower: 1.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: eed44235dcbd621438f7c0c4f05e2356, type: 3}
-      SkillPrefab: {fileID: 7177758944140442157, guid: e0cb9780248f65d4b89c1030d09cbb39, type: 3}
+      IconPath: Icon/Ranged/Darkball
       StartPosition: {x: 0.5, y: 1.5, z: 0}
       ColliderName: 
       SkillExplosionTag: DarkballExplosion
@@ -642,8 +626,7 @@ MonoBehaviour:
       NuckbackPower: 2.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: f381d099ca3ab9a41af6ee89fa60b928, type: 3}
-      SkillPrefab: {fileID: 1564806609306032209, guid: da520ec23671ebd45b1b8d594857a0cd, type: 3}
+      IconPath: Icon/Ranged/BlueFireball
       StartPosition: {x: 1, y: 1.5, z: 0}
       ColliderName: 
       SkillExplosionTag: BlueFireballExplosion
@@ -669,8 +652,7 @@ MonoBehaviour:
       NuckbackPower: 3
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 07720b55bb7cb3c45a9e509ca5b5e01c, type: 3}
-      SkillPrefab: {fileID: 2223967610961474131, guid: cc65e3221f58fd646a0e25f4531905dd, type: 3}
+      IconPath: Icon/Ranged/Tornadoball
       StartPosition: {x: 0.5, y: 1.5, z: 0}
       ColliderName: 
       SkillExplosionTag: TornadoballExplosion
@@ -696,8 +678,7 @@ MonoBehaviour:
       NuckbackPower: 2
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: f4933b01621c8d943bd755751b7b75c2, type: 3}
-      SkillPrefab: {fileID: 4459925576623694883, guid: 45c0dcf52927b0b40a53899423c71e6d, type: 3}
+      IconPath: Icon/Ranged/Laser
       StartPosition: {x: 0.5, y: 1.5, z: 0}
       ColliderName: 
       SkillExplosionTag: LaserExplosion
@@ -723,8 +704,7 @@ MonoBehaviour:
       NuckbackPower: 1.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 11b244da10d941340a9f3c6838e55716, type: 3}
-      SkillPrefab: {fileID: 2826699967370509472, guid: 5da263ddc4d3e2141aa7553e1069ba60, type: 3}
+      IconPath: Icon/Area/BoltShower
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: BoltShowerExplosion
@@ -750,8 +730,7 @@ MonoBehaviour:
       NuckbackPower: 2.5
       IsGet: 1
       IsEquip: 1
-      Icon: {fileID: 21300000, guid: cc16da6188962544787f7f3b5c7f499f, type: 3}
-      SkillPrefab: {fileID: 4833021194986502740, guid: b667e5e713db792418aec24514148b93, type: 3}
+      IconPath: Icon/Area/FireShower
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: FireShowerExplosion
@@ -777,8 +756,7 @@ MonoBehaviour:
       NuckbackPower: 1.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 3470248b14cfc4144a1cf55ffd1af7e6, type: 3}
-      SkillPrefab: {fileID: 9001853056876136201, guid: 661602179bf3eae4ca32710306f25c26, type: 3}
+      IconPath: Icon/Area/DarkRain
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: DarkRainExplosion
@@ -804,8 +782,7 @@ MonoBehaviour:
       NuckbackPower: 2.5
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 5ae8a876658848c439892f8b25d79d30, type: 3}
-      SkillPrefab: {fileID: 6923085714765448852, guid: ee11776c13ce6064f84c23b3593e1da8, type: 3}
+      IconPath: Icon/Area/BlueFireRain
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: BlueFireRainExplosion
@@ -830,8 +807,7 @@ MonoBehaviour:
       NuckbackPower: 3
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: 496a401ec2457e8408b978cd0c280fa9, type: 3}
-      SkillPrefab: {fileID: 883755590088112839, guid: 979f5d10cd9ddd64dac113909dbc3cd2, type: 3}
+      IconPath: Icon/Area/TornadoShower
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: TornadoShowerExplosion
@@ -856,8 +832,7 @@ MonoBehaviour:
       NuckbackPower: 2
       IsGet: 0
       IsEquip: 0
-      Icon: {fileID: 21300000, guid: b99995a0f25801a4d9f648d8be6cf439, type: 3}
-      SkillPrefab: {fileID: 7883135397449089872, guid: 5dae061fca67af546aeee2f6ae9eeab3, type: 3}
+      IconPath: Icon/Area/LaserBomb
       StartPosition: {x: 0, y: 0, z: 0}
       ColliderName: 
       SkillExplosionTag: LaserBombExplosion

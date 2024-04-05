@@ -140,7 +140,7 @@ public class AttackButton : MonoBehaviour
             }
 
             if (ClickTime >= (SkillCoolTime / 4f))
-            _playerController.GetComponent<PlayerAttackState>().time = 0f;
+                _playerController.GetComponent<PlayerAttackState>().time = 0f;
         }
         else
         {

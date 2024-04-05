@@ -116,29 +116,35 @@ public class RangedSkill : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            _skillSpriteRenderer.enabled = false;
-            GameManager.I.SoundManager.StartSFX(_rangedSkillData.SkillExplosionTag);
-            StartCoroutine(_cameraShake.COShake(0.5f, 0.5f)); 
-            StartCoroutine(COInactiveSkill(_inactiveTime));
-            _isMove = false;
-            Targetting();
+            if(!_player.GetComponent<PlayerController>().IsMeleeExplosion)
+            {
+                _isMove = false;
+                _skillSpriteRenderer.enabled = false;
+                GameManager.I.SoundManager.StartSFX(_rangedSkillData.SkillExplosionTag);
+                StartCoroutine(_cameraShake.COShake(0.5f, 0.5f));
+                StartCoroutine(COInactiveSkill(_inactiveTime));
 
-            _animator.SetTrigger("Hit");
-            if (!_skillSpriteRenderer.flipX)
-            {
-                transform.position += _rangedSkillData.HitRangePosition;
+                Targetting();
+
+                _animator.SetTrigger("Hit");
+                if (!_skillSpriteRenderer.flipX)
+                {
+                    transform.position += _rangedSkillData.HitRangePosition;
+                }
+                else
+                {
+                    transform.position += new Vector3(-_rangedSkillData.HitRangePosition.x, _rangedSkillData.HitRangePosition.y, _rangedSkillData.HitRangePosition.z);
+                }
+                _skillSpriteRenderer.enabled = true;
+                _player.GetComponent<PlayerController>().IsMeleeExplosion = true;
             }
-            else
-            {
-                transform.position += new Vector3(-_rangedSkillData.HitRangePosition.x, _rangedSkillData.HitRangePosition.y, _rangedSkillData.HitRangePosition.z);
-            }
-            _skillSpriteRenderer.enabled = true;
         }
     }
 
     IEnumerator COInactiveSkill(float time)
     {
         yield return new WaitForSeconds(time);
+        _player.GetComponent<PlayerController>().IsMeleeExplosion = false;
         gameObject.SetActive(false);
     }
 }

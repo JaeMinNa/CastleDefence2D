@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     private IPlayerState _attackState;
 
+    public bool IsMeleeExplosion;
+
     private void Start()
     {
         _playerStateContext = new PlayerStateContext(this);
@@ -27,5 +29,6 @@ public class PlayerController : MonoBehaviour
         _playerStateContext.Transition(_attackState);
 
         IsMove = true;
+        IsMeleeExplosion = false;
     }
 }

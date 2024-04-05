@@ -32,7 +32,6 @@ public class Potion : MonoBehaviour
     private AttackButton _attackButton;
 
     private PlayerController _playerController;
-    //private PlayerSO _playerSO;
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _playerSpriteRenderer;
     private BoxCollider2D _collider;
@@ -47,7 +46,6 @@ public class Potion : MonoBehaviour
             _collider = GetComponent<BoxCollider2D>();
             _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
             _playerSpriteRenderer = _playerController.transform.GetChild(0).GetComponent<SpriteRenderer>();
-            //_playerSO = _playerController.PlayerSO;
         }
     }
 
