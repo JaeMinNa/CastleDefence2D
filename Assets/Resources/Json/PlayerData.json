@@ -1,9 +1,9 @@
 {
-    "Level": 4,
-    "MaxExp": 33.75,
-    "CurrentExp": 2.5,
-    "Speed": 3.299999713897705,
-    "Atk": 13.0,
+    "Level": 5,
+    "MaxExp": 50.625,
+    "CurrentExp": 3.75,
+    "Speed": 3.3999996185302736,
+    "Atk": 14.0,
     "SkillTime": 3.0,
     "AttackCoolTime": 1.5,
     "NuckbackPower": 2.0,
@@ -15,7 +15,7 @@
             "Description": "검을 휘둘러 주변의 대상에게 폭발적인 피해를 입힙니다. 폭발과 동시에 주변의 적들에게 대량의 데미지를 입힙니다.",
             "Level": 1,
             "MaxUpgradeCount": 3,
-            "CurrentUpgradeCount": 0,
+            "CurrentUpgradeCount": 1,
             "AtkRatio": 1.2999999523162842,
             "NuckbackPower": 2.5,
             "IsGet": true,
@@ -55,7 +55,7 @@
             "AtkRatio": 1.399999976158142,
             "NuckbackPower": 2.5,
             "IsGet": true,
-            "IsEquip": true,
+            "IsEquip": false,
             "Icon": {
                 "instanceID": 30932
             },
@@ -81,6 +81,114 @@
             "Interval": 0.0
         },
         {
+            "Tag": "Boltball",
+            "Type": 1,
+            "Rank": 2,
+            "Description": "검에 강력한 전기를 모아서 생성한 후, 적을 향해 발사합니다. 명중한 적에게 강력한 전격 피해를 입히며, 주변의 적에게도 전기가 번쩍이며 피해를 줄 수 있습니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 1,
+            "AtkRatio": 2.0999999046325685,
+            "NuckbackPower": 1.5,
+            "IsGet": true,
+            "IsEquip": true,
+            "Icon": {
+                "instanceID": 77408
+            },
+            "SkillPrefab": {
+                "instanceID": 30900
+            },
+            "StartPosition": {
+                "x": 1.5,
+                "y": 1.5,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "BoltballExplosion",
+            "Speed": 7.0,
+            "ExplosionRange": 3.0,
+            "HitRangePosition": {
+                "x": 1.2000000476837159,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 0.0,
+            "Count": 0,
+            "Interval": 0.0
+        },
+        {
+            "Tag": "Darkball",
+            "Type": 1,
+            "Rank": 0,
+            "Description": "어둠의 힘을 모아 그림자를 형성한 후, 적을 향해 발사합니다. 명중한 적에게 어둠의 힘을 가미한 피해를 입히며, 주변의 적에게도 그림자로 인한 피해를 줄 수 있습니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 1,
+            "AtkRatio": 1.600000023841858,
+            "NuckbackPower": 1.5,
+            "IsGet": true,
+            "IsEquip": false,
+            "Icon": {
+                "instanceID": 78618
+            },
+            "SkillPrefab": {
+                "instanceID": 30902
+            },
+            "StartPosition": {
+                "x": 0.5,
+                "y": 1.5,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "DarkballExplosion",
+            "Speed": 5.0,
+            "ExplosionRange": 3.0,
+            "HitRangePosition": {
+                "x": 1.0,
+                "y": -0.20000000298023225,
+                "z": 0.0
+            },
+            "Range": 0.0,
+            "Count": 0,
+            "Interval": 0.0
+        },
+        {
+            "Tag": "Laser",
+            "Type": 1,
+            "Rank": 0,
+            "Description": "순식간에 레이저를 발사하여 적에게 명중시킵니다. 초신속 레이저는 빠른 속도와 정확성으로 적에게 고통스러운 피해를 입히며, 장거리에서도 빠르고 강력한 공격을 수행할 수 있습니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 2,
+            "AtkRatio": 1.5,
+            "NuckbackPower": 2.0,
+            "IsGet": true,
+            "IsEquip": false,
+            "Icon": {
+                "instanceID": 77628
+            },
+            "SkillPrefab": {
+                "instanceID": 30908
+            },
+            "StartPosition": {
+                "x": 0.5,
+                "y": 1.5,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "LaserExplosion",
+            "Speed": 15.0,
+            "ExplosionRange": 2.5,
+            "HitRangePosition": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 0.0,
+            "Count": 0,
+            "Interval": 0.0
+        },
+        {
             "Tag": "FireShower",
             "Type": 2,
             "Rank": 0,
@@ -91,7 +199,7 @@
             "AtkRatio": 1.2999999523162842,
             "NuckbackPower": 2.5,
             "IsGet": true,
-            "IsEquip": true,
+            "IsEquip": false,
             "Icon": {
                 "instanceID": 30930
             },
@@ -115,6 +223,78 @@
             "Range": 10.0,
             "Count": 7,
             "Interval": 1.0
+        },
+        {
+            "Tag": "DarkRain",
+            "Type": 2,
+            "Rank": 0,
+            "Description": "어둠의 힘을 모아 하늘에서 검은 그림자를 소환하여 적에게 내려보냅니다. 명중 지점에서 어둠의 힘을 발산하여 주변의 적에게 피해를 입히며, 넓은 범위에 어둠을 퍼뜨립니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 1,
+            "AtkRatio": 1.5,
+            "NuckbackPower": 1.5,
+            "IsGet": true,
+            "IsEquip": true,
+            "Icon": {
+                "instanceID": 77336
+            },
+            "SkillPrefab": {
+                "instanceID": 30914
+            },
+            "StartPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "DarkRainExplosion",
+            "Speed": 10.0,
+            "ExplosionRange": 2.0,
+            "HitRangePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 10.0,
+            "Count": 7,
+            "Interval": 1.0
+        },
+        {
+            "Tag": "LaserBomb",
+            "Type": 2,
+            "Rank": 0,
+            "Description": "높은 곳에서 강력한 레이저를 발사하여 빠르게 소나기처럼 내리게 합니다. 레이저는 명중한 지점에서 강력한 에너지를 방출하여 적에게 대량의 피해를 입힙니다.",
+            "Level": 1,
+            "MaxUpgradeCount": 3,
+            "CurrentUpgradeCount": 1,
+            "AtkRatio": 1.399999976158142,
+            "NuckbackPower": 2.0,
+            "IsGet": true,
+            "IsEquip": false,
+            "Icon": {
+                "instanceID": 77626
+            },
+            "SkillPrefab": {
+                "instanceID": 30920
+            },
+            "StartPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "ColliderName": "",
+            "SkillExplosionTag": "LaserBombExplosion",
+            "Speed": 17.0,
+            "ExplosionRange": 2.0,
+            "HitRangePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Range": 10.0,
+            "Count": 7,
+            "Interval": 1.0
         }
     ],
     "EquipMeleeSkillData": {
@@ -124,7 +304,7 @@
         "Description": "검을 휘둘러 주변의 대상에게 폭발적인 피해를 입힙니다. 폭발과 동시에 주변의 적들에게 대량의 데미지를 입힙니다.",
         "Level": 1,
         "MaxUpgradeCount": 3,
-        "CurrentUpgradeCount": 0,
+        "CurrentUpgradeCount": 1,
         "AtkRatio": 1.2999999523162842,
         "NuckbackPower": 2.5,
         "IsGet": true,
@@ -154,22 +334,22 @@
         "Interval": 0.0
     },
     "EquipRangedSkillData": {
-        "Tag": "Fireball",
+        "Tag": "Boltball",
         "Type": 1,
-        "Rank": 0,
-        "Description": "불을 모은 불꽃을 날려서 적에게 명중시킨 후, 폭발을 일으켜 대량의 화염 피해를 입힙니다. 폭발은 상대방과 주변의 다수의 적에게 피해를 입히게 됩니다.",
+        "Rank": 2,
+        "Description": "검에 강력한 전기를 모아서 생성한 후, 적을 향해 발사합니다. 명중한 적에게 강력한 전격 피해를 입히며, 주변의 적에게도 전기가 번쩍이며 피해를 줄 수 있습니다.",
         "Level": 1,
         "MaxUpgradeCount": 3,
-        "CurrentUpgradeCount": 0,
-        "AtkRatio": 1.399999976158142,
-        "NuckbackPower": 2.5,
+        "CurrentUpgradeCount": 1,
+        "AtkRatio": 2.0999999046325685,
+        "NuckbackPower": 1.5,
         "IsGet": true,
         "IsEquip": true,
         "Icon": {
-            "instanceID": 30932
+            "instanceID": 77408
         },
         "SkillPrefab": {
-            "instanceID": 30898
+            "instanceID": 30900
         },
         "StartPosition": {
             "x": 1.5,
@@ -177,11 +357,11 @@
             "z": 0.0
         },
         "ColliderName": "",
-        "SkillExplosionTag": "FireballExplosion",
-        "Speed": 6.0,
+        "SkillExplosionTag": "BoltballExplosion",
+        "Speed": 7.0,
         "ExplosionRange": 3.0,
         "HitRangePosition": {
-            "x": 0.0,
+            "x": 1.2000000476837159,
             "y": 0.0,
             "z": 0.0
         },
@@ -190,22 +370,22 @@
         "Interval": 0.0
     },
     "EquipAreaSkillData": {
-        "Tag": "FireShower",
+        "Tag": "DarkRain",
         "Type": 2,
         "Rank": 0,
-        "Description": "불의 힘을 모아 하늘에서 불꽃의 소나기를 내리며, 넓은 범위에 불을 퍼뜨립니다. 각각의 불꽃은 지면에 떨어져 폭발하여 주변의 적에게 강력한 화염 피해를 입힙니다.",
+        "Description": "어둠의 힘을 모아 하늘에서 검은 그림자를 소환하여 적에게 내려보냅니다. 명중 지점에서 어둠의 힘을 발산하여 주변의 적에게 피해를 입히며, 넓은 범위에 어둠을 퍼뜨립니다.",
         "Level": 1,
         "MaxUpgradeCount": 3,
-        "CurrentUpgradeCount": 0,
-        "AtkRatio": 1.2999999523162842,
-        "NuckbackPower": 2.5,
+        "CurrentUpgradeCount": 1,
+        "AtkRatio": 1.5,
+        "NuckbackPower": 1.5,
         "IsGet": true,
         "IsEquip": true,
         "Icon": {
-            "instanceID": 30930
+            "instanceID": 77336
         },
         "SkillPrefab": {
-            "instanceID": 30912
+            "instanceID": 30914
         },
         "StartPosition": {
             "x": 0.0,
@@ -213,7 +393,7 @@
             "z": 0.0
         },
         "ColliderName": "",
-        "SkillExplosionTag": "FireShowerExplosion",
+        "SkillExplosionTag": "DarkRainExplosion",
         "Speed": 10.0,
         "ExplosionRange": 2.0,
         "HitRangePosition": {

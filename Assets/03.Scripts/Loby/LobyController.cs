@@ -17,7 +17,8 @@ public class LobyController : MonoBehaviour
     [Header("Level")]
     //private PlayerSO _playerSO;
     private PlayerData _playerData;
-    [SerializeField] private CastleSO _castleSO;
+    private CastleData _castleData;
+    //[SerializeField] private CastleSO _castleSO;
     [SerializeField] private TMP_Text _playerLevelText;
     [SerializeField] private TMP_Text _castleLevelText;
     [SerializeField] private Slider _playerExpSlider;
@@ -53,6 +54,7 @@ public class LobyController : MonoBehaviour
     {
         //_playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
         _playerData = GameManager.I.DataManager.PlayerData;
+        _castleData = GameManager.I.DataManager.CastleData;
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("Loby");
         Init();
@@ -63,10 +65,10 @@ public class LobyController : MonoBehaviour
         _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
         _stageText.text = "Stage " + GameManager.I.DataManager.GameData.Stage.ToString();
         _playerLevelText.text = "Lv " + _playerData.Level.ToString();
-        _castleLevelText.text = "Lv " + _castleSO.Level.ToString();
+        _castleLevelText.text = "Lv " + _castleData.Level.ToString();
         _skillDrawCountText.text = GameManager.I.DataManager.GameData.SkillDrawCount.ToString();
         _playerExpSlider.value = _playerData.CurrentExp / _playerData.MaxExp;
-        _castleExpSlider.value = _castleSO.CurrentExp / _castleSO.MaxExp;
+        _castleExpSlider.value = _castleData.CurrentExp / _castleData.MaxExp;
     }
 
     public void BattleScene0Button()
@@ -139,18 +141,18 @@ public class LobyController : MonoBehaviour
             GameManager.I.SoundManager.StartSFX("ButtonExp");
             GameManager.I.DataManager.GameData.Coin -= _expPrice;
             _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
-            _castleSO.CurrentExp += _exp;
+            _castleData.CurrentExp += _exp;
 
-            if (_castleSO.CurrentExp >= _castleSO.MaxExp)
+            if (_castleData.CurrentExp >= _castleData.MaxExp)
             {
-                _castleSO.CurrentExp -= _castleSO.MaxExp;
-                _castleSO.Level++;
-                _castleSO.MaxExp *= 1.5f;
-                _castleLevelText.text = "Lv " + _castleSO.Level.ToString();
+                _castleData.CurrentExp -= _castleData.MaxExp;
+                _castleData.Level++;
+                _castleData.MaxExp *= 1.5f;
+                _castleLevelText.text = "Lv " + _castleData.Level.ToString();
                 CastleLevelUp();
             }
 
-            _castleExpSlider.value = _castleSO.CurrentExp / _castleSO.MaxExp;
+            _castleExpSlider.value = _castleData.CurrentExp / _castleData.MaxExp;
         }
         else
         {
@@ -170,11 +172,11 @@ public class LobyController : MonoBehaviour
     private void CastleLevelUp()
     {
         GameManager.I.SoundManager.StartSFX("LevelUp");
-        _castleSO.Atk++;
-        _castleSO.Hp += 10f;
-        if(_castleSO.AttackCoolTime >= 0.5f)
+        _castleData.Atk++;
+        _castleData.Hp += 10f;
+        if(_castleData.AttackCoolTime >= 0.5f)
         {
-            _castleSO.AttackCoolTime -= 0.1f;
+            _castleData.AttackCoolTime -= 0.1f;
         }
     }
 
@@ -213,11 +215,11 @@ public class LobyController : MonoBehaviour
     public void ActiveCastleInfo()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        _castleLvText.text = _castleSO.Level.ToString();
-        _castleExpText.text = ((int)_castleSO.CurrentExp).ToString() + " / " + ((int)_castleSO.MaxExp).ToString();
-        _castleHpText.text = _castleSO.Hp.ToString();
-        _castleAtkText.text = _castleSO.Atk.ToString();
-        _castleTimeText.text = _castleSO.AttackCoolTime.ToString();
+        _castleLvText.text = _castleData.Level.ToString();
+        _castleExpText.text = ((int)_castleData.CurrentExp).ToString() + " / " + ((int)_castleData.MaxExp).ToString();
+        _castleHpText.text = _castleData.Hp.ToString();
+        _castleAtkText.text = _castleData.Atk.ToString();
+        _castleTimeText.text = _castleData.AttackCoolTime.ToString();
         _castleInfo.SetActive(true);
     }
 
