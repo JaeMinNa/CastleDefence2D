@@ -82,7 +82,7 @@ public class SkillInventory : MonoBehaviour
 
         for (int i = 0; i < _skills.Count; i++)
         {
-            _meleeSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = _skills[i].Icon;
+            _meleeSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(_skills[i].IconPath);
             _skillInventorySlot = _meleeSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
             _skillInventorySlot.SkillText(_skills[i]);
         }
@@ -120,7 +120,7 @@ public class SkillInventory : MonoBehaviour
 
         for (int i = 0; i < _skills.Count; i++)
         {
-            _rangedSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = _skills[i].Icon;
+            _rangedSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(_skills[i].IconPath);
             _skillInventorySlot = _rangedSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
             _skillInventorySlot.SkillText(_skills[i]);
         }
@@ -158,7 +158,7 @@ public class SkillInventory : MonoBehaviour
 
         for (int i = 0; i < _skills.Count; i++)
         {
-            _areaSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = _skills[i].Icon;
+            _areaSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(_skills[i].IconPath);
             _skillInventorySlot = _areaSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
             _skillInventorySlot.SkillText(_skills[i]);
         }
@@ -168,9 +168,9 @@ public class SkillInventory : MonoBehaviour
 
     public void ShowEquipSkill()
     {
-        _equipMeleeSkill.sprite = _playerData.EquipMeleeSkillData.Icon;
-        _equipRangedSkill.sprite = _playerData.EquipRangedSkillData.Icon;
-        _equipAreaSkill.sprite = _playerData.EquipAreaSkillData.Icon;
+        _equipMeleeSkill.sprite = Resources.Load<Sprite>(_playerData.EquipMeleeSkillData.IconPath);
+        _equipRangedSkill.sprite = Resources.Load<Sprite>(_playerData.EquipRangedSkillData.IconPath);
+        _equipAreaSkill.sprite = Resources.Load<Sprite>(_playerData.EquipAreaSkillData.IconPath);
 
         for (int i = 0; i < 3; i++)
         {

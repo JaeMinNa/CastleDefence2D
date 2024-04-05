@@ -217,7 +217,7 @@ public class SkillDraw : MonoBehaviour
         _getSkillData.CurrentUpgradeCount++;
         _getSkillTagText.text = _getSkillData.Tag;
         _getSkillTypeText.text = _getSkillData.Type.ToString();
-        _getSkillImage.sprite = _getSkillData.Icon;
+        _getSkillImage.sprite = Resources.Load<Sprite>(_getSkillData.IconPath);
 
         if (_getSkillData.Rank == SkillData.SkillRank.B)
         {

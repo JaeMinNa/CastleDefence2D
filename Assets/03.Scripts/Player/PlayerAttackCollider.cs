@@ -13,7 +13,6 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         _playerController = GameManager.I.PlayerManager.Player.GetComponent<PlayerController>();
         _playerData = GameManager.I.DataManager.PlayerData;
-        //_meleeSkillSO = _playerController.PlayerSO.EquipMeleeSkill;
         _meleeSkillData = _playerData.EquipMeleeSkillData;
         _cameraShake = Camera.main.GetComponent<CameraShake>();
     }

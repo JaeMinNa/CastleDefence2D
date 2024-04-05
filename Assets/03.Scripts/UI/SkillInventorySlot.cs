@@ -155,7 +155,7 @@ public class SkillInventorySlot : MonoBehaviour
                 _meleeSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
             }
             _meleeSkillTag.text = _skillData.Tag;
-            _equipMeleeSkillImage.sprite = _skillData.Icon;
+            _equipMeleeSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _meleeSkillDescriptionText.text = _skillData.Description;
             _meleeSkillLevelText.text = _skillData.Level.ToString();
             _meleeSkillRankText.text = rank;
@@ -177,7 +177,7 @@ public class SkillInventorySlot : MonoBehaviour
                 _rangedSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
             }
             _rangedSkillTag.text = _skillData.Tag;
-            _equipRangedSkillImage.sprite = _skillData.Icon;
+            _equipRangedSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _rangedSkillDescriptionText.text = _skillData.Description;
             _rangedSkillLevelText.text = _skillData.Level.ToString();
             _rangedSkillRankText.text = rank;
@@ -203,7 +203,7 @@ public class SkillInventorySlot : MonoBehaviour
                 _areaSkillIntervalText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
             }
             _areaSkillTag.text = _skillData.Tag;
-            _equipAreadSkillImage.sprite = _skillData.Icon;
+            _equipAreadSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _areaSkillDescriptionText.text = _skillData.Description;
             _areaSkillLevelText.text = _skillData.Level.ToString();
             _areaSkillRankText.text = rank;

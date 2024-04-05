@@ -113,8 +113,7 @@ public class SkillData
     public float NuckbackPower;
     public bool IsGet;
     public bool IsEquip;
-    public Sprite Icon;
-    public GameObject SkillPrefab;
+    public string IconPath;
     public Vector3 StartPosition;
 
     [Header("Melee Stats")]
@@ -295,222 +294,218 @@ public class DataManager : MonoBehaviour
         CurrentStageCoin += value;
     }
 
-    //public void DataReset()
-    //{
-    //    // Game Data
-    //    GameDataSO.Stage = 1;
-    //    GameDataSO.Coin = 0;
-    //    GameDataSO.SkillDrawCount = 0;
+    public void DataReset()
+    {
+        // Game Data
+        GameData.Stage = 1;
+        GameData.Coin = 0;
+        GameData.SkillDrawCount = 0;
 
-    //    // Player
-    //    PlayerSO.Level = 1;
-    //    PlayerSO.MaxExp = 10f;
-    //    PlayerSO.CurrentExp = 0f;
-    //    PlayerSO.Atk = 10f;
-    //    PlayerSO.Speed = 3f;
-    //    PlayerSO.EquipMeleeSkill = StartMeleeSkill;
-    //    PlayerSO.EquipRangedSkill = StartRangedSkill;
-    //    PlayerSO.EquipAreaSkill = StartAreaSkill;
-    //    PlayerSO.SkillInventroy.Clear();
-    //    PlayerSO.SkillInventroy.Add(StartMeleeSkill);
-    //    PlayerSO.SkillInventroy.Add(StartRangedSkill);
-    //    PlayerSO.SkillInventroy.Add(StartAreaSkill);
+        // Player
+        PlayerData.Level = 1;
+        PlayerData.MaxExp = 10f;
+        PlayerData.CurrentExp = 0f;
+        PlayerData.Atk = 10f;
+        PlayerData.Speed = 3f;
+        SetInventory();
+        //SetEquip();
 
-    //    // Castle
-    //    CastleSO.Level = 1;
-    //    CastleSO.MaxExp = 10f;
-    //    CastleSO.CurrentExp = 0f;
-    //    CastleSO.Atk = 5f;
-    //    CastleSO.Hp = 100f;
-    //    CastleSO.AttackCoolTime = 5f;
+        // Castle
+        CastleData.Level = 1;
+        CastleData.MaxExp = 10f;
+        CastleData.CurrentExp = 0f;
+        CastleData.Atk = 5f;
+        CastleData.Hp = 100f;
+        CastleData.AttackCoolTime = 5f;
 
-    //    // MeleeSkill
-    //    // Strike
-    //    MeleeSkillSO[0].AtkRatio = 1.5f;
-    //    MeleeSkillSO[0].Level = 1;
-    //    MeleeSkillSO[0].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[0].CurrentUpgradeCount = 0;
-    //    MeleeSkillSO[0].IsEquip = false;
-    //    MeleeSkillSO[0].IsGet = false;
-    //    // BoltSword
-    //    MeleeSkillSO[1].AtkRatio = 1.9f;
-    //    MeleeSkillSO[1].Level = 1;
-    //    MeleeSkillSO[1].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[1].CurrentUpgradeCount = 0;
-    //    MeleeSkillSO[1].IsEquip = false;
-    //    MeleeSkillSO[1].IsGet = false;
-    //    // FireSword
-    //    MeleeSkillSO[2].AtkRatio = 1.3f;
-    //    MeleeSkillSO[2].Level = 1;
-    //    MeleeSkillSO[2].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[2].CurrentUpgradeCount = 1;
-    //    MeleeSkillSO[2].IsEquip = true;
-    //    MeleeSkillSO[2].IsGet = true;
-    //    // WindSword
-    //    MeleeSkillSO[3].AtkRatio = 1.2f;
-    //    MeleeSkillSO[3].Level = 1;
-    //    MeleeSkillSO[3].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[3].CurrentUpgradeCount = 0;
-    //    MeleeSkillSO[3].IsEquip = false;
-    //    MeleeSkillSO[3].IsGet = false;
-    //    // BloodStrike
-    //    MeleeSkillSO[4].AtkRatio = 1.8f;
-    //    MeleeSkillSO[4].Level = 1;
-    //    MeleeSkillSO[4].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[4].CurrentUpgradeCount = 0;
-    //    MeleeSkillSO[4].IsEquip = false;
-    //    MeleeSkillSO[4].IsGet = false;
-    //    // HolyStrike
-    //    MeleeSkillSO[5].AtkRatio = 1.6f;
-    //    MeleeSkillSO[5].Level = 1;
-    //    MeleeSkillSO[5].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[5].CurrentUpgradeCount = 0;
-    //    MeleeSkillSO[5].IsEquip = false;
-    //    MeleeSkillSO[5].IsGet = false;
-    //    // MagmaStrike
-    //    MeleeSkillSO[6].AtkRatio = 1.4f;
-    //    MeleeSkillSO[6].Level = 1;
-    //    MeleeSkillSO[6].MaxUpgradeCount = 3;
-    //    MeleeSkillSO[6].CurrentUpgradeCount = 0;
-    //    MeleeSkillSO[6].IsEquip = false;
-    //    MeleeSkillSO[6].IsGet = false;
+        // MeleeSkill
+        // Strike
+        DataWrapper.SkillData[0].AtkRatio = 1.5f;
+        DataWrapper.SkillData[0].Level = 1;
+        DataWrapper.SkillData[0].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[0].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[0].IsEquip = false;
+        DataWrapper.SkillData[0].IsGet = false;
+        // BoltSword
+        DataWrapper.SkillData[1].AtkRatio = 1.9f;
+        DataWrapper.SkillData[1].Level = 1;
+        DataWrapper.SkillData[1].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[1].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[1].IsEquip = false;
+        DataWrapper.SkillData[1].IsGet = false;
+        // FireSword
+        DataWrapper.SkillData[2].AtkRatio = 1.3f;
+        DataWrapper.SkillData[2].Level = 1;
+        DataWrapper.SkillData[2].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[2].CurrentUpgradeCount = 1;
+        DataWrapper.SkillData[2].IsEquip = true;
+        DataWrapper.SkillData[2].IsGet = true;
+        // WindSword
+        DataWrapper.SkillData[3].AtkRatio = 1.2f;
+        DataWrapper.SkillData[3].Level = 1;
+        DataWrapper.SkillData[3].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[3].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[3].IsEquip = false;
+        DataWrapper.SkillData[3].IsGet = false;
+        // BloodStrike
+        DataWrapper.SkillData[4].AtkRatio = 1.8f;
+        DataWrapper.SkillData[4].Level = 1;
+        DataWrapper.SkillData[4].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[4].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[4].IsEquip = false;
+        DataWrapper.SkillData[4].IsGet = false;
+        // HolyStrike
+        DataWrapper.SkillData[5].AtkRatio = 1.6f;
+        DataWrapper.SkillData[5].Level = 1;
+        DataWrapper.SkillData[5].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[5].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[5].IsEquip = false;
+        DataWrapper.SkillData[5].IsGet = false;
+        // MagmaStrike
+        DataWrapper.SkillData[6].AtkRatio = 1.4f;
+        DataWrapper.SkillData[6].Level = 1;
+        DataWrapper.SkillData[6].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[6].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[6].IsEquip = false;
+        DataWrapper.SkillData[6].IsGet = false;
 
-    //    // RangedSkill
-    //    // Fireball
-    //    RangedSkillSO[0].AtkRatio = 1.4f;
-    //    RangedSkillSO[0].Level = 1;
-    //    RangedSkillSO[0].MaxUpgradeCount = 3;
-    //    RangedSkillSO[0].CurrentUpgradeCount = 1;
-    //    RangedSkillSO[0].IsEquip = true;
-    //    RangedSkillSO[0].IsGet = true;
-    //    // Boltball
-    //    RangedSkillSO[1].AtkRatio = 2.1f;
-    //    RangedSkillSO[1].Level = 1;
-    //    RangedSkillSO[1].MaxUpgradeCount = 3;
-    //    RangedSkillSO[1].CurrentUpgradeCount = 0;
-    //    RangedSkillSO[1].IsEquip = false;
-    //    RangedSkillSO[1].IsGet = false;
-    //    // Darkball
-    //    RangedSkillSO[2].AtkRatio = 1.6f;
-    //    RangedSkillSO[2].Level = 1;
-    //    RangedSkillSO[2].MaxUpgradeCount = 3;
-    //    RangedSkillSO[2].CurrentUpgradeCount = 0;
-    //    RangedSkillSO[2].IsEquip = false;
-    //    RangedSkillSO[2].IsGet = false;
-    //    // BlueFireball
-    //    RangedSkillSO[3].AtkRatio = 1.8f;
-    //    RangedSkillSO[3].Level = 1;
-    //    RangedSkillSO[3].MaxUpgradeCount = 3;
-    //    RangedSkillSO[3].CurrentUpgradeCount = 0;
-    //    RangedSkillSO[3].IsEquip = false;
-    //    RangedSkillSO[3].IsGet = false;
-    //    // Tornadoball
-    //    RangedSkillSO[4].AtkRatio = 1.7f;
-    //    RangedSkillSO[4].Level = 1;
-    //    RangedSkillSO[4].MaxUpgradeCount = 3;
-    //    RangedSkillSO[4].CurrentUpgradeCount = 0;
-    //    RangedSkillSO[4].IsEquip = false;
-    //    RangedSkillSO[4].IsGet = false;
-    //    // Laser
-    //    RangedSkillSO[5].AtkRatio = 1.5f;
-    //    RangedSkillSO[5].Level = 1;
-    //    RangedSkillSO[5].MaxUpgradeCount = 3;
-    //    RangedSkillSO[5].CurrentUpgradeCount = 0;
-    //    RangedSkillSO[5].IsEquip = false;
-    //    RangedSkillSO[5].IsGet = false;
+        // RangedSkill
+        // Fireball
+        DataWrapper.SkillData[7].AtkRatio = 1.4f;
+        DataWrapper.SkillData[7].Level = 1;
+        DataWrapper.SkillData[7].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[7].CurrentUpgradeCount = 1;
+        DataWrapper.SkillData[7].IsEquip = true;
+        DataWrapper.SkillData[7].IsGet = true;
+        // Boltball
+        DataWrapper.SkillData[8].AtkRatio = 2.1f;
+        DataWrapper.SkillData[8].Level = 1;
+        DataWrapper.SkillData[8].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[8].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[8].IsEquip = false;
+        DataWrapper.SkillData[8].IsGet = false;
+        // Darkball
+        DataWrapper.SkillData[9].AtkRatio = 1.6f;
+        DataWrapper.SkillData[9].Level = 1;
+        DataWrapper.SkillData[9].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[9].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[9].IsEquip = false;
+        DataWrapper.SkillData[9].IsGet = false;
+        // BlueFireball
+        DataWrapper.SkillData[10].AtkRatio = 1.8f;
+        DataWrapper.SkillData[10].Level = 1;
+        DataWrapper.SkillData[10].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[10].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[10].IsEquip = false;
+        DataWrapper.SkillData[10].IsGet = false;
+        // Tornadoball
+        DataWrapper.SkillData[11].AtkRatio = 1.7f;
+        DataWrapper.SkillData[11].Level = 1;
+        DataWrapper.SkillData[11].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[11].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[11].IsEquip = false;
+        DataWrapper.SkillData[11].IsGet = false;
+        // Laser
+        DataWrapper.SkillData[12].AtkRatio = 1.5f;
+        DataWrapper.SkillData[12].Level = 1;
+        DataWrapper.SkillData[12].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[12].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[12].IsEquip = false;
+        DataWrapper.SkillData[12].IsGet = false;
 
-    //    // AreaSkill
-    //    // BoltShower
-    //    AreaSkillSO[0].AtkRatio = 1.9f;
-    //    AreaSkillSO[0].Count = 7;
-    //    AreaSkillSO[0].Interval = 1f;
-    //    AreaSkillSO[0].Level = 1;
-    //    AreaSkillSO[0].MaxUpgradeCount = 3;
-    //    AreaSkillSO[0].CurrentUpgradeCount = 0;
-    //    AreaSkillSO[0].IsEquip = false;
-    //    AreaSkillSO[0].IsGet = false;
-    //    // FireShower
-    //    AreaSkillSO[1].AtkRatio = 1.3f;
-    //    AreaSkillSO[1].Count = 7;
-    //    AreaSkillSO[1].Interval = 1f;
-    //    AreaSkillSO[1].Level = 1;
-    //    AreaSkillSO[1].MaxUpgradeCount = 3;
-    //    AreaSkillSO[1].CurrentUpgradeCount = 1;
-    //    AreaSkillSO[1].IsEquip = true;
-    //    AreaSkillSO[1].IsGet = true;
-    //    // DarkRain
-    //    AreaSkillSO[2].AtkRatio = 1.5f;
-    //    AreaSkillSO[2].Count = 7;
-    //    AreaSkillSO[2].Interval = 1f;
-    //    AreaSkillSO[2].Level = 1;
-    //    AreaSkillSO[2].MaxUpgradeCount = 3;
-    //    AreaSkillSO[2].CurrentUpgradeCount = 0;
-    //    AreaSkillSO[2].IsEquip = false;
-    //    AreaSkillSO[2].IsGet = false;
-    //    // BlueFireRain
-    //    AreaSkillSO[3].AtkRatio = 1.7f;
-    //    AreaSkillSO[3].Count = 7;
-    //    AreaSkillSO[3].Interval = 1f;
-    //    AreaSkillSO[3].Level = 1;
-    //    AreaSkillSO[3].MaxUpgradeCount = 3;
-    //    AreaSkillSO[3].CurrentUpgradeCount = 0;
-    //    AreaSkillSO[3].IsEquip = false;
-    //    AreaSkillSO[3].IsGet = false;
-    //    // TornadoShower
-    //    AreaSkillSO[4].AtkRatio = 1.6f;
-    //    AreaSkillSO[4].Count = 7;
-    //    AreaSkillSO[4].Interval = 1f;
-    //    AreaSkillSO[4].Level = 1;
-    //    AreaSkillSO[4].MaxUpgradeCount = 3;
-    //    AreaSkillSO[4].CurrentUpgradeCount = 0;
-    //    AreaSkillSO[4].IsEquip = false;
-    //    AreaSkillSO[4].IsGet = false;
-    //    // LaserBomb
-    //    AreaSkillSO[5].AtkRatio = 1.4f;
-    //    AreaSkillSO[5].Count = 7;
-    //    AreaSkillSO[5].Interval = 1f;
-    //    AreaSkillSO[5].Level = 1;
-    //    AreaSkillSO[5].MaxUpgradeCount = 3;
-    //    AreaSkillSO[5].CurrentUpgradeCount = 0;
-    //    AreaSkillSO[5].IsEquip = false;
-    //    AreaSkillSO[5].IsGet = false;
+        // AreaSkill
+        // BoltShower
+        DataWrapper.SkillData[13].AtkRatio = 1.9f;
+        DataWrapper.SkillData[13].Count = 7;
+        DataWrapper.SkillData[13].Interval = 1f;
+        DataWrapper.SkillData[13].Level = 1;
+        DataWrapper.SkillData[13].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[13].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[13].IsEquip = false;
+        DataWrapper.SkillData[13].IsGet = false;
+        // FireShower
+        DataWrapper.SkillData[14].AtkRatio = 1.3f;
+        DataWrapper.SkillData[14].Count = 7;
+        DataWrapper.SkillData[14].Interval = 1f;
+        DataWrapper.SkillData[14].Level = 1;
+        DataWrapper.SkillData[14].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[14].CurrentUpgradeCount = 1;
+        DataWrapper.SkillData[14].IsEquip = true;
+        DataWrapper.SkillData[14].IsGet = true;
+        // DarkRain
+        DataWrapper.SkillData[15].AtkRatio = 1.5f;
+        DataWrapper.SkillData[15].Count = 7;
+        DataWrapper.SkillData[15].Interval = 1f;
+        DataWrapper.SkillData[15].Level = 1;
+        DataWrapper.SkillData[15].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[15].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[15].IsEquip = false;
+        DataWrapper.SkillData[15].IsGet = false;
+        // BlueFireRain
+        DataWrapper.SkillData[16].AtkRatio = 1.7f;
+        DataWrapper.SkillData[16].Count = 7;
+        DataWrapper.SkillData[16].Interval = 1f;
+        DataWrapper.SkillData[16].Level = 1;
+        DataWrapper.SkillData[16].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[16].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[16].IsEquip = false;
+        DataWrapper.SkillData[16].IsGet = false;
+        // TornadoShower
+        DataWrapper.SkillData[17].AtkRatio = 1.6f;
+        DataWrapper.SkillData[17].Count = 7;
+        DataWrapper.SkillData[17].Interval = 1f;
+        DataWrapper.SkillData[17].Level = 1;
+        DataWrapper.SkillData[17].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[17].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[17].IsEquip = false;
+        DataWrapper.SkillData[17].IsGet = false;
+        // LaserBomb
+        DataWrapper.SkillData[18].AtkRatio = 1.4f;
+        DataWrapper.SkillData[18].Count = 7;
+        DataWrapper.SkillData[18].Interval = 1f;
+        DataWrapper.SkillData[18].Level = 1;
+        DataWrapper.SkillData[18].MaxUpgradeCount = 3;
+        DataWrapper.SkillData[18].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[18].IsEquip = false;
+        DataWrapper.SkillData[18].IsGet = false;
 
-    //    // MeleeEnemy
-    //    // Snail
-    //    MeleeEnemySO[0].Atk = 10f;
-    //    MeleeEnemySO[0].Hp = 20f;
-    //    // Rock
-    //    MeleeEnemySO[1].Atk = 5f;
-    //    MeleeEnemySO[1].Hp = 30f;
-    //    // Chicken
-    //    MeleeEnemySO[2].Atk = 12f;
-    //    MeleeEnemySO[2].Hp = 30f;
-    //    // Mushroom
-    //    MeleeEnemySO[3].Atk = 15f;
-    //    MeleeEnemySO[3].Hp = 20f;
-    //    // Bunny
-    //    MeleeEnemySO[4].Atk = 8f;
-    //    MeleeEnemySO[4].Hp = 20f;
-    //    // Turtle
-    //    MeleeEnemySO[5].Atk = 30f;
-    //    MeleeEnemySO[5].Hp = 40f;
-    //    // Rino
-    //    MeleeEnemySO[6].Atk = 40f;
-    //    MeleeEnemySO[6].Hp = 30f;
+        // MeleeEnemy
+        // Snail
+        DataWrapper.EnemyData[0].Atk = 10f;
+        DataWrapper.EnemyData[0].Hp = 20f;
+        // Rock
+        DataWrapper.EnemyData[1].Atk = 5f;
+        DataWrapper.EnemyData[1].Hp = 30f;
+        // Chicken
+        DataWrapper.EnemyData[2].Atk = 12f;
+        DataWrapper.EnemyData[2].Hp = 30f;
+        // Mushroom
+        DataWrapper.EnemyData[3].Atk = 15f;
+        DataWrapper.EnemyData[3].Hp = 20f;
+        // Bunny
+        DataWrapper.EnemyData[4].Atk = 8f;
+        DataWrapper.EnemyData[4].Hp = 20f;
+        // Turtle
+        DataWrapper.EnemyData[5].Atk = 30f;
+        DataWrapper.EnemyData[5].Hp = 40f;
+        // Rino
+        DataWrapper.EnemyData[6].Atk = 40f;
+        DataWrapper.EnemyData[6].Hp = 30f;
 
-    //    // RangedEnemy
-    //    // Plant
-    //    RangedEnemySO[0].Atk = 3f;
-    //    RangedEnemySO[0].Hp = 15f;
-    //    // Trunk
-    //    RangedEnemySO[1].Atk = 5f;
-    //    RangedEnemySO[1].Hp = 18f;
-    //    // Radish
-    //    RangedEnemySO[2].Atk = 8f;
-    //    RangedEnemySO[2].Hp = 20f;
-    //    // Skull
-    //    RangedEnemySO[3].Atk = 10f;
-    //    RangedEnemySO[3].Hp = 25f;
-    //}
+        // RangedEnemy
+        // Plant
+        DataWrapper.EnemyData[7].Atk = 3f;
+        DataWrapper.EnemyData[7].Hp = 15f;
+        // Trunk
+        DataWrapper.EnemyData[8].Atk = 5f;
+        DataWrapper.EnemyData[8].Hp = 18f;
+        // Radish
+        DataWrapper.EnemyData[9].Atk = 8f;
+        DataWrapper.EnemyData[9].Hp = 20f;
+        // Skull
+        DataWrapper.EnemyData[10].Atk = 10f;
+        DataWrapper.EnemyData[10].Hp = 25f;
 
+        DataSave();
+    }
 }

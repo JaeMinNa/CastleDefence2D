@@ -183,7 +183,7 @@ public class LobyController : MonoBehaviour
     public void DataReset()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        //GameManager.I.DataManager.DataReset();
+        GameManager.I.DataManager.DataReset();
         Init();
         _reset.SetActive(false);
         _setting.SetActive(false);
