@@ -29,6 +29,7 @@ public class PlayerData
     public float SkillTime = 3;
     public float AttackCoolTime = 1.5f;
     public float NuckbackPower = 2;
+    public bool IsAttribute = false;
 
     [Header("Inventory")]
     public List<SkillData> SkillInventory;
@@ -101,9 +102,20 @@ public class SkillData
         S,
     }
 
+    public enum SkillAttribute
+    {
+        None,
+        Fire,
+        Electricity,
+        Wind,
+        Light,
+        Dark,
+    }
+
     [Header("Common Stats")]
     public string Tag;
     public SkillType Type;
+    public SkillAttribute Attribute;
     public SkillRank Rank;
     public string Description;
     public int Level;
@@ -133,14 +145,6 @@ public class SkillData
 
 public class DataManager : MonoBehaviour
 {
-    //[field: SerializeField] public GameDataSO GameDataSO;
-    //[field: SerializeField] public PlayerSO PlayerSO;
-    //[field: SerializeField] public CastleSO CastleSO;
-    //[field: SerializeField] public EnemySO[] MeleeEnemySO;
-    //[field: SerializeField] public EnemySO[] RangedEnemySO;
-    //[field: SerializeField] public SkillSO[] MeleeSkillSO;
-    //[field: SerializeField] public SkillSO[] RangedSkillSO;
-    //[field: SerializeField] public SkillSO[] AreaSkillSO;
     public int CurrentStageCoin;
     public GameData GameData;
     public PlayerData PlayerData;
@@ -331,16 +335,16 @@ public class DataManager : MonoBehaviour
         DataWrapper.SkillData[2].AtkRatio = 1.3f;
         DataWrapper.SkillData[2].Level = 1;
         DataWrapper.SkillData[2].MaxUpgradeCount = 3;
-        DataWrapper.SkillData[2].CurrentUpgradeCount = 1;
-        DataWrapper.SkillData[2].IsEquip = true;
-        DataWrapper.SkillData[2].IsGet = true;
+        DataWrapper.SkillData[2].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[2].IsEquip = false;
+        DataWrapper.SkillData[2].IsGet = false;
         // WindSword
         DataWrapper.SkillData[3].AtkRatio = 1.2f;
         DataWrapper.SkillData[3].Level = 1;
         DataWrapper.SkillData[3].MaxUpgradeCount = 3;
-        DataWrapper.SkillData[3].CurrentUpgradeCount = 0;
-        DataWrapper.SkillData[3].IsEquip = false;
-        DataWrapper.SkillData[3].IsGet = false;
+        DataWrapper.SkillData[3].CurrentUpgradeCount = 1;
+        DataWrapper.SkillData[3].IsEquip = true;
+        DataWrapper.SkillData[3].IsGet = true;
         // BloodStrike
         DataWrapper.SkillData[4].AtkRatio = 1.8f;
         DataWrapper.SkillData[4].Level = 1;
@@ -368,9 +372,9 @@ public class DataManager : MonoBehaviour
         DataWrapper.SkillData[7].AtkRatio = 1.4f;
         DataWrapper.SkillData[7].Level = 1;
         DataWrapper.SkillData[7].MaxUpgradeCount = 3;
-        DataWrapper.SkillData[7].CurrentUpgradeCount = 1;
-        DataWrapper.SkillData[7].IsEquip = true;
-        DataWrapper.SkillData[7].IsGet = true;
+        DataWrapper.SkillData[7].CurrentUpgradeCount = 0;
+        DataWrapper.SkillData[7].IsEquip = false;
+        DataWrapper.SkillData[7].IsGet = false;
         // Boltball
         DataWrapper.SkillData[8].AtkRatio = 2.1f;
         DataWrapper.SkillData[8].Level = 1;
@@ -382,9 +386,9 @@ public class DataManager : MonoBehaviour
         DataWrapper.SkillData[9].AtkRatio = 1.6f;
         DataWrapper.SkillData[9].Level = 1;
         DataWrapper.SkillData[9].MaxUpgradeCount = 3;
-        DataWrapper.SkillData[9].CurrentUpgradeCount = 0;
-        DataWrapper.SkillData[9].IsEquip = false;
-        DataWrapper.SkillData[9].IsGet = false;
+        DataWrapper.SkillData[9].CurrentUpgradeCount = 1;
+        DataWrapper.SkillData[9].IsEquip = true;
+        DataWrapper.SkillData[9].IsGet = true;
         // BlueFireball
         DataWrapper.SkillData[10].AtkRatio = 1.8f;
         DataWrapper.SkillData[10].Level = 1;

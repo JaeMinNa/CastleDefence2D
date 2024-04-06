@@ -9,6 +9,7 @@ public class SkillInventory : MonoBehaviour
 
     [Header("Equip Skill")]
     [SerializeField] private GameObject _equipSlotContent;
+    [SerializeField] private Image _skillFieldBackground;
     [SerializeField] private Image _equipMeleeSkill;
     [SerializeField] private Image _equipRangedSkill;
     [SerializeField] private Image _equipAreaSkill;
@@ -56,6 +57,7 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateMeleeSKillInventory();
+        UpdateSkillFieldBackground();
         _meleeButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
         _rangedButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _areaButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -94,6 +96,7 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateRangedSKillInventory();
+        UpdateSkillFieldBackground();
         _meleeButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _rangedButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
         _areaButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -132,6 +135,7 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateAreaSKillInventory();
+        UpdateSkillFieldBackground();
         _meleeButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _rangedButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _areaButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
@@ -221,6 +225,7 @@ public class SkillInventory : MonoBehaviour
             UpdateAreaSKillInventory();
             ExitSkillInfo();
         }
+        UpdateSkillFieldBackground();
 
         GameManager.I.DataManager.DataSave();
     }
@@ -230,6 +235,41 @@ public class SkillInventory : MonoBehaviour
         for (int i = 0; i < _skillInfo.Length; i++)
         {
             _skillInfo[i].SetActive(false);
+        }
+    }
+
+    private void UpdateSkillFieldBackground()
+    {
+        if(_playerData.EquipMeleeSkillData.Attribute == _playerData.EquipRangedSkillData.Attribute 
+            && _playerData.EquipRangedSkillData.Attribute == _playerData.EquipAreaSkillData.Attribute)
+        {
+            _playerData.IsAttribute = true;
+            _skillFieldBackground.enabled = true;
+            if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Dark)
+            {
+                _skillFieldBackground.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Electricity)
+            {
+                _skillFieldBackground.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Fire)
+            {
+                _skillFieldBackground.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+            }
+            else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Light)
+            {
+                _skillFieldBackground.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+            }
+            else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Wind)
+            {
+                _skillFieldBackground.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+            }
+        }
+        else
+        {
+            _playerData.IsAttribute = false;
+            _skillFieldBackground.enabled = false;
         }
     }
 }

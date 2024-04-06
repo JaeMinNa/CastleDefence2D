@@ -6,7 +6,6 @@ using TMPro;
 
 public class SkillInventorySlot : MonoBehaviour
 {
-    //private SkillSO _skillSO;
     private PlayerData _playerData;
     private SkillData _skillData;
     public bool _isSkill;
@@ -28,6 +27,7 @@ public class SkillInventorySlot : MonoBehaviour
     [SerializeField] private Image _equipMeleeSkillImage;
     [SerializeField] private TMP_Text _meleeSkillDescriptionText;
     [SerializeField] private TMP_Text _meleeSkillLevelText;
+    [SerializeField] private Image _meleeSkillAttributeImage;
     [SerializeField] private TMP_Text _meleeSkillRankText;
     [SerializeField] private TMP_Text _meleeSkillAtkText;
     [SerializeField] private TMP_Text _meleeSkillUpgradeText;
@@ -38,6 +38,7 @@ public class SkillInventorySlot : MonoBehaviour
     [SerializeField] private Image _equipRangedSkillImage;
     [SerializeField] private TMP_Text _rangedSkillDescriptionText;
     [SerializeField] private TMP_Text _rangedSkillLevelText;
+    [SerializeField] private Image _rangedSkillAttributeImage;
     [SerializeField] private TMP_Text _rangedSkillRankText;
     [SerializeField] private TMP_Text _rangedSkillAtkText;
     [SerializeField] private TMP_Text _rangedSkillUpgradeText;
@@ -48,6 +49,7 @@ public class SkillInventorySlot : MonoBehaviour
     [SerializeField] private Image _equipAreadSkillImage;
     [SerializeField] private TMP_Text _areaSkillDescriptionText;
     [SerializeField] private TMP_Text _areaSkillLevelText;
+    [SerializeField] private Image _areaSkillAttributeImage;
     [SerializeField] private TMP_Text _areaSkillRankText;
     [SerializeField] private TMP_Text _areaSkillAtkText;
     [SerializeField] private TMP_Text _areaSkillUpgradeText;
@@ -144,70 +146,157 @@ public class SkillInventorySlot : MonoBehaviour
 
         if (_skillData.Type == SkillData.SkillType.Melee)
         {
-            if(_skillData.Level >= 2)
-            {
-                _meleeSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-                _meleeSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            }
-            else
-            {
-                _meleeSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-                _meleeSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            }
+            //if(_skillData.Level >= 2)
+            //{
+            //    _meleeSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //    _meleeSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //}
+            //else
+            //{
+            //    _meleeSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //    _meleeSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //}
             _meleeSkillTag.text = _skillData.Tag;
             _equipMeleeSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _meleeSkillDescriptionText.text = _skillData.Description;
             _meleeSkillLevelText.text = _skillData.Level.ToString();
+            if(_skillData.Attribute == SkillData.SkillAttribute.Dark)
+            {
+                _meleeSkillAttributeImage.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if(_skillData.Attribute == SkillData.SkillAttribute.Electricity)
+            {
+                _meleeSkillAttributeImage.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Fire)
+            {
+                _meleeSkillAttributeImage.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Light)
+            {
+                _meleeSkillAttributeImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Wind)
+            {
+                _meleeSkillAttributeImage.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+            }
             _meleeSkillRankText.text = rank;
-            _meleeSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+            if(_playerData.IsAttribute && _playerData.EquipMeleeSkillData == _skillData)
+            {
+                _meleeSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio * 1.5f)).ToString();
+                _meleeSkillAtkText.color =  new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            }
+            else
+            {
+                _meleeSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+                _meleeSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            }
             _meleeSkillUpgradeText.text = _skillData.CurrentUpgradeCount.ToString() + " / " + _skillData.MaxUpgradeCount.ToString();
 
             _meleeSkillInfo.SetActive(true);
         }
         else if(_skillData.Type == SkillData.SkillType.Ranged)
         {
-            if(_skillData.Level >= 2)
-            {
-                _rangedSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-                _rangedSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            }
-            else
-            {
-                _rangedSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-                _rangedSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            }
+            //if(_skillData.Level >= 2)
+            //{
+            //    _rangedSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //    _rangedSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //}
+            //else
+            //{
+            //    _rangedSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //    _rangedSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //}
             _rangedSkillTag.text = _skillData.Tag;
             _equipRangedSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _rangedSkillDescriptionText.text = _skillData.Description;
             _rangedSkillLevelText.text = _skillData.Level.ToString();
+            if (_skillData.Attribute == SkillData.SkillAttribute.Dark)
+            {
+                _rangedSkillAttributeImage.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Electricity)
+            {
+                _rangedSkillAttributeImage.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Fire)
+            {
+                _rangedSkillAttributeImage.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Light)
+            {
+                _rangedSkillAttributeImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Wind)
+            {
+                _rangedSkillAttributeImage.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+            }
             _rangedSkillRankText.text = rank;
-            _rangedSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+            if (_playerData.IsAttribute && _playerData.EquipRangedSkillData == _skillData)
+            {
+                _rangedSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio * 1.5f)).ToString();
+                _rangedSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            }
+            else
+            {
+                _rangedSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+                _rangedSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            }
             _rangedSkillUpgradeText.text = _skillData.CurrentUpgradeCount.ToString() + " / " + _skillData.MaxUpgradeCount.ToString();
 
             _rangedSkillInfo.SetActive(true);
         }
         else
         {
-            if(_skillData.Level >= 2)
-            {
-                _areaSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-                _areaSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-                _areaSkillCountText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-                _areaSkillIntervalText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            }
-            else
-            {
-                _areaSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-                _areaSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-                _areaSkillCountText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-                _areaSkillIntervalText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            }
+            //if(_skillData.Level >= 2)
+            //{
+            //    _areaSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //    _areaSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //    _areaSkillCountText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //    _areaSkillIntervalText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            //}
+            //else
+            //{
+            //    _areaSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //    _areaSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //    _areaSkillCountText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //    _areaSkillIntervalText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            //}
             _areaSkillTag.text = _skillData.Tag;
             _equipAreadSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _areaSkillDescriptionText.text = _skillData.Description;
             _areaSkillLevelText.text = _skillData.Level.ToString();
+            if (_skillData.Attribute == SkillData.SkillAttribute.Dark)
+            {
+                _areaSkillAttributeImage.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Electricity)
+            {
+                _areaSkillAttributeImage.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Fire)
+            {
+                _areaSkillAttributeImage.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Light)
+            {
+                _areaSkillAttributeImage.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+            }
+            else if (_skillData.Attribute == SkillData.SkillAttribute.Wind)
+            {
+                _areaSkillAttributeImage.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+            }
             _areaSkillRankText.text = rank;
-            _areaSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+            if (_playerData.IsAttribute && _playerData.EquipAreaSkillData == _skillData)
+            {
+                _areaSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio * 1.5f)).ToString();
+                _areaSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
+            }
+            else
+            {
+                _areaSkillAtkText.text = ((int)(_playerData.Atk * _skillData.AtkRatio)).ToString();
+                _areaSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
+            }
             _areaSkillUpgradeText.text = _skillData.CurrentUpgradeCount.ToString() + " / " + _skillData.MaxUpgradeCount.ToString();
             _areaSkillCountText.text = _skillData.Count.ToString();
             _areaSkillIntervalText.text = _skillData.Interval.ToString();
