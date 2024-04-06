@@ -59,7 +59,14 @@ public class Potion : MonoBehaviour
     {
         yield return new WaitForSeconds(_itemTime);
         _playerController.Atk = GameManager.I.DataManager.PlayerData.Atk;
-        _playerController.Speed = GameManager.I.DataManager.PlayerData.Speed;
+        if(!_playerSpriteRenderer.flipX)
+        {
+            _playerController.Speed = GameManager.I.DataManager.PlayerData.Speed;
+        }
+        else
+        {
+            _playerController.Speed = -GameManager.I.DataManager.PlayerData.Speed;
+        }
         _attackButton.SkillCoolTime = GameManager.I.DataManager.PlayerData.SkillTime;
     }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //public PlayerSO PlayerSO;
     public float Atk;
     public float Speed;
     public float CoolTime;

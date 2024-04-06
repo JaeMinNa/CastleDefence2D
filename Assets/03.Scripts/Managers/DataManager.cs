@@ -302,7 +302,7 @@ public class DataManager : MonoBehaviour
         PlayerData.Atk = 10f;
         PlayerData.Speed = 3f;
         SetInventory();
-        //SetEquip();
+        SetEquip();
 
         // Castle
         CastleData.Level = 1;

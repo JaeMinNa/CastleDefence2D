@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
     public EnemyStateContext _enemyStateContext { get; private set; }
 
     public EnemyTag Tag;
-    //public EnemySO EnemySO;
     public Animator Animator { get; private set; }
     public Rigidbody2D Rigdbody { get; private set; }
     public float Hp;

@@ -68,6 +68,8 @@ public class PlayerAttackState : MonoBehaviour, IPlayerState
                 }
             }
 
+            Debug.Log(_playerController.Speed);
+
             yield return null;
         }
     }
