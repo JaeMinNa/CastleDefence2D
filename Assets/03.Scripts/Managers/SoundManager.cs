@@ -96,6 +96,8 @@ public class SoundManager : MonoBehaviour
         _sfx.Add("GetSkill", Resources.Load<AudioClip>("Sound/SFX/UI/GetSkill"));
         _sfx.Add("GameOver", Resources.Load<AudioClip>("Sound/SFX/UI/GameOver"));
         _sfx.Add("Potion", Resources.Load<AudioClip>("Sound/SFX/Item/Potion"));
+        _sfx.Add("SkillAttribute", Resources.Load<AudioClip>("Sound/SFX/UI/SkillAttribute"));
+        _sfx.Add("Nuckback", Resources.Load<AudioClip>("Sound/SFX/Enemy/Nuckback"));
     }
 
     // 메모리 해제

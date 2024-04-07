@@ -44,17 +44,23 @@ public class StageController : MonoBehaviour
     private bool _gameFinish;
     private string _currentScene;
     private int _currentStage;
-    
+    private LayerMask _layerMask;
+    private Vector2 _dir;
+    private int _adCount;
+    [SerializeField] private Collider2D[] _targets;
+
     private void Start()
     {
         IsDangerTime = false;
         _gameFinish = false;
         _time = 60f;
+        _adCount = 0;
         _castleData = GameManager.I.DataManager.CastleData;
         _currentStage = GameManager.I.DataManager.GameData.Stage;
         _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
         _dataWrapper = GameManager.I.DataManager.DataWrapper;
+        _layerMask = LayerMask.NameToLayer("Enemy");
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("BattleMap0");
     }
@@ -142,6 +148,7 @@ public class StageController : MonoBehaviour
 
     public void NextSceneButton()
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 1f;
         GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove(_currentScene);
@@ -149,6 +156,7 @@ public class StageController : MonoBehaviour
 
     public void RetryButton()
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 1f;
         GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove(_currentScene);
@@ -156,10 +164,53 @@ public class StageController : MonoBehaviour
 
     public void LobySceneButton()
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 1f;
         GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove("LobyScene");
     }
+
+    public void AdButton()
+    {
+        if (_adCount >= 1)
+        {
+            GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
+            return;
+        }
+
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
+        Time.timeScale = 1f;
+        int layerMask = (1 << _layerMask);  // Layer ¼³Á¤
+        _targets = Physics2D.OverlapCircleAll(new Vector3(0, 2, 0), 15, layerMask);
+
+        for (int i = 0; i < _targets.Length; i++)
+        {
+            _dir = _targets[i].gameObject.transform.position - new Vector3(0, 2, 0);
+
+            if (_dir.x > 0)
+            {
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(1, 1) * 5, ForceMode2D.Impulse);
+            }
+            else
+            {
+                _targets[i].gameObject.GetComponent<EnemyController>().Rigdbody.AddForce(new Vector2(-1, 1) * 5, ForceMode2D.Impulse);
+            }
+        }
+
+        GameManager.I.SoundManager.StartSFX("Nuckback");
+        _castleController.Hp = _castleData.Hp / 2;
+        _castleController.CastleHpUpdate();
+        _time = 15f;
+
+        _gameOver.gameObject.SetActive(false);
+        _adCount++;
+    }
+
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(new Vector3(0, 2, 0), 15);
+    //}
 
     IEnumerator COStartDangerTime()
     {

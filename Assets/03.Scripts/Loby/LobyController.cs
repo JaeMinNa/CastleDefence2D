@@ -15,10 +15,8 @@ public class LobyController : MonoBehaviour
     [SerializeField] private TMP_Text _skillDrawCountText;
 
     [Header("Level")]
-    //private PlayerSO _playerSO;
     private PlayerData _playerData;
     private CastleData _castleData;
-    //[SerializeField] private CastleSO _castleSO;
     [SerializeField] private TMP_Text _playerLevelText;
     [SerializeField] private TMP_Text _castleLevelText;
     [SerializeField] private Slider _playerExpSlider;
@@ -52,7 +50,6 @@ public class LobyController : MonoBehaviour
 
     private void Start()
     {
-        //_playerSO = GameManager.I.PlayerManager.PlayerPrefab.GetComponent<PlayerController>().PlayerSO;
         _playerData = GameManager.I.DataManager.PlayerData;
         _castleData = GameManager.I.DataManager.CastleData;
         SoundSetting();
@@ -232,6 +229,7 @@ public class LobyController : MonoBehaviour
     public void ActiveSkillInventory()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
+        //_skillInventory.GetComponent<SkillInventory>().UpdateSkillFieldBackground();
         _skillInventory.SetActive(true);
     }
 
@@ -239,6 +237,26 @@ public class LobyController : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
         _skillInventory.SetActive(false);
+    }
+
+    public void AdButton()
+    {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
+        GameManager.I.DataManager.GameData.Coin += 10000;
+        _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
+        GameManager.I.DataManager.DataSave();
+    }
+
+    public void GameExitButton()
+    {
+        // 현재 실행 환경이 에디터이면 에디터 플레이모드 종료
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+
+        // 현재 실행 환경이 에디터가 아니면 프로그램 종료
+        #else
+        Application.Quit();
+        #endif
     }
 
     private void SoundSetting()

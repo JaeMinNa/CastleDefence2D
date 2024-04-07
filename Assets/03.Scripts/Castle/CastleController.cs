@@ -70,6 +70,11 @@ public class CastleController : MonoBehaviour
             Hp = _castleData.Hp;
         }
 
+        CastleHpUpdate();
+    }
+
+    public void CastleHpUpdate()
+    {
         _castleHp.value = (float)Hp / _castleData.Hp;
     }
 

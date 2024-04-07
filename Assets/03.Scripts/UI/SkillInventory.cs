@@ -13,6 +13,9 @@ public class SkillInventory : MonoBehaviour
     [SerializeField] private Image _equipMeleeSkill;
     [SerializeField] private Image _equipRangedSkill;
     [SerializeField] private Image _equipAreaSkill;
+    [SerializeField] private Image _equipMeleeSkillBackground;
+    [SerializeField] private Image _equipRangedSkillBackground;
+    [SerializeField] private Image _equipAreaSkillBackground;
 
     [Header("Melee Skill")]
     [SerializeField] private GameObject _meleeSkillScroll;
@@ -42,6 +45,7 @@ public class SkillInventory : MonoBehaviour
         _playerData = GameManager.I.DataManager.PlayerData;
         MeleeButton();
         ShowEquipSkill();
+        UpdateSkillFieldBackground();
     }
 
     private void OnEnable()
@@ -50,6 +54,7 @@ public class SkillInventory : MonoBehaviour
         {
             MeleeButton();
             ShowEquipSkill();
+            UpdateSkillFieldBackground();
         }
     }
 
@@ -57,7 +62,7 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateMeleeSKillInventory();
-        UpdateSkillFieldBackground();
+        //UpdateSkillFieldBackground();
         _meleeButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
         _rangedButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _areaButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -96,7 +101,7 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateRangedSKillInventory();
-        UpdateSkillFieldBackground();
+        //UpdateSkillFieldBackground();
         _meleeButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _rangedButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
         _areaButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -135,7 +140,7 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateAreaSKillInventory();
-        UpdateSkillFieldBackground();
+        //UpdateSkillFieldBackground();
         _meleeButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _rangedButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _areaButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
@@ -193,11 +198,77 @@ public class SkillInventory : MonoBehaviour
                 _skillInventorySlot.EquipSkillText(_playerData.EquipAreaSkillData);
             }
         }
+
+        // Melee
+        if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Dark)
+        {
+            _equipMeleeSkillBackground.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Electricity)
+        {
+            _equipMeleeSkillBackground.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Fire)
+        {
+            _equipMeleeSkillBackground.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Light)
+        {
+            _equipMeleeSkillBackground.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Wind)
+        {
+            _equipMeleeSkillBackground.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+        }
+
+        // Ranged
+        if (_playerData.EquipRangedSkillData.Attribute == SkillData.SkillAttribute.Dark)
+        {
+            _equipRangedSkillBackground.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipRangedSkillData.Attribute == SkillData.SkillAttribute.Electricity)
+        {
+            _equipRangedSkillBackground.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipRangedSkillData.Attribute == SkillData.SkillAttribute.Fire)
+        {
+            _equipRangedSkillBackground.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipRangedSkillData.Attribute == SkillData.SkillAttribute.Light)
+        {
+            _equipRangedSkillBackground.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipRangedSkillData.Attribute == SkillData.SkillAttribute.Wind)
+        {
+            _equipRangedSkillBackground.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+        }
+
+        // Area
+        if (_playerData.EquipAreaSkillData.Attribute == SkillData.SkillAttribute.Dark)
+        {
+            _equipAreaSkillBackground.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipAreaSkillData.Attribute == SkillData.SkillAttribute.Electricity)
+        {
+            _equipAreaSkillBackground.color = new Color(255 / 255f, 245 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipAreaSkillData.Attribute == SkillData.SkillAttribute.Fire)
+        {
+            _equipAreaSkillBackground.color = new Color(255 / 255f, 0 / 255f, 5 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipAreaSkillData.Attribute == SkillData.SkillAttribute.Light)
+        {
+            _equipAreaSkillBackground.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        }
+        else if (_playerData.EquipAreaSkillData.Attribute == SkillData.SkillAttribute.Wind)
+        {
+            _equipAreaSkillBackground.color = new Color(0 / 255f, 196 / 255f, 255 / 255f, 255 / 255f);
+        }
     }
 
     public void EquipButton()
     {
-        GameManager.I.SoundManager.StartSFX("Equip");
+        GameManager.I.SoundManager.StartSFX("UIClick");
         if (InfoSkillData.Type == SkillData.SkillType.Melee)
         {
             _playerData.EquipMeleeSkillData.IsEquip = false;
@@ -238,11 +309,12 @@ public class SkillInventory : MonoBehaviour
         }
     }
 
-    private void UpdateSkillFieldBackground()
+    public void UpdateSkillFieldBackground()
     {
         if(_playerData.EquipMeleeSkillData.Attribute == _playerData.EquipRangedSkillData.Attribute 
             && _playerData.EquipRangedSkillData.Attribute == _playerData.EquipAreaSkillData.Attribute)
         {
+            GameManager.I.SoundManager.StartSFX("SkillAttribute");
             _playerData.IsAttribute = true;
             _skillFieldBackground.enabled = true;
             if (_playerData.EquipMeleeSkillData.Attribute == SkillData.SkillAttribute.Dark)

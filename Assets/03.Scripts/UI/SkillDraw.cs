@@ -28,17 +28,11 @@ public class SkillDraw : MonoBehaviour
 
     private PlayerData _playerData;
     private DataWrapper _dataWrapper;
-    //private SkillSO[] _meleeSkillData;
-    //private SkillSO[] _rangedSkillData;
-    //private SkillSO[] _areaSkillData;
 
     private void Start()
     {
         _playerData = GameManager.I.DataManager.PlayerData;
         _dataWrapper = GameManager.I.DataManager.DataWrapper;
-        //_meleeSkillData = GameManager.I.DataManager.MeleeSkillSO;
-        //_rangedSkillData = GameManager.I.DataManager.RangedSkillSO;
-        //_areaSkillData = GameManager.I.DataManager.AreaSkillSO;
         UpdateCoin();
         UpdateSkillDrawCount();
     }
@@ -123,7 +117,7 @@ public class SkillDraw : MonoBehaviour
                 }
                 else if(_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
                 {
-                    if (random2 >= 11 && random2 <= 37) // A
+                    if (random2 >= 11 && random2 <= 35) // A
                     {
                         _getSkillData = _dataWrapper.SkillData[random3];
                         break;
@@ -132,7 +126,7 @@ public class SkillDraw : MonoBehaviour
                 }
                 else
                 {
-                    if (random2 >= 38 && random2 <= 100) // A
+                    if (random2 >= 36 && random2 <= 100) // B
                     {
                         _getSkillData = _dataWrapper.SkillData[random3];
                         break;
@@ -159,7 +153,7 @@ public class SkillDraw : MonoBehaviour
                 }
                 else if (_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
                 {
-                    if (random2 >= 11 && random2 <= 37) // A
+                    if (random2 >= 11 && random2 <= 35) // A
                     {
                         _getSkillData = _dataWrapper.SkillData[random3];
                         break;
@@ -168,7 +162,7 @@ public class SkillDraw : MonoBehaviour
                 }
                 else
                 {
-                    if (random2 >= 38 && random2 <= 100) // A
+                    if (random2 >= 36 && random2 <= 100) // B
                     {
                         _getSkillData = _dataWrapper.SkillData[random3];
                         break;
@@ -195,7 +189,7 @@ public class SkillDraw : MonoBehaviour
                 }
                 else if (_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
                 {
-                    if (random2 >= 11 && random2 <= 37) // A
+                    if (random2 >= 11 && random2 <= 35) // A
                     {
                         _getSkillData = _dataWrapper.SkillData[random3];
                         break;
@@ -204,7 +198,7 @@ public class SkillDraw : MonoBehaviour
                 }
                 else
                 {
-                    if (random2 >= 38 && random2 <= 100) // A
+                    if (random2 >= 36 && random2 <= 100) // B
                     {
                         _getSkillData = _dataWrapper.SkillData[random3];
                         break;

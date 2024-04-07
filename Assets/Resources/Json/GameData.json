@@ -1,7 +1,7 @@
 {
-    "Stage": 1,
-    "Coin": 10000,
-    "SkillDrawCount": 7,
+    "Stage": 24,
+    "Coin": 1300,
+    "SkillDrawCount": 0,
     "BGMVolume": -20.356334686279298,
     "SFXVolume": -18.656232833862306
 }
