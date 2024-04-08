@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 4
-  _itemTime: 5
+  _itemTime: 7
   _fadeTime: 0.3
   _hp: 50
   _powerRatio: 1.5

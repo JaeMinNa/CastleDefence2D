@@ -81,9 +81,8 @@ public class SkillDraw : MonoBehaviour
         GameManager.I.DataManager.DataSave();
     }
 
-    /// <summary>
-    /// ½ºÅ³ »Ì±â
-    /// </summary>
+
+    // ½ºÅ³ »Ì±â
     public void SkillIInfoButton()
     {
         if(GameManager.I.DataManager.GameData.SkillDrawCount < 1)

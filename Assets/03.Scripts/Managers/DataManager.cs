@@ -305,8 +305,6 @@ public class DataManager : MonoBehaviour
         PlayerData.CurrentExp = 0f;
         PlayerData.Atk = 10f;
         PlayerData.Speed = 3f;
-        SetInventory();
-        SetEquip();
 
         // Castle
         CastleData.Level = 1;
@@ -488,7 +486,7 @@ public class DataManager : MonoBehaviour
         DataWrapper.EnemyData[5].Hp = 40f;
         // Rino
         DataWrapper.EnemyData[6].Atk = 40f;
-        DataWrapper.EnemyData[6].Hp = 30f;
+        DataWrapper.EnemyData[6].Hp = 50f;
 
         // RangedEnemy
         // Plant
@@ -504,6 +502,8 @@ public class DataManager : MonoBehaviour
         DataWrapper.EnemyData[10].Atk = 10f;
         DataWrapper.EnemyData[10].Hp = 25f;
 
+        SetInventory();
+        SetEquip();
         DataSave();
     }
 }

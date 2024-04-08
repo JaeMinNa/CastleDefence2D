@@ -104,20 +104,28 @@ public class StageController : MonoBehaviour
         Time.timeScale = 0f;
         GameManager.I.DataManager.GameData.Stage++;
 
-        if (_castleController.Hp >= (_castleData.Hp / 3) * 2)
-        {
-            _star3.SetActive(true);
-            GameManager.I.DataManager.CoinUpdate(1500);
-        }
-        else if(_castleController.Hp >= _castleData.Hp / 3)
-        {
-            _star2.SetActive(true);
-            GameManager.I.DataManager.CoinUpdate(1000);
-        }
-        else
+        if(_adCount == 1)
         {
             _star1.SetActive(true);
             GameManager.I.DataManager.CoinUpdate(500);
+        }
+        else
+        {
+            if (_castleController.Hp >= (_castleData.Hp / 3) * 2)
+            {
+                _star3.SetActive(true);
+                GameManager.I.DataManager.CoinUpdate(1500);
+            }
+            else if (_castleController.Hp >= _castleData.Hp / 3)
+            {
+                _star2.SetActive(true);
+                GameManager.I.DataManager.CoinUpdate(1000);
+            }
+            else
+            {
+                _star1.SetActive(true);
+                GameManager.I.DataManager.CoinUpdate(500);
+            }
         }
 
         GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
@@ -200,7 +208,6 @@ public class StageController : MonoBehaviour
         GameManager.I.SoundManager.StartSFX("Nuckback");
         _castleController.Hp = _castleData.Hp / 2;
         _castleController.CastleHpUpdate();
-        _time = 15f;
 
         _gameOver.gameObject.SetActive(false);
         _adCount++;
@@ -223,8 +230,8 @@ public class StageController : MonoBehaviour
     {
         for (int i = 0; i < _dataWrapper.EnemyData.Length; i++)
         {
-            _dataWrapper.EnemyData[i].Atk *= 1.2f;
-            _dataWrapper.EnemyData[i].Hp *= 1.2f;
+            _dataWrapper.EnemyData[i].Atk += 2;
+            _dataWrapper.EnemyData[i].Hp += 2;
         }
     }
     private void GetSkillDrawCount()

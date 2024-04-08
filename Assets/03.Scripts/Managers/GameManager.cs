@@ -19,12 +19,7 @@ public class GameManager : MonoBehaviour
         if (I == null)
         {
             I = this;
-            //DontDestroyOnLoad(gameObject);
         }
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
 
         PlayerManager = GetComponentInChildren<PlayerManager>();
         ScenesManager = GetComponentInChildren<ScenesManager>();

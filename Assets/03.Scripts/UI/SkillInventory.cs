@@ -62,7 +62,6 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateMeleeSKillInventory();
-        //UpdateSkillFieldBackground();
         _meleeButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
         _rangedButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _areaButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -101,7 +100,6 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateRangedSKillInventory();
-        //UpdateSkillFieldBackground();
         _meleeButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _rangedButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);
         _areaButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
@@ -140,7 +138,6 @@ public class SkillInventory : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("UIClick");
         UpdateAreaSKillInventory();
-        //UpdateSkillFieldBackground();
         _meleeButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _rangedButton.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
         _areaButton.color = new Color(224 / 255f, 224 / 255f, 224 / 255f, 255 / 255f);

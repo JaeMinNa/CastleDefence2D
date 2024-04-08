@@ -91,9 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentStageCoin: 0
-  StartMeleeSkill: {fileID: 11400000, guid: 7fa1a53acf44d9549a461f2addbc5802, type: 2}
-  StartRangedSkill: {fileID: 11400000, guid: 053dbe58ca31b0043a69db45101cbe4a, type: 2}
-  StartAreaSkill: {fileID: 11400000, guid: 90f2d6964a4d72b468d888c9eb5535ff, type: 2}
   GameData:
     Stage: 1
     Coin: 0
@@ -109,9 +106,11 @@ MonoBehaviour:
     SkillTime: 3
     AttackCoolTime: 1.5
     NuckbackPower: 2
+    IsAttribute: 0
     SkillInventory:
     - Tag: 
       Type: 0
+      Attribute: 0
       Rank: 0
       Description: 
       Level: 0
@@ -133,6 +132,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: 
       Type: 0
+      Attribute: 0
       Rank: 0
       Description: 
       Level: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: 
       Type: 0
+      Attribute: 0
       Rank: 0
       Description: 
       Level: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
     EquipMeleeSkillData:
       Tag: 
       Type: 0
+      Attribute: 0
       Rank: 0
       Description: 
       Level: 0
@@ -198,6 +200,7 @@ MonoBehaviour:
     EquipRangedSkillData:
       Tag: 
       Type: 0
+      Attribute: 0
       Rank: 0
       Description: 
       Level: 0
@@ -220,6 +223,7 @@ MonoBehaviour:
     EquipAreaSkillData:
       Tag: 
       Type: 0
+      Attribute: 0
       Rank: 0
       Description: 
       Level: 0
@@ -263,7 +267,7 @@ MonoBehaviour:
     - Tag: Rock
       Type: 0
       Hp: 30
-      Speed: 1.5
+      Speed: 1.2
       Atk: 5
       Price: 100
       BulletTag: 
@@ -273,7 +277,7 @@ MonoBehaviour:
     - Tag: Chicken
       Type: 0
       Hp: 30
-      Speed: 2.5
+      Speed: 2
       Atk: 12
       Price: 150
       BulletTag: 
@@ -303,7 +307,7 @@ MonoBehaviour:
     - Tag: Turtle
       Type: 0
       Hp: 40
-      Speed: 12
+      Speed: 1.2
       Atk: 30
       Price: 200
       BulletTag: 
@@ -343,12 +347,12 @@ MonoBehaviour:
     - Tag: Radish
       Type: 1
       Hp: 20
-      Speed: 0.3
+      Speed: 0.5
       Atk: 8
       Price: 200
       BulletTag: RadishBullet
       BulletSpeed: 8
-      Distance: 5
+      Distance: 7
       BulletPosition: {x: 0, y: 0.1, z: 0}
     - Tag: Skull
       Type: 1
@@ -363,6 +367,7 @@ MonoBehaviour:
     SkillData:
     - Tag: Strike
       Type: 0
+      Attribute: 3
       Rank: 1
       Description: "\uAC80\uC744 \uD718\uB450\uB974\uB294 \uC21C\uAC04 \uBC14\uB78C\uC744
         \uC77C\uC73C\uCF1C \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uD3ED\uD48D \uC77C\uACA9\uC744
@@ -389,6 +394,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: BoltSword
       Type: 0
+      Attribute: 2
       Rank: 2
       Description: "\uAC80\uC744 \uD718\uB458\uB7EC \uAC15\uB825\uD55C \uC804\uAE30\uB97C
         \uBC1C\uC0DD\uC2DC\uCF1C \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C  \uACF5\uACA9\uC744
@@ -400,7 +406,7 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 1.9
       NuckbackPower: 1.5
-      IsGet: 0
+      IsGet: 1
       IsEquip: 0
       IconPath: Icon/Melee/BoltSword
       StartPosition: {x: 2, y: 0.8, z: 0}
@@ -414,6 +420,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: FireSword
       Type: 0
+      Attribute: 1
       Rank: 0
       Description: "\uAC80\uC744 \uD718\uB458\uB7EC \uC8FC\uBCC0\uC758 \uB300\uC0C1\uC5D0\uAC8C
         \uD3ED\uBC1C\uC801\uC778 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4. \uD3ED\uBC1C\uACFC
@@ -424,8 +431,8 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 1.3
       NuckbackPower: 2.5
-      IsGet: 1
-      IsEquip: 1
+      IsGet: 0
+      IsEquip: 0
       IconPath: Icon/Melee/FireSword
       StartPosition: {x: 2, y: 1.5, z: 0}
       ColliderName: MeleeCollider
@@ -438,17 +445,18 @@ MonoBehaviour:
       Interval: 0
     - Tag: WindSword
       Type: 0
+      Attribute: 3
       Rank: 0
       Description: "\uAC80\uC73C\uB85C \uBC14\uB78C\uC758 \uD798\uC744 \uBAA8\uC544
         \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uBC14\uB78C\uC744 \uB0A0\uB824\uBCF4\uB0B4\uB294
         \uACF5\uACA9\uC744 \uD569\uB2C8\uB2E4."
       Level: 1
       MaxUpgradeCount: 3
-      CurrentUpgradeCount: 0
+      CurrentUpgradeCount: 1
       AtkRatio: 1.2
       NuckbackPower: 3
-      IsGet: 0
-      IsEquip: 0
+      IsGet: 1
+      IsEquip: 1
       IconPath: Icon/Melee/WindSword
       StartPosition: {x: 1.2, y: 0.7, z: 0}
       ColliderName: MeleeCollider
@@ -461,6 +469,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: BloodStrike
       Type: 0
+      Attribute: 5
       Rank: 2
       Description: "\uAC80\uC744 \uD718\uB450\uB974\uB294 \uC21C\uAC04 \uC8FC\uBCC0\uC758
         \uC801\uB4E4\uC5D0\uAC8C \uAC15\uB825\uD55C \uBCA0\uAE30 \uACF5\uACA9\uC744
@@ -486,6 +495,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: HolyStrike
       Type: 0
+      Attribute: 4
       Rank: 1
       Description: "\uAC80\uC5D0 \uC131\uC2A4\uB7EC\uC6B4 \uD798\uC744 \uB2F4\uC544
         \uC801\uC5D0\uAC8C \uAC15\uB825\uD55C \uC77C\uACA9\uC744 \uAC00\uD569\uB2C8\uB2E4.
@@ -511,6 +521,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: MagmaStrike
       Type: 0
+      Attribute: 1
       Rank: 0
       Description: "\uAC80\uC744 \uD718\uB450\uB974\uB294 \uB728\uAC70\uC6B4 \uB9C8\uADF8\uB9C8\uB97C
         \uC77C\uC73C\uCF1C \uC0C1\uB300\uC5D0\uAC8C \uAC15\uB825\uD55C \uD654\uC5FC
@@ -537,6 +548,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: Fireball
       Type: 1
+      Attribute: 1
       Rank: 0
       Description: "\uBD88\uC744 \uBAA8\uC740 \uBD88\uAF43\uC744 \uB0A0\uB824\uC11C
         \uC801\uC5D0\uAC8C \uBA85\uC911\uC2DC\uD0A8 \uD6C4, \uD3ED\uBC1C\uC744 \uC77C\uC73C\uCF1C
@@ -548,8 +560,8 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 1.4
       NuckbackPower: 2.5
-      IsGet: 1
-      IsEquip: 1
+      IsGet: 0
+      IsEquip: 0
       IconPath: Icon/Ranged/Fireball
       StartPosition: {x: 1.5, y: 1.5, z: 0}
       ColliderName: 
@@ -562,6 +574,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: Boltball
       Type: 1
+      Attribute: 2
       Rank: 2
       Description: "\uAC80\uC5D0 \uAC15\uB825\uD55C \uC804\uAE30\uB97C \uBAA8\uC544\uC11C
         \uC0DD\uC131\uD55C \uD6C4, \uC801\uC744 \uD5A5\uD574 \uBC1C\uC0AC\uD569\uB2C8\uB2E4.
@@ -573,7 +586,7 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 2.1
       NuckbackPower: 1.5
-      IsGet: 0
+      IsGet: 1
       IsEquip: 0
       IconPath: Icon/Ranged/Boltball
       StartPosition: {x: 1.5, y: 1.5, z: 0}
@@ -587,6 +600,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: Darkball
       Type: 1
+      Attribute: 5
       Rank: 0
       Description: "\uC5B4\uB460\uC758 \uD798\uC744 \uBAA8\uC544 \uADF8\uB9BC\uC790\uB97C
         \uD615\uC131\uD55C \uD6C4, \uC801\uC744 \uD5A5\uD574 \uBC1C\uC0AC\uD569\uB2C8\uB2E4.
@@ -595,11 +609,11 @@ MonoBehaviour:
         \uADF8\uB9BC\uC790\uB85C \uC778\uD55C \uD53C\uD574\uB97C \uC904 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
       Level: 1
       MaxUpgradeCount: 3
-      CurrentUpgradeCount: 0
+      CurrentUpgradeCount: 1
       AtkRatio: 1.6
       NuckbackPower: 1.5
-      IsGet: 0
-      IsEquip: 0
+      IsGet: 1
+      IsEquip: 1
       IconPath: Icon/Ranged/Darkball
       StartPosition: {x: 0.5, y: 1.5, z: 0}
       ColliderName: 
@@ -612,6 +626,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: BlueFireball
       Type: 1
+      Attribute: 1
       Rank: 1
       Description: "\uD478\uB978 \uBD88\uAF43\uC744 \uC0DD\uC131\uD55C \uD6C4, \uBAA9\uD45C
         \uC9C0\uC810\uC5D0 \uB358\uC838 \uD3ED\uBC1C\uC2DC\uD0A4\uB294 \uACF5\uACA9\uC785\uB2C8\uB2E4.
@@ -638,6 +653,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: Tornadoball
       Type: 1
+      Attribute: 3
       Rank: 1
       Description: "\uBC14\uB78C\uC744 \uC9D1\uC911\uC2DC\uCF1C \uBC1C\uC0AC\uD558\uC5EC
         \uBA85\uC911\uD558\uBA74 \uC8FC\uBCC0\uC5D0 \uAC15\uB825\uD55C \uD68C\uC624\uB9AC\uB97C
@@ -664,6 +680,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: Laser
       Type: 1
+      Attribute: 4
       Rank: 0
       Description: "\uC21C\uC2DD\uAC04\uC5D0 \uB808\uC774\uC800\uB97C \uBC1C\uC0AC\uD558\uC5EC
         \uC801\uC5D0\uAC8C \uBA85\uC911\uC2DC\uD0B5\uB2C8\uB2E4. \uCD08\uC2E0\uC18D
@@ -690,6 +707,7 @@ MonoBehaviour:
       Interval: 0
     - Tag: BoltShower
       Type: 2
+      Attribute: 2
       Rank: 2
       Description: "\uACF5\uC911\uC5D0\uC11C \uAC15\uB825\uD55C \uBC88\uAC1C\uB97C
         \uC18C\uD658\uD558\uC5EC \uC801\uC5D0\uAC8C \uC5F0\uC774\uC740 \uACF5\uACA9\uC744
@@ -702,7 +720,7 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 1.9
       NuckbackPower: 1.5
-      IsGet: 0
+      IsGet: 1
       IsEquip: 0
       IconPath: Icon/Area/BoltShower
       StartPosition: {x: 0, y: 0, z: 0}
@@ -710,12 +728,13 @@ MonoBehaviour:
       SkillExplosionTag: BoltShowerExplosion
       Speed: 10
       ExplosionRange: 2
-      HitRangePosition: {x: 0, y: 0, z: 0}
+      HitRangePosition: {x: 0, y: -2, z: 0}
       Range: 10
       Count: 7
       Interval: 1
     - Tag: FireShower
       Type: 2
+      Attribute: 1
       Rank: 0
       Description: "\uBD88\uC758 \uD798\uC744 \uBAA8\uC544 \uD558\uB298\uC5D0\uC11C
         \uBD88\uAF43\uC758 \uC18C\uB098\uAE30\uB97C \uB0B4\uB9AC\uBA70, \uB113\uC740
@@ -725,7 +744,7 @@ MonoBehaviour:
         \uC785\uD799\uB2C8\uB2E4."
       Level: 1
       MaxUpgradeCount: 3
-      CurrentUpgradeCount: 0
+      CurrentUpgradeCount: 1
       AtkRatio: 1.3
       NuckbackPower: 2.5
       IsGet: 1
@@ -736,12 +755,13 @@ MonoBehaviour:
       SkillExplosionTag: FireShowerExplosion
       Speed: 10
       ExplosionRange: 2
-      HitRangePosition: {x: 0, y: 0, z: 0}
+      HitRangePosition: {x: 0, y: 0.2, z: 0}
       Range: 10
       Count: 7
       Interval: 1
     - Tag: DarkRain
       Type: 2
+      Attribute: 5
       Rank: 0
       Description: "\uC5B4\uB460\uC758 \uD798\uC744 \uBAA8\uC544 \uD558\uB298\uC5D0\uC11C
         \uAC80\uC740 \uADF8\uB9BC\uC790\uB97C \uC18C\uD658\uD558\uC5EC \uC801\uC5D0\uAC8C
@@ -762,12 +782,13 @@ MonoBehaviour:
       SkillExplosionTag: DarkRainExplosion
       Speed: 10
       ExplosionRange: 2
-      HitRangePosition: {x: 0, y: 0, z: 0}
+      HitRangePosition: {x: 0, y: -0.8, z: 0}
       Range: 10
       Count: 7
       Interval: 1
     - Tag: BlueFireRain
       Type: 2
+      Attribute: 1
       Rank: 1
       Description: "\uB192\uC740 \uACF3\uC5D0\uC11C \uCC9C\uACF5\uC744 \uC5F0 \uC0C1\uD0DC\uB85C
         \uD478\uB978 \uBD88\uAF43\uC744 \uC18C\uD658\uD558\uC5EC \uC801\uC5D0\uAC8C
@@ -794,6 +815,7 @@ MonoBehaviour:
       Interval: 1
     - Tag: TornadoShower
       Type: 2
+      Attribute: 3
       Rank: 1
       Description: "\uB192\uC740 \uACF3\uC5D0\uC11C \uAC15\uB825\uD55C \uBC14\uB78C\uC744
         \uC18C\uD658\uD558\uC5EC \uB9F5 \uC804\uCCB4\uB97C \uD3ED\uD48D\uC73C\uB85C
@@ -813,12 +835,13 @@ MonoBehaviour:
       SkillExplosionTag: TornadoShowerExplosion
       Speed: 10
       ExplosionRange: 2
-      HitRangePosition: {x: 0, y: 0, z: 0}
+      HitRangePosition: {x: 0, y: 1.4, z: 0}
       Range: 10
       Count: 7
       Interval: 1
     - Tag: LaserBomb
       Type: 2
+      Attribute: 4
       Rank: 0
       Description: "\uB192\uC740 \uACF3\uC5D0\uC11C \uAC15\uB825\uD55C \uB808\uC774\uC800\uB97C
         \uBC1C\uC0AC\uD558\uC5EC \uBE60\uB974\uAC8C \uC18C\uB098\uAE30\uCC98\uB7FC
@@ -838,7 +861,7 @@ MonoBehaviour:
       SkillExplosionTag: LaserBombExplosion
       Speed: 17
       ExplosionRange: 2
-      HitRangePosition: {x: 0, y: 0, z: 0}
+      HitRangePosition: {x: 0, y: -0.65, z: 0}
       Range: 10
       Count: 7
       Interval: 1

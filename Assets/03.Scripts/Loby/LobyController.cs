@@ -162,18 +162,21 @@ public class LobyController : MonoBehaviour
     private void PlayerLevelUp()
     {
         GameManager.I.SoundManager.StartSFX("LevelUp");
-        _playerData.Speed += 0.1f;
-        _playerData.Atk += 1f;
+        if (_playerData.Speed < 6f)
+        {
+            _playerData.Speed += 0.1f;
+        }
+        _playerData.Atk += 2f;
     }
 
     private void CastleLevelUp()
     {
         GameManager.I.SoundManager.StartSFX("LevelUp");
-        _castleData.Atk++;
+        _castleData.Atk += 3;
         _castleData.Hp += 10f;
-        if(_castleData.AttackCoolTime >= 0.5f)
+        if(_castleData.AttackCoolTime > 0.5f)
         {
-            _castleData.AttackCoolTime -= 0.1f;
+            _castleData.AttackCoolTime -= 0.2f;
         }
     }
 

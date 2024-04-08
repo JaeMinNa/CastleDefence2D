@@ -125,7 +125,7 @@ public class Potion : MonoBehaviour
                 GameManager.I.SoundManager.StartSFX("Potion");
                 StartCoroutine(COFadeInOut(_itemTime, 127, 0, 255, 255));
                 StartCoroutine(COPlayerStatReset());
-                StartCoroutine(COInactive(7));
+                StartCoroutine(COInactive(10));
                 StartCoroutine(COStopFade());
                 _playerController.Atk *= _powerRatio;
                 _spriteRenderer.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 0 / 255f);
@@ -139,7 +139,7 @@ public class Potion : MonoBehaviour
                 GameManager.I.SoundManager.StartSFX("Potion");
                 StartCoroutine(COFadeInOut(_itemTime, 66, 179, 0, 255));
                 StartCoroutine(COPlayerStatReset());
-                StartCoroutine(COInactive(7));
+                StartCoroutine(COInactive(10));
                 StartCoroutine(COStopFade());
                 _playerController.Speed *= _speedRatio;
                 _spriteRenderer.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 0 / 255f);
@@ -153,7 +153,7 @@ public class Potion : MonoBehaviour
                 GameManager.I.SoundManager.StartSFX("Potion");
                 StartCoroutine(COFadeInOut(_itemTime, 50, 50, 50, 255));
                 StartCoroutine(COPlayerStatReset());
-                StartCoroutine(COInactive(7));
+                StartCoroutine(COInactive(10));
                 StartCoroutine(COStopFade());
                 _attackButton.SkillCoolTime *= _coolTimeRatio;
                 _spriteRenderer.color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 0 / 255f);

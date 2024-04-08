@@ -1,10 +1,10 @@
 {
-    "Level": 6,
-    "MaxExp": 75.9375,
-    "CurrentExp": 3.125,
-    "Hp": 150.0,
+    "Level": 8,
+    "MaxExp": 170.859375,
+    "CurrentExp": 3.28125,
+    "Hp": 170.0,
     "Speed": 10.0,
-    "Atk": 10.0,
-    "AttackCoolTime": 4.500000476837158,
+    "Atk": 20.0,
+    "AttackCoolTime": 3.900000810623169,
     "NuckbackPower": 0.8999999761581421
 }

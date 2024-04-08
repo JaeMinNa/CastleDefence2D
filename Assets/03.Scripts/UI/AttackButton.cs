@@ -7,6 +7,7 @@ public class AttackButton : MonoBehaviour
     public float ClickTime { get; private set; }
     public float SkillCoolTime;
     public bool IsClick { get; private set; }
+    [SerializeField] private Animator _skillSliderAnimator;
     private PlayerController _playerController;
     private SpriteRenderer _playerSpriteRenderer;
     private PlayerAnimationEvent _playerAnimationEvent;
@@ -121,6 +122,7 @@ public class AttackButton : MonoBehaviour
             if((ClickTime >= SkillCoolTime) && !_areaSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
+                StartCoroutine(COStartSkillSliderAnimation());
                 GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _areaSkillStart = true;
             }
@@ -128,6 +130,7 @@ public class AttackButton : MonoBehaviour
                  && !_rangedSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
+                StartCoroutine(COStartSkillSliderAnimation());
                 GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _rangedSkillStart = true;
             }
@@ -135,6 +138,7 @@ public class AttackButton : MonoBehaviour
                  && !_meleeSkillStart)
             {
                 GameManager.I.SoundManager.StartSFX("Gauge");
+                StartCoroutine(COStartSkillSliderAnimation());
                 GameManager.I.ObjectPoolManager.ActivePrefab("SkillUseEffect", _playerController.transform.position + Vector3.down * 2f);
                 _meleeSkillStart = true;
             }
@@ -146,5 +150,12 @@ public class AttackButton : MonoBehaviour
         {
             ClickTime = 0;
         }
+    }
+
+    IEnumerator COStartSkillSliderAnimation()
+    {
+        _skillSliderAnimator.SetBool("SkillSlider", true);
+        yield return new WaitForSeconds(0.2f);
+        _skillSliderAnimator.SetBool("SkillSlider", false);
     }
 }

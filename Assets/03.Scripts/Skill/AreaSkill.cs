@@ -89,6 +89,7 @@ public class AreaSkill : MonoBehaviour
             _isMove = false;
             _animator.SetTrigger("Hit");
             Targetting();
+            transform.position += _areaSkillData.HitRangePosition;
         }
     }
 
