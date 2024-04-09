@@ -8,6 +8,7 @@ public class AttackButton : MonoBehaviour
     public float SkillCoolTime;
     public bool IsClick { get; private set; }
     [SerializeField] private Animator _skillSliderAnimator;
+    [SerializeField] private TutorialController _tutorialController;
     private PlayerController _playerController;
     private SpriteRenderer _playerSpriteRenderer;
     private PlayerAnimationEvent _playerAnimationEvent;
@@ -15,6 +16,7 @@ public class AttackButton : MonoBehaviour
     private SkillData _meleeSkillData;
     private SkillData _rangedSkillData;
     private SkillData _areaSkillData;
+    private GameData _gameData;
     private float _collidersPositionX;
     private float _collidersPositionY;
     private bool _meleeSkillStart;
@@ -24,6 +26,15 @@ public class AttackButton : MonoBehaviour
     // 버튼 클릭이 시작했을 때
     public void ButtonDown()
     {
+        //if(_gameData.TutorialCount == 1)
+        //{
+        //    _tutorialController.StopTutorial(1);
+        //}
+        //else if(_gameData.TutorialCount == 2)
+        //{
+        //    _tutorialController.StopTutorial(2);
+        //}
+
         _collidersPositionX = _collidersTransform.localPosition.x;
 
         _playerController.Speed *= -1;
@@ -85,6 +96,7 @@ public class AttackButton : MonoBehaviour
         _meleeSkillData = GameManager.I.DataManager.PlayerData.EquipMeleeSkillData;
         _rangedSkillData = GameManager.I.DataManager.PlayerData.EquipRangedSkillData;
         _areaSkillData = GameManager.I.DataManager.PlayerData.EquipAreaSkillData;
+        _gameData = GameManager.I.DataManager.GameData;
 
         _collidersPositionX = _collidersTransform.localPosition.x;
         _collidersPositionY = _collidersTransform.localPosition.y;

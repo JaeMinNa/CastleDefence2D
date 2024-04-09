@@ -14,6 +14,7 @@ public class StageController : MonoBehaviour
 
     [Header("Castle")]
     [SerializeField] private CastleController _castleController;
+    [SerializeField] private Collider2D[] _targets;
 
     [Header("Text")]
     [SerializeField] private TMP_Text _stageText;
@@ -37,9 +38,14 @@ public class StageController : MonoBehaviour
     [SerializeField] private TMP_Text _gameOverCoinText;
     [SerializeField] private TMP_Text _gameOverStageText;
 
+    [Header("Tutorial")]
+    [SerializeField] private GameObject _tutorialPanel;
+
     [HideInInspector] public bool IsDangerTime;
     private CastleData _castleData;
     private DataWrapper _dataWrapper;
+    private GameData _gameData;
+    private TutorialController _tutorialController;
     private float _time;
     private bool _gameFinish;
     private string _currentScene;
@@ -47,7 +53,6 @@ public class StageController : MonoBehaviour
     private LayerMask _layerMask;
     private Vector2 _dir;
     private int _adCount;
-    [SerializeField] private Collider2D[] _targets;
 
     private void Start()
     {
@@ -60,9 +65,20 @@ public class StageController : MonoBehaviour
         _stageText.text = "STAGE " + _currentStage.ToString();
         _currentScene = GameManager.I.ScenesManager.CurrentSceneName;
         _dataWrapper = GameManager.I.DataManager.DataWrapper;
+        _gameData = GameManager.I.DataManager.GameData;
+        _tutorialController = _tutorialPanel.GetComponent<TutorialController>();
         _layerMask = LayerMask.NameToLayer("Enemy");
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("BattleMap0");
+
+        if(_gameData.TutorialCount == 1)
+        {
+            _tutorialPanel.SetActive(true);
+        }
+        if(_gameData.Stage == 1)
+        {
+            PlayerPrefs.SetInt("IsTutorial", 1);
+        }
     }
 
     private void Update()
@@ -80,6 +96,9 @@ public class StageController : MonoBehaviour
         {
             IsDangerTime = true;
             GameManager.I.SoundManager.StartSFX("Danger");
+            
+            if(_gameData.Stage == 1) StartCoroutine(_tutorialController.COStartTutorial(4, 0));
+            
             StartCoroutine(COStartDangerTime());
         }
     }
@@ -140,6 +159,11 @@ public class StageController : MonoBehaviour
         _gameClearStageText.text = "STAGE " + _currentStage.ToString();
         _gameClearCoinText.text = "Coin + " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameClear.gameObject.SetActive(true);
+
+        if (_gameData.TutorialCount == 5)
+        {
+            StartCoroutine(_tutorialController.COStartTutorial(5, 0));
+        }
         GameManager.I.DataManager.DataSave();
     }
 
@@ -156,6 +180,8 @@ public class StageController : MonoBehaviour
 
     public void NextSceneButton()
     {
+        if (_gameData.TutorialCount == 6) return;
+
         GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 1f;
         GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;

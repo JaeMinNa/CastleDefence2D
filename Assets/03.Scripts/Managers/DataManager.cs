@@ -10,6 +10,8 @@ public class GameData
     public int Stage = 1;
     public int Coin = 0;
     public int SkillDrawCount = 0;
+    public int TutorialCount = 1;
+    //public bool IsTutorial = false;
 
     [Header("Sound")]
     public float BGMVolume = 0;
@@ -298,6 +300,9 @@ public class DataManager : MonoBehaviour
         GameData.Stage = 1;
         GameData.Coin = 0;
         GameData.SkillDrawCount = 0;
+        GameData.TutorialCount = 1;
+        PlayerPrefs.DeleteAll();
+        //GameData.IsTutorial = false;
 
         // Player
         PlayerData.Level = 1;

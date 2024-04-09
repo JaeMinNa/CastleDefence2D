@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class ScenesManager : MonoBehaviour
 {
     public string CurrentSceneName;
+    private GameData _gameData;
 
     // √ ±‚»≠
     public void Init()
     {
         CurrentSceneName = SceneManager.GetActiveScene().name;
+        _gameData = GameManager.I.DataManager.GameData;
 
         if (CurrentSceneName == "BattleScene0")
         {
@@ -23,6 +25,16 @@ public class ScenesManager : MonoBehaviour
     public void Release()
     {
 
+    }
+
+    private void Start()
+    {
+        if (CurrentSceneName == "LobyScene" && PlayerPrefs.GetInt("IsTutorial") == 0)
+        {
+            //_gameData.IsTutorial = true;
+            PlayerPrefs.SetInt("IsTutorial", 1);
+            SceneMove("BattleScene0");
+        }
     }
 
     public void SceneMove(string scene)

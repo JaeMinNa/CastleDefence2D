@@ -95,8 +95,9 @@ MonoBehaviour:
     Stage: 1
     Coin: 0
     SkillDrawCount: 0
-    BGMVolume: 0
-    SFXVolume: 0
+    TutorialCount: 1
+    BGMVolume: -10
+    SFXVolume: -10
   PlayerData:
     Level: 1
     MaxExp: 10
@@ -316,7 +317,7 @@ MonoBehaviour:
       BulletPosition: {x: 0, y: 0, z: 0}
     - Tag: Rino
       Type: 0
-      Hp: 30
+      Hp: 50
       Speed: 1
       Atk: 40
       Price: 200
@@ -406,7 +407,7 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 1.9
       NuckbackPower: 1.5
-      IsGet: 1
+      IsGet: 0
       IsEquip: 0
       IconPath: Icon/Melee/BoltSword
       StartPosition: {x: 2, y: 0.8, z: 0}
@@ -586,7 +587,7 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 2.1
       NuckbackPower: 1.5
-      IsGet: 1
+      IsGet: 0
       IsEquip: 0
       IconPath: Icon/Ranged/Boltball
       StartPosition: {x: 1.5, y: 1.5, z: 0}
@@ -720,7 +721,7 @@ MonoBehaviour:
       CurrentUpgradeCount: 0
       AtkRatio: 1.9
       NuckbackPower: 1.5
-      IsGet: 1
+      IsGet: 0
       IsEquip: 0
       IconPath: Icon/Area/BoltShower
       StartPosition: {x: 0, y: 0, z: 0}

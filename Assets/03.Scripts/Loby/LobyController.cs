@@ -48,12 +48,22 @@ public class LobyController : MonoBehaviour
     [SerializeField] private Image _rangedSkillImage;
     [SerializeField] private Image _areaSkillImage;
 
+    [Header("Tutorial")]
+    [SerializeField] private GameObject _tutorialPanel;
+
+    private GameData _gameData;
+
     private void Start()
     {
         _playerData = GameManager.I.DataManager.PlayerData;
         _castleData = GameManager.I.DataManager.CastleData;
+        _gameData = GameManager.I.DataManager.GameData;
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("Loby");
+        if(_gameData.TutorialCount == 6)
+        {
+            _tutorialPanel.SetActive(true);
+        }
         Init();
     }
 
