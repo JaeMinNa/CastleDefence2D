@@ -16723,6 +16723,286 @@ MonoBehaviour:
     - Turtle 11
     - Bunny 6
     - Mushroom 7
+  - Stage: 61
+    enemys:
+    - Skull 15
+    - Rino 15
+    - Plant 13
+    - Bunny 8
+    - Mushroom 10
+  - Stage: 62
+    enemys:
+    - Skull 14
+    - Rino 14
+    - Plant 12
+    - Bunny 7
+    - Mushroom 9
+  - Stage: 63
+    enemys:
+    - Skull 13
+    - Rino 13
+    - Plant 11
+    - Bunny 7
+    - Mushroom 8
+  - Stage: 64
+    enemys:
+    - Skull 12
+    - Rino 12
+    - Plant 10
+    - Bunny 7
+    - Mushroom 7
+  - Stage: 65
+    enemys:
+    - Skull 11
+    - Rino 11
+    - Plant 9
+    - Bunny 7
+    - Mushroom 7
+  - Stage: 66
+    enemys:
+    - Turtle 13
+    - Chicken 6
+    - Plant 10
+    - Bunny 5
+    - Mushroom 10
+  - Stage: 67
+    enemys:
+    - Turtle 12
+    - Chicken 6
+    - Plant 9
+    - Bunny 5
+    - Mushroom 9
+  - Stage: 68
+    enemys:
+    - Turtle 11
+    - Chicken 6
+    - Plant 8
+    - Bunny 5
+    - Mushroom 8
+  - Stage: 69
+    enemys:
+    - Turtle 10
+    - Chicken 6
+    - Plant 7
+    - Bunny 5
+    - Mushroom 8
+  - Stage: 70
+    enemys:
+    - Turtle 9
+    - Chicken 6
+    - Plant 7
+    - Bunny 5
+    - Mushroom 7
+  - Stage: 71
+    enemys:
+    - Rock 5
+    - Rino 15
+    - Plant 10
+    - Bunny 8
+    - Radish 15
+  - Stage: 72
+    enemys:
+    - Rock 5
+    - Rino 14
+    - Plant 9
+    - Bunny 8
+    - Radish 14
+  - Stage: 73
+    enemys:
+    - Rock 5
+    - Rino 13
+    - Plant 8
+    - Bunny 8
+    - Radish 13
+  - Stage: 74
+    enemys:
+    - Rock 5
+    - Rino 12
+    - Plant 7
+    - Bunny 8
+    - Radish 12
+  - Stage: 75
+    enemys:
+    - Rock 5
+    - Rino 11
+    - Plant 6
+    - Bunny 8
+    - Radish 11
+  - Stage: 76
+    enemys:
+    - Chicken 10
+    - Rock 5
+    - Mushroom 8
+    - Bunny 7
+    - Radish 13
+  - Stage: 77
+    enemys:
+    - Chicken 9
+    - Rock 5
+    - Mushroom 8
+    - Bunny 7
+    - Radish 12
+  - Stage: 78
+    enemys:
+    - Chicken 8
+    - Rock 4
+    - Mushroom 7
+    - Bunny 7
+    - Radish 11
+  - Stage: 79
+    enemys:
+    - Chicken 7
+    - Rock 4
+    - Mushroom 6
+    - Bunny 7
+    - Radish 10
+  - Stage: 80
+    enemys:
+    - Chicken 6
+    - Rock 4
+    - Mushroom 5
+    - Bunny 6
+    - Radish 9
+  - Stage: 81
+    enemys:
+    - Rino 12
+    - Turtle 10
+    - Snail 6
+    - Bunny 10
+    - Skull 15
+  - Stage: 82
+    enemys:
+    - Rino 11
+    - Turtle 9
+    - Snail 6
+    - Bunny 9
+    - Skull 14
+  - Stage: 83
+    enemys:
+    - Rino 10
+    - Turtle 8
+    - Snail 6
+    - Bunny 8
+    - Skull 13
+  - Stage: 84
+    enemys:
+    - Rino 9
+    - Turtle 7
+    - Snail 6
+    - Bunny 7
+    - Skull 12
+  - Stage: 85
+    enemys:
+    - Rino 8
+    - Turtle 6
+    - Snail 6
+    - Bunny 6
+    - Skull 11
+  - Stage: 86
+    enemys:
+    - Trunk 10
+    - Plant 10
+    - Chicken 8
+    - Bunny 14
+    - Skull 15
+  - Stage: 87
+    enemys:
+    - Trunk 9
+    - Plant 9
+    - Chicken 7
+    - Bunny 13
+    - Skull 14
+  - Stage: 88
+    enemys:
+    - Trunk 8
+    - Plant 8
+    - Chicken 6
+    - Bunny 12
+    - Skull 13
+  - Stage: 89
+    enemys:
+    - Trunk 7
+    - Plant 7
+    - Chicken 6
+    - Bunny 11
+    - Skull 12
+  - Stage: 90
+    enemys:
+    - Trunk 6
+    - Plant 6
+    - Chicken 6
+    - Bunny 10
+    - Skull 11
+  - Stage: 91
+    enemys:
+    - Turtle 13
+    - Plant 10
+    - Rino 10
+    - Bunny 5
+    - Skull 15
+  - Stage: 92
+    enemys:
+    - Turtle 12
+    - Plant 9
+    - Rino 9
+    - Bunny 4
+    - Skull 14
+  - Stage: 93
+    enemys:
+    - Turtle 11
+    - Plant 8
+    - Rino 8
+    - Bunny 4
+    - Skull 13
+  - Stage: 94
+    enemys:
+    - Turtle 10
+    - Plant 7
+    - Rino 7
+    - Bunny 4
+    - Skull 12
+  - Stage: 95
+    enemys:
+    - Turtle 9
+    - Plant 6
+    - Rino 6
+    - Bunny 3
+    - Skull 11
+  - Stage: 96
+    enemys:
+    - Turtle 5
+    - Chicken 5
+    - Rino 5
+    - Bunny 5
+    - Skull 10
+  - Stage: 97
+    enemys:
+    - Turtle 4
+    - Chicken 4
+    - Rino 4
+    - Bunny 4
+    - Skull 9
+  - Stage: 98
+    enemys:
+    - Turtle 3
+    - Chicken 3
+    - Rino 3
+    - Bunny 3
+    - Skull 8
+  - Stage: 99
+    enemys:
+    - Turtle 3
+    - Chicken 3
+    - Rino 3
+    - Bunny 3
+    - Skull 7
+  - Stage: 100
+    enemys:
+    - Turtle 3
+    - Chicken 3
+    - Rino 3
+    - Bunny 3
+    - Skull 3
   _spawnLeft: {fileID: 1182914271}
   _spawnRigth: {fileID: 903896539}
 --- !u!1 &1849830011

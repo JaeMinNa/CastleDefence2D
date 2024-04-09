@@ -1,46 +1,14 @@
 {
-    "Level": 4,
-    "MaxExp": 33.75,
-    "CurrentExp": 2.5,
-    "Speed": 3.299999952316284,
-    "Atk": 16.0,
+    "Level": 1,
+    "MaxExp": 10.0,
+    "CurrentExp": 0.0,
+    "Speed": 3.0,
+    "Atk": 10.0,
     "SkillTime": 3.0,
     "AttackCoolTime": 1.5,
     "NuckbackPower": 2.0,
-    "IsAttribute": true,
+    "IsAttribute": false,
     "SkillInventory": [
-        {
-            "Tag": "BoltSword",
-            "Type": 0,
-            "Attribute": 2,
-            "Rank": 2,
-            "Description": "검을 휘둘러 강력한 전기를 발생시켜 적에게 강력한  공격을 가합니다. 번개는 적의 몸을 타고 흘러들어가며 강력한 전기 충격을 주어 상대방에게 큰 피해를 입힙니다.",
-            "Level": 1,
-            "MaxUpgradeCount": 3,
-            "CurrentUpgradeCount": 0,
-            "AtkRatio": 1.899999976158142,
-            "NuckbackPower": 1.5,
-            "IsGet": true,
-            "IsEquip": false,
-            "IconPath": "Icon/Melee/BoltSword",
-            "StartPosition": {
-                "x": 2.0,
-                "y": 0.800000011920929,
-                "z": 0.0
-            },
-            "ColliderName": "MeleeCollider",
-            "SkillExplosionTag": "",
-            "Speed": 0.0,
-            "ExplosionRange": 0.0,
-            "HitRangePosition": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Range": 0.0,
-            "Count": 0,
-            "Interval": 0.0
-        },
         {
             "Tag": "WindSword",
             "Type": 0,
@@ -66,38 +34,6 @@
             "ExplosionRange": 0.0,
             "HitRangePosition": {
                 "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Range": 0.0,
-            "Count": 0,
-            "Interval": 0.0
-        },
-        {
-            "Tag": "Boltball",
-            "Type": 1,
-            "Attribute": 2,
-            "Rank": 2,
-            "Description": "검에 강력한 전기를 모아서 생성한 후, 적을 향해 발사합니다. 명중한 적에게 강력한 전격 피해를 입히며, 주변의 적에게도 전기가 번쩍이며 피해를 줄 수 있습니다.",
-            "Level": 1,
-            "MaxUpgradeCount": 3,
-            "CurrentUpgradeCount": 0,
-            "AtkRatio": 2.0999999046325685,
-            "NuckbackPower": 1.5,
-            "IsGet": true,
-            "IsEquip": false,
-            "IconPath": "Icon/Ranged/Boltball",
-            "StartPosition": {
-                "x": 1.5,
-                "y": 1.5,
-                "z": 0.0
-            },
-            "ColliderName": "",
-            "SkillExplosionTag": "BoltballExplosion",
-            "Speed": 7.0,
-            "ExplosionRange": 3.0,
-            "HitRangePosition": {
-                "x": 1.2000000476837159,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -136,38 +72,6 @@
             "Range": 0.0,
             "Count": 0,
             "Interval": 0.0
-        },
-        {
-            "Tag": "BoltShower",
-            "Type": 2,
-            "Attribute": 2,
-            "Rank": 2,
-            "Description": "공중에서 강력한 번개를 소환하여 적에게 연이은 공격을 가합니다. 번개는 각각의 명중 지점에서 폭발하여 주변의 적에게 강력한 피해를 입히며, 넓은 범위에 전기의 힘을 발산합니다.",
-            "Level": 1,
-            "MaxUpgradeCount": 3,
-            "CurrentUpgradeCount": 0,
-            "AtkRatio": 1.899999976158142,
-            "NuckbackPower": 1.5,
-            "IsGet": true,
-            "IsEquip": false,
-            "IconPath": "Icon/Area/BoltShower",
-            "StartPosition": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "ColliderName": "",
-            "SkillExplosionTag": "BoltShowerExplosion",
-            "Speed": 10.0,
-            "ExplosionRange": 2.0,
-            "HitRangePosition": {
-                "x": 0.0,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "Range": 10.0,
-            "Count": 7,
-            "Interval": 1.0
         },
         {
             "Tag": "FireShower",
