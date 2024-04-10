@@ -208,14 +208,14 @@ public class DataManager : MonoBehaviour
     void SaveGameDataToJson()
     {
         string jsonData = JsonUtility.ToJson(GameData, true);
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "GameData.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "GameData.json");
         File.WriteAllText(path, jsonData);
     }
 
     [ContextMenu("From Json GameData")]
     void LoadGameDataFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "GameData.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "GameData.json");
         string jsonData = File.ReadAllText(path);
         GameData = JsonUtility.FromJson<GameData>(jsonData);
     }
@@ -225,14 +225,14 @@ public class DataManager : MonoBehaviour
     void SavePlayerDataToJson()
     {
         string jsonData = JsonUtility.ToJson(PlayerData, true);
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "PlayerData.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "PlayerData.json");
         File.WriteAllText(path, jsonData);
     }
 
     [ContextMenu("From Json PlayerData")]
     void LoadPlayerDataFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "PlayerData.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "PlayerData.json");
         string jsonData = File.ReadAllText(path);
         PlayerData = JsonUtility.FromJson<PlayerData>(jsonData);
     }
@@ -242,14 +242,14 @@ public class DataManager : MonoBehaviour
     void SaveCastleDataToJson()
     {
         string jsonData = JsonUtility.ToJson(CastleData, true);
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "CastleData.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "CastleData.json");
         File.WriteAllText(path, jsonData);
     }
 
     [ContextMenu("From Json CastleData")]
     void LoadCastleDataFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "CastleData.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "CastleData.json");
         string jsonData = File.ReadAllText(path);
         CastleData = JsonUtility.FromJson<CastleData>(jsonData);
     }
@@ -259,14 +259,14 @@ public class DataManager : MonoBehaviour
     void SaveDataWrapperToJson()
     {
         string jsonData = JsonUtility.ToJson(DataWrapper, true);
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "DataWrapper.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "DataWrapper.json");
         File.WriteAllText(path, jsonData);
     }
 
     [ContextMenu("From Json DataWrapper")]
     void LoadDataWrapperFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/", "DataWrapper.json");
+        string path = Path.Combine(Application.dataPath + "/05.Json/", "DataWrapper.json");
         string jsonData = File.ReadAllText(path);
         DataWrapper = JsonUtility.FromJson<DataWrapper>(jsonData);
 
