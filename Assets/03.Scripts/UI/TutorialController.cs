@@ -29,6 +29,7 @@ public class TutorialController : MonoBehaviour
 
     private void StartTutorial(int count)
     {
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 0f;
         _gameData.TutorialCount = count;
         _tutorials[count - 1].SetActive(true);

@@ -254,10 +254,10 @@ public class LobyController : MonoBehaviour
 
     public void AdButton()
     {
-        GameManager.I.SoundManager.StartSFX("ButtonClick");
-        GameManager.I.DataManager.GameData.Coin += 10000;
-        _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
-        GameManager.I.DataManager.DataSave();
+        //GameManager.I.SoundManager.StartSFX("ButtonClick");
+        //GameManager.I.DataManager.GameData.Coin += 10000;
+        //_coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
+        //GameManager.I.DataManager.DataSave();
     }
 
     public void GameExitButton()
