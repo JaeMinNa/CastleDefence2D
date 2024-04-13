@@ -207,68 +207,140 @@ public class DataManager : MonoBehaviour
     [ContextMenu("To Json GameData")]
     void SaveGameDataToJson()
     {
-        string jsonData = JsonUtility.ToJson(GameData, true);
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "GameData.json");
-        File.WriteAllText(path, jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(GameData, true);
+            string path = Path.Combine(Application.persistentDataPath, "GameData.json");
+            File.WriteAllText(path, jsonData);
+        }
+        else
+        {
+            string jsonData = JsonUtility.ToJson(GameData, true);
+            string path = Path.Combine(Application.dataPath, "GameData.json");
+            File.WriteAllText(path, jsonData);
+        }
     }
 
     [ContextMenu("From Json GameData")]
     void LoadGameDataFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "GameData.json");
-        string jsonData = File.ReadAllText(path);
-        GameData = JsonUtility.FromJson<GameData>(jsonData);
+        if(Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string path = Path.Combine(Application.persistentDataPath, "GameData.json");
+            string jsonData = File.ReadAllText(path);
+            GameData = JsonUtility.FromJson<GameData>(jsonData);
+        }
+        else
+        {
+            string path = Path.Combine(Application.dataPath, "GameData.json");
+            string jsonData = File.ReadAllText(path);
+            GameData = JsonUtility.FromJson<GameData>(jsonData);
+        }
     }
 
     // PlayerData
     [ContextMenu("To Json PlayerData")]
     void SavePlayerDataToJson()
     {
-        string jsonData = JsonUtility.ToJson(PlayerData, true);
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "PlayerData.json");
-        File.WriteAllText(path, jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(PlayerData, true);
+            string path = Path.Combine(Application.persistentDataPath/* + "/05.Json/"*/, "PlayerData.json");
+            File.WriteAllText(path, jsonData);
+        }
+        else
+        {
+            string jsonData = JsonUtility.ToJson(PlayerData, true);
+            string path = Path.Combine(Application.dataPath/* + "/05.Json/"*/, "PlayerData.json");
+            File.WriteAllText(path, jsonData);
+        }
     }
 
     [ContextMenu("From Json PlayerData")]
     void LoadPlayerDataFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "PlayerData.json");
-        string jsonData = File.ReadAllText(path);
-        PlayerData = JsonUtility.FromJson<PlayerData>(jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
+            string jsonData = File.ReadAllText(path);
+            PlayerData = JsonUtility.FromJson<PlayerData>(jsonData);
+        }
+        else
+        {
+            string path = Path.Combine(Application.dataPath, "PlayerData.json");
+            string jsonData = File.ReadAllText(path);
+            PlayerData = JsonUtility.FromJson<PlayerData>(jsonData);
+        }
     }
 
     // CastleData
     [ContextMenu("To Json CastleData")]
     void SaveCastleDataToJson()
     {
-        string jsonData = JsonUtility.ToJson(CastleData, true);
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "CastleData.json");
-        File.WriteAllText(path, jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(CastleData, true);
+            string path = Path.Combine(Application.persistentDataPath, "CastleData.json");
+            File.WriteAllText(path, jsonData);
+        }
+        else
+        {
+            string jsonData = JsonUtility.ToJson(CastleData, true);
+            string path = Path.Combine(Application.dataPath, "CastleData.json");
+            File.WriteAllText(path, jsonData);
+        }
     }
 
     [ContextMenu("From Json CastleData")]
     void LoadCastleDataFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "CastleData.json");
-        string jsonData = File.ReadAllText(path);
-        CastleData = JsonUtility.FromJson<CastleData>(jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string path = Path.Combine(Application.persistentDataPath, "CastleData.json");
+            string jsonData = File.ReadAllText(path);
+            CastleData = JsonUtility.FromJson<CastleData>(jsonData);
+        }
+        else
+        {
+            string path = Path.Combine(Application.dataPath, "CastleData.json");
+            string jsonData = File.ReadAllText(path);
+            CastleData = JsonUtility.FromJson<CastleData>(jsonData);
+        }
     }
 
     // DataWrapper
     [ContextMenu("To Json DataWrapper")]
     void SaveDataWrapperToJson()
     {
-        string jsonData = JsonUtility.ToJson(DataWrapper, true);
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "DataWrapper.json");
-        File.WriteAllText(path, jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(DataWrapper, true);
+            string path = Path.Combine(Application.persistentDataPath, "DataWrapper.json");
+            File.WriteAllText(path, jsonData);
+        }
+        else
+        {
+            string jsonData = JsonUtility.ToJson(DataWrapper, true);
+            string path = Path.Combine(Application.dataPath, "DataWrapper.json");
+            File.WriteAllText(path, jsonData);
+        }
     }
 
     [ContextMenu("From Json DataWrapper")]
     void LoadDataWrapperFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/05.Json/", "DataWrapper.json");
-        string jsonData = File.ReadAllText(path);
-        DataWrapper = JsonUtility.FromJson<DataWrapper>(jsonData);
+        if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+        {
+            string path = Path.Combine(Application.persistentDataPath, "DataWrapper.json");
+            string jsonData = File.ReadAllText(path);
+            DataWrapper = JsonUtility.FromJson<DataWrapper>(jsonData);
+        }
+        else
+        {
+            string path = Path.Combine(Application.dataPath, "DataWrapper.json");
+            string jsonData = File.ReadAllText(path);
+            DataWrapper = JsonUtility.FromJson<DataWrapper>(jsonData);
+        }
 
     }
  

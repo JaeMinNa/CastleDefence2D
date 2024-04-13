@@ -170,8 +170,10 @@ public class StageController : MonoBehaviour
     public void GameOverActive()
     {
         GameManager.I.SoundManager.StartSFX("GameOver");
+        _tutorialPanel.SetActive(false);
         _dangerTimePanel.SetActive(false);
         Time.timeScale = 0f;
+        _gameData.TutorialCount = 1;
         _gameOverCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
         _gameOverStageText.text = "STAGE " + _currentStage.ToString();
         _gameOver.gameObject.SetActive(true);
