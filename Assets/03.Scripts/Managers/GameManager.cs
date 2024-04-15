@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public ObjectPoolManager ObjectPoolManager { get; private set; }
     public DataManager DataManager { get; private set; }
     public SoundManager SoundManager { get; private set; }
+    public AdsManager AdsManager { get; private set; }
 
     public static GameManager I;
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         ObjectPoolManager = GetComponentInChildren<ObjectPoolManager>();
         DataManager = GetComponentInChildren<DataManager>();
         SoundManager = GetComponentInChildren<SoundManager>();
+        AdsManager = GetComponentInChildren<AdsManager>();
 
         Init();
     }
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
         ObjectPoolManager.Init();
         DataManager.Init();
         SoundManager.Init();
+        AdsManager.Init();
     }
 
     private void Release()
@@ -46,5 +49,6 @@ public class GameManager : MonoBehaviour
         ObjectPoolManager.Release();
         DataManager.Release();
         SoundManager.Release();
+        AdsManager.Release();
     }
 }

@@ -67,7 +67,7 @@ public class LobyController : MonoBehaviour
         Init();
     }
 
-    private void Init()
+    public void Init()
     {
         _coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
         _stageText.text = "Stage " + GameManager.I.DataManager.GameData.Stage.ToString();
@@ -242,7 +242,6 @@ public class LobyController : MonoBehaviour
     public void ActiveSkillInventory()
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
-        //_skillInventory.GetComponent<SkillInventory>().UpdateSkillFieldBackground();
         _skillInventory.SetActive(true);
     }
 
@@ -254,10 +253,8 @@ public class LobyController : MonoBehaviour
 
     public void AdButton()
     {
-        //GameManager.I.SoundManager.StartSFX("ButtonClick");
-        //GameManager.I.DataManager.GameData.Coin += 10000;
-        //_coinText.text = GameManager.I.DataManager.GameData.Coin.ToString();
-        //GameManager.I.DataManager.DataSave();
+        GameManager.I.SoundManager.StartSFX("ButtonClick");
+        GameManager.I.AdsManager.ShowAds();
     }
 
     public void GameExitButton()

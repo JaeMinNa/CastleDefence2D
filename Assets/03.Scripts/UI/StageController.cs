@@ -215,6 +215,11 @@ public class StageController : MonoBehaviour
         }
 
         GameManager.I.SoundManager.StartSFX("ButtonClick");
+        GameManager.I.AdsManager.ShowAds();
+    }
+
+    public void AdReword()
+    {
         Time.timeScale = 1f;
         int layerMask = (1 << _layerMask);  // Layer ¼³Á¤
         _targets = Physics2D.OverlapCircleAll(new Vector3(0, 2, 0), 15, layerMask);

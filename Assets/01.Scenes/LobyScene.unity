@@ -33772,10 +33772,6 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 7540933731026198354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7540933731026198354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -61537,7 +61533,7 @@ GameObject:
   - component: {fileID: 1883076876}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: LobyController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61603,7 +61599,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1883076875
 RectTransform:

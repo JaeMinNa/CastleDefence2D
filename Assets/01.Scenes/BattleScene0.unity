@@ -17285,7 +17285,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!224 &1857860559
 RectTransform:
@@ -17791,7 +17791,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1968936413
 RectTransform:
@@ -19174,6 +19174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8060362896120831354, guid: 4c45295d346138d409a1a46f447ede82, type: 3}
+      propertyPath: stageController
+      value: 
+      objectReference: {fileID: 914461316}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
