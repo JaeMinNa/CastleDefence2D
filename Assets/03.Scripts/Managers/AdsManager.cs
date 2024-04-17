@@ -11,9 +11,7 @@ public class AdsManager : MonoBehaviour
     private string _adUnitId;
 
     public void Init()
-    {
-        IsTestMode = true;
-
+    { 
         // 모바일 광고 SDK를 초기화함.
         MobileAds.Initialize(initStatus => { });
 
@@ -24,8 +22,8 @@ public class AdsManager : MonoBehaviour
 
         //adUnitId 설정
         #if UNITY_ANDROID
-        if(IsTestMode) _adUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID
-        else _adUnitId = "ca-app-pub-5906820670754550/8284977605"; // 광고 ID
+        if(IsTestMode) _adUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID*/
+        else _adUnitId = "ca-app-pub-5906820670754550/8284977605"; // 광고 ID*/
         #endif
 
         _rewardedAd.OnAdLoaded += HandleRewardedAdLoaded; // 광고 로드가 완료되면 호출
