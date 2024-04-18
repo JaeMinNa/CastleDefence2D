@@ -6,32 +6,22 @@ public class AdsManager : MonoBehaviour
 {
     public bool IsTestMode; // TestMode 시, 인스펙터에서 클릭
     private LobyController _lobyController;
-    private StageController _stageController;   
+    private StageController _stageController;
     private RewardedAd _rewardedAd;
     private string _adUnitId;
 
     public void Init()
-    { 
-        // 모바일 광고 SDK를 초기화함.
-        MobileAds.Initialize(initStatus => { });
-
-        //광고 로드 : RewardedAd 객체의 loadAd메서드에 AdRequest 인스턴스를 넣음
-        AdRequest request = new AdRequest.Builder().Build();
-        _rewardedAd = new RewardedAd(_adUnitId);
-        _rewardedAd.LoadAd(request);
-
-        //adUnitId 설정
+    {
         #if UNITY_ANDROID
-        if(IsTestMode) _adUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID*/
-        else _adUnitId = "ca-app-pub-5906820670754550/8284977605"; // 광고 ID*/
+        if (IsTestMode) _adUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID
+        else _adUnitId = "ca-app-pub-5906820670754550/8284977605"; // 광고 ID
+        #elif UNITY_IPHONE
+        _adUnitId = "ca-app-pub-3940256099942544~1458002511";
+        #else
+        _adUnitId = "unused";
         #endif
 
-        _rewardedAd.OnAdLoaded += HandleRewardedAdLoaded; // 광고 로드가 완료되면 호출
-        _rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad; // 광고 로드가 실패했을 때 호출
-        _rewardedAd.OnAdOpening += HandleRewardedAdOpening; // 광고가 표시될 때 호출(기기 화면을 덮음)
-        _rewardedAd.OnAdFailedToShow += HandleRewardedAdFailedToShow; // 광고 표시가 실패했을 때 호출
-        _rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;// 광고를 시청한 후 보상을 받아야할 때 호출
-        _rewardedAd.OnAdClosed += HandleRewardedAdClosed; // 닫기 버튼을 누르거나 뒤로가기 버튼을 눌러 동영상 광고를 닫을 때 호출
+        MobileAds.Initialize((InitializationStatus initStatus) => { });
 
         if (GameManager.I.ScenesManager.CurrentSceneName == "BattleScene0")
         {
@@ -48,36 +38,98 @@ public class AdsManager : MonoBehaviour
 
     }
 
-    public void HandleRewardedAdLoaded(object sender, EventArgs args) { }
-
-    public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args) { }
-
-    public void HandleRewardedAdOpening(object sender, EventArgs args) { }
-
-    public void HandleRewardedAdFailedToShow(object sender, EventArgs args) { }
-
-    public void HandleRewardedAdClosed(object sender, EventArgs args) 
+    public void LoadRewardedAd()
     {
-        if(GameManager.I.ScenesManager.CurrentSceneName == "BattleScene0")
+        // Clean up the old ad before loading a new one.
+        if (_rewardedAd != null)
         {
-            _stageController.AdReword();
+            _rewardedAd.Destroy();
+            _rewardedAd = null;
         }
-        else if(GameManager.I.ScenesManager.CurrentSceneName == "LobyScene")
+
+        // create our request used to load the ad.
+        var adRequest = new AdRequest();
+
+        // send the request to load the ad.
+        RewardedAd.Load(_adUnitId, adRequest,
+            (RewardedAd ad, LoadAdError error) =>
+            {
+                // if error is not null, the load request failed.
+                if (error != null || ad == null)
+                {
+                    Debug.LogError("Rewarded ad failed to load an ad " +
+                                   "with error : " + error);
+                    return;
+                }
+
+                Debug.Log("Rewarded ad loaded with response : "
+                          + ad.GetResponseInfo());
+
+                _rewardedAd = ad;
+                RegisterEventHandlers(_rewardedAd);
+                ShowRewardedAd();
+            });
+    }
+
+    public void ShowRewardedAd()
+    {
+        if (_rewardedAd != null && _rewardedAd.CanShowAd())
         {
-            GameManager.I.DataManager.GameData.Coin += 10000;
-            _lobyController.Init();
-            GameManager.I.DataManager.DataSave();
+            _rewardedAd.Show((Reward reward) =>
+            {
+                // 광고 보상
+                if (GameManager.I.ScenesManager.CurrentSceneName == "BattleScene0")
+                {
+                    _stageController.AdReword();
+                    _stageController.IsAd = false;
+                }
+                else if (GameManager.I.ScenesManager.CurrentSceneName == "LobyScene")
+                {
+                    GameManager.I.DataManager.GameData.Coin += 10000;
+                    _lobyController.Init();
+                    _lobyController.IsAd = false;
+                    GameManager.I.DataManager.DataSave();
+                }
+            });
         }
     }
 
-    public void HandleUserEarnedReward(object sender, Reward args) { }
-
-    public void ShowAds()
+    private void RegisterEventHandlers(RewardedAd ad)
     {
-        if (_rewardedAd.IsLoaded())
+        // Raised when the ad is estimated to have earned money.
+        ad.OnAdPaid += (AdValue adValue) =>
         {
-            _rewardedAd.Show();
-        }
+            Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
+                adValue.Value,
+                adValue.CurrencyCode));
+        };
+        // Raised when an impression is recorded for an ad.
+        ad.OnAdImpressionRecorded += () =>
+        {
+            Debug.Log("Rewarded ad recorded an impression.");
+        };
+        // Raised when a click is recorded for an ad.
+        ad.OnAdClicked += () =>
+        {
+            Debug.Log("Rewarded ad was clicked.");
+        };
+        // Raised when an ad opened full screen content.
+        ad.OnAdFullScreenContentOpened += () =>
+        {
+            Debug.Log("Rewarded ad full screen content opened.");
+        };
+        // Raised when the ad closed full screen content.
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            Debug.Log("Rewarded ad full screen content closed.");
+            //LoadRewardedAd();
+        };
+        // Raised when the ad failed to open full screen content.
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            Debug.LogError("Rewarded ad failed to open full screen content " +
+                           "with error : " + error);
+            LoadRewardedAd();
+        };
     }
-
 }

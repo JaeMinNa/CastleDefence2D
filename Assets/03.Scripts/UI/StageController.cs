@@ -41,6 +41,9 @@ public class StageController : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private GameObject _tutorialPanel;
 
+    [Header("Ad")]
+    public bool IsAd;
+
     [HideInInspector] public bool IsDangerTime;
     private CastleData _castleData;
     private DataWrapper _dataWrapper;
@@ -58,6 +61,7 @@ public class StageController : MonoBehaviour
     {
         IsDangerTime = false;
         _gameFinish = false;
+        IsAd = false;
         _time = 60f;
         _adCount = 0;
         _castleData = GameManager.I.DataManager.CastleData;
@@ -208,14 +212,18 @@ public class StageController : MonoBehaviour
 
     public void AdButton()
     {
-        if (_adCount >= 1)
+        if(!IsAd)
         {
-            GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
-            return;
-        }
+            IsAd = true;
+            if (_adCount >= 1)
+            {
+                GameManager.I.SoundManager.StartSFX("ButtonClickMiss");
+                return;
+            }
 
-        GameManager.I.SoundManager.StartSFX("ButtonClick");
-        GameManager.I.AdsManager.ShowAds();
+            GameManager.I.SoundManager.StartSFX("ButtonClick");
+            GameManager.I.AdsManager.LoadRewardedAd();
+        }
     }
 
     public void AdReword()

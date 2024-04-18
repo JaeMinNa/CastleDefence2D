@@ -51,6 +51,9 @@ public class LobyController : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private GameObject _tutorialPanel;
 
+    [Header("Ad")]
+    public bool IsAd;
+
     private GameData _gameData;
 
     private void Start()
@@ -65,6 +68,7 @@ public class LobyController : MonoBehaviour
             _tutorialPanel.SetActive(true);
         }
         Init();
+        IsAd = false;
     }
 
     public void Init()
@@ -253,8 +257,12 @@ public class LobyController : MonoBehaviour
 
     public void AdButton()
     {
-        GameManager.I.SoundManager.StartSFX("ButtonClick");
-        GameManager.I.AdsManager.ShowAds();
+        if(!IsAd)
+        {
+            IsAd = true;
+            GameManager.I.SoundManager.StartSFX("ButtonClick");
+            GameManager.I.AdsManager.LoadRewardedAd();
+        }
     }
 
     public void GameExitButton()
