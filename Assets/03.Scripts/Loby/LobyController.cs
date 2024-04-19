@@ -211,11 +211,11 @@ public class LobyController : MonoBehaviour
         _playerAtkText.text = _playerData.Atk.ToString();
         if(_playerData.Speed > 0)
         {
-            _playerSpeedText.text = _playerData.Speed.ToString();
+            _playerSpeedText.text = _playerData.Speed.ToString("N1");
         }
         else
         {
-            _playerSpeedText.text = (-_playerData.Speed).ToString();
+            _playerSpeedText.text = (-_playerData.Speed).ToString("N1");
         }
         _playerInfo.SetActive(true);
     }
@@ -233,7 +233,7 @@ public class LobyController : MonoBehaviour
         _castleExpText.text = ((int)_castleData.CurrentExp).ToString() + " / " + ((int)_castleData.MaxExp).ToString();
         _castleHpText.text = _castleData.Hp.ToString();
         _castleAtkText.text = _castleData.Atk.ToString();
-        _castleTimeText.text = _castleData.AttackCoolTime.ToString();
+        _castleTimeText.text = _castleData.AttackCoolTime.ToString("N1");
         _castleInfo.SetActive(true);
     }
 
