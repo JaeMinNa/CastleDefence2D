@@ -26,13 +26,17 @@
 ## ▶️ 게임 스크린샷
 
 <p align="center">
-  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/01ecec6d-f021-46b0-8844-0963c6ebc5f0" width="49%"/>
   <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/3f839016-1a7c-4c2d-ac4e-a139f88fdbee" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/2da0e46b-8a1d-449d-badf-f9cfe755f746" width="49%"/>
 </p>
 <p align="center">
-  <img src="https://github.com/JaeMinNa/Hero-Battle3D/assets/149379194/e5781fa5-a078-471f-9c02-87f1b4be045e" width="49%"/>
-  <img src="https://github.com/JaeMinNa/Hero-Battle3D/assets/149379194/82def12d-45af-4086-9a89-87754aa670c4" width="49%"/>
-  </p>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/512405f5-034a-48bf-b8e9-bcbd533b567f" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/6388d81d-0f0e-45b2-9bbd-c1090f8dbf23" width="49%"/>
+</p>
+<p align="center">
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/43425d4d-311c-4cb3-a646-a9def38e52c1" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/1107054e-59a9-4e60-b3d2-9096fe7f9cd5" width="49%"/>
+</p>
 <br/>
 
 ## 🔳 와이어 프레임
