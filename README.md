@@ -215,6 +215,7 @@ public GameObject SpawnFromPool(string tag)
 
 - 인스펙터 창에서 Stage 정보를 입력할 수 있도록, Serializable로 직렬화
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/f2ff9c46-db91-4570-baa5-34b5674559d2" width="50%"/>
+
 ```C#
 [System.Serializable]
 public struct StageInfo
