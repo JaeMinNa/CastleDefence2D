@@ -257,7 +257,7 @@ public class LobyController : MonoBehaviour
 
     public void AdButton()
     {
-        if(!IsAd)
+        if (!IsAd)
         {
             IsAd = true;
             GameManager.I.SoundManager.StartSFX("ButtonClick");
