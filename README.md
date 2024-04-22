@@ -47,13 +47,10 @@
 ## 🧩 클라이언트 구조
 
 ### GameManager
-![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/9e6cf307-c767-430f-becf-6c92e9706628)
-   
-### Player   
-![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/28588140-a69c-4b72-8199-e2d35313b1ed)
+![image](https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/82d943a9-0013-4c2d-a27c-590612208480)
 
 ### Enemy
-![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/912af85b-4a6f-4cad-96ea-c976dd18cb6d)
+![image](https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/751c8abd-d84f-4597-b9d7-98ec8e6784eb)
 
 
 ## ✏️ 구현 기능
