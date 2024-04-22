@@ -56,10 +56,10 @@
 ## ✏️ 구현 기능
 
 ### 1. 상태 패턴 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/189c6289-ef59-4bbf-bb83-c61ff3c56f15" width="50%"/>
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/76266ccb-1def-47b6-adbb-e9cc4239b6f7" width="50%"/>
 
 #### 구현 이유
-- 다양한 상태를 가진 적과 동료 움직임 구현
+- 다양한 상태를 가진 Player와 Enemy 움직임 구현
 - 끊임없이 독립적으로 행동해야 함
 - 유연한 상태 관리로 필요에 따라 상태를 추가하거나 수정이 가능해야 함
 
@@ -107,19 +107,42 @@ IEnumerator COUpdate()
   while (true)
   {
   	// 각각의 상태 변환 조건 설정
-      if (_enemyController.Distance <= 5f)
-      {
-          _enemyController.AttackStart();
-          break;
-      }          
-      if (_time >= _idleTime)
-      {
-          _enemyController.WalkStart();
-          break;
-      }
+	if(_enemyController.Ishit)
+    	{
+		_enemyController.HitStart();
+		break;
+	}
+	if(_enemyController.IsAttack)
+	{
+		_enemyController.AttackStart();
+		break;
+	}
     
       yield return null;
   }
+}
+```
+<br/>
+
+### 2. 롱클릭 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/c8ad82a6-fc10-4605-ab7f-51881792969d" width="50%"/>
+
+#### 구현 이유
+- 버튼 클릭 시, Player의 스킬 사용을 위해
+
+#### 구현 방법
+- ObjectPoolManager로 ObjectPool들을 관리
+- Size만큼 미리 프리팹을 생성하고, 선입선출인 Queue 자료구조로 순차적으로 SetActive(true) 실행
+```C#
+public GameObject SpawnFromPool(string tag)
+{
+    if (!PoolDictionary.ContainsKey(tag))
+        return null;
+
+    GameObject obj = PoolDictionary[tag].Dequeue();
+    PoolDictionary[tag].Enqueue(obj);
+
+    return obj;
 }
 ```
 <br/>
