@@ -258,6 +258,49 @@ IEnumerator COSpawnEnemy(string enemy, int time)
 ```
 <br/>
 
+### 5. Skill 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/f72e2a16-0a57-4236-8bd4-0fbe8b81e356" width="50%"/>
+
+#### 구현 이유
+- Melee, Ranged, Area Skill 구현
+
+#### 구현 방법
+- Melee Skill
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/904a0dae-134a-4fe4-8e45-1f945244f163" width="50%"/>
+
+```C#
+private void OnTriggerEnter2D(Collider2D collision)
+{
+	if(collision.CompareTag("Enemy"))
+	{
+	    Vector2 _dir = collision.transform.position - _playerController.transform.position;
+	    collision.transform.GetComponent<EnemyController>().Ishit = true;
+	
+	    if(transform.CompareTag("MeleeCollider"))
+	    {
+		collision.transform.GetComponent<EnemyController>().Hp -= _playerController.Atk;
+	    }
+	}
+}
+```
+<br/>
+
+- Ranged Skill, Areak Skill
+
+```C#
+private void Targetting()
+{
+	int layerMask = (1 << _layerMask);  // Layer 설정
+	_targets = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, 2, 0), 2f, layerMask);
+	
+	for (int i = 0; i < _targets.Length; i++)
+	{
+	    _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk;
+	}
+}
+```
+<br/>
+
 ### 3. GameManger 구현
 <p align="center">
   <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/f89a51ef-2103-45d7-bfb4-977fa98f9f3a" width="49%"/>
