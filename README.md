@@ -265,7 +265,7 @@ IEnumerator COSpawnEnemy(string enemy, int time)
 - Melee, Ranged, Area Skill 구현
 
 #### 구현 방법
-- Melee Skill
+- Melee Skill 공격 시, AttackCollider를 생성해서 적 데미지 적용
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/904a0dae-134a-4fe4-8e45-1f945244f163" width="50%"/>
 
 ```C#
@@ -285,7 +285,7 @@ private void OnTriggerEnter2D(Collider2D collision)
 ```
 <br/>
 
-- Ranged Skill, Areak Skill
+- Ranged Skill, Areak Skill 공격 시, Physics2D.OverlapCircleAll로 주위 범위의 콜라이더를 감지해서 적 데미지 적용
 
 ```C#
 private void Targetting()
@@ -297,6 +297,41 @@ private void Targetting()
 	{
 	    _targets[i].gameObject.GetComponent<EnemyController>().Hp -= _player.GetComponent<PlayerController>().Atk;
 	}
+}
+```
+<br/>
+
+- Areak Skill 공격 시, Interval 초 간격으로 Count 수 만큼 반복
+
+```C#
+IEnumerator COShootAreaSkill(SkillData areaSkillData)
+{
+	int count = 0;
+	while (true)
+	{
+	    count++;
+	    GameManager.I.ObjectPoolManager.ActivePrefab(areaSkillData.Tag, transform.position);
+	
+	    if (count == areaSkillData.Count) break;
+	    yield return new WaitForSeconds(areaSkillData.Interval);
+	}
+}
+```
+<br/>
+
+- Areak Skill 공격 시, 주위 범위 내, 랜덤으로 생성하고 아래로 이동하도록 구현
+
+```C#
+private void Start()
+{
+	float random = Random.Range(_player.transform.position.x - _areaSkillData.Range, _player.transform.position.x + _areaSkillData.Range);
+	_startPos = new Vector3(random, 10f, 0);
+	transform.position = _startPos;
+}
+
+private void Update()
+{
+    transform.position += new Vector3(0, -_areaSkillData.Speed, 0) * Time.deltaTime;
 }
 ```
 <br/>
