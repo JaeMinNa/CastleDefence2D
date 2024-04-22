@@ -128,7 +128,62 @@ IEnumerator COUpdate()
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/c8ad82a6-fc10-4605-ab7f-51881792969d" width="50%"/>
 
 #### 구현 이유
-- 버튼 클릭 시, Player의 스킬 사용을 위해
+- 버튼 클릭 시, Player의 방향 전환과 스킬 사용을 위해
+
+#### 구현 방법
+- Event Trigger 추가
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cb78fd39-4f33-44ce-bfe8-83270f0f34e6" width="50%"/>
+
+- Pointer Up, Pointer Down 추가
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/3ea32d49-2703-488b-b375-1f12fed014f2" width="50%"/>
+
+- 스크립트 작성
+```C#
+public float minClickTime = 1; // 최소 클릭시간
+private float _clickTime; // 클릭 중인 시간
+private bool _isClick; // 클릭 중인지 판단 
+
+// 버튼 클릭이 시작했을 때
+public void ButtonDown()
+{
+	_isClick = true;
+}
+
+// 버튼 클릭이 끝났을 때
+public void ButtonUp()
+{
+	_isClick = false;
+
+	if (_clickTime >= minClickTime)
+	{
+		Debug.Log("스킬 발동!");
+	}
+}
+
+private void Update()
+{
+	if (_isClick)
+	{
+		_clickTime += Time.deltaTime;
+	}
+	else
+	{
+		_clickTime = 0;
+	}
+}
+```
+
+- 버튼 연결
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e4c67f5b-08eb-4b59-86e6-00d52e57e5c3" width="50%"/>
+<br/>
+
+### 3. ObjectPool 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/d578aac4-d786-4216-acca-ad1abbc2cfe1" width="50%"/>
+
+#### 구현 이유
+- 미리 생성한 프리팹을 파괴하지 않고, 재사용해서 최적화를 위해
+- 프리팹의 Instantiate, Destroy 함수 사용을 줄이기 위해
+- Enemy, Skill, Item 등 생성과 파괴를 반복하는 프리팹에 적용
 
 #### 구현 방법
 - ObjectPoolManager로 ObjectPool들을 관리
@@ -147,26 +202,56 @@ public GameObject SpawnFromPool(string tag)
 ```
 <br/>
 
-### 2. ObjectPool 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/51eaa960-70bc-4614-8236-36bcd36584bd" width="50%"/>
+### 4. SpawnSystem 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/22d48439-f734-463e-b729-c700c63a21c0" width="50%"/>
 
 #### 구현 이유
-- 미리 생성한 총탄 프리팹을 파괴하지 않고, 재사용해서 최적화를 위해
-- 프리팹의 Instantiate, Destroy 함수 사용을 줄이기 위해
+- 인스펙터 창에서 Stage 별, 적의 종류와 Spawn 시간을 설정하기 위해
+- 각각 Stage 마다, 직접 난이도를 설정하기 위해
 
 #### 구현 방법
-- ObjectPoolManager로 ObjectPool들을 관리
-- Size만큼 미리 프리팹을 생성하고, 선입선출인 Queue 자료구조로 순차적으로 SetActive(true) 실행
+- SpawnSystem 생성
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/b14f46a4-933a-4f6d-ac97-cabd09477da4" width="50%"/>
+
+- 인스펙터 창에서 Stage 정보를 입력할 수 있도록, Serializable로 직렬화
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/f2ff9c46-db91-4570-baa5-34b5674559d2" width="50%"/>
 ```C#
-public GameObject SpawnFromPool(string tag)
+[System.Serializable]
+public struct StageInfo
 {
-    if (!PoolDictionary.ContainsKey(tag))
-        return null;
+	public int Stage;
+	public string[] enemys; // enemy + 생성되는 시간 입력 ex) "Snail 5"
+}
+public List<StageInfo> Stages;
+```
+<br/>
 
-    GameObject obj = PoolDictionary[tag].Dequeue();
-    PoolDictionary[tag].Enqueue(obj);
+- 입력한 Stage 정보를 Split 함수로 문자열을 자르고 적 랜덤 Spawn
+```C#
+private void Start()
+{
+	_currentStage = GameManager.I.DataManager.GameData.Stage;
+	for (int i = 0; i < Stages[_currentStage - 1].enemys.Length; i++)
+	{
+		string[] words = Stages[_currentStage - 1].enemys[i].Split(' ');
+		_enemy = words[0];
+		_spawnTime = int.Parse(words[1]);
+		
+		StartCoroutine(COSpawnEnemy(_enemy, _spawnTime));
+	}
+}
 
-    return obj;
+IEnumerator COSpawnEnemy(string enemy, int time)
+{
+	while (true)
+	{
+		yield return new WaitForSeconds(time);
+		
+		int random = Random.Range(0, 2);
+
+		if (random == 0) GameManager.I.ObjectPoolManager.ActivePrefab(enemy, _spawnLeft.position);
+		else GameManager.I.ObjectPoolManager.ActivePrefab(enemy, _spawnRigth.position);
+	}
 }
 ```
 <br/>
