@@ -1,4 +1,4 @@
-# 🖥️ 나홀로 성 지키기 개인 프로젝트
+# 🖥️ 나홀로 성 지키기
 
 + 제한 시간 동안 몰려오는 적들을 처치하고 성을 지키는 원터치 게임 입니다!
 + 몰려오는 적들을 처치하고 60초 동안 성을 지키세요!
@@ -11,6 +11,7 @@
  - 플랫폼 : Android / Web
  - 장르 : 2D 하이퍼캐주얼 디펜스 액션 아케이드
  - 개발 기간 : 24.03.18 ~ 24.04.19
+ - 프로젝트 유형 : 개인
 <br/>
 
 ## ⚙️ Environment
@@ -25,8 +26,8 @@
 ## ▶️ 게임 스크린샷
 
 <p align="center">
-  <img src="https://github.com/JaeMinNa/Hero-Battle3D/assets/149379194/59234705-f74a-4aad-8a55-dacceb656889" width="49%"/>
-  <img src="https://github.com/JaeMinNa/Hero-Battle3D/assets/149379194/29e69efe-79ec-4f58-9f45-8089e805bcf4" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/01ecec6d-f021-46b0-8844-0963c6ebc5f0" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/3f839016-1a7c-4c2d-ac4e-a139f88fdbee" width="49%"/>
 </p>
 <p align="center">
   <img src="https://github.com/JaeMinNa/Hero-Battle3D/assets/149379194/e5781fa5-a078-471f-9c02-87f1b4be045e" width="49%"/>
