@@ -40,7 +40,8 @@
 <br/>
 
 ## 🔳 와이어 프레임
-![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/55a6fc97-c435-4d0b-8b14-ad77a930ecbb)
+![image](https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e4e6cb5f-0754-496b-8b76-ab81b40c503b)
+![image](https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/946f7205-8b3d-4dd3-bf66-185bb4ddce80)
 
 
 ## 🧩 클라이언트 구조
