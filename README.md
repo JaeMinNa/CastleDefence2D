@@ -265,7 +265,7 @@ IEnumerator COSpawnEnemy(string enemy, int time)
 - Melee, Ranged, Area Skill 구현
 
 #### 구현 방법
-- Melee Skill 공격 시, AttackCollider를 생성해서 적 데미지 적용
+- Melee Skill 공격 시, AttackCollider를 SetActive(true)해서 적 데미지 적용
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/904a0dae-134a-4fe4-8e45-1f945244f163" width="50%"/>
 
 ```C#
