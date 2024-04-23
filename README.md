@@ -341,6 +341,7 @@ private void Update()
 
 #### 구현 이유
 - 성의 좌우 자동 공격을 위해
+- 중력의 영향을 받는 자연스러운 화살 구현을 위해
 
 #### 구현 방법
 - 화살에 Rigdbody와 Collider 추가
