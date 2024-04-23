@@ -146,16 +146,6 @@ public class SkillInventorySlot : MonoBehaviour
 
         if (_skillData.Type == SkillData.SkillType.Melee)
         {
-            //if(_skillData.Level >= 2)
-            //{
-            //    _meleeSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //    _meleeSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //}
-            //else
-            //{
-            //    _meleeSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //    _meleeSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //}
             _meleeSkillTag.text = _skillData.Tag;
             _equipMeleeSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _meleeSkillDescriptionText.text = _skillData.Description;
@@ -197,16 +187,6 @@ public class SkillInventorySlot : MonoBehaviour
         }
         else if(_skillData.Type == SkillData.SkillType.Ranged)
         {
-            //if(_skillData.Level >= 2)
-            //{
-            //    _rangedSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //    _rangedSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //}
-            //else
-            //{
-            //    _rangedSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //    _rangedSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //}
             _rangedSkillTag.text = _skillData.Tag;
             _equipRangedSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _rangedSkillDescriptionText.text = _skillData.Description;
@@ -248,20 +228,6 @@ public class SkillInventorySlot : MonoBehaviour
         }
         else
         {
-            //if(_skillData.Level >= 2)
-            //{
-            //    _areaSkillLevelText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //    _areaSkillAtkText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //    _areaSkillCountText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //    _areaSkillIntervalText.color = new Color(221 / 255f, 160 / 255f, 26 / 255f, 255 / 255f);
-            //}
-            //else
-            //{
-            //    _areaSkillLevelText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //    _areaSkillAtkText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //    _areaSkillCountText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //    _areaSkillIntervalText.color = new Color(64 / 255f, 64 / 255f, 75 / 255f, 255 / 255f);
-            //}
             _areaSkillTag.text = _skillData.Tag;
             _equipAreadSkillImage.sprite = Resources.Load<Sprite>(_skillData.IconPath);
             _areaSkillDescriptionText.text = _skillData.Description;

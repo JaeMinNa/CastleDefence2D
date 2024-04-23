@@ -95,7 +95,7 @@ public class SkillDraw : MonoBehaviour
         GameManager.I.DataManager.GameData.SkillDrawCount--;
         UpdateSkillDrawCount();
         int length = _dataWrapper.SkillData.Length;
-        int random1 = Random.Range(0, 4); // Skill Type
+        int random1 = Random.Range(0, 3); // Skill Type
         int random2 = Random.Range(1, 101); // Rank
        
         if(random1 == 0) // Melee
