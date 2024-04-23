@@ -455,97 +455,157 @@ if(random1 == 0) // Melee
 <br/>
 
   
-### 5. 3D 사운드 구현
+### 9. Json 데이터 저장 기능 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/12a93236-5aec-475e-8d3f-9fac1e874fc1" width="50%"/> 
 
 #### 구현 이유
-- 유니티에서 제공하는 3D 사운드 기능을 사용하니 거리에 따른 소리 음량 크기 조절이 한번씩 제대로 적용이 안되는 현상 발생
-- 사운드가 깨지거나 이상한 소리로 변질되어 재생되는 현상 발생
-- 하나의 AudioSource에서 동시에 많은 수의 PlayOneShot 함수가 실행되면 리소스 및 처리 성능에 영향을 줄 수 있음
+- 게임 데이터를 자동으로 저장하는 기능을 구현하기 위해
+- 유니티에서 JSON Utility 클래스를 사용해서 오브젝트 데이터를 쉽게 다룰 수 있기 때문에
 
 #### 구현 방법
-- 3D 사운드 기능을 사용하지 않고, 거리에 따라 볼륨을 직접 조절하는 방식으로 직접 구현
-- 미리 생성한 몇 개의 AudioSource가 순차적으로 재생하도록 구현
+- 인스펙터 창에서 데이터를 확인 또는 수정이 가능하도록 데이터 class를 Serializable로 직렬화
 
 ```C#
-public void StartSFX(string name, Vector3 position)
+using System.IO;
+
+[System.Serializable]
+public class GameData
 {
-	_index = _index % _etcSFXAudioSource.Length;
-	
-	float distance = Vector3.Distance(position, GameManager.I.PlayerManager.Player.transform.position);
-	float volume = 1f - (distance / _maxDistance);
-	if (volume < 0) volume = 0f;
-	_etcSFXAudioSource.volume = Mathf.Clamp01(volume);
-	_etcSFXAudioSource.PlayOneShot(_sfx[name]);
-	
-	_index++;
+    [Header("GameData")]
+    public int Satge = 1;
+    public int Coin = 0;
+    public int SkillDrawCount = 0;
+
+    [Header("Sound")]
+    public float BGMVolume = 0;
+    public float SFXVolume = 0;
 }
 ```
 <br/>
 
-### 6. Player 3단 콤보 공격 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/8ff5ecb8-3c7b-4a1c-8ae3-cf0b76d33911" width="50%"/> 
-
-#### 구현 이유
-- Player의 연속 공격 구현
-
-#### 구현 방법
-- Sub-State Machine로 각각 애니메이션을 연결
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/f25b1057-7d5d-474d-8013-dd3da44fc75a" width="50%"/>
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/6c4bf20c-2d8e-4a71-a960-65c6864f3149" width="50%"/> 
+- 데이터를 저장, 불러오기 하는 함수 작성
 
 ```C#
-public void OnAttackInput(InputAction.CallbackContext context)
+[ContextMenu("To Json Data")] // 컴포넌트 메뉴에 아래 함수를 호출하는 To Json Data 라는 명령어가 생성됨
+void SaveGameDataToJson()
 {
-    if (context.phase == InputActionPhase.Started)
-    {
-        _animator.SetTrigger("Attack");
-    }
+	// Android나 WebGL 플랫폼에서는 persistentDataPath 경로를 사용해야 함
+	if (Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+	{
+	    string jsonData = JsonUtility.ToJson(GameData, true);
+	    string path = Path.Combine(Application.persistentDataPath, "GameData.json");
+	    File.WriteAllText(path, jsonData);
+	}
+	// 유니티 에디터
+	else
+	{
+	    string jsonData = JsonUtility.ToJson(GameData, true);
+	    string path = Path.Combine(Application.dataPath, "GameData.json");
+	    File.WriteAllText(path, jsonData);
+	}
+}
+
+[ContextMenu("From Json Data")]
+void LoadGameDataFromJson()
+{
+	// Android나 WebGL 플랫폼에서는 persistentDataPath 경로를 사용해야 함
+	if(Application.platform == RuntimePlatform.WebGLPlayer || Application.platform == RuntimePlatform.Android)
+	{
+	    string path = Path.Combine(Application.persistentDataPath, "GameData.json");
+	    string jsonData = File.ReadAllText(path);
+	    GameData = JsonUtility.FromJson<GameData>(jsonData);
+	}
+	// 유니티 에디터
+	else
+	{
+	    string path = Path.Combine(Application.dataPath, "GameData.json");
+	    string jsonData = File.ReadAllText(path);
+	    GameData = JsonUtility.FromJson<GameData>(jsonData);
+	}
 }
 ```
 <br/>
 
-### 7. 튜토리얼 시스템 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/c3193176-cf88-4d67-b2c5-60164304ae24" width="50%"/> 
-
-#### 구현 이유
-- 유저 피드백에서 게임 진행에 대한 정보가 부족하다는 피드백을 받음
-
-#### 구현 방법
-- Tutorial 빈 게임오브젝트에 Canvas 추가, Canvas의 자식으로 튜토리얼 UI 생성
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/64a266c5-3c45-45db-9375-ff17ef0b235d" width="50%"/>
-
-- 튜토리얼을 실행하는 콜라이더 범위 IsTrigger로 설정
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/73f72464-9058-45b6-89d8-ee5d000547eb" width="50%"/>
-
-- 튜토리얼을 관리하는 스크립트와 튜토리얼 범위를 관리하는 스크립트 작성
-```C#
-public void TutorialActive(int num)
-{
-	_tutorials[num].SetActive(true);
-	Time.timeScale = 0f;
-	_isPause = true;
-	IsTutorialActive[num] = true;
-}
-```
+- 인스펙터 창에서 수정된 데이터 저장, 불러오기
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/3cb23f65-b22e-428b-af06-df8b4e58907d" width="50%"/> 
 <br/>
 
-### 8. 방치형 보상 기능 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/cc22c720-a795-4d9a-811c-e4d0fcb6c781" width="50%"/> 
+### 10. Admob 보상형 광고 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/05fd840c-4f81-4f16-910b-cda374eb84e0" width="50%"/> 
 
 #### 구현 이유
-- 마지막 저장 시간에 따른 보상 지급
+- 유저가 돈을 지불하지 않아도 광고를 시청하면 Coin을 얻거나, 게임을 더 플레이 할 수 있는 기회를 얻게하기 위해
+- 유저들이 광고를 시청함으로써, 게임의 수익화를 실현하기 위해
 
 #### 구현 방법
-- DateTime.Now로 마지막 저장 시간을 구해서 PlayerPrefs로 로컬 저장
-- 저장한 시간과 현재 시간을 계산해서 경과 시간을 계산
-- 경과 시간에 따라 보상을 지급
+- Google Admob에서 보상형 광고 생성
+- Unity plugin을 설치 후, 프로젝트에 Import
+- 테스트 ID와 광고 ID를 적용해서 스크립트 작성
+
 ```C#
-if (PlayerPrefs.HasKey("LastTime"))
+private void start()
 {
-    _lastTime = DateTime.Parse(PlayerPrefs.GetString("LastTime"));
-    _currentTime = DateTime.Now;
-    _timeSpan = _currentTime - _lastTime;
-    _rewardTime = _timeSpan.TotalSeconds;
+	#if UNITY_ANDROID
+		if (IsTestMode) _adUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID
+		else _adUnitId = ""; // 광고 ID
+	#elif UNITY_IPHONE
+		_adUnitId = "ca-app-pub-3940256099942544~1458002511"; // 테스트용 ID
+	#else
+		_adUnitId = "unused";
+	#endif
+
+MobileAds.Initialize((InitializationStatus initStatus) => { });
+
+public void LoadRewardedAd()
+{
+	if (_rewardedAd != null)
+	{
+	    _rewardedAd.Destroy();
+	    _rewardedAd = null;
+	}
+
+	var adRequest = new AdRequest();
+
+	RewardedAd.Load(_adUnitId, adRequest, (RewardedAd ad, LoadAdError error) =>
+	{
+		if (error != null || ad == null)
+		{
+		    Debug.LogError("Rewarded ad failed to load an ad " +
+				   "with error : " + error);
+		    return;
+		}
+
+		Debug.Log("Rewarded ad loaded with response : " + ad.GetResponseInfo());
+
+		_rewardedAd = ad;
+		RegisterEventHandlers(_rewardedAd);
+		ShowRewardedAd();
+	});
+}
+
+public void ShowRewardedAd()
+{
+	if (_rewardedAd != null && _rewardedAd.CanShowAd())
+	{
+	    _rewardedAd.Show((Reward reward) =>
+	    {
+		// 광고 보상 입력
+	    });
+	}
+}
+
+private void RegisterEventHandlers(RewardedAd ad)
+{
+	ad.OnAdPaid += (AdValue adValue) => { };
+	ad.OnAdImpressionRecorded += () => { };
+	ad.OnAdClicked += () => { };
+	ad.OnAdFullScreenContentOpened += () => { };
+	ad.OnAdFullScreenContentClosed += () => { };
+	// 광고 불러오기를 실패했을 때
+	ad.OnAdFullScreenContentFailed += (AdError error) =>
+	{
+	    LoadRewardedAd();
+	};
 }
 ```
 <br/>
