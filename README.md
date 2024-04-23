@@ -451,62 +451,7 @@ if(random1 == 0) // Melee
 	}
     }
 }
-
-
-_getSkillData.CurrentUpgradeCount++;
-_getSkillTagText.text = _getSkillData.Tag;
-_getSkillTypeText.text = _getSkillData.Type.ToString();
-_getSkillImage.sprite = Resources.Load<Sprite>(_getSkillData.IconPath);
-
-if (_getSkillData.Rank == SkillData.SkillRank.B)
-{
-    _getSkillRankText.color = new Color(25 / 255f, 144 / 255f, 0 / 255f, 255 / 255f);
-}
-else if (_getSkillData.Rank == SkillData.SkillRank.A)
-{
-    _getSkillRankText.color = new Color(255 / 255f, 16 / 255f, 0 / 255f, 255 / 255f);
-}
-else
-{
-    _getSkillRankText.color = new Color(244 / 255f, 255 / 255f, 40 / 255f, 255 / 255f);
-}
-_getSkillRankText.text = _getSkillData.Rank.ToString();
-
-_getSkillDescriptionText.text = _getSkillData.Description;
-if(!_getSkillData.IsGet)
-{
-    _playerData.SkillInventory.Add(_getSkillData);
-    _getSkillData.IsGet = true;
-    _text1.text = "새로운 스킬을 뽑았습니다.";
-    _text2.text = "";
-}
-else
-{
-    if(_getSkillData.CurrentUpgradeCount < _getSkillData.MaxUpgradeCount)
-    {
-	_text1.text = "이미 획득한 스킬을 뽑았습니다.";
-	_text2.text = "같은 스킬을 " + (_getSkillData.MaxUpgradeCount - _getSkillData.CurrentUpgradeCount).ToString() + "번 더 뽑으면 자동 강화합니다.";
-    }
-    else
-    {
-	_getSkillData.CurrentUpgradeCount = _getSkillData.CurrentUpgradeCount - _getSkillData.MaxUpgradeCount + 1;
-	_getSkillData.MaxUpgradeCount *= 2;
-	_getSkillData.Level++;
-	_text1.text = "이미 획득한 스킬을 뽑았습니다.";
-	_text2.text = "스킬을 자동 강화했습니다.";
-	UpgradeSkill();
-    }
-}
-
-
-_skillInfoPanel.SetActive(true);
-
-GameManager.I.DataManager.DataSave();
-}
 ```
-
-- 리소스 로딩이 끝나기 전에 씬 로딩 되는 것을 막기 위해 allowSceneActivation을 false로 설정
-- allowSceneActivation을 false로 90% 로드 한 상태로 대기하고, true 변경 시, 남은 부분을 로드하고 씬 이동
 <br/>
 
   
