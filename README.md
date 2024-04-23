@@ -336,7 +336,7 @@ private void Update()
 ```
 <br/>
 
-### 6. 화살 구현
+### 6. 화살 포물선 운동 구현
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/4d1cd27c-466f-4028-a8d7-31bf6e131532" width="50%"/>
 
 #### 구현 이유
