@@ -530,6 +530,7 @@ void LoadGameDataFromJson()
 - 인스펙터 창에서 수정된 데이터 저장, 불러오기
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/3cb23f65-b22e-428b-af06-df8b4e58907d" width="50%"/> 
 <br/>
+<br/>
 
 ### 10. Admob 보상형 광고 구현
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/05fd840c-4f81-4f16-910b-cda374eb84e0" width="50%"/> 
