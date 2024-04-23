@@ -336,86 +336,172 @@ private void Update()
 ```
 <br/>
 
-### 3. GameManger 구현
-<p align="center">
-  <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/f89a51ef-2103-45d7-bfb4-977fa98f9f3a" width="49%"/>
-  <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/40fa1552-3838-46b1-9eef-728f75aced92" width="49%"/>
-</p>
-<br/>
+### 6. 화살 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/4d1cd27c-466f-4028-a8d7-31bf6e131532" width="50%"/>
 
 #### 구현 이유
-- 각각 Manager들을 통합하여 접근 가능한 Manager가 필요
+- 성의 좌우 자동 공격을 위해
 
 #### 구현 방법
-- 어디서든 쉽게 접근이 가능해야 하므로 싱글톤 사용
-- GameManger은 Manager들을 관리하는 하나의 역할만 수행
+- 화살에 Rigdbody와 Collider 추가
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/7cc79412-ae01-4f19-8bc6-ce8fc8c4fdc8" width="50%"/>
+
+- 스크립트 작성
+
 ```C#
-public static GameManager I;
+public float _power;
 
-[field: SerializeField] public DataManager DataManager { get; private set; }
-[field: SerializeField] public SoundManager SoundManager { get; private set; }
-
-private void Awake()
+private void Start()
 {
-    if (I == null) I = this;
-    else Destroy(gameObject);
-    
-    Init();
+	_rigidbody.AddForce(transform.right * _power, ForceMode2D.Impulse);
 }
 
-private void Init()
+private void Update()
 {
-    DataManager.Init();
-    SoundManager.Init();
-}
-
-private void Release()
-{
-    DataManager.Release();
-    SoundManager.Release();
+	transform.right = _rigidbody.velocity;
 }
 ```
 <br/>
 
-### 4. 로딩 씬 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/dc119f73-2223-4ff2-8744-5346ba599a42" width="50%"/>  
+### 7. 인벤토리 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/003244f9-06c6-4b2b-8425-c0736d6f2e14" width="50%"/>
 
 #### 구현 이유
-- 씬이 전환 될 때, 다음 씬에서 사용될 리소스들을 읽어와서 게임을 위한 준비 작업 필요
-- 로딩 화면이 없다면 가만히 멈춘 화면이나 까만 화면만 보일 수 있음
-- 씬이 전환 될 때, 지루한 대기 시간을 이미지나 Tip으로 지루하지 않게 하기 위해
+- 보유한 Skill의 목록을 확인하기 위해
 
 #### 구현 방법
-- 씬을 불러오는 도중에 다른 작업이 가능 비동기 방식 씬 전환 구현
+- Scroll View와 Grid Layout Group을 추가
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cafe7146-32eb-4a68-85b9-7e8350698158" width="50%"/>
+
+- Inventory 스크립트 작성
+
 ```C#
-IEnumerator LoadScene()
+private void UpdateMeleeSKillInventory()
 {
-    yield return null;
-    AsyncOperation op = SceneManager.LoadSceneAsync(NextScene);
-    op.allowSceneActivation = false;
-    float timer = 0.0f;
-    while (!op.isDone)
+	// Inventory 초기화
+	for (int i = 0; i < _meleeSlotContent.transform.childCount; i++)
+	{
+		_skillInventorySlot = _meleeSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+		_skillInventorySlot.SkillEmpty();
+	}
+
+	// Inventory Slot
+	for (int i = 0; i < _skills.Count; i++)
+	{
+		_meleeSlotContent.transform.GetChild(i).transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(_skills[i].IconPath);
+		_skillInventorySlot = _meleeSlotContent.transform.GetChild(i).GetComponent<SkillInventorySlot>();
+		_skillInventorySlot.SkillText(_skills[i]);
+	}
+}
+```
+<br/>
+
+### 8. 뽑기 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/483c5efc-7427-4d66-89db-670cc19b0517" width="50%"/>  
+
+#### 구현 이유
+- Skill의 Rank 별, 뽑기 확률 적용을 위해
+
+#### 구현 방법
+- Random.Range 함수를 사용해서 1 ~ 100의 자연수 중, 랜덤하게 가지고와서 랭크에 따라 뽑기 확률을 설정
+- Random.Range 함수를 사용해서 0 ~ 2 의 자연수 중, 랜덤하게 가지고와서 Melee, Ranged, Area 스킬을 결정
+- while문을 사용해서 결정된 Rank가 나올때까지 반복하도록 구현
+- S Rank : 10%, A Rank : 25%, B Rank : 65% 적용
+
+```C#
+public void SkillIInfoButton()
+{
+int length = _dataWrapper.SkillData.Length;
+int random1 = Random.Range(0, 3); // Skill Type
+int random2 = Random.Range(1, 101); // Rank
+
+if(random1 == 0) // Melee
+{
+    while (true)
     {
-        yield return null;
-        timer += Time.deltaTime;
-        if (op.progress < 0.9f)
-        {
-            _loadingBar.value = Mathf.Lerp(_loadingBar.value, op.progress, timer);
-            if (_loadingBar.value >= op.progress)
-            {
-                timer = 0f;
-            }
-        }
-        else
-        {
-            _loadingBar.value = Mathf.Lerp(_loadingBar.value, 1f, timer);
-            if (_loadingBar.value == 1.0f)
-            {
-                op.allowSceneActivation = true;
-                yield break;
-            }
-        }
+	int random3 = Random.Range(0, length);
+	if (_dataWrapper.SkillData[random3].Type != SkillData.SkillType.Melee) continue;
+
+	if(_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.S)
+	{
+	    if (random2 >= 1 && random2 <= 10)
+	    {
+		_getSkillData = _dataWrapper.SkillData[random3];
+		break;
+	    }
+	    else continue;
+	}
+	else if(_dataWrapper.SkillData[random3].Rank == SkillData.SkillRank.A)
+	{
+	    if (random2 >= 11 && random2 <= 35) // A
+	    {
+		_getSkillData = _dataWrapper.SkillData[random3];
+		break;
+	    }
+	    else continue;
+	}
+	else
+	{
+	    if (random2 >= 36 && random2 <= 100) // B
+	    {
+		_getSkillData = _dataWrapper.SkillData[random3];
+		break;
+	    }
+	    else continue;
+	}
     }
+}
+
+
+_getSkillData.CurrentUpgradeCount++;
+_getSkillTagText.text = _getSkillData.Tag;
+_getSkillTypeText.text = _getSkillData.Type.ToString();
+_getSkillImage.sprite = Resources.Load<Sprite>(_getSkillData.IconPath);
+
+if (_getSkillData.Rank == SkillData.SkillRank.B)
+{
+    _getSkillRankText.color = new Color(25 / 255f, 144 / 255f, 0 / 255f, 255 / 255f);
+}
+else if (_getSkillData.Rank == SkillData.SkillRank.A)
+{
+    _getSkillRankText.color = new Color(255 / 255f, 16 / 255f, 0 / 255f, 255 / 255f);
+}
+else
+{
+    _getSkillRankText.color = new Color(244 / 255f, 255 / 255f, 40 / 255f, 255 / 255f);
+}
+_getSkillRankText.text = _getSkillData.Rank.ToString();
+
+_getSkillDescriptionText.text = _getSkillData.Description;
+if(!_getSkillData.IsGet)
+{
+    _playerData.SkillInventory.Add(_getSkillData);
+    _getSkillData.IsGet = true;
+    _text1.text = "새로운 스킬을 뽑았습니다.";
+    _text2.text = "";
+}
+else
+{
+    if(_getSkillData.CurrentUpgradeCount < _getSkillData.MaxUpgradeCount)
+    {
+	_text1.text = "이미 획득한 스킬을 뽑았습니다.";
+	_text2.text = "같은 스킬을 " + (_getSkillData.MaxUpgradeCount - _getSkillData.CurrentUpgradeCount).ToString() + "번 더 뽑으면 자동 강화합니다.";
+    }
+    else
+    {
+	_getSkillData.CurrentUpgradeCount = _getSkillData.CurrentUpgradeCount - _getSkillData.MaxUpgradeCount + 1;
+	_getSkillData.MaxUpgradeCount *= 2;
+	_getSkillData.Level++;
+	_text1.text = "이미 획득한 스킬을 뽑았습니다.";
+	_text2.text = "스킬을 자동 강화했습니다.";
+	UpgradeSkill();
+    }
+}
+
+
+_skillInfoPanel.SetActive(true);
+
+GameManager.I.DataManager.DataSave();
 }
 ```
 
