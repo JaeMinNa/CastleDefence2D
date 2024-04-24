@@ -866,7 +866,7 @@ _targets = Physics2D.OverlapCircleAll(transform.position, 3f, layerMask);
  - Admob 보상형 광고 적용 완료
  - Json 데이터 저장 기능 구현
  - 초기 기획과 크게 벗어나지 않게 게임 개발 성공
- - 전체적으로 최적화에 신경을 더 많이 씀
+ - 전체적으로 이전 프로젝트에 비해서 최적화에 신경을 많이 씀
  - 기획부터 최종 개발까지 전부 혼자서 진행
 <br/>
 
