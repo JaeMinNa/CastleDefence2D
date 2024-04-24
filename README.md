@@ -674,13 +674,13 @@ public GameObject SpawnFromPool(string tag)
 <br/>
 
 
-### 2. ObjectPool 사용 시, OnEnable를 이용한 Start문 대체
+### 2. ObjectPool 사용 시, OnEnable를 오브젝트 초기화
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/12ec91d2-b3d9-485b-aa63-565721640b80" width="50%"/>
 
 #### Start문 사용
 - ObjectPool로 재사용할 때, 정상적으로 동작하지 않음
 - Start문의 내용이 재실행되지 않음
-- 오브젝트 활성화 될 때 마다, WalkState로 전환하는 코드를 실행해야 함
+- 오브젝트 활성화 될 때 마다, 초기화 해야함
  
 ```C#
 private void Start()
@@ -703,7 +703,8 @@ private void Start()
 
 #### OnEnable문 사용
 - 오브젝트 활성화 시, Start문 내용은 실행되지 않고, 최초 1회만 실행
-- OnEnable문 -> Start문 순으로 실행 
+- OnEnable문 -> Start문 순으로 실행
+
 ```C#
 private void Start()
 {
