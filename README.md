@@ -614,6 +614,65 @@ private void RegisterEventHandlers(RewardedAd ad)
 
 ## 💥 트러블 슈팅
 
+### 1. ObjectPool을 이용한 최적화
+
+#### 프리팹 생성, 파괴로 구현
+- 간단하고 직관적으로 구현 가능
+- 반복적인 프리팹 생성, 삭제로 성능 저하 초래
+- 적절한 메모리 관리 방법 필요
+```C#
+IEnumerator COShootAreaSkill(SkillData areaSkillData)
+{
+	int count = 0;
+	while (true)
+	{
+		count++;
+		Instantiate(_skillPrefab, transform.position, Quaternion.identity);
+		
+		if (count == 10) break;
+		yield return new WaitForSeconds(0.3f);
+	}
+}
+```
+
+#### ObjectPool로 개선
+- 프리팹 생성, 파괴를 하지 않음
+- 객체를 미리 생성해서 재사용 → 메모리 최적화 가능
+
+##### ObjectPoolManager
+```C#
+public void ActivePrefab(string poolName, Vector3 startPosition)
+{
+	_prefab = ObjectPool.SpawnFromPool(poolName);
+	_prefab.transform.position = startPosition;
+	_prefab.SetActive(true);
+}
+```
+
+##### ObjectPool
+```C#
+public GameObject SpawnFromPool(string tag)
+{
+	if (!PoolDictionary.ContainsKey(tag))
+	    return null;
+	
+	GameObject obj = PoolDictionary[tag].Dequeue();
+	PoolDictionary[tag].Enqueue(obj);
+	
+	return obj;
+}
+```
+![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/558554b0-f1c7-4bd5-b0d0-334c68ce8041)
+
+#### 결과
+- 초당 프레임 개선 (175 FPS → 190 FPS)
+<p align="center">
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/8b98b7a0-3c0e-44e7-8e1e-4938261f9303" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/5cdbe562-bf27-483d-a7e6-454fa790ea5c" width="49%"/>
+</p>
+<br/>
+
+
 ### 1. Input System을 이용한 Player 이동 개선
 <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/401b8466-c112-43e6-ab26-1a410670b324" width="50%"/>
 
