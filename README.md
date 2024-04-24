@@ -662,7 +662,6 @@ public GameObject SpawnFromPool(string tag)
 	return obj;
 }
 ```
-![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/558554b0-f1c7-4bd5-b0d0-334c68ce8041)
 
 #### 결과
 - 초당 프레임 개선 (175 FPS → 190 FPS)
@@ -670,6 +669,71 @@ public GameObject SpawnFromPool(string tag)
   <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/8b98b7a0-3c0e-44e7-8e1e-4938261f9303" width="49%"/>
   <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/5cdbe562-bf27-483d-a7e6-454fa790ea5c" width="49%"/>
 </p>
+
+- 프리팹의 생성,파괴 대신 모두 ObjectPool을 적용해서 최적화 완료
+<br/>
+
+
+### 2. ObjectPool 사용 시, OnEnable를 이용한 Start문 대체
+
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/12ec91d2-b3d9-485b-aa63-565721640b80" width="50%"/> 
+#### Start문 사용
+- ObjectPool로 재사용할 때, 정상적으로 동작하지 않음
+- Start문의 내용이 재실행되지 않음
+- 오브젝트 활성화 될 때 마다, WalkState로 전환하는 코드를 실행해야 함
+```C#
+private void Start()
+{
+	_enemyStateContext = new EnemyStateContext(this);
+	
+	_walkState = gameObject.AddComponent<EnemyWalkState>();
+	_hitState = gameObject.AddComponent<EnemyHitState>();
+	_attackState = gameObject.AddComponent<EnemyAttackState>();
+	Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+	Rigdbody = GetComponent<Rigidbody2D>();
+	
+	Hp = EnemyData.Hp;
+	Ishit = false;
+	IsAttack = false;
+	
+	_enemyStateContext.Transition(_walkState);
+}
+```
+
+#### OnEnable문 사용
+- 오브젝트 활성화 시, Start문 내용은 실행되지 않고, 최초 1회만 실행
+- OnEnable문 -> Start문 순으로 실행 
+```C#
+private void Start()
+{
+	_enemyStateContext = new EnemyStateContext(this);
+	
+	_walkState = gameObject.AddComponent<EnemyWalkState>();
+	_hitState = gameObject.AddComponent<EnemyHitState>();
+	_attackState = gameObject.AddComponent<EnemyAttackState>();
+	Animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+	Rigdbody = GetComponent<Rigidbody2D>();
+	
+	Hp = EnemyData.Hp;
+	Ishit = false;
+	IsAttack = false;
+	
+	_enemyStateContext.Transition(_walkState);
+}
+
+private void OnEnable()
+{
+	if(_enemyStateContext != null)
+	{
+	    Hp = EnemyData.Hp;
+	    _enemyStateContext.Transition(_walkState);
+	}
+}
+```
+
+#### 결과
+- ObjectPool로 프리팹의 재사용 시, 오브젝트가 활성화 될 때마다 코드를 실행 가능
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/f676082d-c675-4104-98fb-fbc3d7bd8715" width="50%"/> 
 <br/>
 
 
