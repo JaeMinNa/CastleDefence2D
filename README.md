@@ -681,6 +681,7 @@ public GameObject SpawnFromPool(string tag)
 - ObjectPool로 재사용할 때, 정상적으로 동작하지 않음
 - Start문의 내용이 재실행되지 않음
 - 오브젝트 활성화 될 때 마다, WalkState로 전환하는 코드를 실행해야 함
+ 
 ```C#
 private void Start()
 {
