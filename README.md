@@ -133,9 +133,11 @@ IEnumerator COUpdate()
 - Event Trigger 추가
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cb78fd39-4f33-44ce-bfe8-83270f0f34e6" width="50%"/>
 <br/>
+<br/>
 
 - Pointer Up, Pointer Down 추가
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/3ea32d49-2703-488b-b375-1f12fed014f2" width="50%"/>
+<br/>
 <br/>
 
 - 스크립트 작성
