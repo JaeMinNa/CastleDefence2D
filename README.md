@@ -127,7 +127,7 @@ IEnumerator COUpdate()
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/c8ad82a6-fc10-4605-ab7f-51881792969d" width="50%"/>
 
 #### 구현 이유
-- 버튼 클릭 시, Player의 방향 전환과 스킬 사용을 위해
+- 버튼 클릭 시, Player의 스킬 사용을 위해
 
 #### 구현 방법
 - Event Trigger 추가
