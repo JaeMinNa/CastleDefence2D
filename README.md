@@ -321,8 +321,8 @@ IEnumerator COShootAreaSkill(SkillData areaSkillData)
 
 - Areak Skill 공격 시, 주위 범위 내, 랜덤으로 생성하고 아래로 이동하도록 구현
 <p align="center">
-  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e32cf54c-c21c-408f-9485-7dbeb673d876" width="49%"/>
-  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cd7d06f1-4216-4029-9536-417654b3d5be" width="49%"/>
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cd7d06f1-4216-4029-9536-417654b3d5be" width="49%"/>
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e32cf54c-c21c-408f-9485-7dbeb673d876" width="49%"/>
 </p>
 
 ```C#
@@ -776,8 +776,8 @@ private void OnEnable()
 - 간단하게 구현 가능
 ##### Physics2D.OverlapCircleAll를 사용
 <p align="center">
-  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e32cf54c-c21c-408f-9485-7dbeb673d876" width="49%"/>
-  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cd7d06f1-4216-4029-9536-417654b3d5be" width="49%"/>
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cd7d06f1-4216-4029-9536-417654b3d5be" width="49%"/>
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e32cf54c-c21c-408f-9485-7dbeb673d876" width="49%"/>
 </p>
 
 - 특정 범위 내의 적이나 동료 판별 가능
