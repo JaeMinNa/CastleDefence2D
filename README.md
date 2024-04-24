@@ -385,6 +385,8 @@ private void Update()
 #### 구현 방법
 - Scroll View와 Grid Layout Group을 추가
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cafe7146-32eb-4a68-85b9-7e8350698158" width="50%"/>
+<br/>
+<br/>
 
 - Inventory 스크립트 작성
 
