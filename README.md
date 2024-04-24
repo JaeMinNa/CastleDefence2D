@@ -356,6 +356,8 @@ private void Update()
 #### 구현 방법
 - 화살에 Rigdbody와 Collider 추가
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/7cc79412-ae01-4f19-8bc6-ce8fc8c4fdc8" width="50%"/>
+<br/>
+<br/>
 
 - 스크립트 작성
 
