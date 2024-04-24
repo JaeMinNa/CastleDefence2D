@@ -741,7 +741,7 @@ private void OnEnable()
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/f676082d-c675-4104-98fb-fbc3d7bd8715" width="50%"/> 
 <br/>
 
-### 3. 상태 패턴을 이용한 적과 Player 구현
+### 3. 상태 패턴을 이용한 Enemy와 Player 구현
 <p align="center">
   <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/c6f239cc-d98a-4c89-ba16-bc3895f15e25" width="49%"/>
   <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/defa1871-065a-41ab-8ef7-40c0c030f808" width="49%"/>
@@ -780,166 +780,91 @@ private void OnEnable()
 </p>
 
 - 특정 범위 내의 적이나 동료 판별 가능
-- 코루틴 함수로 일정 시간 반복해서 사용해야 함
 
 ```C#
 private void Targetting()
 {
-	int layerMask = (1 << _layerMask);	// Layer 설정
-	_targets = Physics.OverlapSphere(transform.position, 50f, layerMask);
+int layerMask = (1 << _layerMask);  // Layer 설정
+_targets = Physics2D.OverlapCircleAll(transform.position, 3f, layerMask);
+
+// 데미지 적용
+
 }
 ```
  
 #### 의견 결정
-##### Physics.OverlapSphere로 구현
-- BoxCollider 사용 시, 총기 구현에서 사용한 Physics.Raycast가 BoxCollider를 먼저 인식해서 적을 인식할 수 없음
-- 범위 내에서 가장 가까운 적이나 동료를 지정 가능
+##### Physics2D.OverlapCircleAll로 구현
+- BoxCollider 사용 시, 다른 Collider나 Raycast와 충돌할 위험이 있음
+- Skill이 적과 충돌할 때, 순간적으로 적들을 인식 가능
 <br/>
 
-
-### 1. Input System을 이용한 Player 이동 개선
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/401b8466-c112-43e6-ab26-1a410670b324" width="50%"/>
-
-#### Input 클래스로 Player 이동 구현
-- 간편하고 직관적으로 구현 가능
-- Update 문에서 매 프레임 실행하기 때문에 성능에 영향
-```C#
-private void FixedUpdate()
-{
-	float moveHorizontal = Input.GetAxis("Horizontal");
-	float moveVertical = Input.GetAxis("Vertical");
-	
-	Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-	_rigidbody.AddForce(movement * speed);
-}
-```
-
-#### Input System으로 개선
-- 입력 이벤트에 대한 바인딩 및 처리를 쉽게 구성
-- Update문에서 매 프레임 실행할 필요가 없음
-- 다양한 입력 장치를 지원
-```C#
-public void OnMoveInput(InputAction.CallbackContext context)
-{
-	if (context.phase == InputActionPhase.Performed)
-	{
-	    _curMovementInput = context.ReadValue<Vector2>();
-	}
-	else if (context.phase == InputActionPhase.Canceled)
-	{
-	    _curMovementInput = Vector2.zero;
-	}
-}
-
-private void Move()
-{
-	Vector3 dir = transform.forward * _curMovementInput.y + transform.right * _curMovementInput.x;
-	dir *= MoveSpeed;
-	dir.y = _rigidbody.velocity.y;
-	
-	_rigidbody.velocity = dir;
-}
-```
-
-#### 결과
-- 복잡한 입력 시스템이나 다중 입력 조합을 유연하게 처리
-<br/>
-
-
-### 5. Physics.OverlapSphere를 이용한 Targetting 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/dbfc5b0a-af38-477d-a89c-63363e19549d" width="50%"/>
+### 5. 적과 적의 충돌
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/799db977-9173-4d6b-bd4c-66529a7912cd" width="50%"/>
 
 #### 문제 상황
-- 동료와 적의 단체 전투 요소를 위해 Targetting 방법이 필요
+- 적과 적이 충돌하지 않는 방법 필요
 
 #### 해결 방안
-##### BoxCollider로 IsTrigger 범위 설정
-- 간단하게 구현 가능
-##### Physics.OverlapSphere를 사용
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/3187c4ed-2000-44df-b310-79ad0154658f" width="50%"/>
+##### Layer Collision Matrix 설정
+- Project Settings - Physics2D 에서 간단하게 설정 가능
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/fe62ae49-be60-4425-b099-1541ffd523ee" width="50%"/>
 
-- 특정 범위 내의 적이나 동료 판별 가능
-- 코루틴 함수로 일정 시간 반복해서 사용해야 함
+##### Collider의 IsTrigger 사용
+- 간단하게 설정가능
+- 하지만 땅을 통과하기 때문에 추가 Collider가 필요
 
-```C#
-private void Targetting()
-{
-	int layerMask = (1 << _layerMask);	// Layer 설정
-	_targets = Physics.OverlapSphere(transform.position, 50f, layerMask);
-}
-```
- 
 #### 의견 결정
-##### Physics.OverlapSphere로 구현
-- BoxCollider 사용 시, 총기 구현에서 사용한 Physics.Raycast가 BoxCollider를 먼저 인식해서 적을 인식할 수 없음
-- 범위 내에서 가장 가까운 적이나 동료를 지정 가능
+##### Layer Collision Matrix 설정
+- 적에게 추가 Collider를 생성하면 적을 두 번 인식할 수도 있음
+- 유니티 자체 기능으로 간편하게 설정 가능
 <br/>
 
-### 6. PlayerPrefs를 이용한 데이터 저장 기능 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/a1088497-fab3-4f63-87fd-7a9184a5a1b2" width="50%"/>
+### 6. 데이터 저장 방법
 
 #### 문제 상황
-- Player의 정보와 배의 위치를 저장할 수 있는 간단한 저장 방법 필요
+- 기존의 ScriptableObject로 저장된 데이터는 유니티 에디터에서만 저장
+- 빌드 후, ScriptableObject로 데이터를 저장할 수 없기 때문에 다른 데이터를 저장할 방법 필요
 
 #### 해결 방안
+##### EasySave 에셋 사용
+- 유니티 에셋스토어의 검증된 에셋으로, 간편하고 기능이 많음
+- 유료로 다운 받을 수 있음
+
+##### Json 사용
+- 텍스트 기반의 데이터 형식
+- 유니티에서 JSON Utility 클래스를 사용해서 오브젝트 데이터를 쉽게 다룰 수 있음
+- 데이터를 저장하거나 교환하는데 자주 사용되는 경량의 데이터 교환 형식
+- 키-값 쌍으로 이루어진 데이터 객체와 배열을 포함
+
 ##### PlayerPrefs 사용
-- 유니티에서 제공하는 기능으로 직관적으로 간단하게 사용 가능
-
-```C#
-public void DataSave()
-{
-	// Player 정보 저장
-	PlayerPrefs.SetFloat("SaveHp", _playerConditions.Health.CurValue);
-	PlayerPrefs.SetInt("SaveCurrentBullet", _playerController.GunController.CurrentGun.CurrentBulletCount);
-	PlayerPrefs.SetInt("SaveCoin", _playerController.CurrentCoin);
-}
-
-public void DataLoad()
-{
-	// Player 정보 불러오기
-	_playerConditions.Health.CurValue = PlayerPrefs.GetFloat("SaveHp");
-	_playerController.GunController.CurrentGun.CurrentBulletCount = PlayerPrefs.GetInt("SaveCurrentBullet");
-	_playerController.CurrentCoin = PlayerPrefs.GetInt("SaveCoin") ;
-}
-```
-
-##### 직렬화 및 파일 저장 사용
-- 안전하고 속도가 매우 빠름
-##### 데이터베이스 사용
-- 대규모 데이터를 저장하고 관리에 적합
+- 가장 간단하게 저장할 수 있는 유니티 자체 기능
+- GameObject 데이터 저장하기는 어려움
 
 #### 의견 결정
-##### PlayerPrefs로 구현
-- 간단한 정보만 저장하면 되기 때문에 로컬 저장이 맞다고 판단
-- 간단하게 사용할 수 있기 때문에 단순한 게임 진행도는 PlayerPrefs로 충분히 구현 가능
+##### Json 사용
+- 에셋을 구매하는 것보다, 직접 기능을 구현하고 싶었음
+- PlayerPrefs의 데이터 저장으로 인벤토리의 Skill을 저장하는 것이 어렵다고 판단
+- 구현 난이도가 비교적 쉬움
 <br/>
-
-
-## 👩‍👦‍👦 유저 테스트
- - 유저 테스트 기간 : 24.02.21 ~ 24.02.28
-<br/>
-
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/e23a933a-2f65-4024-881a-20619a0d3ac5" width="50%"/>
-<br/>
-<br/>
-
-
 
 ## 📋 프로젝트 회고
 ### 잘한 점
- - 유저 테스트를 통해, 피드백을 받고 수정 작업 진행
- - ObjectPool을 통해, 최적화 진행
- - 상태 패턴 구현
+ - 초기 계획대로 구글 플레이 스토어에 안드로이드 출시 완료
+ - WebGL 빌드 후, Itch.io 업로드 완료
+ - Admob 보상형 광고 적용 완료
+ - Json 데이터 저장 기능 구현
+ - 초기 기획과 크게 벗어나지 않게 게임 개발 성공
+ - 전체적으로 최적화에 신경을 더 많이 씀
+ - 기획부터 최종 개발까지 전부 혼자서 진행
 <br/>
 
 ### 한계
-- 전체적인 최적화 진행 부족
-- 배, 파도 유료 에셋의 사용법을 제대로 숙지 못함
-- 방치형 보상 기능의 로컬 시간 저장
-- 게임의 목적성, 컨텐츠 부족으로 흥미가 떨어짐
-- PlayerPrefs를 이용한 저장의 보완이 필요
+- iOS 빌드에 대한 공부가 더 필요
+- 장르의 특성 상, 다양한 컨텐츠가 부족
+- 출시 후, 홍보 및 광고의 한계
+- 수익화를 실현했지만, 실제 수익을 기대하기는 힘듦
 <br/>
 
 ### 소감
-유료 에셋 사용, 최적화 진행, 유저 피드백 경험 등 처음으로 시도한 것들이 많아서 의미가 깊은 프로젝트였습니다. 최적화 진행에서는 완벽하다고 볼 수는 없지만, 다음 프로젝트에서 더욱 잘할 수 있을 거라는 자신감을 가질 수 있었습니다. 다른 조들에 비해서 인원 수가 많이 부족했지만, 그만큼 정말 많은 것들을 배울 수 있었습니다.
+처음으로 기획부터 최종 개발까지 혼자서 진행한 프로젝트였습니다. 초기 계획대로 구글 플레이 스토어에 안드로이드 출시를 처음으로 성공했습니다. 직전 프로젝트에서 최적화 부분이 많이 부족하다고 느껴서, ObjectPool을 사용한 최적화에 신경을 많이 쓰고 적용했습니다. 게임 개발까지는 이전 프로젝트의 경험을 바탕으로 빠르게 할 수 있었지만, 빌드, 광고 적용 및 출시에서 생각보다 시간을 많이 소요했습니다. 하지만, 개인 블로그에 잘 정리를 했기 때문에, 다음 프로젝트에서는 더욱 빠르게 진행할 수 있을 것 같습니다. 그리고 출시를 하고 끝이 아닌, 수익화를 실현할 수 있는 광고나 홍보, 광고 보상 등이 정말 중요하다고 느낄 수 있었던 프로젝트였습니다.
   
