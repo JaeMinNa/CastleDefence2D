@@ -675,8 +675,8 @@ public GameObject SpawnFromPool(string tag)
 
 
 ### 2. ObjectPool 사용 시, OnEnable를 이용한 Start문 대체
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/12ec91d2-b3d9-485b-aa63-565721640b80" width="50%"/>
 
-<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/12ec91d2-b3d9-485b-aa63-565721640b80" width="50%"/> 
 #### Start문 사용
 - ObjectPool로 재사용할 때, 정상적으로 동작하지 않음
 - Start문의 내용이 재실행되지 않음
