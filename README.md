@@ -320,6 +320,10 @@ IEnumerator COShootAreaSkill(SkillData areaSkillData)
 <br/>
 
 - Areak Skill 공격 시, 주위 범위 내, 랜덤으로 생성하고 아래로 이동하도록 구현
+<p align="center">
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e32cf54c-c21c-408f-9485-7dbeb673d876" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cd7d06f1-4216-4029-9536-417654b3d5be" width="49%"/>
+</p>
 
 ```C#
 private void Start()
@@ -674,7 +678,7 @@ public GameObject SpawnFromPool(string tag)
 <br/>
 
 
-### 2. ObjectPool 사용 시, OnEnable를 오브젝트 초기화
+### 2. ObjectPool 사용 시, OnEnable문으로 오브젝트 초기화
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/12ec91d2-b3d9-485b-aa63-565721640b80" width="50%"/>
 
 #### Start문 사용
@@ -738,6 +742,61 @@ private void OnEnable()
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/f676082d-c675-4104-98fb-fbc3d7bd8715" width="50%"/> 
 <br/>
 
+### 3. 상태 패턴을 이용한 적과 Player 구현
+<p align="center">
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/c6f239cc-d98a-4c89-ba16-bc3895f15e25" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/defa1871-065a-41ab-8ef7-40c0c030f808" width="49%"/>
+</p>
+
+#### 문제 상황
+- 적과 동료의 독립적인 움직임을 구현하기 위한 방법이 필요
+
+#### 해결 방안
+##### 조건문과 스위치문 사용
+- 간단하고 직관적으로 구현 가능
+- 행동이 많다면 코드가 복잡해짐
+##### 상태 패턴
+- 새로운 상태 추가가 쉬움
+- 확장성이 용이
+  
+#### 의견 결정
+##### 상태 패턴으로 구현
+- 특정 조건에 따라 각각 다른 행동을 할 수 있음
+- 특정 행동을 추가해도 유지 관리가 용이
+<br/>
+
+### 4. Physics2D.OverlapCircleAll를 이용한 Targetting 구현
+<img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/58f3acf1-ea78-4e77-9a3f-1259477a4fab" width="50%"/>
+
+#### 문제 상황
+- Player의 Skill 사용 시, 데미지 적용을 위한 적 Targetting 방법이 필요
+
+#### 해결 방안
+##### BoxCollider로 IsTrigger 범위 설정
+- 간단하게 구현 가능
+##### Physics2D.OverlapCircleAll를 사용
+<p align="center">
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/e32cf54c-c21c-408f-9485-7dbeb673d876" width="49%"/>
+  <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/cd7d06f1-4216-4029-9536-417654b3d5be" width="49%"/>
+</p>
+
+- 특정 범위 내의 적이나 동료 판별 가능
+- 코루틴 함수로 일정 시간 반복해서 사용해야 함
+
+```C#
+private void Targetting()
+{
+	int layerMask = (1 << _layerMask);	// Layer 설정
+	_targets = Physics.OverlapSphere(transform.position, 50f, layerMask);
+}
+```
+ 
+#### 의견 결정
+##### Physics.OverlapSphere로 구현
+- BoxCollider 사용 시, 총기 구현에서 사용한 Physics.Raycast가 BoxCollider를 먼저 인식해서 적을 인식할 수 없음
+- 범위 내에서 가장 가까운 적이나 동료를 지정 가능
+<br/>
+
 
 ### 1. Input System을 이용한 Player 이동 개선
 <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/401b8466-c112-43e6-ab26-1a410670b324" width="50%"/>
@@ -787,122 +846,6 @@ private void Move()
 - 복잡한 입력 시스템이나 다중 입력 조합을 유연하게 처리
 <br/>
 
-### 2. Physics.Raycast를 이용한 총기 구현 개선
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/d736e5a7-8aca-4f6b-b4af-56039f537bb6" width="50%"/>
-
-#### 총알 프리팹을 생성해서 총기 구현
-- 실제와 같은 총알 속도, 탄도학 등 적용 가능
-- 실제와 유사하게 적용하는 것이 어려움
-- 적절한 메모리 관리 방법 필요
-```C#
-private void Fire()
-{
-	Instantiate(bullet, transform.position, Quaternion.identity);
-}
-```
-
-#### Physics.Raycast로 개선
-- 총알 프리팹을 생성할 필요가 없음
-- 즉각적으로 대상의 정보를 읽어 올 수 있음
-- 별도의 메모리 관리 방법이 필요 없음
-```C#
-if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hitInfo, 50f))
-{
-	Debug.Log(_hitInfo.transform.name);
-}
-```
-
-#### 결과
-- 초당 프레임 개선 (63 FPS → 73 FPS)
-<p align="center">
-  <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/5b4e21fc-eaef-4272-986f-ec634f077708" width="49%"/>
-  <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/dee9851e-ed68-4e00-80ca-6c9db30fc122" width="49%"/>
-</p>
-<br/>
-
-### 3. ObjectPool을 이용한 총기 탄피 구현 개선
-
-#### 프리팹 생성, 파괴로 총기 탄피 구현
-- 간단하고 직관적으로 구현 가능
-- 반복적인 프리팹 생성, 삭제로 성능 저하 초래
-- 적절한 메모리 관리 방법 필요
-```C#
-private void Fire()
-{
-	Instantiate(_bulletEffectObj, transform.position, Quaternion.identity);
-}
-```
-
-#### ObjectPool로 개선
-- 프리팹 생성, 파괴를 하지 않음
-- 객체를 미리 생성해서 재사용 → 메모리 최적화 가능
-
-##### ObjectPoolManager
-```C#
-public void GunEffect(string poolName ,Vector3 startPosition, Quaternion rotation)
-{
-	_bulletEffectObj = ObjectPool.SpawnFromPool(poolName);
-	
-	_bulletEffectObj.transform.position = startPosition;
-	_bulletEffectObj.transform.rotation = rotation;
-	//RangedAttackController attackController = obj.GetComponent<RangedAttackController>();
-	//attackController.InitializeAttack(direction, attackData, this);
-	
-	_bulletEffectObj.SetActive(true);
-	StartCoroutine(COGunEffectInactive());
-}
-
-IEnumerator COGunEffectInactive()
-{
-	GameObject obj = _bulletEffectObj;
-	
-	yield return new WaitForSeconds(0.5f);
-	obj.SetActive(false);
-}
-```
-
-##### ObjectPool
-```C#
-public GameObject SpawnFromPool(string tag)
-{
-	if (!PoolDictionary.ContainsKey(tag))
-	    return null;
-	
-	GameObject obj = PoolDictionary[tag].Dequeue();
-	PoolDictionary[tag].Enqueue(obj);
-	
-	return obj;
-}
-```
-![image](https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/558554b0-f1c7-4bd5-b0d0-334c68ce8041)
-
-#### 결과
-- 초당 프레임 개선 (50 FPS → 76 FPS)
-<p align="center">
-  <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/e02299d0-c341-4ce3-9006-d945f44c5431" width="49%"/>
-  <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/3b3c0f06-0d57-4f9f-ad4a-7f0070b47a9e" width="49%"/>
-</p>
-<br/>
-
-### 4. 상태 패턴을 이용한 적과 동료 구현
-<img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/86cd872d-3d7e-4dba-94c8-5e29f8b92a86" width="50%"/>
-
-#### 문제 상황
-- 적과 동료의 독립적인 움직임을 구현하기 위한 방법이 필요
-
-#### 해결 방안
-##### 조건문과 스위치문 사용
-- 간단하고 직관적으로 구현 가능
-- 행동이 많다면 코드가 복잡해짐
-##### 상태 패턴
-- 새로운 상태 추가가 쉬움
-- 확장성이 용이
-  
-#### 의견 결정
-##### 상태 패턴으로 구현
-- 특정 조건에 따라 각각 다른 행동을 할 수 있음
-- 특정 행동을 추가해도 유지 관리가 용이
-<br/>
 
 ### 5. Physics.OverlapSphere를 이용한 Targetting 구현
 <img src="https://github.com/JaeMinNa/Ocean_Bloom/assets/149379194/dbfc5b0a-af38-477d-a89c-63363e19549d" width="50%"/>
