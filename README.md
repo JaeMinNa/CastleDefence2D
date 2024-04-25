@@ -872,6 +872,7 @@ _targets = Physics2D.OverlapCircleAll(transform.position, 3f, layerMask);
 - 장르의 특성 상, 다양한 컨텐츠가 부족
 - 출시 후, 홍보 및 광고의 한계
 - 수익화를 실현했지만, 실제 수익을 기대하기는 힘듦
+- 목표 기간에 맞추지 못함
 <br/>
 
 ### 소감
