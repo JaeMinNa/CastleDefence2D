@@ -279,9 +279,6 @@ private void OnTriggerEnter2D(Collider2D collision)
 {
 	if(collision.CompareTag("Enemy"))
 	{
-	    Vector2 _dir = collision.transform.position - _playerController.transform.position;
-	    collision.transform.GetComponent<EnemyController>().Ishit = true;
-	
 	    if(transform.CompareTag("MeleeCollider"))
 	    {
 		collision.transform.GetComponent<EnemyController>().Hp -= _playerController.Atk;
