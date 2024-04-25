@@ -347,7 +347,7 @@ private void Update()
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/4d1cd27c-466f-4028-a8d7-31bf6e131532" width="50%"/>
 
 #### 구현 이유
-- 성의 좌우 자동 공격을 위해
+- 성의 화살 공격을 위해
 - 중력의 영향을 받는 자연스러운 화살 구현을 위해
 
 #### 구현 방법
