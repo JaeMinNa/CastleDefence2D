@@ -547,7 +547,7 @@ void LoadGameDataFromJson()
 <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/05fd840c-4f81-4f16-910b-cda374eb84e0" width="50%"/> 
 
 #### 구현 이유
-- 유저가 돈을 지불하지 않아도 광고를 시청하면 Coin을 얻거나, 게임을 더 플레이 할 수 있는 기회를 얻게하기 위해
+- 유저들이 돈을 지불하지 않아도 광고를 시청하면 Coin을 얻거나, 게임을 더 플레이 할 수 있는 기회를 얻게하기 위해
 - 유저들이 광고를 시청함으로써, 게임의 수익화를 실현하기 위해
 
 #### 구현 방법
