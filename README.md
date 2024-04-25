@@ -681,7 +681,7 @@ public GameObject SpawnFromPool(string tag)
   <img src="https://github.com/JaeMinNa/CastleDefence2D/assets/149379194/5cdbe562-bf27-483d-a7e6-454fa790ea5c" width="49%"/>
 </p>
 
-- 프리팹의 생성,파괴 대신 모두 ObjectPool을 적용해서 최적화 완료
+- 프리팹의 생성, 파괴 대신 모두 ObjectPool을 적용해서 최적화 완료
 <br/>
 
 
