@@ -74,8 +74,9 @@ public class StageController : MonoBehaviour
         _layerMask = LayerMask.NameToLayer("Enemy");
         SoundSetting();
         GameManager.I.SoundManager.StartBGM("BattleMap0");
+        GameManager.I.AdsManager.LoadBannerAd();
 
-        if(_gameData.TutorialCount == 1)
+        if (_gameData.TutorialCount == 1)
         {
             _tutorialPanel.SetActive(true);
         }

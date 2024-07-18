@@ -109,7 +109,7 @@ public class RangedSkill : MonoBehaviour
     //void OnDrawGizmos()
     //{
     //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position - new Vector3(0, 2, 0), _skillSO.ExplosionRange);
+    //    Gizmos.DrawWireSphere(transform.position - new Vector3(0, 2, 0), _rangedSkillData.ExplosionRange);
     //}
 
     private void OnTriggerEnter2D(Collider2D collision)

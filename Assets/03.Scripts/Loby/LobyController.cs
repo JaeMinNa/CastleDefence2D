@@ -69,6 +69,7 @@ public class LobyController : MonoBehaviour
         }
         Init();
         IsAd = false;
+        GameManager.I.AdsManager.DestroyAd();
     }
 
     public void Init()

@@ -8,17 +8,29 @@ public class AdsManager : MonoBehaviour
     private LobyController _lobyController;
     private StageController _stageController;
     private RewardedAd _rewardedAd;
-    private string _adUnitId;
+    private BannerView _bannerView;
+    private string _adRewardUnitId;
+    private string _adBannerUnitId;
 
     public void Init()
     {
         #if UNITY_ANDROID
-        if (IsTestMode) _adUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID
-        else _adUnitId = "ca-app-pub-5906820670754550/8284977605"; // 광고 ID
+        if (IsTestMode)
+        {
+            _adRewardUnitId = "ca-app-pub-3940256099942544/5224354917"; // 테스트용 ID
+            _adBannerUnitId = "ca-app-pub-3940256099942544/6300978111";
+        }
+        else
+        {
+            _adRewardUnitId = "ca-app-pub-5906820670754550/8284977605"; // 광고 ID
+            _adBannerUnitId = "ca-app-pub-5906820670754550/5997717819";
+        }
         #elif UNITY_IPHONE
-        _adUnitId = "ca-app-pub-3940256099942544~1458002511";
+            _adRewardUnitId = "ca-app-pub-3940256099942544/1712485313";
+            _adBannerUnitId = "ca-app-pub-3940256099942544/2934735716";
         #else
-        _adUnitId = "unused";
+            _adRewardUnitId = "unused";
+            _adBannerUnitId = "unused";
         #endif
 
         MobileAds.Initialize((InitializationStatus initStatus) => { });
@@ -38,6 +50,108 @@ public class AdsManager : MonoBehaviour
 
     }
 
+    //광고 로드, 사용 시 호출
+    public void LoadBannerAd()
+    {
+        if (_bannerView == null)
+        {
+            CreateBannerView();
+        }
+
+        var adRequest = new AdRequest();
+
+        Debug.Log("Loading banner ad.");
+        _bannerView.LoadAd(adRequest);
+    }
+
+    //광고 보여주기
+    private void CreateBannerView()
+    {
+        Debug.Log("Creating banner view");
+
+        if (_bannerView != null)
+        {
+            DestroyAd();
+        }
+
+        //_bannerView = new BannerView(_adBannerUnitId, AdSize.Banner, AdPosition.Bottom);
+
+        //적응형 배너(꽉찬 사이즈)
+        AdSize adaptiveSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
+        _bannerView = new BannerView(_adBannerUnitId, adaptiveSize, AdPosition.Bottom);
+    }
+
+    //광고 표시
+    private void ShowAd()
+    {
+        if (_bannerView != null)
+        {
+            Debug.Log("Show banner ad.");
+            _bannerView.Show();
+        }
+        else
+        {
+            LoadBannerAd();
+        }
+    }
+
+    //광고 숨기기
+    private void HideAd()
+    {
+        if (_bannerView != null)
+        {
+            Debug.Log("Hide banner ad.");
+            _bannerView.Hide();
+        }
+    }
+
+    //광고 제거
+    public void DestroyAd()
+    {
+        if (_bannerView != null)
+        {
+            Debug.Log("Destroying banner ad.");
+            _bannerView.Destroy();
+            _bannerView = null;
+        }
+    }
+
+    private void ListenToAdEvents()
+    {
+        _bannerView.OnBannerAdLoaded += () =>
+        {
+            Debug.Log("Banner view loaded an ad with response : "
+                + _bannerView.GetResponseInfo());
+        };
+        _bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
+        {
+            Debug.LogError("Banner view failed to load an ad with error : "
+                + error);
+        };
+        _bannerView.OnAdPaid += (AdValue adValue) =>
+        {
+            Debug.Log(string.Format("Banner view paid {0} {1}.",
+                adValue.Value,
+                adValue.CurrencyCode));
+        };
+        _bannerView.OnAdImpressionRecorded += () =>
+        {
+            Debug.Log("Banner view recorded an impression.");
+        };
+        _bannerView.OnAdClicked += () =>
+        {
+            Debug.Log("Banner view was clicked.");
+        };
+        _bannerView.OnAdFullScreenContentOpened += (null);
+        {
+            Debug.Log("Banner view full screen content opened.");
+        };
+        _bannerView.OnAdFullScreenContentClosed += (null);
+        {
+            Debug.Log("Banner view full screen content closed.");
+        };
+    }
+
     public void LoadRewardedAd()
     {
         // Clean up the old ad before loading a new one.
@@ -51,7 +165,7 @@ public class AdsManager : MonoBehaviour
         var adRequest = new AdRequest();
 
         // send the request to load the ad.
-        RewardedAd.Load(_adUnitId, adRequest,
+        RewardedAd.Load(_adRewardUnitId, adRequest,
             (RewardedAd ad, LoadAdError error) =>
             {
                 // if error is not null, the load request failed.
