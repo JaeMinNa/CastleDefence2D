@@ -74,11 +74,11 @@ public class AdsManager : MonoBehaviour
             DestroyAd();
         }
 
-        //_bannerView = new BannerView(_adBannerUnitId, AdSize.Banner, AdPosition.Bottom);
+        _bannerView = new BannerView(_adBannerUnitId, AdSize.Banner, AdPosition.Bottom);
 
         //적응형 배너(꽉찬 사이즈)
-        AdSize adaptiveSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
-        _bannerView = new BannerView(_adBannerUnitId, adaptiveSize, AdPosition.Bottom);
+        //AdSize adaptiveSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
+        //_bannerView = new BannerView(_adBannerUnitId, adaptiveSize, AdPosition.Bottom);
     }
 
     //광고 표시
@@ -96,7 +96,7 @@ public class AdsManager : MonoBehaviour
     }
 
     //광고 숨기기
-    private void HideAd()
+    public void HideAd()
     {
         if (_bannerView != null)
         {

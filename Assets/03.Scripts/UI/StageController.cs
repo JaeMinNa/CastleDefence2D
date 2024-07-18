@@ -125,6 +125,7 @@ public class StageController : MonoBehaviour
     public void GameClearActive()
     {
         GameManager.I.SoundManager.StartSFX("Buy");
+        GameManager.I.AdsManager.DestroyAd();
         Time.timeScale = 0f;
         GameManager.I.DataManager.GameData.Stage++;
 
@@ -177,6 +178,7 @@ public class StageController : MonoBehaviour
         GameManager.I.SoundManager.StartSFX("GameOver");
         _tutorialPanel.SetActive(false);
         _dangerTimePanel.SetActive(false);
+        GameManager.I.AdsManager.DestroyAd();
         Time.timeScale = 0f;
         if (_currentStage == 1) _gameData.TutorialCount = 1;
         _gameOverCoinText.text = "Coin : " + GameManager.I.DataManager.CurrentStageCoin.ToString();
@@ -207,6 +209,7 @@ public class StageController : MonoBehaviour
     {
         GameManager.I.SoundManager.StartSFX("ButtonClick");
         Time.timeScale = 1f;
+        GameManager.I.AdsManager.DestroyAd();
         GameManager.I.DataManager.GameData.Coin += GameManager.I.DataManager.CurrentStageCoin;
         GameManager.I.ScenesManager.SceneMove("LobyScene");
     }
